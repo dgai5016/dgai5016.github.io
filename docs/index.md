@@ -8,10 +8,23 @@ import { data as tags } from '.vitepress/tags.data'
 import TagCloud from '.vitepress/theme/components/TagCloud.vue'
 import { ref, computed } from 'vue'
 
+const searchQuery = ref('')
 const activeTag = ref('')
+
 const filtered = computed(() => {
-  if (!activeTag.value) return posts
-  return posts.filter(p => p.tags.includes(activeTag.value))
+  let result = posts
+  if (activeTag.value) {
+    result = result.filter(p => p.tags.includes(activeTag.value))
+  }
+  if (searchQuery.value.trim()) {
+    const q = searchQuery.value.trim().toLowerCase()
+    result = result.filter(p =>
+      p.title.toLowerCase().includes(q) ||
+      p.excerpt.toLowerCase().includes(q) ||
+      p.tags.some(t => t.toLowerCase().includes(q))
+    )
+  }
+  return result
 })
 
 function formatDate(date) {
@@ -21,8 +34,27 @@ function formatDate(date) {
 </script>
 
 <div class="mb-6">
-  <h2 class="text-2xl font-bold mb-1 text-text-primary">最新文章</h2>
-  <p class="text-text-muted text-sm">共 {{ filtered.length }} 篇文章</p>
+  <div class="glass-card rounded-xl p-4 flex items-center gap-3">
+    <svg class="w-5 h-5 text-text-muted shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+    </svg>
+    <input
+      v-model="searchQuery"
+      type="text"
+      placeholder="搜索文章..."
+      class="flex-1 bg-transparent outline-none text-text-primary placeholder-text-muted text-sm"
+    />
+    <button
+      v-if="searchQuery"
+      @click="searchQuery = ''"
+      class="text-text-muted hover:text-text-primary transition-colors"
+    >
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+  <p class="text-text-muted text-xs mt-2 ml-1">共 {{ filtered.length }} 篇文章</p>
 </div>
 
 <TagCloud :tags="tags" :active-tag="activeTag" @select="(t) => activeTag = activeTag === t ? '' : t" />
@@ -56,4 +88,4 @@ function formatDate(date) {
   </a>
 </div>
 
-<p v-if="!filtered.length" class="text-text-muted text-center py-16">暂无文章</p>
+<p v-if="!filtered.length" class="text-text-muted text-center py-16">没有找到匹配的文章</p>
