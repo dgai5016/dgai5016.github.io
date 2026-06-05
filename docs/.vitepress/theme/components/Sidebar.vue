@@ -4,22 +4,14 @@ import { ref } from 'vue'
 
 const { theme } = useData()
 const nav = theme.value.nav || []
-
 const mobileOpen = ref(false)
-
-function toggleDark() {
-  const html = document.documentElement
-  const isDark = html.classList.contains('dark')
-  html.classList.toggle('dark', !isDark)
-  html.classList.toggle('light', isDark)
-}
 </script>
 
 <template>
   <!-- Mobile toggle -->
   <button
     @click="mobileOpen = !mobileOpen"
-    class="lg:hidden fixed top-4 left-4 z-50 p-2 rounded-lg glass text-text-dark-muted"
+    class="lg:hidden fixed top-4 left-4 z-50 p-2 rounded-lg glass text-text-secondary"
     aria-label="Menu"
   >
     <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -32,21 +24,21 @@ function toggleDark() {
   <div
     v-if="mobileOpen"
     @click="mobileOpen = false"
-    class="lg:hidden fixed inset-0 bg-black/50 z-30"
+    class="lg:hidden fixed inset-0 bg-black/30 z-30"
   />
 
   <!-- Sidebar -->
   <aside
     :class="[
       'fixed lg:sticky top-0 left-0 z-40 h-screen w-64 shrink-0',
-      'bg-bg-dark border-r border-white/5 flex flex-col overflow-y-auto',
+      'glass-sidebar border-r border-border flex flex-col overflow-y-auto',
       'transition-transform lg:translate-x-0',
       mobileOpen ? 'translate-x-0' : '-translate-x-full'
     ]"
   >
     <!-- Profile -->
-    <div class="p-6 border-b border-white/5">
-      <div class="flex items-center gap-3 mb-3">
+    <div class="p-6 border-b border-border">
+      <div class="flex items-center gap-3 mb-2">
         <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white font-bold text-lg">
           d
         </div>
@@ -54,17 +46,17 @@ function toggleDark() {
           <h1 class="text-lg font-bold text-accent">dg's Blog</h1>
         </div>
       </div>
-      <p class="text-xs text-text-dark-muted">探索 AI 与编程的世界</p>
+      <p class="text-xs text-text-muted">探索 AI 与编程的世界</p>
     </div>
 
     <!-- Navigation -->
     <nav class="p-4">
-      <p class="text-xs font-semibold uppercase text-text-dark-muted tracking-wider mb-3">导航</p>
-      <ul class="space-y-1">
+      <p class="text-xs font-semibold uppercase text-text-muted tracking-wider mb-3">导航</p>
+      <ul class="space-y-0.5">
         <li v-for="item in nav" :key="item.link">
           <a
             :href="item.link"
-            class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-text-dark-muted
+            class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-text-secondary
               hover:text-accent hover:bg-accent/5 transition-colors"
             @click="mobileOpen = false"
           >
@@ -90,12 +82,12 @@ function toggleDark() {
     </nav>
 
     <!-- Social links -->
-    <div class="p-4 border-t border-white/5">
-      <p class="text-xs font-semibold uppercase text-text-dark-muted tracking-wider mb-3">社交</p>
+    <div class="p-4 border-t border-border">
+      <p class="text-xs font-semibold uppercase text-text-muted tracking-wider mb-3">社交</p>
       <a
         href="https://github.com/dgai5016"
         target="_blank"
-        class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-text-dark-muted
+        class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-text-secondary
           hover:text-accent hover:bg-accent/5 transition-colors"
       >
         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -103,21 +95,6 @@ function toggleDark() {
         </svg>
         GitHub
       </a>
-    </div>
-
-    <!-- Dark mode toggle at bottom -->
-    <div class="mt-auto p-4 border-t border-white/5">
-      <button
-        @click="toggleDark"
-        class="flex items-center gap-2 px-3 py-2 w-full rounded-lg text-sm text-text-dark-muted
-          hover:text-accent hover:bg-accent/5 transition-colors"
-      >
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-        </svg>
-        切换主题
-      </button>
     </div>
   </aside>
 </template>

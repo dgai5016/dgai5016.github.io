@@ -23,14 +23,14 @@ function formatDate(date) {
 const groups = groupByYear(posts)
 </script>
 
-<h1 class="text-3xl font-bold mb-8">归档</h1>
+<h1 class="text-3xl font-bold mb-8 text-text-primary">归档</h1>
 
 <div v-for="[year, yearPosts] in groups" :key="year" class="mb-10">
   <h2 class="text-xl font-bold text-accent mb-4">{{ year }}</h2>
-  <ul class="space-y-3">
+  <ul class="space-y-2">
     <li v-for="post in yearPosts" :key="post.url" class="flex items-center gap-4">
-      <span class="text-sm text-text-dark-muted w-20 shrink-0">{{ formatDate(post.date) }}</span>
-      <a :href="post.url" class="text-text-dark hover:text-accent transition-colors truncate">
+      <span class="text-sm text-text-muted w-20 shrink-0">{{ formatDate(post.date) }}</span>
+      <a :href="post.url" class="text-text-primary hover:text-accent transition-colors truncate">
         {{ post.title }}
       </a>
       <span v-for="tag in post.tags.slice(0, 2)" :key="tag"
@@ -41,4 +41,4 @@ const groups = groupByYear(posts)
   </ul>
 </div>
 
-<p v-if="!posts.length" class="text-text-dark-muted text-center py-12">暂无文章</p>
+<p v-if="!posts.length" class="text-text-muted text-center py-12">暂无文章</p>

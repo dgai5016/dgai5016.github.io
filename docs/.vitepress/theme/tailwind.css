@@ -4,33 +4,29 @@
   --color-accent: #6c63ff;
   --color-accent-light: #8b83ff;
   --color-accent-dark: #5a52e0;
-  --color-bg-dark: #0f0f1a;
-  --color-bg-dark-card: #1a1b2e;
-  --color-bg-dark-surface: #252640;
-  --color-text-dark: #e2e8f0;
-  --color-text-dark-muted: #94a3b8;
-  --color-bg-light: #fafafa;
-  --color-bg-light-card: #ffffff;
-  --color-text-light: #1e293b;
-  --color-text-light-muted: #64748b;
+  --color-bg-sidebar: rgba(255, 255, 255, 0.82);
+  --color-bg-card: rgba(255, 255, 255, 0.72);
+  --color-bg-card-hover: rgba(255, 255, 255, 0.88);
+  --color-bg-surface: rgba(0, 0, 0, 0.04);
+  --color-text-primary: #1e293b;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94a3b8;
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-border-hover: rgba(108, 99, 255, 0.3);
 }
 
-/* Base dark styles */
-:root {
-  --vp-c-bg: var(--color-bg-dark);
-  --vp-c-bg-alt: var(--color-bg-dark-card);
+/* Global background */
+body {
+  margin: 0;
+  background: url('/bg-ocean.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/* Dark mode (default) */
-.dark {
-  color-scheme: dark;
-}
-
-/* Scrollbar styling */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -40,22 +36,43 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #4a4a6a;
+  background: rgba(0, 0, 0, 0.15);
   border-radius: 3px;
 }
 
-/* Glassmorphism utility */
+/* Glass effect (light mode) */
 .glass {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-sidebar {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
 }
 
-/* Glow effect */
-.glow {
-  box-shadow: 0 0 20px rgba(108, 99, 255, 0.15);
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(108, 99, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(108, 99, 255, 0.1);
 }
 
-.glow-hover:hover {
-  box-shadow: 0 0 30px rgba(108, 99, 255, 0.25);
+/* Prose overrides for light mode */
+.prose {
+  --tw-prose-body: #475569;
+  --tw-prose-headings: #1e293b;
+  --tw-prose-links: #6c63ff;
+  --tw-prose-code: #6c63ff;
+  --tw-prose-pre-bg: rgba(0, 0, 0, 0.04);
 }

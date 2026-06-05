@@ -4,7 +4,6 @@ export default defineConfig({
   lang: 'zh-CN',
   title: "dg's Blog",
   description: '探索 AI 与编程的世界',
-  appearance: 'dark',
 
   head: [
     ['link', { rel: 'icon', href: '/favicon.svg' }],

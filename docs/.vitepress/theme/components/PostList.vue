@@ -10,12 +10,12 @@ defineProps<{
 
 <template>
   <section>
-    <h2 v-if="title" class="text-xl font-bold mb-6 text-text-dark">
+    <h2 v-if="title" class="text-2xl font-bold mb-6 text-text-primary">
       {{ title }}
     </h2>
-    <div v-if="posts.length" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div v-if="posts.length" class="grid gap-4 sm:grid-cols-2">
       <PostCard v-for="post in posts" :key="post.url" :post="post" />
     </div>
-    <p v-else class="text-text-dark-muted text-center py-12">暂无文章</p>
+    <p v-else class="text-text-muted text-center py-12">暂无文章</p>
   </section>
 </template>

@@ -14,18 +14,17 @@ function formatDate(date: string) {
 <template>
   <a
     :href="post.url"
-    class="group block p-5 rounded-xl bg-bg-dark-card border border-white/5
-      hover:border-accent/30 transition-all glow-hover"
+    class="group block p-5 rounded-xl glass-card"
   >
-    <h3 class="text-lg font-semibold mb-2 text-text-dark group-hover:text-accent transition-colors">
+    <h3 class="text-lg font-semibold mb-1.5 text-text-primary group-hover:text-accent transition-colors">
       {{ post.title }}
     </h3>
-    <p class="text-sm text-text-dark-muted mb-3 line-clamp-2">
+    <p class="text-sm text-text-secondary mb-3 line-clamp-2">
       {{ post.excerpt }}
     </p>
-    <div class="flex items-center justify-between text-xs text-text-dark-muted">
+    <div class="flex items-center justify-between text-xs text-text-muted">
       <span>{{ formatDate(post.date) }}</span>
-      <div class="flex gap-2 flex-wrap justify-end">
+      <div class="flex gap-1.5 flex-wrap justify-end">
         <span
           v-for="tag in post.tags.slice(0, 3)"
           :key="tag"

@@ -30,22 +30,22 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
 <template>
   <nav v-if="headings.length" class="sticky top-24">
-    <h4 class="text-xs font-semibold uppercase text-text-dark-muted mb-3 tracking-wider">
-      目录
-    </h4>
-    <ul class="space-y-1.5 text-sm">
-      <li v-for="h in headings" :key="h.id">
-        <a
-          :href="`#${h.id}`"
-          :class="[
-            'block transition-colors truncate',
-            h.level === 3 ? 'pl-3' : '',
-            activeId === h.id ? 'text-accent font-medium' : 'text-text-dark-muted hover:text-text-dark'
-          ]"
-        >
-          {{ h.text }}
-        </a>
-      </li>
-    </ul>
+    <div class="glass-card rounded-xl p-4">
+      <h4 class="text-xs font-semibold uppercase text-text-muted mb-3 tracking-wider">目录</h4>
+      <ul class="space-y-1.5 text-sm">
+        <li v-for="h in headings" :key="h.id">
+          <a
+            :href="`#${h.id}`"
+            :class="[
+              'block transition-colors truncate',
+              h.level === 3 ? 'pl-3' : '',
+              activeId === h.id ? 'text-accent font-medium' : 'text-text-secondary hover:text-text-primary'
+            ]"
+          >
+            {{ h.text }}
+          </a>
+        </li>
+      </ul>
+    </div>
   </nav>
 </template>

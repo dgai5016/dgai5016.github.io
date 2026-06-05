@@ -16,7 +16,7 @@ const filtered = computed(() => {
 })
 </script>
 
-<h1 class="text-3xl font-bold mb-8">标签</h1>
+<h1 class="text-3xl font-bold mb-8 text-text-primary">标签</h1>
 
 <TagCloud :tags="tags" :active-tag="activeTag" @select="(t) => activeTag = activeTag === t ? '' : t" />
 
