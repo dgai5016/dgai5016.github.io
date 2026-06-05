@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --color-accent: #6c63ff;
+  --color-accent-light: #8b83ff;
+  --color-accent-dark: #5a52e0;
+  --color-bg-dark: #0f0f1a;
+  --color-bg-dark-card: #1a1b2e;
+  --color-bg-dark-surface: #252640;
+  --color-text-dark: #e2e8f0;
+  --color-text-dark-muted: #94a3b8;
+  --color-bg-light: #fafafa;
+  --color-bg-light-card: #ffffff;
+  --color-text-light: #1e293b;
+  --color-text-light-muted: #64748b;
+}
+
+/* Base dark styles */
+:root {
+  --vp-c-bg: var(--color-bg-dark);
+  --vp-c-bg-alt: var(--color-bg-dark-card);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Dark mode (default) */
+.dark {
+  color-scheme: dark;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a4a6a;
+  border-radius: 3px;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Glow effect */
+.glow {
+  box-shadow: 0 0 20px rgba(108, 99, 255, 0.15);
+}
+
+.glow-hover:hover {
+  box-shadow: 0 0 30px rgba(108, 99, 255, 0.25);
+}
