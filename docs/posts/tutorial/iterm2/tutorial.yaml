@@ -1,0 +1,10 @@
+name: iTerm2 完全指南
+chapters:
+  - title: 装好
+    url: /posts/tutorial/iterm2/iterm2-setup
+  - title: 配好
+    url: /posts/tutorial/iterm2/iterm2-configure
+  - title: 用快
+    url: /posts/tutorial/iterm2/iterm2-productivity
+  - title: 玩花
+    url: /posts/tutorial/iterm2/iterm2-advanced

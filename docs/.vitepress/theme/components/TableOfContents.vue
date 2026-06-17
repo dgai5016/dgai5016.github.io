@@ -1,51 +1,143 @@
 <script setup lang="ts">
-import { useData } from 'vitepress'
-import { computed, ref, onMounted, onUnmounted } from 'vue'
+import { useData, useRoute } from 'vitepress'
+import { computed, ref, onMounted, onUnmounted, watch } from 'vue'
 
-const data = useData()
+const { page } = useData()
+const route = useRoute()
 
 const headings = computed(() => {
-  const toc = data.toc?.value
-  if (!toc) return []
-  return (toc.items || []).filter((h: any) => h.level === 2 || h.level === 3)
+  return (page.value.headers || []).filter(
+    (h: any) => h.level === 2 || h.level === 3
+  )
 })
 
 const activeId = ref('')
+const navStyle = ref<Record<string, string>>({})
 
-function onScroll() {
-  if (!import.meta.env.SSR) {
-    const els = headings.value.map((h: any) => document.getElementById(h.id)).filter(Boolean) as HTMLElement[]
-    const scrollY = window.scrollY + 100
-    let current = ''
-    for (const el of els) {
-      if (el.offsetTop <= scrollY) current = el.id
-    }
-    activeId.value = current
+function positionToc() {
+  if (import.meta.env.SSR) return
+  const contentCard = document.querySelector('.content-card')
+  const sidebar = document.querySelector('.toc-sidebar')
+  if (!contentCard || !sidebar) return
+  const contentRect = contentCard.getBoundingClientRect()
+  const sidebarRect = sidebar.getBoundingClientRect()
+  navStyle.value = {
+    position: 'fixed',
+    top: `${contentRect.top}px`,
+    left: `${sidebarRect.left}px`,
+    width: `${sidebarRect.width}px`,
   }
 }
 
-onMounted(() => window.addEventListener('scroll', onScroll))
-onUnmounted(() => window.removeEventListener('scroll', onScroll))
+function onScroll() {
+  if (import.meta.env.SSR) return
+  const els = headings.value.map((h: any) => document.getElementById(h.slug)).filter(Boolean) as HTMLElement[]
+  const scrollY = window.scrollY + 100
+  let current = ''
+  for (const el of els) {
+    if (el.offsetTop <= scrollY) current = el.id
+  }
+  activeId.value = current
+}
+
+onMounted(() => {
+  setTimeout(positionToc, 100)
+  window.addEventListener('scroll', onScroll)
+  window.addEventListener('resize', positionToc)
+})
+
+watch(() => route.path, () => setTimeout(positionToc, 100))
+
+watch(headings, (val) => {
+  if (val.length) setTimeout(positionToc, 100)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', onScroll)
+  window.removeEventListener('resize', positionToc)
+})
 </script>
 
 <template>
-  <nav v-if="headings.length" class="sticky top-24">
-    <div class="glass-card rounded-xl p-4">
-      <h4 class="text-xs font-semibold uppercase text-text-muted mb-3 tracking-wider">目录</h4>
-      <ul class="space-y-1.5 text-sm">
-        <li v-for="h in headings" :key="h.id">
+  <nav v-if="headings.length" class="toc-nav" :style="navStyle">
+    <div class="toc-container glass-card">
+      <h4 class="toc-heading">目录</h4>
+      <ul class="toc-list">
+        <li v-for="h in headings" :key="h.slug">
           <a
-            :href="`#${h.id}`"
+            :href="`#${h.slug}`"
             :class="[
-              'block transition-colors truncate',
-              h.level === 3 ? 'pl-3' : '',
-              activeId === h.id ? 'text-accent font-medium' : 'text-text-secondary hover:text-text-primary'
+              'toc-link',
+              h.level === 3 ? 'toc-link-h3' : '',
+              activeId === h.slug ? 'toc-link-active' : 'toc-link-default'
             ]"
           >
-            {{ h.text }}
+            {{ h.title }}
           </a>
         </li>
       </ul>
     </div>
   </nav>
 </template>
+
+<style scoped>
+.toc-nav {
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+}
+
+.toc-container {
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.toc-heading {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--c-text-muted);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.toc-list li {
+  margin-bottom: 0.375rem;
+}
+
+.toc-list li:last-child {
+  margin-bottom: 0;
+}
+
+.toc-link {
+  display: block;
+  transition: color 0.2s ease;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.toc-link-h3 {
+  padding-left: 0.75rem;
+}
+
+.toc-link-active {
+  color: var(--c-accent);
+  font-weight: 500;
+}
+
+.toc-link-default {
+  color: var(--c-text-secondary);
+}
+
+.toc-link-default:hover {
+  color: var(--c-text-primary);
+}
+</style>

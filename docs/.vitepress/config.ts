@@ -14,8 +14,7 @@ export default defineConfig({
     siteTitle: "dg's Blog",
     nav: [
       { text: '首页', link: '/' },
-      { text: '分类', link: '/pages/categories' },
-      { text: '标签', link: '/pages/tags' },
+      { text: '教程', link: '/pages/tutorials' },
       { text: '归档', link: '/pages/archives' },
       { text: '关于', link: '/pages/about' },
     ],
@@ -39,5 +38,6 @@ export default defineConfig({
       dark: 'vitesse-dark',
     },
     lineNumbers: true,
+    headers: true,
   },
 })

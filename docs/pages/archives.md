@@ -23,22 +23,19 @@ function formatDate(date) {
 const groups = groupByYear(posts)
 </script>
 
-<h1 class="text-3xl font-bold mb-8 text-text-primary">归档</h1>
+<h1 class="page-title">归档</h1>
 
-<div v-for="[year, yearPosts] in groups" :key="year" class="mb-10">
-  <h2 class="text-xl font-bold text-accent mb-4">{{ year }}</h2>
-  <ul class="space-y-2">
-    <li v-for="post in yearPosts" :key="post.url" class="flex items-center gap-4">
-      <span class="text-sm text-text-muted w-20 shrink-0">{{ formatDate(post.date) }}</span>
-      <a :href="post.url" class="text-text-primary hover:text-accent transition-colors truncate">
-        {{ post.title }}
-      </a>
-      <span v-for="tag in post.tags.slice(0, 2)" :key="tag"
-        class="px-2 py-0.5 rounded-full bg-accent/10 text-accent text-xs shrink-0">
+<div v-for="[year, yearPosts] in groups" :key="year" class="archive-group">
+  <h2 class="archive-year">{{ year }}</h2>
+  <ul class="archive-list">
+    <li v-for="post in yearPosts" :key="post.url">
+      <span class="archive-date">{{ formatDate(post.date) }}</span>
+      <a :href="post.url" class="archive-link">{{ post.title }}</a>
+      <span v-for="tag in post.tags.slice(0, 2)" :key="tag" class="tag-pill">
         {{ tag }}
       </span>
     </li>
   </ul>
 </div>
 
-<p v-if="!posts.length" class="text-text-muted text-center py-12">暂无文章</p>
+<p v-if="!posts.length" class="empty-state">暂无文章</p>

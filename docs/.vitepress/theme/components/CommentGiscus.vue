@@ -6,7 +6,7 @@ const { isDark } = useData()
 </script>
 
 <template>
-  <div class="mt-8 pt-8 border-t border-white/5">
+  <div class="comment-section">
     <Giscus
       repo="dgai5016/dgai5016.github.io"
       repoId=""
@@ -18,3 +18,11 @@ const { isDark } = useData()
     />
   </div>
 </template>
+
+<style scoped>
+.comment-section {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+</style>

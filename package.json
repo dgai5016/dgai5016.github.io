@@ -6,15 +6,15 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
-    "preview": "vitepress preview docs"
+    "preview": "vitepress preview docs",
+    "test:e2e": "node .e2e/screenshot.mjs"
   },
   "devDependencies": {
-    "vitepress": "^1.6.3",
-    "tailwindcss": "^4.1.7",
-    "@tailwindcss/postcss": "^4.1.7",
-    "postcss": "^8.5.4"
+    "playwright": "^1.60.0",
+    "vitepress": "^1.6.3"
   },
   "dependencies": {
-    "@giscus/vue": "^3.1.0"
+    "@giscus/vue": "^3.1.0",
+    "js-yaml": "^4.2.0"
   }
 }
