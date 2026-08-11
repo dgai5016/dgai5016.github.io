@@ -16,9 +16,14 @@
 
 /* Global background */
 html {
-  scroll-behavior: smooth;
+  /* 不启用 scroll-behavior: smooth —— 文章目录点击直接瞬移到对应标题，不做滚动动画 */
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+}
+
+/* 锚点定位（目录点击、URL hash 跳转）时，目标标题在视口顶部预留留白，避免紧贴顶栏 */
+h2[id], h3[id] {
+  scroll-margin-top: 5rem;
 }
 
 body {
@@ -308,6 +313,7 @@ body {
 
 /* Archive page */
 .archive-group {
+  max-width: 42rem;
   margin-bottom: 2.5rem;
 }
 
@@ -328,6 +334,8 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
   margin-bottom: 0.5rem;
 }
 
@@ -339,6 +347,8 @@ body {
 }
 
 .archive-link {
+  flex: 1;
+  min-width: 0;
   color: var(--c-text-primary);
   text-decoration: none;
   overflow: hidden;

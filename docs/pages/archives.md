@@ -28,7 +28,7 @@ const groups = groupByYear(posts)
 <div v-for="[year, yearPosts] in groups" :key="year" class="archive-group">
   <h2 class="archive-year">{{ year }}</h2>
   <ul class="archive-list">
-    <li v-for="post in yearPosts" :key="post.url">
+    <li v-for="post in yearPosts" :key="post.url" class="glass-card">
       <span class="archive-date">{{ formatDate(post.date) }}</span>
       <a :href="post.url" class="archive-link">{{ post.title }}</a>
       <span v-for="tag in post.tags.slice(0, 2)" :key="tag" class="tag-pill">

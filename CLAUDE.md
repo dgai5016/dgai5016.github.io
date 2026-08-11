@@ -22,16 +22,6 @@ dg 的个人博客，基于 VitePress 自定义主题，部署到 GitHub Pages�
 - `tags.data.ts` — 统计所有文章标签出现次数
 - `tutorial.data.ts` — 加载教程文章，从 YAML 配置解析章节列表
 
-### 教程系统
-
-教程由 YAML 文件定义（`posts/tutorial/*/tutorial.yaml`），格式：
-```yaml
-name: 教程名称
-chapters:
-  - title: 章节标题
-    url: /posts/tutorial/...
-```
-每篇文章的 frontmatter 中包含 `tutorial.name` 和 `tutorial.order`。
 
 ### 样式系统
 
@@ -56,9 +46,6 @@ chapters:
 
 GitHub Actions（`.github/workflows/deploy.yml`）：push 到 `main` 触发构建并部署到 GitHub Pages。Node 20，`npm ci && npm run build`。
 
-## E2E 测试
-
-`.e2e/` 目录下有三个 Playwright 测试脚本，会先构建项目再启动 preview 服务器截图。自定义 Claude 命令 `/verify-ui` 可用于自动构建、截图并分析 UI。
 
 ## 常用命令
 
@@ -68,3 +55,9 @@ npm run build     # 生产构建（输出到 docs/.vitepress/dist）
 npm run preview   # 本地预览生产构建
 npm run test:e2e  # Playwright 截图测试（先构建再截图）
 ```
+
+## 规则
+
+### 1. 代码编写规则
+
+- 每次修改或新增代码，添加注释，以便用户更好理解代码的作用。

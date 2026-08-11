@@ -1,29 +1,18 @@
 <script setup lang="ts">
 import { useData, useRouter, useRoute } from 'vitepress'
-import { computed, shallowRef, onMounted, onUnmounted, ref, watch, provide } from 'vue'
-import { data as tutorialData } from '../tutorial.data'
+import { computed, shallowRef, onMounted, ref, watch, provide } from 'vue'
 import Sidebar from './components/Sidebar.vue'
 import Footer from './components/Footer.vue'
 import PostMeta from './components/PostMeta.vue'
 import TableOfContents from './components/TableOfContents.vue'
-import TutorialNav from './components/TutorialNav.vue'
 
 const { frontmatter } = useData()
 const router = useRouter()
 const route = useRoute()
 const isPost = computed(() => frontmatter.value?.layout === 'post')
-const hasTutorial = computed(() => !!frontmatter.value?.tutorial)
-
-const tutorialChapters = computed(() => {
-  const tutorial = frontmatter.value?.tutorial
-  if (!tutorial?.name) return tutorial?.chapters || []
-  const match = tutorialData.find((s: any) => s.name === tutorial.name)
-  return match?.chapters || tutorial.chapters || []
-})
 
 const sourcePage = ref('/')
 watch(() => route.path, (path) => {
-  if (path.startsWith('/posts/tutorial/')) return
   if (!path.startsWith('/posts/')) {
     sourcePage.value = path
   }
@@ -35,37 +24,11 @@ function goBack() {
 }
 
 const CommentGiscus = shallowRef<any>(null)
-const tutorialNavStyle = ref<Record<string, string>>({})
-
-function positionTutorialNav() {
-  const contentCard = document.querySelector('.content-card')
-  const wrapper = document.querySelector('.tutorial-sidebar-wrapper')
-  if (!contentCard || !wrapper) return
-  const contentRect = contentCard.getBoundingClientRect()
-  const wrapperRect = wrapper.getBoundingClientRect()
-  tutorialNavStyle.value = {
-    position: 'fixed',
-    top: `${contentRect.top}px`,
-    left: `${wrapperRect.left}px`,
-    width: '11rem',
-  }
-}
 
 onMounted(() => {
-  setTimeout(positionTutorialNav, 100)
-  window.addEventListener('resize', positionTutorialNav)
   import('./components/CommentGiscus.vue').then(mod => {
     CommentGiscus.value = mod.default
   })
-})
-
-watch(() => route.path, () => setTimeout(positionTutorialNav, 100))
-watch(hasTutorial, (val) => {
-  if (val) setTimeout(positionTutorialNav, 100)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('resize', positionTutorialNav)
 })
 </script>
 
@@ -73,30 +36,9 @@ onUnmounted(() => {
   <div class="layout-root">
     <Sidebar />
 
-    <!-- Secondary sidebar for tutorial posts (desktop) -->
-    <div v-if="isPost && hasTutorial" class="tutorial-sidebar-wrapper">
-      <div class="tutorial-sidebar-inner" :style="tutorialNavStyle">
-        <TutorialNav
-          mode="sidebar"
-          :name="frontmatter.tutorial.name"
-          :order="frontmatter.tutorial.order"
-          :chapters="tutorialChapters"
-        />
-      </div>
-    </div>
-
     <div class="main-wrapper">
       <main class="main-content">
         <article v-if="isPost" class="article">
-          <!-- Mobile tutorial nav -->
-          <div v-if="hasTutorial" class="mobile-tutorial-wrapper">
-            <TutorialNav
-              :name="frontmatter.tutorial.name"
-              :order="frontmatter.tutorial.order"
-              :chapters="tutorialChapters"
-            />
-          </div>
-
           <header class="post-header">
             <button class="back-btn" @click="goBack" title="返回">
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -141,24 +83,6 @@ onUnmounted(() => {
   display: flex;
 }
 
-/* Secondary tutorial sidebar (desktop) */
-.tutorial-sidebar-wrapper {
-  display: none;
-  width: 12rem;
-  flex-shrink: 0;
-  padding-left: 1rem;
-}
-
-@media (min-width: 1024px) {
-  .tutorial-sidebar-wrapper {
-    display: block;
-  }
-}
-
-.tutorial-sidebar-inner {
-  width: 11rem;
-}
-
 /* Main content area */
 .main-wrapper {
   flex: 1;
@@ -190,17 +114,6 @@ onUnmounted(() => {
   max-width: 56rem;
 }
 
-/* Mobile tutorial nav wrapper */
-.mobile-tutorial-wrapper {
-  display: block;
-}
-
-@media (min-width: 1024px) {
-  .mobile-tutorial-wrapper {
-    display: none;
-  }
-}
-
 /* Post header */
 .post-header {
   margin-bottom: 2.5rem;
@@ -219,7 +132,7 @@ onUnmounted(() => {
   color: var(--c-text-secondary);
   font-size: 0.875rem;
   margin-bottom: 0.75rem;
-  transition: color 0.15s, background 0.15s;
+  transition: color 0.15s, background  0.15s;
 }
 
 .back-btn:hover {

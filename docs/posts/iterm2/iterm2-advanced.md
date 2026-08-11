@@ -1,12 +1,9 @@
 ---
 title: iTerm2 完全指南（四）：玩花 — 进阶与自动化
 date: 2026-06-05 04:00
-tags: [教程, iTerm2]
+tags: [iTerm2]
 excerpt: Profile 管理、SSH 集成、触发器、Python API 自动化、tmux 远程会话，解锁终端的进阶玩法。
 layout: post
-tutorial:
-  name: iTerm2 完全指南
-  order: 4
 ---
 
 前面的三篇，从安装到配置到日常操作，已经把 iTerm2 的基本盘打好了。但终端能做的事情远不止于此——

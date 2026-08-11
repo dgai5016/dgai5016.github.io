@@ -1,12 +1,9 @@
 ---
 title: iTerm2 完全指南（一）：装好 — 基础安装与环境搭建
 date: 2026-06-05 01:00
-tags: [教程, iTerm2]
+tags: [iTerm2]
 excerpt: 从零开始搭建 iTerm2 终端环境，涵盖安装、代理配置、环境变量管理、Homebrew 加速和版本管理工具。
 layout: post
-tutorial:
-  name: iTerm2 完全指南
-  order: 1
 ---
 
 macOS 自带的 Terminal.app 够用吗？想想这些场景：

@@ -21,6 +21,15 @@
   border-radius: 9999px;
 }
 
+/* 桌面端左侧有 16rem sidebar，内容区整体偏右，
+   把页脚胶囊左移 sidebar 宽度的一半，使其相对整个视口居中 */
+@media (min-width: 1024px) {
+  .footer-inner {
+    position: relative;
+    left: calc(-1 * 16rem / 2);
+  }
+}
+
 .footer-link {
   color: var(--c-accent);
   text-decoration: none;
