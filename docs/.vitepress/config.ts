@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import markdownItCjkFriendly from 'markdown-it-cjk-friendly'
 
 export default defineConfig({
   lang: 'zh-CN',
@@ -39,5 +40,9 @@ export default defineConfig({
     },
     lineNumbers: true,
     headers: true,
+    config(md) {
+      // 让中文紧贴 ** / _ 时也能正确加粗/斜体（CommonMark 默认不认 CJK 为合法边界）
+      md.use(markdownItCjkFriendly)
+    },
   },
 })

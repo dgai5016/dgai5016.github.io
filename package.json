@@ -10,6 +10,8 @@
     "test:e2e": "node .e2e/screenshot.mjs"
   },
   "devDependencies": {
+    "markdown-it": "^14.3.0",
+    "markdown-it-cjk-friendly": "^2.0.2",
     "playwright": "^1.60.0",
     "vitepress": "^1.6.3"
   },
