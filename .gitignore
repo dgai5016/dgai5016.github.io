@@ -5,3 +5,4 @@ docs/.vitepress/cache
 *.log
 .DS_Store
 .e2e/
+ai-posts/
