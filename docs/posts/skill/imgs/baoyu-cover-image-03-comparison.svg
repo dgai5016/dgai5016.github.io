@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif">
+<defs>
+<linearGradient id="bg-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e3a8a"/><stop offset="1" stop-color="#0e7490"/></linearGradient>
+</defs>
+<rect x="0" y="0" width="1200" height="420" fill="url(#bg-grad)"/>
+<filter id="sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.12" flood-color="#000000"/></filter>
+<text x="600" y="82" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="34" fill="#ffffff" text-anchor="middle" font-weight="700">三种典型用法 · 并排对比</text>
+<rect x="60" y="150" width="320" height="56" rx="14" fill="#0891b2" filter="url(#sh)"/>
+<text x="220" y="185" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="700">示例一 · 最省事</text>
+<rect x="60" y="226" width="320" height="50" rx="8" fill="#000000" opacity="0.28"/>
+<text x="220" y="257" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="600">make cover</text>
+<text x="220" y="306" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" opacity="0.85">什么都不指定</text>
+<text x="220" y="336" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" opacity="0.85">自动选全部维度</text>
+<line x1="410" y1="140" x2="410" y2="400" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.5"/>
+<rect x="440" y="150" width="320" height="56" rx="14" fill="#06b6d4" filter="url(#sh)"/>
+<text x="600" y="185" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="700">示例二 · 预设</text>
+<rect x="440" y="226" width="320" height="50" rx="8" fill="#000000" opacity="0.28"/>
+<text x="600" y="256" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="600">--style watercolor --aspect 3:4</text>
+<text x="600" y="306" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" opacity="0.85">锁定配色渲染</text>
+<text x="600" y="336" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" opacity="0.85">自定义宽高比</text>
+<line x1="790" y1="140" x2="790" y2="400" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.5"/>
+<rect x="820" y="150" width="320" height="56" rx="14" fill="#a78bfa" filter="url(#sh)"/>
+<text x="980" y="185" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="700">示例三 · 边界</text>
+<rect x="820" y="226" width="320" height="50" rx="8" fill="#000000" opacity="0.28"/>
+<text x="980" y="257" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="17" fill="#ffffff" text-anchor="middle" font-weight="600">无图像后端</text>
+<text x="980" y="306" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" opacity="0.85">明确告知不可用</text>
+<text x="980" y="336" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" opacity="0.85">不用 SVG 凑数</text>
+</svg>

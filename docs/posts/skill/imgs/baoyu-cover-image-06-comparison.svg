@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif">
+<defs>
+<linearGradient id="bg-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e3a8a"/><stop offset="1" stop-color="#0e7490"/></linearGradient>
+</defs>
+<rect x="0" y="0" width="1200" height="460" fill="url(#bg-grad)"/>
+<filter id="sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.12" flood-color="#000000"/></filter>
+<text x="600" y="72" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="34" fill="#ffffff" text-anchor="middle" font-weight="700">能做 / 不能做 · 能力边界</text>
+<rect x="80" y="130" width="480" height="320" rx="16" fill="#34d399" filter="url(#sh)"/>
+<text x="320" y="179" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="26" fill="#ffffff" text-anchor="middle" font-weight="800">✓ 能做</text>
+<circle cx="130" cy="238" r="7" fill="#ffffff"/>
+<text x="152" y="244" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="17" fill="#ffffff" text-anchor="start" font-weight="500">5 维度定制 / 26 预设</text>
+<circle cx="130" cy="286" r="7" fill="#ffffff"/>
+<text x="152" y="292" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="17" fill="#ffffff" text-anchor="start" font-weight="500">按内容自动匹配风格</text>
+<circle cx="130" cy="334" r="7" fill="#ffffff"/>
+<text x="152" y="340" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="17" fill="#ffffff" text-anchor="start" font-weight="500">多种宽高比 + 参考图</text>
+<circle cx="130" cy="382" r="7" fill="#ffffff"/>
+<text x="152" y="388" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="17" fill="#ffffff" text-anchor="start" font-weight="500">存 prompt + 沉淀偏好</text>
+<rect x="640" y="130" width="480" height="320" rx="16" fill="#a78bfa" filter="url(#sh)"/>
+<text x="880" y="179" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="26" fill="#ffffff" text-anchor="middle" font-weight="800">✗ 不能做</text>
+<circle cx="690" cy="238" r="7" fill="#ffffff"/>
+<text x="712" y="244" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="17" fill="#ffffff" text-anchor="start" font-weight="500">不用 SVG/HTML 替代位图</text>
+<circle cx="690" cy="286" r="7" fill="#ffffff"/>
+<text x="712" y="292" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="17" fill="#ffffff" text-anchor="start" font-weight="500">不在位图上代码修补</text>
+<circle cx="690" cy="334" r="7" fill="#ffffff"/>
+<text x="712" y="340" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="17" fill="#ffffff" text-anchor="start" font-weight="500">不臆造标题文字</text>
+<circle cx="690" cy="382" r="7" fill="#ffffff"/>
+<text x="712" y="388" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="17" fill="#ffffff" text-anchor="start" font-weight="500">不画写实人物</text>
+<line x1="600" y1="120" x2="600" y2="460" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.5"/>
+</svg>

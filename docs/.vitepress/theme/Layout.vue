@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { useData, useRouter, useRoute } from 'vitepress'
-import { computed, shallowRef, onMounted, ref, watch, provide } from 'vue'
+import { computed, shallowRef, onMounted, onUnmounted, ref, watch, provide } from 'vue'
 import Sidebar from './components/Sidebar.vue'
 import Footer from './components/Footer.vue'
 import PostMeta from './components/PostMeta.vue'
 import TableOfContents from './components/TableOfContents.vue'
+import PostOverlay from './components/PostOverlay.vue'
 
 const { frontmatter } = useData()
 const router = useRouter()
@@ -30,6 +31,42 @@ onMounted(() => {
     CommentGiscus.value = mod.default
   })
 })
+
+// —— 「右滑覆盖层」打开站内文章链接 ——
+// 触发源改为正文里的 <PostLink> 组件（见 components/PostLink.vue）；
+// 不再用 window 事件拦截——那个抢不过 VitePress 在 app 初始化时就注册的 capture 监听。
+const overlayUrl = ref<string | null>(null)
+
+// 打开/切换覆盖层：已开 → 就地切换（不压历史）；未开 → 压一条历史使「后退」能关闭
+function openOverlay(path: string) {
+  if (overlayUrl.value) {
+    overlayUrl.value = path
+  } else {
+    // 把当前（索引）条目的 state 置空：关闭时 history.back() 触发的 popstate 会命中
+    // VitePress 的 `if (e.state === null) return` 守卫，从而跳过 loadPage——不回顶、不重载
+    history.replaceState(null, '')
+    history.pushState({ overlay: path }, '')
+    overlayUrl.value = path
+  }
+}
+
+function closeOverlay() {
+  if (history.state?.overlay) {
+    history.back() // 触发 popstate → 关闭
+  } else {
+    overlayUrl.value = null
+  }
+}
+
+function onPop() {
+  overlayUrl.value = null
+}
+
+// 让 PostLink（正文里的链接组件）能调用 openOverlay
+provide('openOverlay', openOverlay)
+
+onMounted(() => window.addEventListener('popstate', onPop))
+onUnmounted(() => window.removeEventListener('popstate', onPop))
 </script>
 
 <template>
@@ -73,6 +110,9 @@ onMounted(() => {
       </main>
       <Footer />
     </div>
+
+    <!-- 右滑覆盖层：点击文章正文里的站内链接时由 onLinkIntercept 触发 -->
+    <PostOverlay :url="overlayUrl" @close="closeOverlay" />
   </div>
 </template>
 

@@ -1,5 +1,6 @@
 import type { Theme } from 'vitepress'
 import Layout from './Layout.vue'
+import PostLink from './components/PostLink.vue'
 import 'vitepress/dist/client/theme-default/styles/vars.css'
 import 'vitepress/dist/client/theme-default/styles/base.css'
 import 'vitepress/dist/client/theme-default/styles/utils.css'
@@ -17,6 +18,7 @@ import 'markdown-it-texmath/css/texmath.css'
 export default {
   Layout,
   enhanceApp({ app }) {
-    // Register global components if needed
+    // 全局注册 PostLink，使 markdown 里可直接用 <PostLink to="...">文本</PostLink>
+    app.component('PostLink', PostLink)
   },
 } satisfies Theme

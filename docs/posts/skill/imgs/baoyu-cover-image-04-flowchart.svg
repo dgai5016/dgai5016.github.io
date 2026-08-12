@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif">
+<defs>
+<linearGradient id="bg-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e3a8a"/><stop offset="1" stop-color="#0e7490"/></linearGradient>
+</defs>
+<rect x="0" y="0" width="1200" height="440" fill="url(#bg-grad)"/>
+<filter id="sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.12" flood-color="#000000"/></filter>
+<text x="600" y="92" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="34" fill="#ffffff" text-anchor="middle" font-weight="700">内部工作流 · 6 个步骤</text>
+<text x="600" y="128" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" opacity="0.7">从触发到出图，skill 内部按顺序经历这六步</text>
+<rect x="50" y="240" width="160" height="110" rx="12" fill="#0891b2" filter="url(#sh)"/>
+<text x="130" y="296" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="700">加载偏好</text>
+<text x="130" y="318" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="400">首次必经</text>
+<circle cx="130" cy="206" r="20" fill="#0891b2" filter="url(#sh)"/>
+<text x="130" y="213" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="20" fill="#ffffff" text-anchor="middle" font-weight="700">1</text>
+<line x1="212" y1="295" x2="225" y2="295" stroke="#ffffff" stroke-width="2" opacity="0.75"/>
+<polygon points="236,295 225,289 225,301" fill="#ffffff"/>
+<rect x="238" y="240" width="160" height="110" rx="12" fill="#06b6d4" filter="url(#sh)"/>
+<text x="318" y="296" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="700">分析内容</text>
+<text x="318" y="318" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="400">主题/语气</text>
+<circle cx="318" cy="206" r="20" fill="#06b6d4" filter="url(#sh)"/>
+<text x="318" y="213" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="20" fill="#ffffff" text-anchor="middle" font-weight="700">2</text>
+<line x1="400" y1="295" x2="413" y2="295" stroke="#ffffff" stroke-width="2" opacity="0.75"/>
+<polygon points="424,295 413,289 413,301" fill="#ffffff"/>
+<rect x="426" y="240" width="160" height="110" rx="12" fill="#6c63ff" filter="url(#sh)"/>
+<text x="506" y="296" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="700">确认选项</text>
+<text x="506" y="318" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="400">点头/微调</text>
+<circle cx="506" cy="206" r="20" fill="#6c63ff" filter="url(#sh)"/>
+<text x="506" y="213" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="20" fill="#ffffff" text-anchor="middle" font-weight="700">3</text>
+<line x1="588" y1="295" x2="601" y2="295" stroke="#ffffff" stroke-width="2" opacity="0.75"/>
+<polygon points="612,295 601,289 601,301" fill="#ffffff"/>
+<rect x="614" y="240" width="160" height="110" rx="12" fill="#a78bfa" filter="url(#sh)"/>
+<text x="694" y="296" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="700">写 prompt</text>
+<text x="694" y="318" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="400">存文件</text>
+<circle cx="694" cy="206" r="20" fill="#a78bfa" filter="url(#sh)"/>
+<text x="694" y="213" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="20" fill="#ffffff" text-anchor="middle" font-weight="700">4</text>
+<line x1="776" y1="295" x2="789" y2="295" stroke="#ffffff" stroke-width="2" opacity="0.75"/>
+<polygon points="800,295 789,289 789,301" fill="#ffffff"/>
+<rect x="802" y="240" width="160" height="110" rx="12" fill="#a78bfa" filter="url(#sh)"/>
+<text x="882" y="296" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="700">生成图片</text>
+<text x="882" y="318" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="400">调后端</text>
+<circle cx="882" cy="206" r="20" fill="#a78bfa" filter="url(#sh)"/>
+<text x="882" y="213" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="20" fill="#ffffff" text-anchor="middle" font-weight="700">5</text>
+<line x1="964" y1="295" x2="977" y2="295" stroke="#ffffff" stroke-width="2" opacity="0.75"/>
+<polygon points="988,295 977,289 977,301" fill="#ffffff"/>
+<rect x="990" y="240" width="160" height="110" rx="12" fill="#f472b6" filter="url(#sh)"/>
+<text x="1070" y="296" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="700">完成报告</text>
+<text x="1070" y="318" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="400">汇报结果</text>
+<circle cx="1070" cy="206" r="20" fill="#f472b6" filter="url(#sh)"/>
+<text x="1070" y="213" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="20" fill="#ffffff" text-anchor="middle" font-weight="700">6</text>
+</svg>

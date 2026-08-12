@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif">
+<defs>
+<linearGradient id="bg-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e3a8a"/><stop offset="1" stop-color="#0e7490"/></linearGradient>
+</defs>
+<rect x="0" y="0" width="1200" height="440" fill="url(#bg-grad)"/>
+<filter id="sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.12" flood-color="#000000"/></filter>
+<text x="600" y="69" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="32" fill="#ffffff" text-anchor="middle" font-weight="700">三档模式对比 · 速度 ↔ 质量</text>
+<text x="600" y="102" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" opacity="0.7">说「快翻 / 精翻」自动切档，其余走默认 normal</text>
+<rect x="110" y="125" width="300" height="230" rx="16" fill="#0891b2" filter="url(#sh)"/>
+<text x="260" y="191" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="28" fill="#ffffff" text-anchor="middle" font-weight="700">quick</text>
+<text x="260" y="239" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" opacity="0.9">快翻 · 直译</text>
+<text x="260" y="278" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" opacity="0.85">一次性直译</text>
+<text x="260" y="306" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" opacity="0.85">不分块</text>
+<text x="260" y="334" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" opacity="0.85">速度最快</text>
+<rect x="450" y="125" width="300" height="230" rx="16" fill="#a78bfa" stroke="#ffffff" stroke-width="3" filter="url(#sh)"/>
+<text x="600" y="162" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="700" opacity="0.95">★ 默认</text>
+<text x="600" y="207" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="28" fill="#ffffff" text-anchor="middle" font-weight="700">normal</text>
+<text x="600" y="239" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" opacity="0.9">标准 · 先分析再译</text>
+<text x="600" y="278" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" opacity="0.85">先分析全文</text>
+<text x="600" y="306" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" opacity="0.85">再据此翻译</text>
+<text x="600" y="334" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" opacity="0.85">默认推荐</text>
+<rect x="790" y="125" width="300" height="230" rx="16" fill="#a78bfa" filter="url(#sh)"/>
+<text x="940" y="191" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="28" fill="#ffffff" text-anchor="middle" font-weight="700">refined</text>
+<text x="940" y="239" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" opacity="0.9">精翻 · 完整流水线</text>
+<text x="940" y="278" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" opacity="0.85">分析→译→评审</text>
+<text x="940" y="306" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" opacity="0.85">→修订→润色</text>
+<text x="940" y="334" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" opacity="0.85">出版级质量</text>
+<line x1="110" y1="405" x2="1090" y2="405" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="6 5" opacity="0.5"/>
+<text x="110" y="436" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="15" fill="#ffffff" text-anchor="start" opacity="0.75">速度 ↑</text>
+<text x="1090" y="436" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="15" fill="#ffffff" text-anchor="end" opacity="0.75">质量 ↑</text>
+</svg>

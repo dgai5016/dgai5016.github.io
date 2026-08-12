@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif">
+<defs>
+<linearGradient id="bg-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e3a8a"/><stop offset="1" stop-color="#0e7490"/></linearGradient>
+</defs>
+<rect x="0" y="0" width="1200" height="440" fill="url(#bg-grad)"/>
+<filter id="sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.12" flood-color="#000000"/></filter>
+<text x="600" y="73" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="32" fill="#ffffff" text-anchor="middle" font-weight="700">机器翻译的三大痛点</text>
+<text x="600" y="106" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" opacity="0.7">不是「翻错」，而是「翻译腔 / 术语漂移 / 长文丢语境」</text>
+<rect x="60" y="135" width="340" height="250" rx="16" fill="#0891b2" filter="url(#sh)"/>
+<circle cx="230" cy="191" r="28" fill="#ffffff"/>
+<text x="230" y="200" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="26" fill="#0891b2" text-anchor="middle" font-weight="700">1</text>
+<text x="230" y="275" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="28" fill="#ffffff" text-anchor="middle" font-weight="700">翻译腔</text>
+<text x="230" y="316" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" opacity="0.88">句子生硬</text>
+<text x="230" y="348" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" opacity="0.88">读起来不像人话</text>
+<rect x="430" y="135" width="340" height="250" rx="16" fill="#6c63ff" filter="url(#sh)"/>
+<circle cx="600" cy="191" r="28" fill="#ffffff"/>
+<text x="600" y="200" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="26" fill="#6c63ff" text-anchor="middle" font-weight="700">2</text>
+<text x="600" y="275" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="28" fill="#ffffff" text-anchor="middle" font-weight="700">术语漂移</text>
+<text x="600" y="316" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" opacity="0.88">同一术语</text>
+<text x="600" y="348" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" opacity="0.88">前后翻译不一致</text>
+<rect x="800" y="135" width="340" height="250" rx="16" fill="#a78bfa" filter="url(#sh)"/>
+<circle cx="970" cy="191" r="28" fill="#ffffff"/>
+<text x="970" y="200" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="26" fill="#a78bfa" text-anchor="middle" font-weight="700">3</text>
+<text x="970" y="275" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="28" fill="#ffffff" text-anchor="middle" font-weight="700">长文丢语境</text>
+<text x="970" y="316" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" opacity="0.88">翻到后半段</text>
+<text x="970" y="348" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" opacity="0.88">就丢了前文背景</text>
+</svg>

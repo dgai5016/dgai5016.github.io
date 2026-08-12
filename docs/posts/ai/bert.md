@@ -1,0 +1,239 @@
+---
+title: BERT 是什么
+date: 2026-08-12 14:26
+tags: [AI]
+excerpt: "BERT 是只做「理解」、不做「生成」的语言模型：让每个字都能看到句子里所有其他字，一次性读懂整段文字。本文从双向注意力、[CLS] 标记、MLM 预训练三个核心机制讲清它，并和 GPT 做了清晰对比，帮你彻底分清 Encoder-Only 和 Decoder-Only 两条路线。"
+layout: post
+---
+
+<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDYzMCIgd2lkdGg9IjEyMDAiIGhlaWdodD0iNjMwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjNmM2M2ZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzQ4M2Q5YiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxtYXJrZXIgaWQ9ImFycm93RW5kIiB2aWV3Qm94PSIwIDAgMTAgMTAiIHJlZlg9IjkiIHJlZlk9IjUiIG1hcmtlcldpZHRoPSI2IiBtYXJrZXJIZWlnaHQ9IjYiIG9yaWVudD0iYXV0byI+CiAgICAgIDxwYXRoIGQ9Ik0wLDAgTDEwLDUgTDAsMTAgeiIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC44NSIvPgogICAgPC9tYXJrZXI+CiAgICA8bWFya2VyIGlkPSJhcnJvd1N0YXJ0IiB2aWV3Qm94PSIwIDAgMTAgMTAiIHJlZlg9IjEiIHJlZlk9IjUiIG1hcmtlcldpZHRoPSI2IiBtYXJrZXJIZWlnaHQ9IjYiIG9yaWVudD0iYXV0byI+CiAgICAgIDxwYXRoIGQ9Ik0xMCwwIEwwLDUgTDEwLDEwIHoiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuODUiLz4KICAgIDwvbWFya2VyPgogIDwvZGVmcz4KCiAgPHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iNjMwIiBmaWxsPSJ1cmwoI2JnKSIvPgoKICA8IS0tIHRvcCB0YWcgLS0+CiAgPHRleHQgeD0iNjAwIiB5PSI3OCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC43MiIgZm9udC1mYW1pbHk9Ii1hcHBsZS1zeXN0ZW0sICdQaW5nRmFuZyBTQycsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjIiIGxldHRlci1zcGFjaW5nPSI0Ij5FTkNPREVSLU9OTFkgwrcg5Y+M5ZCR55CG6KejPC90ZXh0PgoKICA8IS0tIHRpdGxlIC0tPgogIDx0ZXh0IHg9IjYwMCIgeT0iMjAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmZmZmIiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMjgiIGZvbnQtd2VpZ2h0PSI3MDAiIGxldHRlci1zcGFjaW5nPSI2Ij5CRVJUPC90ZXh0PgogIDx0ZXh0IHg9IjYwMCIgeT0iMjUyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjg4IiBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgbGV0dGVyLXNwYWNpbmc9IjEiPkJpZGlyZWN0aW9uYWwgRW5jb2RlciBSZXByZXNlbnRhdGlvbnM8L3RleHQ+CgogIDwhLS0gYmlkaXJlY3Rpb25hbCBhdHRlbnRpb24gd2ViOiBldmVyeSB0b2tlbiBzZWVzIGV2ZXJ5IG90aGVyIHRva2VuIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsIDQ0MCkiPgogICAgPGcgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjEuNiIgb3BhY2l0eT0iMC41IiBmaWxsPSJub25lIj4KICAgICAgPCEtLSBjb25zZWN1dGl2ZSAoNCkgLS0+CiAgICAgIDxsaW5lIHgxPSIyNDAiIHkxPSIwIiB4Mj0iNDIwIiB5Mj0iMCIgbWFya2VyLXN0YXJ0PSJ1cmwoI2Fycm93U3RhcnQpIiBtYXJrZXItZW5kPSJ1cmwoI2Fycm93RW5kKSIvPgogICAgICA8bGluZSB4MT0iNDIwIiB5MT0iMCIgeDI9IjYwMCIgeTI9IjAiIG1hcmtlci1zdGFydD0idXJsKCNhcnJvd1N0YXJ0KSIgbWFya2VyLWVuZD0idXJsKCNhcnJvd0VuZCkiLz4KICAgICAgPGxpbmUgeDE9IjYwMCIgeTE9IjAiIHgyPSI3ODAiIHkyPSIwIiBtYXJrZXItc3RhcnQ9InVybCgjYXJyb3dTdGFydCkiIG1hcmtlci1lbmQ9InVybCgjYXJyb3dFbmQpIi8+CiAgICAgIDxsaW5lIHgxPSI3ODAiIHkxPSIwIiB4Mj0iOTYwIiB5Mj0iMCIgbWFya2VyLXN0YXJ0PSJ1cmwoI2Fycm93U3RhcnQpIiBtYXJrZXItZW5kPSJ1cmwoI2Fycm93RW5kKSIvPgogICAgICA8IS0tIHNraXAtMSBhcmNzIGFib3ZlICgzKSAtLT4KICAgICAgPHBhdGggZD0iTSAyNDAgMCBRIDQyMCAtODAgNjAwIDAiIG1hcmtlci1zdGFydD0idXJsKCNhcnJvd1N0YXJ0KSIgbWFya2VyLWVuZD0idXJsKCNhcnJvd0VuZCkiLz4KICAgICAgPHBhdGggZD0iTSA0MjAgMCBRIDYwMCAtODAgNzgwIDAiIG1hcmtlci1zdGFydD0idXJsKCNhcnJvd1N0YXJ0KSIgbWFya2VyLWVuZD0idXJsKCNhcnJvd0VuZCkiLz4KICAgICAgPHBhdGggZD0iTSA2MDAgMCBRIDc4MCAtODAgOTYwIDAiIG1hcmtlci1zdGFydD0idXJsKCNhcnJvd1N0YXJ0KSIgbWFya2VyLWVuZD0idXJsKCNhcnJvd0VuZCkiLz4KICAgICAgPCEtLSBza2lwLTIgYXJjcyBiZWxvdyAoMikgLS0+CiAgICAgIDxwYXRoIGQ9Ik0gMjQwIDAgUSA1MTAgOTAgNzgwIDAiIG1hcmtlci1zdGFydD0idXJsKCNhcnJvd1N0YXJ0KSIgbWFya2VyLWVuZD0idXJsKCNhcnJvd0VuZCkiLz4KICAgICAgPHBhdGggZD0iTSA0MjAgMCBRIDY5MCA5MCA5NjAgMCIgbWFya2VyLXN0YXJ0PSJ1cmwoI2Fycm93U3RhcnQpIiBtYXJrZXItZW5kPSJ1cmwoI2Fycm93RW5kKSIvPgogICAgICA8IS0tIHNraXAtMyBiaWcgYXJjIGFib3ZlICgxKSAtLT4KICAgICAgPHBhdGggZD0iTSAyNDAgMCBRIDYwMCAtMTMwIDk2MCAwIiBtYXJrZXItc3RhcnQ9InVybCgjYXJyb3dTdGFydCkiIG1hcmtlci1lbmQ9InVybCgjYXJyb3dFbmQpIi8+CiAgICA8L2c+CgogICAgPCEtLSB0b2tlbnMgLS0+CiAgICA8ZyBmb250LWZhbWlseT0iLWFwcGxlLXN5c3RlbSwgJ1BpbmdGYW5nIFNDJywgc2Fucy1zZXJpZiI+CiAgICAgIDxjaXJjbGUgY3g9IjI0MCIgY3k9IjAiIHI9IjQ4IiBmaWxsPSIjZmZmZmZmIi8+CiAgICAgIDx0ZXh0IHg9IjI0MCIgeT0iNiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzZjNjNmZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjcwMCI+W0NMU108L3RleHQ+CgogICAgICA8Y2lyY2xlIGN4PSI0MjAiIGN5PSIwIiByPSIzOCIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC45NiIvPgogICAgICA8dGV4dCB4PSI0MjAiIHk9IjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2YzYzZmYiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSI2MDAiPuaIkTwvdGV4dD4KCiAgICAgIDxjaXJjbGUgY3g9IjYwMCIgY3k9IjAiIHI9IjM4IiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjk2Ii8+CiAgICAgIDx0ZXh0IHg9IjYwMCIgeT0iNiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzZjNjNmZiIgZm9udC1zaXplPSIyMCIgZm9udC13ZWlnaHQ9IjYwMCI+54ixPC90ZXh0PgoKICAgICAgPGNpcmNsZSBjeD0iNzgwIiBjeT0iMCIgcj0iMzgiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuOTYiLz4KICAgICAgPHRleHQgeD0iNzgwIiB5PSI2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNmM2M2ZmIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iNjAwIj7kuK08L3RleHQ+CgogICAgICA8Y2lyY2xlIGN4PSI5NjAiIGN5PSIwIiByPSIzOCIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC45NiIvPgogICAgICA8dGV4dCB4PSI5NjAiIHk9IjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2YzYzZmYiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSI2MDAiPuWbvTwvdGV4dD4KICAgIDwvZz4KICA8L2c+CgogIDwhLS0gYm90dG9tIHN1YnRpdGxlIC0tPgogIDx0ZXh0IHg9IjYwMCIgeT0iNTkwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjciIGZvbnQtZmFtaWx5PSItYXBwbGUtc3lzdGVtLCAnUGluZ0ZhbmcgU0MnLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBsZXR0ZXItc3BhY2luZz0iMyI+QUkg5qaC5b+16Kej6K+7PC90ZXh0Pgo8L3N2Zz4K" alt="BERT封面" />
+
+BERT 是一个只做「理解」、不做「生成」的语言模型——它先把整段文字一口气读完，让每个字都看到上下文里所有其他字，再交给你去做分类、判断、抽取这类需要「看懂」的任务。
+
+## 先用一个生活画面定位 BERT
+
+想象语文课上做阅读理解：你会**先通读一遍全文**，搞清楚每个字、每句话在说什么，然后才回答"这段话的主要观点是什么""作者态度是褒是贬"这类问题。
+
+BERT 干的就是这件事：它把一整段文字一次性"读"进去，让每个字都看到上下文里所有其他字，输出一组"看懂了"的向量表示，再交给下游任务去用。
+
+它**不擅长**也**不负责**做的是"接着往下写"——那是 GPT 那类 Decoder-Only 模型的工作：一个字一个字往右猜，每次只看左边已经写出来的内容。
+
+## BERT 在 Transformer 家族里的位置
+
+Transformer 这个架构本来有两半：一半叫 **Encoder（编码器）**，负责"读懂输入"；另一半叫 **Decoder（解码器）**，负责"生成输出"。后来人们发现这两半可以拆开单独用，于是出现了三种路线：
+
+| 路线 | 代表模型 | 干什么 |
+|------|---------|--------|
+| Encoder-Only | **BERT**、RoBERTa | 理解一段文字 |
+| Decoder-Only | GPT 系列、LLaMA | 从左到右生成文字 |
+| Encoder-Decoder | T5、BART | 翻译、摘要这类"读一段、写另一段"的任务 |
+
+BERT 走的就是 Encoder-Only 这条路：把 Transformer 的 Encoder 部分堆深、做大，让它成为一个超级"阅读理解引擎"。名字里的 **E**ncoder Representations 正是这个意思。
+
+## 核心机制 1：双向注意力（一眼看全）
+
+这是 BERT 最关键的能力，也是它名字里 **B**idirectional（双向）的由来。
+
+来看一句简单的话："我爱中国"。当 BERT 处理其中的"爱"字时，它不仅能看到左边的"我"，也能看到右边的"中国"——也就是说，**每个字都能看到句子里所有其他字，无论前后**。
+
+这听起来理所当然，但在 Transformer 出现之前，主流模型大多是"单向"的：要么只能从左往右看（如 GPT），要么只能从右往左看。BERT 之所以能"双向"，靠的就是 Transformer 的**自注意力（self-attention）**机制：
+
+$$\text{Attention}(Q, K, V) = \text{softmax}\!\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
+
+符号逐个解读：
+
+- $Q$（Query，查询）：当前这个字想"问"其他字什么——可以理解为"我要理解自己，该关注谁？"
+- $K$（Key，键）：每个字"挂在外面"的标签，用来被别人匹配——可以理解为"我能提供哪方面的信息？"
+- $V$（Value，值）：每个字真正贡献出去的内容
+- $QK^T$：当前字和每个字算一个"相似度分数"，决定分多少注意力给对方
+- $\sqrt{d_k}$：除以它只是为了让分数别太大、训练更稳
+- 套一层 $\text{softmax}$：把分数归一成"加起来等于 1"的权重
+- 最后乘 $V$：按权重把每个字的内容加权平均，得到当前字"看完上下文之后"的新表示
+
+通俗版本：每个字向所有字（包括自己）发起一次"问卷"，谁的关键词和我的问题对得上，谁就被分到更多注意力，最后大家的回答按权重汇总成我的新理解。
+
+### 一个极小的算例
+
+3 个字"我爱中国"略长，这里简化成 3 个字"我爱你"，假设每个字用 2 维向量表示，并且为了直观让 $Q=K=V$ 等于字的原始向量：
+
+- 「我」：$[1, 0]$
+- 「爱」：$[0, 1]$
+- 「你」：$[1, 1]$
+
+当我们要算"爱"这个字的新表示时：
+
+1. 算分数（用「爱」的 $Q$ 和每个 $K$ 点积，再除以 $\sqrt{2}$）：$\frac{0}{1.41}=0$，$\frac{1}{1.41}=0.71$，$\frac{1}{1.41}=0.71$
+2. softmax 归一化：三个分数取指数再除以总和，得到权重 $[0.20, 0.40, 0.40]$（验算：$0.20+0.40+0.40=1$ ✓）
+3. 加权求和：$0.20\times[1,0] + 0.40\times[0,1] + 0.40\times[1,1] = [0.60, 0.80]$
+
+"爱"的新向量 $[0.60, 0.80]$ 已经不是它自己原来的 $[0, 1]$ 了——它把"我"和"你"的信息也揉了进来。这就是"看懂了上下文"。
+
+## 核心机制 2：[CLS] token——一句话的"摘要位"
+
+很多任务（比如情感分析）需要的是**整句话**的判断，而不是每个字单独的判断。BERT 怎么把整句话压缩成一个向量？
+
+办法很朴素：在每句话最前面**强行加一个特殊标记 `[CLS]`**（classification 的缩写）。经过一层层自注意力之后，这个 `[CLS]` 因为位置最靠前、能接触到所有其他字，自然就成了"汇总整句话语义"的那个位置。
+
+下游做分类时，只需要取出 `[CLS]` 对应的那个向量，再接一个小小的分类头（一个线性层 + softmax）就能输出"正面/负面"这类标签：
+
+```python
+# 取 [CLS]（位置 0）的向量做整句分类
+cls_vector = hidden[:, 0]        # [batch, dim]
+logits = classifier(cls_vector)  # [batch, num_labels]
+```
+
+## 核心机制 3：预训练任务 MLM——遮住再猜
+
+BERT 不是一上来就会做情感分析、问答这些活儿的。在大规模预训练阶段，它的训练任务叫 **MLM（Masked Language Modeling，掩码语言模型）**：
+
+- 随机挑出一部分字（约 15%），用 `[MASK]` 这个特殊标记盖住
+- 让模型根据上下文（左右两边都能看！）猜出原来那个字是什么
+
+举个具体例子：原句 `"今天天气真好"`，盖住"天"和"好"后变成 `"今天 [MASK] 气 真 [MASK]"`，模型要还原出"天"和"好"。
+
+这就是 BERT 能学到双向理解的根本原因——预测被遮住的字时，**左右两侧的上下文都用得上**，逼着模型把整个句子的语义都吃进去。
+
+形式化一点，MLM 的损失函数就是被遮住位置上的交叉熵：
+
+$$\mathcal{L}_{\text{MLM}} = -\frac{1}{|M|}\sum_{i \in M} \log P(x_i \mid \tilde{x})$$
+
+符号逐个解读：
+
+- $M$：被遮住的位置集合
+- $|M|$：遮了几个字，用来取平均
+- $x_i$：第 $i$ 个位置上原本的字（正确答案）
+- $\tilde{x}$：盖了 `[MASK]` 之后的那句话
+- $P(x_i \mid \tilde{x})$：模型根据被遮盖后的句子，预测原字的概率
+
+直觉版本：模型在所有"被挖空"的位置上各考一次试，每个空答对就奖励、答错就惩罚，最后平均一下就是这次的总成绩。
+
+## 与 GPT 的对比：理解 vs 生成
+
+这是初学者最容易混的两条路线，放一张对照表就清楚了：
+
+| 维度 | BERT（Encoder-Only） | GPT（Decoder-Only） |
+|------|----------------------|---------------------|
+| 主要任务 | **理解**（分类、抽取、相似度） | **生成**（写作、对话、续写） |
+| 注意力方向 | 双向，每个字看到所有字 | 单向，只能看左边已生成的字（靠"因果 mask"实现） |
+| 输出方式 | 一次性输出整句的向量表示 | 一个字一个字往右生成 |
+| 预训练任务 | MLM（完形填空） | 因果语言模型（接龙） |
+| 拿手戏 | 情感分析、命名实体识别、问答检索 | 写文章、写代码、聊天 |
+
+记住一个简单的口诀：**BERT 是"考阅读理解"的优等生，GPT 是"现场作文"的高手**——它们都很强，但解决的问题不一样。
+
+## 完整代码
+
+下面是一个极简的"BERT 风格"模型：词向量 + 多层 Transformer Encoder + 一个 MLM 头 + 一个分类头。复制就能跑，演示了 MLM 预训练一步和分类微调一次：
+
+```python
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+
+class TinyBertEncoder(nn.Module):
+    """极简 BERT 编码器：词向量 + 位置向量 + 多层 Transformer Encoder"""
+
+    def __init__(self, vocab_size=1000, dim=64, num_layers=2, num_heads=4, max_len=64):
+        super().__init__()
+        self.token_emb = nn.Embedding(vocab_size, dim)   # 词向量查表
+        self.pos_emb = nn.Embedding(max_len, dim)        # 位置向量查表
+        # TransformerEncoder = 堆叠的 Encoder 层，双向自注意力就藏在每一层里
+        encoder_layer = nn.TransformerEncoderLayer(
+            d_model=dim, nhead=num_heads,
+            dim_feedforward=dim * 4, dropout=0.1,
+            batch_first=True, activation='gelu',
+        )
+        self.encoder = nn.TransformerEncoder(encoder_layer, num_layers=num_layers)
+        self.layer_norm = nn.LayerNorm(dim)
+
+    def forward(self, input_ids):
+        # input_ids: [batch, seq_len]，每个元素是 token 的 id
+        b, s = input_ids.shape
+        positions = torch.arange(s, device=input_ids.device).unsqueeze(0).expand(b, s)
+        x = self.token_emb(input_ids) + self.pos_emb(positions)  # 词向量 + 位置向量
+        x = self.encoder(x)        # 双向自注意力在这里发生
+        return self.layer_norm(x)  # 输出每个 token 的上下文向量 [batch, seq, dim]
+
+
+class MaskedLMHead(nn.Module):
+    """MLM 头：把上下文向量映射回词表，预测被遮住的 token"""
+
+    def __init__(self, dim, vocab_size):
+        super().__init__()
+        self.dense = nn.Linear(dim, dim)
+        self.norm = nn.LayerNorm(dim)
+        self.decoder = nn.Linear(dim, vocab_size)
+
+    def forward(self, x):
+        return self.decoder(self.norm(F.gelu(self.dense(x))))
+
+
+class TinyBert(nn.Module):
+    """BERT 的两种用法：MLM 预训练 + [CLS] 分类微调"""
+
+    def __init__(self, vocab_size=1000, dim=64, num_layers=2,
+                 num_heads=4, max_len=64, num_labels=2):
+        super().__init__()
+        self.encoder = TinyBertEncoder(vocab_size, dim, num_layers, num_heads, max_len)
+        self.mlm_head = MaskedLMHead(dim, vocab_size)   # 预训练用
+        self.cls_head = nn.Linear(dim, num_labels)      # 微调做分类用
+
+    def forward(self, input_ids, mlm_positions=None, mode='mlm'):
+        hidden = self.encoder(input_ids)                # [batch, seq, dim]
+
+        if mode == 'mlm':
+            # 取出被 [MASK] 遮住的位置的隐向量，过 MLM 头预测原 token
+            b = hidden.size(0)
+            arange = torch.arange(b, device=hidden.device).unsqueeze(1)
+            masked_hidden = hidden[arange, mlm_positions]    # [batch, num_mask, dim]
+            return self.mlm_head(masked_hidden)              # [batch, num_mask, vocab]
+
+        elif mode == 'classify':
+            cls = hidden[:, 0]    # [CLS] 在位置 0，聚合了整句语义
+            return self.cls_head(cls)    # [batch, num_labels]
+
+
+# === 跑一步预训练（MLM）：模型学猜被遮住的字 ===
+torch.manual_seed(42)
+model = TinyBert(vocab_size=1000, dim=64, num_layers=2, num_heads=4, max_len=32)
+
+batch, seq_len = 2, 8
+input_ids = torch.randint(0, 1000, (batch, seq_len))    # 假数据：两句话，每句 8 个 token
+mlm_positions = torch.tensor([[1, 3], [2, 5]])           # 第 0 句遮住位置 1、3；第 1 句遮住 2、5
+mlm_labels = torch.tensor([[42, 17], [88, 5]])           # 这两个位置原本的字
+
+optimizer = torch.optim.AdamW(model.parameters(), lr=1e-4)
+
+logits = model(input_ids, mlm_positions=mlm_positions, mode='mlm')  # [2, 2, 1000]
+# 展平后用交叉熵：让模型在遮住处预测对原 token
+loss = F.cross_entropy(logits.reshape(-1, 1000), mlm_labels.reshape(-1))
+
+optimizer.zero_grad()
+loss.backward()    # 反向传播算梯度
+optimizer.step()   # 更新参数
+print(f"MLM loss: {loss.item():.4f}")   # loss 下降即模型在学
+
+# === 切到分类微调：用 [CLS] 做情感二分类 ===
+cls_logits = model(input_ids, mode='classify')          # [2, 2]
+print(f"分类 logits 形状: {cls_logits.shape}")
+```
+
+跑完之后 `MLM loss` 会打印出一个具体数字，每多训练几轮它会往下走——这就是模型在学着"看懂上下文"。
+
+## 小结
+
+- **BERT 是 Encoder-Only 架构的代表**，名字直译就是"双向 Transformer 编码器表示"。
+- 它的核心是**双向注意力**：每个字都能看到句子里所有其他字，所以一次性就能把整段文字"读懂"。
+- **`[CLS]` 标记**专门负责聚合整句话的语义，接上分类头就能做情感分析、文本分类等任务。
+- 预训练靠的是 **MLM（完形填空）**——把字遮住再猜，逼模型学会用双向上下文。
+- 跟 **GPT（Decoder-Only）** 的差别一句话说清：**BERT 用来"理解"，GPT 用来"生成"**。
+
+## 参考资料
+
+1. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding - Devlin et al., 2018
+   https://arxiv.org/abs/1810.04805
+2. The Illustrated BERT, ELMo, and co. (How NLP Cracked Transfer Learning) - Jay Alammar
+   https://jalammar.github.io/illustrated-bert/
+3. Speech and Language Processing (3rd ed. draft), Ch. 10 + MLM slides - Jurafsky & Martin, Stanford
+   https://web.stanford.edu/~jurafsky/slp3/

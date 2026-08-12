@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif">
+<defs>
+<linearGradient id="bg-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e3a8a"/><stop offset="1" stop-color="#0e7490"/></linearGradient>
+</defs>
+<rect x="0" y="0" width="1200" height="400" fill="url(#bg-grad)"/>
+<filter id="sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.12" flood-color="#000000"/></filter>
+<text x="600" y="82" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="34" fill="#ffffff" text-anchor="middle" font-weight="700">预设风格 = 配色 × 渲染</text>
+<rect x="130" y="150" width="260" height="200" rx="16" fill="#0891b2" filter="url(#sh)"/>
+<text x="260" y="242" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="64" fill="#ffffff" text-anchor="middle" font-weight="800">11</text>
+<text x="260" y="278" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="600">套配色</text>
+<text x="260" y="313" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="15" fill="#ffffff" text-anchor="middle" opacity="0.75">palette</text>
+<text x="430" y="266" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="46" fill="#ffffff" text-anchor="middle" font-weight="800" opacity="0.9">×</text>
+<rect x="470" y="150" width="260" height="200" rx="16" fill="#06b6d4" filter="url(#sh)"/>
+<text x="600" y="242" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="64" fill="#ffffff" text-anchor="middle" font-weight="800">7</text>
+<text x="600" y="278" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="600">种渲染</text>
+<text x="600" y="313" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="15" fill="#ffffff" text-anchor="middle" opacity="0.75">rendering</text>
+<text x="770" y="266" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="46" fill="#ffffff" text-anchor="middle" font-weight="800" opacity="0.9">=</text>
+<rect x="810" y="150" width="260" height="200" rx="16" fill="#a78bfa" filter="url(#sh)"/>
+<text x="940" y="242" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="64" fill="#ffffff" text-anchor="middle" font-weight="800">26</text>
+<text x="940" y="278" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="600">个预设</text>
+<text x="940" y="313" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="15" fill="#ffffff" text-anchor="middle" opacity="0.75">preset</text>
+</svg>

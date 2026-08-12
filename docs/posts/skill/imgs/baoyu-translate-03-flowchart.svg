@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif">
+<defs>
+<linearGradient id="bg-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e3a8a"/><stop offset="1" stop-color="#0e7490"/></linearGradient>
+</defs>
+<rect x="0" y="0" width="1200" height="360" fill="url(#bg-grad)"/>
+<filter id="sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.12" flood-color="#000000"/></filter>
+<text x="600" y="71" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="32" fill="#ffffff" text-anchor="middle" font-weight="700">normal 模式 · 标准翻译流程</text>
+<text x="600" y="101" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="15" fill="#ffffff" text-anchor="middle" opacity="0.7">先分析全文（领域 / 语气 / 术语），再据此翻译</text>
+<rect x="90" y="210" width="180" height="100" rx="12" fill="#0891b2" filter="url(#sh)"/>
+<text x="180" y="268" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="700">抓取</text>
+<circle cx="180" cy="178" r="20" fill="#ffffff" filter="url(#sh)"/>
+<text x="180" y="185" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="20" fill="#0891b2" text-anchor="middle" font-weight="700">1</text>
+<line x1="272" y1="260" x2="287" y2="260" stroke="#ffffff" stroke-width="2" opacity="0.75"/>
+<polygon points="298,260 287,254 287,266" fill="#ffffff"/>
+<rect x="300" y="210" width="180" height="100" rx="12" fill="#06b6d4" filter="url(#sh)"/>
+<text x="390" y="268" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="700">物化</text>
+<circle cx="390" cy="178" r="20" fill="#ffffff" filter="url(#sh)"/>
+<text x="390" y="185" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="20" fill="#06b6d4" text-anchor="middle" font-weight="700">2</text>
+<line x1="482" y1="260" x2="497" y2="260" stroke="#ffffff" stroke-width="2" opacity="0.75"/>
+<polygon points="508,260 497,254 497,266" fill="#ffffff"/>
+<rect x="510" y="210" width="180" height="100" rx="12" fill="#a78bfa" filter="url(#sh)"/>
+<text x="600" y="268" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="700">分析</text>
+<circle cx="600" cy="178" r="20" fill="#ffffff" filter="url(#sh)"/>
+<text x="600" y="185" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="20" fill="#6c63ff" text-anchor="middle" font-weight="700">3</text>
+<line x1="692" y1="260" x2="707" y2="260" stroke="#ffffff" stroke-width="2" opacity="0.75"/>
+<polygon points="718,260 707,254 707,266" fill="#ffffff"/>
+<rect x="720" y="210" width="180" height="100" rx="12" fill="#a78bfa" filter="url(#sh)"/>
+<text x="810" y="268" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="700">翻译</text>
+<circle cx="810" cy="178" r="20" fill="#ffffff" filter="url(#sh)"/>
+<text x="810" y="185" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="20" fill="#a78bfa" text-anchor="middle" font-weight="700">4</text>
+<line x1="902" y1="260" x2="917" y2="260" stroke="#ffffff" stroke-width="2" opacity="0.75"/>
+<polygon points="928,260 917,254 917,266" fill="#ffffff"/>
+<rect x="930" y="210" width="180" height="100" rx="12" fill="#34d399" filter="url(#sh)"/>
+<text x="1020" y="268" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="700">输出</text>
+<circle cx="1020" cy="178" r="20" fill="#ffffff" filter="url(#sh)"/>
+<text x="1020" y="185" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="20" fill="#34d399" text-anchor="middle" font-weight="700">5</text>
+</svg>

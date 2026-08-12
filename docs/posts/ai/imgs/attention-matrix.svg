@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif">
+<defs>
+<linearGradient id="bg-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e3a8a"/><stop offset="1" stop-color="#0e7490"/></linearGradient>
+</defs>
+<rect x="0" y="0" width="1200" height="520" fill="url(#bg-grad)"/>
+<filter id="sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.12" flood-color="#000000"/></filter>
+<text x="600" y="75" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="32" fill="#ffffff" text-anchor="middle" font-weight="700">注意力矩阵 · 谁关注谁</text>
+<text x="600" y="107" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="15" fill="#ffffff" text-anchor="middle" opacity="0.72">每行 = 一个词对其他词的关注权重，加起来 = 1（颜色越实 = 关注越多）</text>
+<rect x="420" y="160" width="86" height="86" fill="#a78bfa" stroke="#ffffff" stroke-width="1" opacity="0.92"/>
+<text x="463" y="210" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="600">0.5</text>
+<rect x="506" y="160" width="86" height="86" fill="#a78bfa" stroke="#ffffff" stroke-width="1" opacity="0.6"/>
+<text x="549" y="210" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="600">0.3</text>
+<rect x="592" y="160" width="86" height="86" fill="#a78bfa" stroke="#ffffff" stroke-width="1" opacity="0.28"/>
+<text x="635" y="210" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="600">0.1</text>
+<rect x="678" y="160" width="86" height="86" fill="#a78bfa" stroke="#ffffff" stroke-width="1" opacity="0.28"/>
+<text x="721" y="210" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="600">0.1</text>
+<rect x="420" y="246" width="86" height="86" fill="#a78bfa" stroke="#ffffff" stroke-width="1" opacity="0.44000000000000006"/>
+<text x="463" y="296" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="600">0.2</text>
+<rect x="506" y="246" width="86" height="86" fill="#a78bfa" stroke="#ffffff" stroke-width="1" opacity="0.7600000000000001"/>
+<text x="549" y="296" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="600">0.4</text>
+<rect x="592" y="246" width="86" height="86" fill="#a78bfa" stroke="#ffffff" stroke-width="1" opacity="0.44000000000000006"/>
+<text x="635" y="296" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="600">0.2</text>
+<rect x="678" y="246" width="86" height="86" fill="#a78bfa" stroke="#ffffff" stroke-width="1" opacity="0.44000000000000006"/>
+<text x="721" y="296" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="600">0.2</text>
+<rect x="420" y="332" width="86" height="86" fill="#a78bfa" stroke="#ffffff" stroke-width="1" opacity="0.28"/>
+<text x="463" y="382" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="600">0.1</text>
+<rect x="506" y="332" width="86" height="86" fill="#a78bfa" stroke="#ffffff" stroke-width="1" opacity="0.44000000000000006"/>
+<text x="549" y="382" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="600">0.2</text>
+<rect x="592" y="332" width="86" height="86" fill="#a78bfa" stroke="#ffffff" stroke-width="1" opacity="0.7600000000000001"/>
+<text x="635" y="382" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="600">0.4</text>
+<rect x="678" y="332" width="86" height="86" fill="#a78bfa" stroke="#ffffff" stroke-width="1" opacity="0.6"/>
+<text x="721" y="382" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="600">0.3</text>
+<rect x="420" y="418" width="86" height="86" fill="#a78bfa" stroke="#ffffff" stroke-width="1" opacity="0.28"/>
+<text x="463" y="468" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="600">0.1</text>
+<rect x="506" y="418" width="86" height="86" fill="#a78bfa" stroke="#ffffff" stroke-width="1" opacity="0.28"/>
+<text x="549" y="468" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="600">0.1</text>
+<rect x="592" y="418" width="86" height="86" fill="#a78bfa" stroke="#ffffff" stroke-width="1" opacity="0.6"/>
+<text x="635" y="468" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="600">0.3</text>
+<rect x="678" y="418" width="86" height="86" fill="#a78bfa" stroke="#ffffff" stroke-width="1" opacity="0.92"/>
+<text x="721" y="468" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#ffffff" text-anchor="middle" font-weight="600">0.5</text>
+<text x="463" y="149" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#a78bfa" text-anchor="middle" font-weight="600">我</text>
+<text x="549" y="149" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#a78bfa" text-anchor="middle" font-weight="600">喜欢</text>
+<text x="635" y="149" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#a78bfa" text-anchor="middle" font-weight="600">吃</text>
+<text x="721" y="149" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#a78bfa" text-anchor="middle" font-weight="600">苹果</text>
+<text x="398" y="210" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#06b6d4" text-anchor="end" font-weight="600">我</text>
+<text x="398" y="296" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#06b6d4" text-anchor="end" font-weight="600">喜欢</text>
+<text x="398" y="382" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#06b6d4" text-anchor="end" font-weight="600">吃</text>
+<text x="398" y="468" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="19" fill="#06b6d4" text-anchor="end" font-weight="600">苹果</text>
+<text x="592" y="557" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="14" fill="#ffffff" text-anchor="middle" opacity="0.6">被关注的词 →</text>
+<text x="398" y="557" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="14" fill="#ffffff" text-anchor="end" opacity="0.6">查询的词 ↓</text>
+</svg>

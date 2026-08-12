@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif">
+<defs>
+<linearGradient id="bg-grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e3a8a"/><stop offset="1" stop-color="#0e7490"/></linearGradient>
+</defs>
+<rect x="0" y="0" width="1200" height="380" fill="url(#bg-grad)"/>
+<filter id="sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.12" flood-color="#000000"/></filter>
+<text x="600" y="83" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="32" fill="#ffffff" text-anchor="middle" font-weight="700">缩放点积注意力 · 计算流程</text>
+<rect x="86" y="210" width="180" height="104" rx="12" fill="#0891b2" filter="url(#sh)"/>
+<text x="176" y="265" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="26" fill="#ffffff" text-anchor="middle" font-weight="700">QKᵀ</text>
+<text x="176" y="286" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="400">点积算相似度</text>
+<line x1="268" y1="262" x2="285" y2="262" stroke="#ffffff" stroke-width="2.2" opacity="0.8"/>
+<polygon points="296,262 285,256 285,268" fill="#ffffff"/>
+<rect x="298" y="210" width="180" height="104" rx="12" fill="#06b6d4" filter="url(#sh)"/>
+<text x="388" y="265" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="26" fill="#ffffff" text-anchor="middle" font-weight="700">÷ √dk</text>
+<text x="388" y="286" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="400">缩放，防梯度消失</text>
+<line x1="480" y1="262" x2="497" y2="262" stroke="#ffffff" stroke-width="2.2" opacity="0.8"/>
+<polygon points="508,262 497,256 497,268" fill="#ffffff"/>
+<rect x="510" y="210" width="180" height="104" rx="12" fill="#a78bfa" filter="url(#sh)"/>
+<text x="600" y="265" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="26" fill="#ffffff" text-anchor="middle" font-weight="700">softmax</text>
+<text x="600" y="286" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="400">归一化成权重</text>
+<line x1="692" y1="262" x2="709" y2="262" stroke="#ffffff" stroke-width="2.2" opacity="0.8"/>
+<polygon points="720,262 709,256 709,268" fill="#ffffff"/>
+<rect x="722" y="210" width="180" height="104" rx="12" fill="#a78bfa" filter="url(#sh)"/>
+<text x="812" y="265" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="26" fill="#ffffff" text-anchor="middle" font-weight="700">× V</text>
+<text x="812" y="286" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="400">按权重混合 Value</text>
+<line x1="904" y1="262" x2="921" y2="262" stroke="#ffffff" stroke-width="2.2" opacity="0.8"/>
+<polygon points="932,262 921,256 921,268" fill="#ffffff"/>
+<rect x="934" y="210" width="180" height="104" rx="12" fill="#34d399" filter="url(#sh)"/>
+<text x="1024" y="265" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="26" fill="#ffffff" text-anchor="middle" font-weight="700">输出</text>
+<text x="1024" y="286" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue','Microsoft YaHei',Arial,sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="400">融合上下文的新表示</text>
+</svg>
