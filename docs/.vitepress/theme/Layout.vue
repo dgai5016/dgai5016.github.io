@@ -6,6 +6,8 @@ import Footer from './components/Footer.vue'
 import PostMeta from './components/PostMeta.vue'
 import TableOfContents from './components/TableOfContents.vue'
 import PostOverlay from './components/PostOverlay.vue'
+import ImageLightbox from './components/ImageLightbox.vue'
+import CommandPalette from './components/CommandPalette.vue'
 
 const { frontmatter } = useData()
 const router = useRouter()
@@ -23,6 +25,33 @@ provide('sourcePage', sourcePage)
 function goBack() {
   router.go(sourcePage.value || '/')
 }
+
+// —— 返回按钮定位（仅桌面端 ≥1024px）——
+// fixed 到「Sidebar 右边缘 ↔ 正文卡片左边缘」的水平中点，垂直视口居中。
+// 那段空当宽度随视口变化（正文居中留白），纯 CSS 无法精确居中，
+// 故像 TOC 一样用 JS 量出中点写入 inline left；移动端（<1024px）不参与，沿用 CSS 默认（hamburger 旁）。
+const backBtnStyle = ref<Record<string, string>>({})
+function positionBackBtn() {
+  if (import.meta.env.SSR) return
+  if (window.innerWidth < 1024) {            // 移动端交给 CSS（left:3.75rem 紧挨 hamburger）
+    backBtnStyle.value = {}
+    return
+  }
+  const sidebar = document.querySelector('.desktop-sidebar')   // 可见 Sidebar 卡片（fixed 垂直居中）
+  const card = document.querySelector('.content-card')         // 正文玻璃卡片
+  if (!sidebar || !card) return
+  // gutter 中点 = (Sidebar 右边缘 + 正文卡片左边缘) / 2
+  const mid = (sidebar.getBoundingClientRect().right + card.getBoundingClientRect().left) / 2
+  backBtnStyle.value = { left: `${mid}px` }
+}
+
+// 首次定位（延迟等正文卡片挂载）+ 视口变化时重算 + 切换文章时重算
+onMounted(() => {
+  setTimeout(positionBackBtn, 100)
+  window.addEventListener('resize', positionBackBtn)
+})
+onUnmounted(() => window.removeEventListener('resize', positionBackBtn))
+watch(() => route.path, () => setTimeout(positionBackBtn, 100))
 
 const CommentGiscus = shallowRef<any>(null)
 
@@ -67,22 +96,58 @@ provide('openOverlay', openOverlay)
 
 onMounted(() => window.addEventListener('popstate', onPop))
 onUnmounted(() => window.removeEventListener('popstate', onPop))
+
+// —— 图片预览（lightbox）：全局事件委托捕获 .vp-doc 内的图片点击 ——
+const lightboxOpen = ref(false)
+const lightboxImages = ref<string[]>([])
+const lightboxIndex = ref(0)
+
+// 冒泡阶段监听 document 的 click：命中 .vp-doc 内的 <img> 就放大。
+// 刻意用冒泡（非 capture）：不碰 VitePress 对 <a> 的 capture 路由拦截，img 点击与之无冲突。
+function onImageClick(e: MouseEvent) {
+  const target = e.target as HTMLElement
+  if (target.tagName !== 'IMG') return
+  if (target.closest('a')) return              // 防御：图片若被 <a> 包裹则交给 VitePress 路由，不放大
+  const container = target.closest('.vp-doc')  // 定位图片所属的文章正文容器
+  if (!container) return
+  const imgs = Array.from(container.querySelectorAll('img')) as HTMLImageElement[]
+  if (!imgs.length) return
+  // 收集该容器内全部图片作为图集（currentSrc 兼容 base64 与文件路径），并定位到被点的那张
+  lightboxImages.value = imgs.map(i => i.currentSrc || i.src)
+  lightboxIndex.value = Math.max(0, imgs.indexOf(target as HTMLImageElement))
+  lightboxOpen.value = true
+}
+onMounted(() => document.addEventListener('click', onImageClick))
+onUnmounted(() => document.removeEventListener('click', onImageClick))
 </script>
 
 <template>
   <div class="layout-root">
     <Sidebar />
 
+    <!--
+      返回按钮（仅文章页）：fixed 钉在左上角视口导航带。
+      桌面端落 desktop-sidebar（垂直居中）上方的天然留白；
+      移动端紧挨 hamburger 组成「☰ ←」导航组。
+      goBack()/sourcePage 逻辑见 script，与位置无关，原样复用。
+    -->
+    <button
+      v-if="isPost"
+      class="back-btn"
+      :style="backBtnStyle"
+      @click="goBack"
+      title="返回"
+      aria-label="返回上一页"
+    >
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+
     <div class="main-wrapper">
       <main class="main-content">
         <article v-if="isPost" class="article">
           <header class="post-header">
-            <button class="back-btn" @click="goBack" title="返回">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-              </svg>
-              <span class="back-btn-text">返回</span>
-            </button>
             <h1 class="post-title">
               {{ frontmatter.title }}
             </h1>
@@ -113,6 +178,12 @@ onUnmounted(() => window.removeEventListener('popstate', onPop))
 
     <!-- 右滑覆盖层：点击文章正文里的站内链接时由 onLinkIntercept 触发 -->
     <PostOverlay :url="overlayUrl" @close="closeOverlay" />
+
+    <!-- 全局命令面板：任意页面按 Cmd/Ctrl+K 召唤，搜索文章并跳转（组件自管开合，无需 props） -->
+    <CommandPalette />
+
+    <!-- 图片预览层：点击 .vp-doc 内的配图时由上面的 onImageClick 事件委托触发 -->
+    <ImageLightbox v-model="lightboxOpen" :images="lightboxImages" :index="lightboxIndex" />
   </div>
 </template>
 
@@ -157,36 +228,92 @@ onUnmounted(() => window.removeEventListener('popstate', onPop))
 /* Post header */
 .post-header {
   margin-bottom: 2.5rem;
-  position: relative;
+  /* position:relative 已移除：PostMeta 及 .post-header 内子元素均为静态流，
+     旧 back-btn 也是普通流（非绝对定位），此声明从未被任何元素依赖。 */
 }
 
+/*
+ * 移动端（<1024px）给 .post-header 顶部留白，避让 fixed 返回按钮（top:1rem + 高3.25rem → 底边≈4.25rem）。
+ * 旧 in-flow 的 back-btn 恰好顺带提供了这层间隔，按钮 fixed 化后必须补回；
+ * 桌面端无需——按钮在 Sidebar 列，与标题左右分离。
+ */
+@media (max-width: 1023px) {
+  .post-header {
+    padding-top: 3.5rem;   /* 标题顶到 ≈2rem+3.5rem=5.5rem，清开 4.25rem 按钮带并留 1.25rem 缝 */
+  }
+}
+
+/*
+ * 返回按钮：fixed 钉在视口左侧导航带。
+ * - 背景对齐文章 .glass-card（rgba(255,255,255,0.92) + blur(12px) + 白边），与正文卡片同款毛玻璃、不透明。
+ * - hover/active/focus：图标转强调色 --c-accent、边框转 --c-border-hover、底色略提亮。
+ * - z-index:20 —— 高于正文/TOC/desktop-sidebar（均为 auto），低于移动端 Sidebar 面板(40)/遮罩(30)，
+ *   更低于 PostOverlay(100)/Lightbox·CommandPalette(200)：故展开移动 Sidebar、打开右滑覆盖层或任何模态时，
+ *   本按钮会被正确盖住；hamburger(50) 始终保持最上层可点击以关闭面板。
+ *
+ * 移动端（默认，<1024px）：left:3.75rem，紧挨 hamburger 右侧（hamburger left:1rem + 外宽2.375rem = 右边缘3.375rem，+0.375rem 间距）；
+ *   尺寸 3.25rem，圆角 1rem。
+ * 桌面端（≥1024px）：见下方 @media，落「Sidebar 右边缘 ↔ 正文左边缘」gutter 中点、垂直视口居中；尺寸 3rem。
+ */
 .back-btn {
+  position: fixed;
+  top: 1rem;
+  left: 3.75rem;            /* 移动端：hamburger 右边缘3.375rem + 0.375rem 间距 */
+  z-index: 20;
+
+  width: 3.25rem;           /* 放大，更好按 */
+  height: 3.25rem;
+  padding: 0;
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
-  padding: 0.35rem 0.75rem;
-  border-radius: 9999px;
-  border: 1px solid var(--c-border);
-  background: rgba(255, 255, 255, 0.6);
+  justify-content: center;
+  border-radius: 50%;       /* 正圆（宽高相等） */
+  border: 1px solid rgba(255, 255, 255, 0.4);   /* 对齐 .glass-card 边框 */
+  background: rgba(255, 255, 255, 0.92);        /* 对齐文章 .glass-card 背景，不再透明 */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
   cursor: pointer;
   color: var(--c-text-secondary);
-  font-size: 0.875rem;
-  margin-bottom: 0.75rem;
-  transition: color 0.15s, background  0.15s;
+  transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
 }
 
-.back-btn:hover {
+/* hover（桌面）/ active（移动触控）/ focus-visible（键盘）：图标转强调色 + 边框高亮 + 底色略提亮 */
+.back-btn:hover,
+.back-btn:active,
+.back-btn:focus-visible {
   color: var(--c-accent);
-  background: rgba(108, 99, 255, 0.05);
+  background: rgba(255, 255, 255, 0.88);        /* 呼应 --c-bg-card-hover */
+  border-color: var(--c-border-hover);
+  outline: none;
+}
+
+.back-btn:focus-visible {
+  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.4);   /* 键盘聚焦可见轮廓（无障碍） */
 }
 
 .back-btn svg {
-  width: 1rem;
-  height: 1rem;
+  width: 1.5rem;            /* 放大 */
+  height: 1.5rem;
 }
 
-.back-btn-text {
-  line-height: 1;
+/*
+ * 桌面端（≥1024px）：落「Sidebar 右边缘 ↔ 正文卡片左边缘」的水平中点，垂直视口居中。
+ * - left 由 JS positionBackBtn() 精确算出 gutter 中点并写入 inline style（见 script）；17rem 为 JS 就绪前的 fallback。
+ * - top:50% + translate(-50%,-50%)：按钮中心对齐 gutter 中点、视口垂直居中（与 desktop-sidebar 同处垂直中线）。
+ */
+@media (min-width: 1024px) {
+  .back-btn {
+    top: 50%;
+    left: 17rem;            /* fallback；JS 就绪后 inline style 覆盖为 gutter 中点 */
+    transform: translate(-50%, -50%);
+    width: 3rem;            /* 桌面放大 */
+    height: 3rem;
+  }
+  .back-btn svg {
+    width: 1.375rem;
+    height: 1.375rem;
+  }
 }
 
 .post-title {

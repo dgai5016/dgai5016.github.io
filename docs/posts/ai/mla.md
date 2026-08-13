@@ -46,6 +46,7 @@ $$c_{KV,t} = W^{DKV} \cdot h_t$$
 
 符号逐项解读：
 
+- $t$：token 在序列里的位置编号（第几个词），从 1 数到序列长度；本文所有带 $t$ 下标的量，都特指「第 $t$ 个 token」的那一份。
 - $h_t$：第 $t$ 个 token 的输入向量（模型里流动的隐藏状态），维度很高，比如 $d_{model} = 5120$。
 - $W^{DKV}$：**下采样矩阵**（"DKV" 表示 Down-projection for KV），形状是 $d_c \times d_{model}$，负责把高维压到低维。
 - $c_{KV,t}$：压缩后的 **KV 潜向量**，维度 $d_c$ 远小于 $d_{model}$。
@@ -60,8 +61,11 @@ $$c_{KV,t} = W^{DKV} \cdot h_t$$
 
 $$k_t = W^{UK} \cdot c_{KV,t}, \quad v_t = W^{UV} \cdot c_{KV,t}$$
 
-- $W^{UK}$、$W^{UV}$：上采样矩阵（"UK" 表示 Up-projection for K），把 $d_c$ 维还原回每头的 $d_n$ 维。
-- $k_t$、$v_t$：重建出来的 K 和 V，喂进标准注意力公式算权重。
+- $W^{UK}$：把潜向量还原成 **K** 的上采样矩阵（"UK" = Up-projection for K）。
+- $W^{UV}$：把潜向量还原成 **V** 的上采样矩阵（"UV" = Up-projection for V）。
+- $c_{KV,t}$：上一步压好的 KV 潜向量，在这里作为还原的「原料」。
+- $d_n$：每个注意力头的维度（单个头里 K/V 向量的长度）。
+- $k_t$、$v_t$：重建出来的第 $t$ 个 token 的 K 和 V，喂进标准注意力公式算权重。
 
 **通俗理解**：下采样是"打包压缩成 zip"，上采样是"解压还原"。推理时只把 zip（潜向量）存进显存，要用时才解压。
 
@@ -69,7 +73,7 @@ $$k_t = W^{UK} \cdot c_{KV,t}, \quad v_t = W^{UV} \cdot c_{KV,t}$$
 
 按上面写法，每次推理似乎要先解压出 K，再算 $Q \cdot K^\top$。但 DeepSeek 团队观察到一个数学事实：**矩阵乘法可以合并**。
 
-把 $k_t = W^{UK} c_{KV,t}$ 代入 $Q \cdot k_t^\top$，得到 $Q \cdot (W^{UK})^\top \cdot c_{KV,t}^\top$。这意味着可以把 $W^{UK}$ 提前合并进 Q 的投影矩阵里（叫做"吸收"，absorb），**推理时根本不用真的解压出 K**，直接用潜向量 $c_{KV,t}$ 算注意力。这把上采样的算力开销也省掉了。
+把 $k_t = W^{UK} c_{KV,t}$ 代入 $Q \cdot k_t^\top$，得到 $Q \cdot (W^{UK})^\top \cdot c_{KV,t}^\top$（右上角的 $^\top$ 是「转置」记号，表示把矩阵的行与列互换，这里出现是因为点积 $Q \cdot k_t^\top$ 要求维度对齐）。这意味着可以把 $W^{UK}$ 提前合并进 Q 的投影矩阵里（叫做"吸收"，absorb），**推理时根本不用真的解压出 K**，直接用潜向量 $c_{KV,t}$ 算注意力。这把上采样的算力开销也省掉了。
 
 ## 一组真实数字：压缩到底有多狠？
 

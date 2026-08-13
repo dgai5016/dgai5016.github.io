@@ -47,6 +47,7 @@ $$\text{sim}(a, b) = \cos\theta = \frac{a \cdot b}{\lVert a\rVert\,\lVert b\rVer
 
 符号逐项解读：
 
+- $\theta$ / $\cos\theta$ —— $\theta$ 是两个向量的夹角，$\cos\theta$ 是夹角的余弦值即相似度得分，范围 $[-1,1]$。
 - $a, b$ —— 两个词的词向量（比如「猫」和「狗」各一个 300 维向量）。
 - $a \cdot b$ —— 点积，对应位置相乘再相加，衡量两个向量「同向程度」。
 - $\lVert a\rVert, \lVert b\rVert$ —— 各自的长度（模），用来归一化，只比方向、不比长短。

@@ -78,6 +78,11 @@ body {
   display: none;
 }
 
+/* 文章配图：鼠标悬停提示「可点击放大」（实际点击由 Layout 的 lightbox 事件委托处理） */
+.vp-doc img {
+  cursor: zoom-in;
+}
+
 /* Shared tag pill style */
 .tag-pill {
   display: inline-block;
@@ -194,6 +199,19 @@ body {
 
 .clear-btn:hover {
   color: var(--c-text-primary);
+}
+
+/* 首页搜索框的 ⌘K 快捷键提示徽标（无搜索词时显示，告知可全局 Cmd/Ctrl+K 搜索） */
+.search-input-wrapper .hint-kbd {
+  flex-shrink: 0;
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.3rem;
+  background: var(--c-bg-surface);
+  border: 1px solid var(--c-border);
+  font-size: 0.7rem;
+  color: var(--c-text-muted);
+  font-family: inherit;
+  line-height: 1;
 }
 
 /* Post list on homepage */

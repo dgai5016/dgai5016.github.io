@@ -72,6 +72,8 @@ onBeforeUnmount(() => {
       type="text"
       placeholder="搜索文章..."
     />
+    <!-- ⌘K 提示徽标：无搜索词时显示，告知用户「任意页面按 Cmd/Ctrl+K 都能搜索」；有搜索词时让位给清空按钮 -->
+    <kbd v-if="!searchQuery" class="hint-kbd">⌘K</kbd>
     <button
       v-if="searchQuery"
       @click="searchQuery = ''"

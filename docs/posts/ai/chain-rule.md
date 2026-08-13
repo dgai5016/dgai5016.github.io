@@ -73,11 +73,23 @@ $$\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{da} \cdot \frac{da}{dx} = \sigma
 
 $$L = \text{Loss}\bigl(f_3(f_2(f_1(x;\,W_1);\,W_2);\,W_3)\bigr)$$
 
+符号逐个解读：
+
+- $\text{Loss}$：损失函数，把模型预测和正确答案一比对，算出一个误差值。
+- $f_1, f_2, f_3$：第一、二、三层各自的计算，每层都做一次「加权求和 + 激活」；三层嵌套写在一起，表示数据依次穿过——先 $f_1$，再 $f_2$，最后 $f_3$。
+- 分号 $;$：把每层的两类参数隔开——分号前是输入数据（如 $x$），分号后是该层权重（如 $W_1$）。
+- $x$：最开始的输入数据。
+- $W_1, W_2, W_3$：三层各自的权重，是网络要学的参数。
+
 训练时，梯度下降要拿到每个权重的梯度 $\dfrac{\partial L}{\partial W_1}$、$\dfrac{\partial L}{\partial W_2}$、$\dfrac{\partial L}{\partial W_3}$ 才能更新权重。怎么算？就是反复套链式法则：
+
+（这里记号从 $d$ 换成了 $\partial$：$\partial$ 是偏导符号，多变量时用，和前面的 $d$ 同是求导记号，含义一致。）
 
 - 输出层最近：$\dfrac{\partial L}{\partial W_3} = \dfrac{\partial L}{\partial y} \cdot \dfrac{\partial y}{\partial W_3}$
 - 往回一层多乘一节：$\dfrac{\partial L}{\partial W_2} = \dfrac{\partial L}{\partial y} \cdot \dfrac{\partial y}{\partial u_2} \cdot \dfrac{\partial u_2}{\partial W_2}$
 - 再往回再多一节：$\dfrac{\partial L}{\partial W_1} = \dfrac{\partial L}{\partial y} \cdot \dfrac{\partial y}{\partial u_2} \cdot \dfrac{\partial u_2}{\partial u_1} \cdot \dfrac{\partial u_1}{\partial W_1}$
+
+式中的 $u_1, u_2$ 是中间隐藏层的中转量：$u_2$ 是第二层的输出、$u_1$ 是第一层的输出——数据从 $x$ 出发先经 $f_1$ 变成 $u_1$，再经 $f_2$ 变成 $u_2$，最后才到达最终输出 $y$。
 
 三件事的关系是这样的：
 

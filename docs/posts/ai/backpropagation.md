@@ -41,8 +41,11 @@ $$\frac{\partial L}{\partial w} = \underbrace{\frac{\partial L}{\partial a}}_{\t
 
 **符号逐项解读**：
 
+- $\partial$ —— 偏导数符号，读作"partial"，$\partial L/\partial w$ 整个读作"$L$ 对 $w$ 的偏导数"，表示 $w$ 动一点时 $L$ 跟着变多少，即梯度
 - $\frac{\partial L}{\partial w}$ —— 损失 $L$ 对权重 $w$ 的梯度，也就是「$w$ 该往哪调、调多少才能减小误差」。这是反向传播最终想算出来的东西。
 - $\frac{\partial L}{\partial a}$ —— 误差信号从输出端出发的初始值（损失对网络输出的敏感度）。
+- $\sigma$ —— 激活函数的记号，本文里就是 sigmoid，把 $z$ 压到 0~1
+- $\sigma'(z)$ —— 上标撇号 $'$ 是求导记号，$\sigma'(z)$ 表示激活函数 $\sigma$ 对 $z$ 的导数
 - $\frac{\partial a}{\partial z}$ —— 信号经过激活函数这一关时，被放大或缩小了多少。
 - $\frac{\partial z}{\partial w}$ —— 权重 $w$ 对中间值 $z$ 的影响（在这个例子里它就等于输入 $x$）。
 
@@ -60,6 +63,8 @@ $$\frac{\partial L}{\partial w} = \underbrace{\frac{\partial L}{\partial a}}_{\t
 - $a = \sigma(z) = \frac{1}{1+e^{-1}} \approx 0.731$
 - $L = \frac{1}{2}(a - y)^2 = \frac{1}{2}(0.731 - 1)^2 \approx 0.0362$
 
+（式中的 $e$ 是自然对数的底，约等于 2.718，是一个数学常数。）
+
 现在用链式法则往回算 $\frac{\partial L}{\partial w}$：
 
 | 步骤 | 计算 | 结果 |
@@ -70,6 +75,11 @@ $$\frac{\partial L}{\partial w} = \underbrace{\frac{\partial L}{\partial a}}_{\t
 | 三者相乘得 $\frac{\partial L}{\partial w}$ | $-0.269 \times 0.197 \times 2$ | $\approx -0.106$ |
 
 **自检**：梯度为负，说明稍微增大 $w$ 就能让损失变小——这合理吗？目标 $y=1$，而当前预测 $a=0.731$ 偏小，增大 $w$ 会让 $z$ 变大、$a$ 更接近 1、损失下降。方向正确。做梯度下降时 $w_{\text{新}} = w - \text{lr} \times (-0.106)$，会把 $w$ 往大调，正是我们要的。
+
+**符号解读：**
+
+- $\text{lr}$ —— 学习率，每次调权重的步伐大小
+- $w_{\text{新}}$ —— 更新后的新权重
 
 <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDM2MCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiPgogIDxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjM2MCIgZmlsbD0iI2Y4ZjlmZiIvPgogIDx0ZXh0IHg9IjYwMCIgeT0iMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMjIiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjMWYyOTM3Ij7lsI/kvovlrZDvvJrmoq/luqbmmK/mgI7kuYjkuIDmraXmraXkuZjlh7rmnaXnmoQ8L3RleHQ+CgogIDwhLS0g5Zub5Liq5q2l6aqk5pa55qGG77yM5qiq5ZCR5o6S5byA77yM55SoIMOXIOi/nuaOpSAtLT4KICA8IS0tIOatpemqpDEgLS0+CiAgPHJlY3QgeD0iNDAiIHk9IjE1MCIgd2lkdGg9IjI0MCIgaGVpZ2h0PSIxMzAiIHJ4PSIxMiIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlPSIjNmM2M2ZmIiBzdHJva2Utd2lkdGg9IjMiLz4KICA8dGV4dCB4PSIxNjAiIHk9IjE4MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNSIgZmlsbD0iIzZiNzI4MCI+6L6T5Ye656uv6K+v5beuPC90ZXh0PgogIDx0ZXh0IHg9IjE2MCIgeT0iMjA4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE1IiBmaWxsPSIjMWYyOTM3Ij7iiIJML+KIgmEgPSBhIOKIkiB5PC90ZXh0PgogIDx0ZXh0IHg9IjE2MCIgeT0iMjQ2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjI2IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzZjNjNmZiI+4oiSMC4yNjk8L3RleHQ+CgogIDx0ZXh0IHg9IjMwMCIgeT0iMjE1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjIyIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzZjNjNmZiI+w5c8L3RleHQ+CgogIDwhLS0g5q2l6aqkMiAtLT4KICA8cmVjdCB4PSIzMjUiIHk9IjE1MCIgd2lkdGg9IjI0MCIgaGVpZ2h0PSIxMzAiIHJ4PSIxMiIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlPSIjYTc4YmZhIiBzdHJva2Utd2lkdGg9IjMiLz4KICA8dGV4dCB4PSI0NDUiIHk9IjE4MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNSIgZmlsbD0iIzZiNzI4MCI+5r+A5rS75Ye95pWw5Lyg5a+8PC90ZXh0PgogIDx0ZXh0IHg9IjQ0NSIgeT0iMjA4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE1IiBmaWxsPSIjMWYyOTM3Ij7iiIJhL+KIgnogPSBhKDHiiJJhKTwvdGV4dD4KICA8dGV4dCB4PSI0NDUiIHk9IjI0NiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIyNiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiM2YzYzZmYiPjAuMTk3PC90ZXh0PgoKICA8dGV4dCB4PSI1ODUiIHk9IjIxNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIyMiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiM2YzYzZmYiPsOXPC90ZXh0PgoKICA8IS0tIOatpemqpDMgLS0+CiAgPHJlY3QgeD0iNjEwIiB5PSIxNTAiIHdpZHRoPSIyNDAiIGhlaWdodD0iMTMwIiByeD0iMTIiIGZpbGw9IiNmZmZmZmYiIHN0cm9rZT0iI2M0YjVmZCIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPHRleHQgeD0iNzMwIiB5PSIxODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTUiIGZpbGw9IiM2YjcyODAiPuadg+mHjeW9seWTjTwvdGV4dD4KICA8dGV4dCB4PSI3MzAiIHk9IjIwOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNSIgZmlsbD0iIzFmMjkzNyI+4oiCei/iiIJ3ID0geDwvdGV4dD4KICA8dGV4dCB4PSI3MzAiIHk9IjI0NiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIyNiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiM2YzYzZmYiPjI8L3RleHQ+CgogIDx0ZXh0IHg9Ijg3MCIgeT0iMjE1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjIyIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzZjNjNmZiI+PTwvdGV4dD4KCiAgPCEtLSDnu5PmnpwgLS0+CiAgPHJlY3QgeD0iODk1IiB5PSIxNTAiIHdpZHRoPSIyNzAiIGhlaWdodD0iMTMwIiByeD0iMTIiIGZpbGw9IiNlZWYyZmYiIHN0cm9rZT0iIzZjNjNmZiIgc3Ryb2tlLXdpZHRoPSI0Ii8+CiAgPHRleHQgeD0iMTAzMCIgeT0iMTgwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE1IiBmaWxsPSIjNmI3MjgwIj7mnYPph43nmoTmoq/luqY8L3RleHQ+CiAgPHRleHQgeD0iMTAzMCIgeT0iMjA4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE1IiBmaWxsPSIjMWYyOTM3Ij7iiIJML+KIgnc8L3RleHQ+CiAgPHRleHQgeD0iMTAzMCIgeT0iMjQ2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjI2IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzZjNjNmZiI+4oiSMC4xMDY8L3RleHQ+CgogIDwhLS0g5bqV5rOo77ya5pa55ZCR6Kej6K+7IC0tPgogIDxyZWN0IHg9IjQwIiB5PSIzMDAiIHdpZHRoPSIxMTIwIiBoZWlnaHQ9IjQ2IiByeD0iOCIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlPSIjZDFkNWRiIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8dGV4dCB4PSI2MDAiIHk9IjMyOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxNSIgZmlsbD0iIzFmMjkzNyI+5qKv5bqm5Li66LSfIOKGkiDlop7lpKcgdyDkvJrorqnmjZ/lpLHkuIvpmY0g4oaSIOair+W6puS4i+mZjeaKiiB3IOW+gOWkp+iwg++8jOmihOa1i+abtOaOpei/keebruaghyB5PTE8L3RleHQ+Cjwvc3ZnPgo=" alt="梯度逐步乘出来" />
 
