@@ -378,3 +378,41 @@ body {
 .archive-link:hover {
   color: var(--c-accent);
 }
+
+/* —— 代码块「全屏展开」按钮 —— */
+/* 该按钮由 enhanceCodeBlocks.ts 用 DOM API 注入到 .vp-doc 代码块，不带 Vue scoped 属性，必须放全局样式。 */
+.vp-doc div[class*='language-'] > .code-expand-btn {
+  position: absolute;
+  top: 12px;
+  right: 60px;                       /* 复制按钮在 right:12px + 宽40px = 占 12~52px，这里留 8px 缝避开 */
+  z-index: 3;                        /* 与 .copy / .line-numbers-wrapper 同层（代码块容器内） */
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  padding: 0;
+  border: 1px solid var(--vp-code-copy-code-border-color);
+  background-color: var(--vp-code-copy-code-bg);
+  color: var(--vp-code-block-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  /* 默认隐藏，与复制按钮一致：鼠标移入代码块时才淡入显示，保持右上角视觉干净统一 */
+  opacity: 0;
+  transition: opacity 0.25s, border-color 0.25s, background-color 0.25s, color 0.25s;
+}
+.vp-doc div[class*='language-'] > .code-expand-btn svg {
+  width: 18px;
+  height: 18px;
+}
+/* 容器 hover 或按钮自身聚焦时 → 淡入显示（显隐时机与复制按钮完全一致） */
+.vp-doc div[class*='language-']:hover > .code-expand-btn,
+.vp-doc div[class*='language-'] > .code-expand-btn:focus-visible {
+  opacity: 1;
+  outline: none;
+}
+.vp-doc div[class*='language-'] > .code-expand-btn:hover {
+  border-color: var(--vp-code-copy-code-hover-border-color);
+  background-color: var(--vp-code-copy-code-hover-bg);
+  color: var(--c-accent);            /* hover 转强调色，给点击反馈 */
+}

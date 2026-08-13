@@ -157,12 +157,13 @@ a = torch.relu(z)        # 过激活函数 a = f(z)
 记住这个骨架：**造 → 备 → 练（预测→误差→反向→改）→ 考**。上一篇 RNN 是这个流程，这篇的神经网络也是——变的只是「大脑」内部怎么算。
 
 ```python
-import torch
+import torch            # torch 是 PyTorch 深度学习库：提供"张量"这种数据容器，还能自动算梯度（调权重就靠它）
 import torch.nn as nn   # nn 是 PyTorch 的神经网络模块，Linear/ReLU 等现成的"零件"都在里面
 
 # ===== 任务：教神经网络学会「尖耳朵 + 长胡须 → 是猫」=====
 # 两个特征：x1=是否有尖耳朵, x2=是否有长胡须；只有两个都满足才算猫
 # torch.tensor 把列表变成"张量"——就是 PyTorch 存数据用的多维数组，是这里所有数据的基本容器
+# 注意写成 1.（带小数点）：表示这是小数（浮点数），神经网络只认小数、不认整数
 X = torch.tensor([[1., 1.],   # 尖耳朵 + 长胡须 → 猫
                   [1., 0.],   # 只尖耳朵 → 不是
                   [0., 1.],   # 只长胡须 → 不是
@@ -170,28 +171,28 @@ X = torch.tensor([[1., 1.],   # 尖耳朵 + 长胡须 → 猫
 y = torch.tensor([[1.], [0.], [0.], [0.]])   # 标签：是不是猫
 
 # ===== 定义最小的神经网络（对应文章结构）=====
-# nn.Module 是 PyTorch 所有网络层的基类，自定义网络都继承它
+# nn.Module 是 PyTorch 所有网络的"模板"；自己写网络就照它造（写法 class CatNet(nn.Module)，括号里就是"照它造"）
 class CatNet(nn.Module):
     def __init__(self):
-        super().__init__()                          # super().__init__() 初始化父类，必须调用
-        self.layer1 = nn.Linear(2, 4)              # 输入层→隐藏层：2 个线索进，4 个神经元（多一道综合工序）
-        self.act = nn.ReLU()                        # 激活函数：引入非线性（够明显才往下传）
+        super().__init__()                          # super().__init__() 是固定写法：让 PyTorch 先把模板该初始化的都初始化好，照抄即可
+        self.layer1 = nn.Linear(2, 4)              # 第一道工序：收进 2 个线索（尖耳朵、长胡须），让 4 个神经元各自综合一遍，输出 4 个初步印象（4 是随手定的，换 3 或 8 也行）
+        self.act = nn.ReLU()                        # 激活函数 ReLU：正数原样放行、负数砍成 0；有了这步操作，网络才不止会画直线、能学弯弯绕绕的复杂判断
         self.layer2 = nn.Linear(4, 1)              # 隐藏层→输出层：4 个神经元综合 → 1 个"是不是猫"的得分
 
-    # forward 定义数据怎么从输入流到输出，PyTorch 自动用它做前向传播
+    # forward 定义"数据怎么从输入流到输出"；喂网络数据时 PyTorch 会自动调用它（参数 x 就是喂进来的输入）
     def forward(self, x):
-        z1 = self.layer1(x)                         # 第一层加权求和（公式 z = W·x + b）
-        a1 = self.act(z1)                           # 过激活函数（公式 a = f(z)）
-        z2 = self.layer2(a1)                        # 第二层再加权求和
-        return torch.sigmoid(z2)                    # 输出层用 sigmoid 压成 0~1 的概率（是不是猫）
+        z1 = self.layer1(x)                         # 第一层加权求和（文章公式 z = W·x + b）；4 条数据一起算，每条各得 4 个数
+        a1 = self.act(z1)                           # 过 ReLU（文章公式 a = f(z)）：把 z1 里负的砍成 0、正的保留
+        z2 = self.layer2(a1)                        # 第二层再加权求和：把 4 个印象合成 1 个得分
+        return torch.sigmoid(z2)                    # sigmoid 是另一种激活函数：把任意得分压成 0~1 的小数当"是猫的概率"返回（越接近 1 越像猫）
 
 # ===== 训练：反复看 4 条数据，学会"尖耳朵+长胡须=猫"=====
 torch.manual_seed(42)   # 固定随机种子：网络初始权重是随机生成的，设了种子后每次跑结果都一样（方便复现文章里的数字）
 net = CatNet()          # 造出大脑实例——此刻权重还是随机的、啥都不会，接下来靠训练把它教会
-opt = torch.optim.Adam(net.parameters(), lr=0.05)   # Adam 优化器，lr 是学习率
-loss_fn = nn.BCELoss()                               # 二分类交叉熵损失：专为「是/不是」二选一设计
+opt = torch.optim.Adam(net.parameters(), lr=0.05)   # 优化器 = 负责"按梯度调权重"的工具；Adam 是常用的一种，net.parameters() 把网络里所有权重交给它；lr 是学习率 = 每次调多大（太大不稳、太小太慢）
+loss_fn = nn.BCELoss()                               # 损失函数 = 量"预测离正确答案多远"的尺子；BCELoss 专为「是/不是」二选一设计（错得越离谱、值越大）
 
-for epoch in range(500):
+for epoch in range(500):   # 一轮（epoch）= 把 4 条数据完整看一遍；重复 500 轮，让网络反复练
     pred = net(X)           # 前向传播：四条数据一起算预测
     loss = loss_fn(pred, y) # 算误差：预测 vs 正确答案
     opt.zero_grad()         # 清空旧梯度（避免累积）
@@ -200,10 +201,12 @@ for epoch in range(500):
 
 # ===== 测试：看它学没学会 =====
 with torch.no_grad():                          # 测试时不调权重，no_grad 关掉梯度计算省内存
-    for i, x in enumerate(X):
+    for i, x in enumerate(X):      # 把 4 条数据逐条取出来测（enumerate 顺手给个编号 i）
+        # 把 0/1 翻成中文方便看结果；x[0]、x[1] 就是这条数据的两个特征
         feat = ('尖耳朵' if x[0] else '无尖耳朵') + '+' + ('长胡须' if x[1] else '无长胡须')
+        # net(x) 算出概率，[0] 取出那个数，:.2f 保留 2 位小数显示
         print(f"{feat} → 是猫的概率 {net(x)[0]:.2f}")
-print(f"训练 loss：{loss.item():.4f}")
+print(f"训练 loss：{loss.item():.4f}")   # .item() 把 loss 从张量取出成普通小数，:.4f 保留 4 位
 ```
 
 运行输出：

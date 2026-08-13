@@ -2,9 +2,11 @@
 // PostOverlay.vue
 // 右侧滑出的文章覆盖层：在索引页点击概念链接时，
 // 目标文章从右滑入、覆盖在当前页上，索引页保持挂载不动；关闭即回索引。
-import { ref, shallowRef, computed, watch, onMounted, onUnmounted } from 'vue'
+import { ref, shallowRef, computed, watch, nextTick, onMounted, onUnmounted } from 'vue'
 // 复用全站文章数据（title/date/tags/url），避免重复解析 frontmatter
 import { data as posts } from '../../posts.data'
+// 代码块「全屏展开」按钮注入函数（与 Layout 共用同一份）
+import { enhanceCodeBlocks } from '../utils/enhanceCodeBlocks'
 
 const props = defineProps<{ url: string | null }>()
 const emit = defineEmits<{ close: [] }>()
@@ -41,11 +43,21 @@ watch(() => props.url, async (url) => {
     bodyComp.value = mod.default
   }
   loading.value = false
+  // 关键：loading 置 false 后，模板里 <component :is="bodyComp"/>（v-else-if）才渲染出正文与代码块。
+  // 必须等它渲染完再注入展开按钮，否则此时 DOM 里还是「加载中」，找不到代码块。
+  // 覆盖层正文随 props.url 切换、不触发 route.path 变化，Layout 的 watch 不会替它注入，故在此自行调用
+  // （扫描范围限定到覆盖层滚动容器，避免重复处理主文章页的代码块）。
+  await nextTick()
+  if (scrollRef.value) enhanceCodeBlocks(scrollRef.value)
 }, { immediate: true })
 
 // Esc 关闭
 function onKey(e: KeyboardEvent) {
-  if (e.key === 'Escape' && props.url) emit('close')
+  if (e.key !== 'Escape' || !props.url) return
+  // 上层模态（代码全屏展开 .cb-backdrop / 图片预览 .lb-backdrop）打开时，Esc 优先交给它们，
+  // 不要连带关闭覆盖层——防「一次 Esc 连关两层」。这也顺手修复了 ImageLightbox 从覆盖层打开时按 Esc 的同类双关问题。
+  if (document.querySelector('.cb-backdrop, .lb-backdrop')) return
+  emit('close')
 }
 let savedScroll = 0
 // 锁底层滚动 + 记录/还原滚动位置（防止关闭后索引页跳回顶部）

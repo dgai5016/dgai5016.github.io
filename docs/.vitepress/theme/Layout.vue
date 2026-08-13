@@ -7,7 +7,10 @@ import PostMeta from './components/PostMeta.vue'
 import TableOfContents from './components/TableOfContents.vue'
 import PostOverlay from './components/PostOverlay.vue'
 import ImageLightbox from './components/ImageLightbox.vue'
+import CodeBlockExpand from './components/CodeBlockExpand.vue'
 import CommandPalette from './components/CommandPalette.vue'
+// 代码块「全屏展开」按钮注入函数（Layout 与 PostOverlay 共用）
+import { enhanceCodeBlocks } from './utils/enhanceCodeBlocks'
 
 const { frontmatter } = useData()
 const router = useRouter()
@@ -119,6 +122,44 @@ function onImageClick(e: MouseEvent) {
 }
 onMounted(() => document.addEventListener('click', onImageClick))
 onUnmounted(() => document.removeEventListener('click', onImageClick))
+
+// —— 代码块「全屏展开」：注入按钮 + document 事件委托打开全屏模态 ——
+const codeExpandOpen = ref(false)
+const codeExpandHtml = ref('')
+const codeExpandLang = ref('')
+
+// 注入入口：onMounted + 路由切换都要重跑。
+// VitePress 客户端路由会用新 <Content/> 替换 DOM，不重注入则切换文章后展开按钮会丢失。
+// 照抄 positionBackBtn 的「延迟 100ms 等正文挂载」范式（见上方 onMounted / watch route.path）。
+onMounted(() => setTimeout(() => enhanceCodeBlocks(), 100))
+watch(() => route.path, () => setTimeout(() => enhanceCodeBlocks(), 100))
+
+// document 级冒泡委托（与 onImageClick 同款）：命中 .code-expand-btn 就克隆对应代码块、打开模态。
+// 一份委托同时覆盖主文章页与右滑覆盖层（PostOverlay）内的代码块——两者 DOM 都在 document 内，事件冒泡至此。
+function onCodeExpandClick(e: MouseEvent) {
+  const target = e.target as HTMLElement
+  const btn = target.closest('.code-expand-btn') as HTMLElement | null
+  if (!btn) return
+  const block = btn.closest('div[class*="language-"]') as HTMLElement | null
+  if (!block) return
+  if (!block.querySelector('pre')) return
+
+  // 克隆整个外层 div（而非只克隆 pre）：vp-doc.css 的代码布局规则是后代选择器
+  // `.vp-doc [class*='language-'] pre/code`，只克隆 pre 会丢掉 pre 的 padding/overflow/position。
+  // 克隆后剥掉行号 / 复制按钮 / 语言标签 / 展开按钮自身（模态自带语言标签，复制按钮与展开按钮在克隆里是「死的」点了无效）。
+  const clone = block.cloneNode(true) as HTMLElement
+  clone.querySelector('.line-numbers-wrapper')?.remove()
+  clone.querySelector('button.copy')?.remove()
+  clone.querySelector('span.lang')?.remove()
+  clone.querySelector('.code-expand-btn')?.remove()
+  clone.classList.remove('line-numbers-mode')   // 去掉行号带来的 padding-left:32px
+
+  codeExpandLang.value = block.querySelector('span.lang')?.textContent?.trim() || ''
+  codeExpandHtml.value = clone.outerHTML
+  codeExpandOpen.value = true
+}
+onMounted(() => document.addEventListener('click', onCodeExpandClick))
+onUnmounted(() => document.removeEventListener('click', onCodeExpandClick))
 </script>
 
 <template>
@@ -184,6 +225,9 @@ onUnmounted(() => document.removeEventListener('click', onImageClick))
 
     <!-- 图片预览层：点击 .vp-doc 内的配图时由上面的 onImageClick 事件委托触发 -->
     <ImageLightbox v-model="lightboxOpen" :images="lightboxImages" :index="lightboxIndex" />
+
+    <!-- 代码块全屏展开层：点击代码块的展开按钮时由上面的 onCodeExpandClick 事件委托触发 -->
+    <CodeBlockExpand v-model="codeExpandOpen" :code-html="codeExpandHtml" :lang="codeExpandLang" />
   </div>
 </template>
 
