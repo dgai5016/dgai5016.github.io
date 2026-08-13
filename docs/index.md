@@ -6,6 +6,7 @@ layout: page
 import { data as posts } from '.vitepress/posts.data'
 import { data as tags } from '.vitepress/tags.data'
 import TagCloud from '.vitepress/theme/components/TagCloud.vue'
+import { fuzzyScore } from '.vitepress/theme/utils/fuzzyMatch'
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 
 const searchQuery = ref('')
@@ -13,17 +14,22 @@ const activeTag = ref('')
 
 const filtered = computed(() => {
   let result = posts
+  // 标签筛选：TagCloud 点击的精确筛选，不属于文本搜索，逻辑保持不变
   if (activeTag.value) {
     result = result.filter(p => p.tags.includes(activeTag.value))
   }
-  if (searchQuery.value.trim()) {
-    const q = searchQuery.value.trim().toLowerCase()
-    result = result.filter(p =>
-      p.title.toLowerCase().includes(q) ||
-      p.excerpt.toLowerCase().includes(q) ||
-      p.tags.some(t => t.toLowerCase().includes(q))
-    )
+  const q = searchQuery.value.trim()
+  // 有搜索词时：只对标题做子序列模糊匹配，命中后按相关性分数降序排序
+  if (q) {
+    const lower = q.toLowerCase()
+    result = result
+      .map(post => ({ post, score: fuzzyScore(lower, post.title.toLowerCase()) }))
+      // fuzzyScore 返回 -Infinity 表示不匹配，需排除；其余分数（含 0 和负数）都算命中
+      .filter(x => x.score > -Infinity)
+      .sort((a, b) => b.score - a.score)
+      .map(x => x.post)
   }
+  // 无搜索词时：result 保持 posts.data.ts 里的排序（pin 置顶 + 日期倒序）
   return result
 })
 
