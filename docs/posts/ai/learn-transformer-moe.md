@@ -75,7 +75,7 @@ Transformer 再神，底层也是一个神经网络。这一站搞定"一个神�
 - <PostLink to="/posts/ai/embedding">词向量</PostLink> — 把 token 变成稠密向量，让语义相近的词在空间里彼此靠近（one-hot 为什么不行）。
 - <PostLink to="/posts/ai/positional-encoding">位置编码</PostLink> — 自注意力本身无序，要用位置编码告诉模型"这是第几个位置"。
 - <PostLink to="/posts/ai/attention">注意力机制</PostLink> — 让每个词去"看"其它词；Q/K/V 与缩放点积公式的核心。
-- <PostLink to="/posts/ai/multi-head-attention">多头注意力</PostLink> — 多个头从不同子空间同时关注不同关系（语法/指代/相邻词）。
+- <PostLink to="/posts/ai/multi-head-attention">多头注意力</PostLink> — 多个头从不同子空间同时关注不同关系（语法/指代/相邻词）。这是「标准」形态——现代大模型为省显存还演化出 GQA、MLA 等变体，先留个印象，深入见⚡第四站。
 - <PostLink to="/posts/ai/residual-connection">残差连接</PostLink> — `y = F(x) + x`，让几十上百层的超深网络也能训（来自 ResNet）。
 - <PostLink to="/posts/ai/layer-norm">层归一化</PostLink> — 把每层数值分布稳住，加速收敛（Post-LN vs Pre-LN 的取舍）。
 - <PostLink to="/posts/ai/feed-forward-network">前馈神经网络</PostLink> — attention 之后再过一遍 FFN，把非线性塞回去（含现代的 SwiGLU）。
