@@ -1,0 +1,17 @@
+# 主题：人工智能 —— 文件名即主题 id，加入新主题只需新建一个 yaml 文件
+name: 人工智能 # 主题显示名（缺省时用文件名）
+order: 1 # 排序权重，小的排前面；不写默认排到最后
+books:
+  # 每本书字段：title 书名 / author 作者 / status 可选（写「读完」显示绿胶囊）
+  # / douban 可选（豆瓣链接，写了书名可点击跳转）
+  # 主题内「读完」的自动排前面，其余排在后面
+  - title: 《Claude Code实战：Harness工程之道》
+    author: 黄佳
+    douban: https://book.douban.com/subject/38445510
+  - title: 《图解Skill：AI提效实战指南》
+    author: 宝玉
+    douban: https://book.douban.com/subject/38495119/
+    status: 读完
+  - title: 《这就是MCP》
+    author: 黄佳
+    douban: https://book.douban.com/subject/37441660/

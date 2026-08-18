@@ -18,6 +18,7 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '归档', link: '/pages/archives' },
+      { text: '书单', link: '/pages/books' }, // 书单页：按主题分抽屉展示书籍
       // { text: '关于', link: '/pages/about' }, // 暂时先不显示「关于」
     ],
 

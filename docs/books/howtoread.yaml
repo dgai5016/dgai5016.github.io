@@ -1,0 +1,26 @@
+# 主题：如何阅读 —— 文件名即主题 id，加入新主题只需新建一个 yaml 文件
+name: 如何阅读
+order: 4
+books:
+  # 每本书字段：title 书名 / author 作者 / status 可选（写「读完」显示绿胶囊）
+  # / douban 可选（豆瓣链接，写了书名可点击跳转）
+  # 主题内「读完」的自动排前面，其余排在后面
+  # 书名含「冒号+空格」时必须用引号包起来，否则 YAML 解析会出错
+  - title: "《如何阅读，一个已被证实的低投入高回报的学习方法》"
+    douban: https://book.douban.com/subject/26863462/
+  - title: "《书都不会读，你还想成功 : 神奇读书法，职场菜鸟变CEO》"
+    douban: https://book.douban.com/subject/21364188/
+  - title: "《阅读 7 堂课》"
+    douban: https://book.douban.com/subject/35238494/
+  - title: "《如何共读一本书 : 高效引导社群学习》"
+    douban: https://book.douban.com/subject/35374635/
+  - title: "《读书变现：如何成为一名读书博主》"
+    douban: https://book.douban.com/subject/36337224/
+  - title: "《快速阅读术》"
+    douban: https://book.douban.com/subject/27032526/
+  - title: "《如何阅读一本书》"
+    douban: https://book.douban.com/subject/1013208/
+  - title: "《给大忙人的高效阅读课》"
+    douban: https://book.douban.com/subject/34809155/
+  - title: "《左手阅读，右手写作： 从零开始打造你的读书IP》"
+    douban: https://book.douban.com/subject/36654637/
