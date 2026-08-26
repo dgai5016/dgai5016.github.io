@@ -7,9 +7,10 @@
  *   devUrl 缺省 http://localhost:5173/pages/books
  *
  * 检查项（每本书一行简报）：
- *   - 封面缩略图：src + 是否真实加载（naturalWidth > 0，防破图/占位图混入）
+ *   - 封面缩略图：src + 是否真实加载（naturalWidth > 0，防破图/占位图混入；检查前先整页滚动触发懒加载）
  *   - 书名：必须是纯文本 span（不能残留链接）
  *   - 京东胶囊：存在且 href 指向 item.jd.com
+ *   - 豆瓣胶囊：可选字段，渲染了就必须是 book.douban.com/subject/<数字>/ 条目页
  *   - 元信息行：作者 著 / 译者 译 · 出版社 · 出版时间
  *
  * 退出码：0 全部通过 | 1 有失败项（简报里标「!!」）
@@ -42,6 +43,21 @@ const { chromium } = require(resolvePlaywright());
       if (b.getAttribute('aria-expanded') !== 'true') b.click();
     }));
     await page.waitForTimeout(600);
+    // 整页滚动一遍触发封面懒加载（img loading="lazy" 不滚不加载，否则首屏外的书全被误判破图）
+    await page.evaluate(async () => {
+      await new Promise(resolve => {
+        let y = 0;
+        const step = () => {
+          y += 600;
+          window.scrollTo(0, y);
+          if (y < document.body.scrollHeight) return setTimeout(step, 80);
+          window.scrollTo(0, 0);
+          resolve();
+        };
+        step();
+      });
+    });
+    await page.waitForTimeout(800);
     await page.screenshot({ path, fullPage: true });
     return page;
   }
@@ -51,6 +67,7 @@ const { chromium } = require(resolvePlaywright());
     const img = el.querySelector('.book-item__cover');
     const title = el.querySelector('.book-item__title');
     const jd = el.querySelector('.book-item__jd');
+    const douban = el.querySelector('.book-item__douban');
     const weread = el.querySelector('.book-item__weread');
     return {
       title: title?.textContent?.trim(),
@@ -58,6 +75,9 @@ const { chromium } = require(resolvePlaywright());
       imgSrc: img?.getAttribute('src'),
       titleIsLink: title?.tagName === 'A',
       jdOk: jd ? /^https:\/\/item\.jd\.com\/\d+\.html$/.test(jd.getAttribute('href') || '') : false,
+      // 豆瓣胶囊是可选字段：渲染了就必须是合法的 book.douban.com 条目页（subject/<数字>）
+      doubanBad: douban ? !/^https:\/\/book\.douban\.com\/subject\/\d+\/?$/.test(douban.getAttribute('href') || '') : false,
+      hasDouban: !!douban,
       hasWeread: !!weread,
       // 微信读书胶囊是可选字段：渲染了就必须是合法的 weread.qq.com 链接（尾部统一带 #outline?noScroll=1 锚点，打开直接看书的信息）
       wereadBad: weread ? !/^https:\/\/weread\.qq\.com\/web\/reader\/[0-9a-z]+#outline\?noScroll=1$/.test(weread.getAttribute('href') || '') : false,
@@ -79,12 +99,13 @@ const { chromium } = require(resolvePlaywright());
       if (!fs.existsSync(full)) errs.push(`缺灯箱高清图:${full}`);
     }
     if (i.titleIsLink) errs.push('书名是链接');
-    // 京东/微信读书至少要有一个入口：纯电子书（如微信读书原创）没有京东链接是合法缺失
-    if (!i.jdOk && !i.hasWeread) errs.push('京东和微信读书入口全缺');
+    // 京东/豆瓣/微信读书至少要有一个入口：纯自媒体电子书（如微信读书原创）没有京东/豆瓣是合法缺失
+    if (!i.jdOk && !i.hasDouban && !i.hasWeread) errs.push('京东/豆瓣/微信读书入口全缺');
     if (i.wereadBad) errs.push('微信读书胶囊链接异常');
+    if (i.doubanBad) errs.push('豆瓣胶囊链接异常');
     const flag = errs.length ? '!!' : 'ok';
     if (errs.length) failed++;
-    console.log(`[${flag}] ${(i.title || '').slice(0, 24)} | ${errs.join('; ') || '封面/书名/京东胶囊/元信息 全过' + (i.meta ? ` | ${i.meta.slice(0, 40)}` : '')}`);
+    console.log(`[${flag}] ${(i.title || '').slice(0, 24)} | ${errs.join('; ') || '封面/书名/胶囊/元信息 全过' + (i.meta ? ` | ${i.meta.slice(0, 40)}` : '')}`);
   });
   console.log(`\n共 ${items.length} 本, 失败 ${failed} | 截图: /tmp/books-desktop.png /tmp/books-mobile.png`);
   await browser.close();

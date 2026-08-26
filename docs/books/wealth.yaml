@@ -1,0 +1,116 @@
+# 主题：财富 —— 文件名即主题 id，加入新主题只需新建一个 yaml 文件
+name: 财富
+order: 6 # 排序权重，小的排前面；不写默认排到最后
+books:
+  # 每本书字段：title 书名 / author 作者（多人用「、」分隔，翻译书写原作者）
+  # / translator 可选（译者，多人用「、」分隔，中文原创书不写）
+  # / publisher 可选（出版社）/ pubDate 可选（出版时间，格式 "YYYY-MM" 或 "YYYY"，必须带引号）
+  # / cover 可选（封面图片路径，图片存 docs/public/covers/books/ 下，这里写站点绝对路径如 /covers/books/xxx.jpg）
+  # / jd 可选（京东商品页链接，写了书名可点击跳转）
+  # / douban 可选（豆瓣条目链接，显示豆瓣胶囊；豆瓣未收录的书不写）
+  # / weread 可选（微信读书链接）
+  # / status 可选（写「读完」显示绿胶囊）
+  # / level 可选（难度等级：简单/中等/困难，只影响排序不在页面显示；未写排在最后）
+  # 主题内按 简单→中等→困难 由易到难排序，同级内保持本文件书写顺序；「读完」只是状态标签不影响排序
+  # 书名含「冒号+空格」时必须用引号包起来，否则 YAML 解析会出错
+  - title: 《巴比伦首富》
+    level: 简单
+    author: "[美] 乔治·S.克拉森"
+    translator: 马三管
+    publisher: 国文出版社
+    pubDate: "2025-04"
+    pages: 224
+    cover: /covers/books/babylon-richest.jpg
+    jd: https://item.jd.com/14475865.html
+    douban: https://book.douban.com/subject/37407829/
+    weread: https://weread.qq.com/web/reader/cc432200813abb126g012c1e#outline?noScroll=1
+  - title: 《思考致富：拿破仑·希尔成功圣经》
+    level: 简单
+    author: "[美] 拿破仑·希尔"
+    translator: 邱宏
+    publisher: 中国发展出版社
+    pubDate: "2014-02"
+    pages: 272
+    cover: /covers/books/think-and-grow-rich.jpg
+    douban: https://book.douban.com/subject/25880492/
+    weread: https://weread.qq.com/web/reader/7d032b0059887a7d0bb9d2a#outline?noScroll=1
+  - title: 《最富足的投资》
+    level: 简单
+    author: "[美] 吉姆·罗杰斯"
+    translator: 石磊
+    publisher: 民主与建设出版社
+    pubDate: "2017-12"
+    cover: /covers/books/richest-investment.jpg
+    douban: https://book.douban.com/subject/27609277/
+    weread: https://weread.qq.com/web/reader/55432650811e818beg013299#outline?noScroll=1
+  - title: 《财务自由之路：7年内赚到你的第一个1000万》
+    level: 简单
+    author: "[德] 博多·舍费尔"
+    translator: 刘欢
+    publisher: 现代出版社
+    pubDate: "2017-03"
+    pages: 288
+    cover: /covers/books/financial-freedom.jpg
+    douban: https://book.douban.com/subject/27009488/
+    weread: https://weread.qq.com/web/reader/3f132d305e2be23f1495f96#outline?noScroll=1
+  - title: 《明智创富指南：如何成为更富更强的人》
+    level: 简单
+    author: 李海峰 主编
+    publisher: 台海出版社
+    pubDate: "2024-09"
+    cover: /covers/books/wise-wealth-guide.jpg
+    douban: https://book.douban.com/subject/37023199/
+    weread: https://weread.qq.com/web/reader/58532970813aba769g013fa4#outline?noScroll=1
+  - title: 《一年顶十年》
+    level: 简单
+    author: 剽悍一只猫
+    publisher: 北京联合出版公司
+    pubDate: "2020-04"
+    pages: 164
+    cover: /covers/books/one-year-as-ten.jpg
+    douban: https://book.douban.com/subject/35003590/
+    weread: https://weread.qq.com/web/reader/0bf3260071cc8d680bfcdc0#outline?noScroll=1
+  - title: 《为什么10倍增长比2倍更容易》
+    level: 简单
+    author: "[美] 丹·沙利文、本杰明·哈迪"
+    translator: 白瑞霞
+    publisher: 浙江科学技术出版社
+    pubDate: "2025-10"
+    pages: 237
+    cover: /covers/books/10x-easier-than-2x.jpg
+    douban: https://book.douban.com/subject/37657692/
+    weread: https://weread.qq.com/web/reader/32732670813abb39ag011d6c#outline?noScroll=1
+  - title: 《一人公司》
+    level: 简单
+    author: 阿猫、鱼堂主
+    publisher: 人民邮电出版社
+    pubDate: "2024-11"
+    pages: 194
+    cover: /covers/books/one-person-company.jpg
+    douban: https://book.douban.com/subject/37104884/
+    weread: https://weread.qq.com/web/reader/ea432780813ab9717g010b08#outline?noScroll=1
+  - title: 《一人企业：复利商业化》
+    level: 简单
+    author: 老徐
+  - title: 《从副业到自由职业》
+    level: 简单
+    author: 赵立心
+    publisher: 电子工业出版社
+    pubDate: "2024-12"
+    pages: 252
+    cover: /covers/books/side-hustle-to-freelance.jpg
+    douban: https://book.douban.com/subject/37375206/
+  - title: 《2025年知识付费趋势手册》
+    level: 简单
+    author: 郭拽拽
+  - title: 《穷查理宝典：查理·芒格智慧箴言录》
+    level: 中等
+    author: "[美] 彼得·考夫曼 编"
+    translator: 李继宏 等
+    publisher: 中信出版集团
+    pubDate: "2021-07"
+    pages: 568
+    cover: /covers/books/poor-charlies-almanack.jpg
+    jd: https://item.jd.com/13317622.html
+    douban: https://book.douban.com/subject/35557542/
+    weread: https://weread.qq.com/web/reader/2e0320e05cc92c2e0796c5a#outline?noScroll=1

@@ -1,0 +1,161 @@
+# 主题：个人成长 —— 文件名即主题 id，加入新主题只需新建一个 yaml 文件
+name: 个人成长
+order: 8 # 排序权重，小的排前面；不写默认排到最后
+books:
+  # 每本书字段：title 书名 / author 作者（多人用「、」分隔，翻译书写原作者）
+  # / translator 可选（译者，多人用「、」分隔，中文原创书不写）
+  # / publisher 可选（出版社）/ pubDate 可选（出版时间，格式 "YYYY-MM" 或 "YYYY"，必须带引号）
+  # / cover 可选（封面图片路径，图片存 docs/public/covers/books/ 下，这里写站点绝对路径如 /covers/books/xxx.jpg）
+  # / jd 可选（京东商品页链接，写了书名可点击跳转）
+  # / douban 可选（豆瓣条目链接，显示豆瓣胶囊；豆瓣未收录的书不写）
+  # / weread 可选（微信读书链接）
+  # / status 可选（写「读完」显示绿胶囊）
+  # / level 可选（难度等级：简单/中等/困难，只影响排序不在页面显示；未写排在最后）
+  # 主题内按 简单→中等→困难 由易到难排序，同级内保持本文件书写顺序；「读完」只是状态标签不影响排序
+  # 书名含「冒号+空格」时必须用引号包起来，否则 YAML 解析会出错
+  - title: 《认知觉醒：开启自我改变的原动力》
+    level: 简单
+    author: 周岭
+    publisher: 人民邮电出版社
+    pubDate: "2020-10"
+    pages: 276
+    cover: /covers/books/cognitive-awakening.jpg
+    jd: https://item.jd.com/12715627.html
+    douban: https://book.douban.com/subject/35193035/
+    weread: https://weread.qq.com/web/reader/6a732ce07201202c6a7b30a#outline?noScroll=1
+  - title: 《恢复能量的100件小事》
+    level: 简单
+    author: 飞扬文室
+    publisher: 江苏凤凰文艺出版社
+    pubDate: "2024-08"
+    pages: 224
+    cover: /covers/books/100-energy-boosts.jpg
+    jd: https://item.jd.com/14773948.html
+    douban: https://book.douban.com/subject/37010019/
+    weread: https://weread.qq.com/web/reader/5c0321c0813ab9a2bg016257#outline?noScroll=1
+  - title: 《21天逆袭人生》
+    level: 简单
+    author: 吕白
+    publisher: 湖南文艺出版社
+    pubDate: "2023-01"
+    pages: 272
+    cover: /covers/books/21-day-turnaround.jpg
+    douban: https://book.douban.com/subject/36177619/
+    weread: https://weread.qq.com/web/reader/1db32430813ab7700g019539#outline?noScroll=1
+  - title: 《前途无量：写给年轻人的成长精进指南》
+    level: 简单
+    author: 郭拽拽
+    publisher: 电子工业出版社
+    pubDate: "2024-01"
+    cover: /covers/books/boundless-future.jpg
+    douban: https://book.douban.com/subject/36655713/
+    weread: https://weread.qq.com/web/reader/17632ab0813ab8dbcg016740#outline?noScroll=1
+  - title: 《开口之后》
+    level: 简单
+    author: 黄执中
+    publisher: 江苏凤凰文艺出版社
+    pubDate: "2024-08"
+    pages: 288
+    cover: /covers/books/after-you-speak.jpg
+    jd: https://item.jd.com/14748858.html
+    douban: https://book.douban.com/subject/37017541/
+    weread: https://weread.qq.com/web/reader/d3932200811e81915g0118a5#outline?noScroll=1
+  - title: 《不被大风吹倒》
+    level: 简单
+    author: 莫言
+    publisher: 北京日报出版社
+    pubDate: "2024-10"
+    pages: 235
+    cover: /covers/books/not-broken-by-wind.jpg
+    jd: https://item.jd.com/14324405.html
+    douban: https://book.douban.com/subject/36978314/
+    weread: https://weread.qq.com/web/reader/2c032e80813ab95aag019524#outline?noScroll=1
+  - title: 《冯骥才：生活就是创造每一天》
+    level: 简单
+    author: 冯骥才
+    publisher: 浙江文艺出版社
+    pubDate: "2024-05"
+    cover: /covers/books/create-every-day.jpg
+    jd: https://item.jd.com/14638338.html
+    douban: https://book.douban.com/subject/36905596/
+    weread: https://weread.qq.com/web/reader/8a132890813ab9310g0154b4#outline?noScroll=1
+  - title: 《伴你老去的勇气》
+    level: 简单
+    author: "[日] 岸见一郎"
+    translator: 敬雁飞
+    publisher: 人民邮电出版社
+    pubDate: "2024-07"
+    pages: 208
+    cover: /covers/books/courage-to-age-together.jpg
+    jd: https://item.jd.com/14678298.html
+    douban: https://book.douban.com/subject/36851510/
+    weread: https://weread.qq.com/web/reader/93b32df0813ab93d3g018aa3#outline?noScroll=1
+  - title: 《当下的力量》
+    level: 简单
+    author: "[德] 埃克哈特·托利"
+    translator: 曹植
+    publisher: 中信出版社
+    pubDate: "2016-06"
+    pages: 260
+    cover: /covers/books/power-of-now.jpg
+    jd: https://item.jd.com/13707816.html
+    douban: https://book.douban.com/subject/26815948/
+    weread: https://weread.qq.com/web/reader/5b932bd05cf3215b92b7cd5#outline?noScroll=1
+  - title: 《运动改造大脑》
+    level: 简单
+    author: "[美] 约翰·瑞迪、埃里克·哈格曼"
+    translator: 浦溶
+    publisher: 浙江人民出版社
+    pubDate: "2013-11"
+    pages: 280
+    cover: /covers/books/spark-exercise-brain.jpg
+    jd: https://item.jd.com/10152073421389.html
+    douban: https://book.douban.com/subject/25755874/
+    weread: https://weread.qq.com/web/reader/3c532e505ae2b13c5e11af4#outline?noScroll=1
+  - title: 《番茄工作法：享誉全球的时间管理系统》
+    level: 简单
+    author: "[意] 弗朗西斯科·西里洛"
+    translator: 廖梦韡
+    publisher: 北京联合出版公司
+    pubDate: "2019-09"
+    pages: 240
+    cover: /covers/books/pomodoro-technique.jpg
+    douban: https://book.douban.com/subject/34820460/
+    weread: https://weread.qq.com/web/reader/625327c0813abbaf2g019bf0#outline?noScroll=1
+  - title: 《番茄工作法图解：简单易行的时间管理方法》
+    level: 简单
+    author: "[瑞典] 史蒂夫·诺特伯格"
+    translator: 大胖
+    publisher: 人民邮电出版社
+    pubDate: "2014-10"
+    pages: 172
+    cover: /covers/books/pomodoro-illustrated.jpg
+    douban: https://book.douban.com/subject/26099295/
+    weread: https://weread.qq.com/web/reader/359321f0813ab7f58g018a39#outline?noScroll=1
+  - title: 《番茄工作法》
+    level: 简单
+    author: 费登
+    cover: /covers/books/pomodoro-feideng.jpg
+    weread: https://weread.qq.com/web/reader/3dd32d10813aba159g018683#outline?noScroll=1
+  - title: 《原则》
+    level: 中等
+    author: "[美] 瑞·达利欧"
+    translator: 刘波、綦相
+    publisher: 中信出版社
+    pubDate: "2018-01"
+    pages: 576
+    cover: /covers/books/principles.jpg
+    jd: https://item.jd.com/10170268042348.html
+    douban: https://book.douban.com/subject/27608239/
+    weread: https://weread.qq.com/web/reader/848324405e0fe08483ab6a4#outline?noScroll=1
+  - title: 《思辨与立场：生活中无处不在的批判性思维工具》
+    level: 中等
+    author: "[美] 理查德·保罗、琳达·埃尔德"
+    translator: 李小平
+    publisher: 中国人民大学出版社
+    pubDate: "2016-09"
+    pages: 348
+    cover: /covers/books/critical-thinking.jpg
+    jd: https://item.jd.com/11972367.html
+    douban: https://book.douban.com/subject/26872634/
+    weread: https://weread.qq.com/web/reader/5c53218071c437db5c5121d#outline?noScroll=1

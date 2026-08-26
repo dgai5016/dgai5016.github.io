@@ -509,6 +509,25 @@ body {
   color: #c81623;
 }
 
+/* 豆瓣条目入口胶囊：豆瓣品牌绿 #00b51d 配浅绿底，与其他胶囊同一设计语言；
+   比微信读书的亮绿 #07c160 略深，相邻摆放可区分；豆瓣未收录的书不渲染 */
+.book-item__douban {
+  flex-shrink: 0;
+  padding: 2px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  white-space: nowrap;
+  text-decoration: none;
+  color: #00b51d;
+  background: rgba(0, 181, 29, 0.1);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.book-item__douban:hover {
+  background: rgba(0, 181, 29, 0.2);
+  color: #009c19;
+}
+
 /* 微信读书线上阅读入口胶囊：微信绿配浅绿底，与京东胶囊同一设计语言；
    用微信品牌绿 #07c160（亮绿）和读完胶囊的沉稳绿 #16a34a 区分；
    书没上架微信读书就不渲染（yaml 不写 weread 字段） */

@@ -1,0 +1,87 @@
+# 主题：创业商业 —— 文件名即主题 id，加入新主题只需新建一个 yaml 文件
+name: 创业商业
+order: 7 # 排序权重，小的排前面；不写默认排到最后
+books:
+  # 每本书字段：title 书名 / author 作者（多人用「、」分隔，翻译书写原作者）
+  # / translator 可选（译者，多人用「、」分隔，中文原创书不写）
+  # / publisher 可选（出版社）/ pubDate 可选（出版时间，格式 "YYYY-MM" 或 "YYYY"，必须带引号）
+  # / cover 可选（封面图片路径，图片存 docs/public/covers/books/ 下，这里写站点绝对路径如 /covers/books/xxx.jpg）
+  # / jd 可选（京东商品页链接，写了书名可点击跳转）
+  # / douban 可选（豆瓣条目链接，显示豆瓣胶囊；豆瓣未收录的书不写）
+  # / weread 可选（微信读书链接）
+  # / status 可选（写「读完」显示绿胶囊）
+  # / level 可选（难度等级：简单/中等/困难，只影响排序不在页面显示；未写排在最后）
+  # 主题内按 简单→中等→困难 由易到难排序，同级内保持本文件书写顺序；「读完」只是状态标签不影响排序
+  # 书名含「冒号+空格」时必须用引号包起来，否则 YAML 解析会出错
+  - title: 《微信背后的产品观》
+    level: 简单
+    author: 张小龙
+    publisher: 电子工业出版社
+    pubDate: "2021-01"
+    pages: 160
+    cover: /covers/books/wechat-product-philosophy.jpg
+    douban: https://book.douban.com/subject/35339729/
+    weread: https://weread.qq.com/web/reader/9be32910811e8ccc2g0155db#outline?noScroll=1
+  - title: 《简单法则》
+    level: 简单
+    author: "[美] 前田约翰"
+    translator: 张凌燕
+    publisher: 机械工业出版社
+    pubDate: "2014-07"
+    pages: 180
+    cover: /covers/books/laws-of-simplicity.jpg
+    jd: https://item.jd.com/10168423057376.html
+    douban: https://book.douban.com/subject/25917134/
+    weread: https://weread.qq.com/web/reader/fe432320811e1a697g0157da#outline?noScroll=1
+  - title: 《小米创业思考》
+    level: 简单
+    author: 雷军、徐洁云
+    publisher: 中信出版社
+    pubDate: "2022-08"
+    pages: 383
+    cover: /covers/books/xiaomi-startup.jpg
+    douban: https://book.douban.com/subject/36057097/
+    weread: https://weread.qq.com/web/reader/43832a10813ab703dg011c78#outline?noScroll=1
+  - title: 《想赢就要敢上场》
+    level: 简单
+    author: 周鸿祎
+    publisher: 北京联合出版公司
+    pubDate: "2024-12"
+    cover: /covers/books/dare-to-play.jpg
+    douban: https://book.douban.com/subject/37112873/
+    weread: https://weread.qq.com/web/reader/45f32080811e81df8g0152e1#outline?noScroll=1
+  - title: 《创业十八年》
+    level: 简单
+    author: 风中的厂长
+    publisher: 人民邮电出版社
+    pubDate: "2025-07"
+    pages: 310
+    cover: /covers/books/eighteen-years-startup.jpg
+    douban: https://book.douban.com/subject/37462144/
+    weread: https://weread.qq.com/web/reader/e3f32b80813aba3c7g0167aa#outline?noScroll=1
+  - title: 《预测之书2：1000天后的世界》
+    level: 简单
+    author: 罗振宇 编著
+    publisher: 新星出版社
+    pubDate: "2026-01"
+    pages: 592
+    cover: /covers/books/book-of-predictions.jpg
+    douban: https://book.douban.com/subject/37942091/
+    weread: https://weread.qq.com/web/reader/46a324c0811e81dfbg0143e6#outline?noScroll=1
+  - title: 《借势》
+    level: 简单
+    author: 金枪大叔
+    publisher: 北京联合出版公司
+    pubDate: "2022-06"
+    pages: 321
+    cover: /covers/books/leverage-trends.jpg
+    douban: https://book.douban.com/subject/35969798/
+    weread: https://weread.qq.com/web/reader/e44324d0813ab6e4dg014580#outline?noScroll=1
+  - title: 《主角》
+    level: 简单
+    author: 金枪大叔
+    publisher: 湖南文艺出版社
+    pubDate: "2024-11"
+    cover: /covers/books/the-protagonist.jpg
+    douban: https://book.douban.com/subject/37135452/
+    weread: https://weread.qq.com/web/reader/aec32fd0813ab9c5fg018f77#outline?noScroll=1

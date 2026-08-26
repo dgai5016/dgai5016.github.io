@@ -105,7 +105,7 @@ onUnmounted(() => window.removeEventListener('keydown', onLightboxKeydown))
         <span class="book-item__index">{{ index + 1 }}.</span>
         <!-- 中间：书名 + 元信息同行展示（窄屏时元信息自动换行） -->
         <div class="book-item__main">
-          <!-- 书名纯文本展示（购买入口统一收在行右侧的京东胶囊，不在书名上做链接） -->
+          <!-- 书名纯文本展示（购买/评分/阅读入口统一收在行右侧的京东/豆瓣/微信读书胶囊，不在书名上做链接） -->
           <span class="book-item__title">{{ book.title }}</span>
           <!-- 阅读状态小标签：只有读完的书才有，紧贴书名右上角上浮（区别于右侧的购买/阅读胶囊） -->
           <span v-if="book.status" class="book-item__status">{{ book.status }}</span>
@@ -120,7 +120,15 @@ onUnmounted(() => window.removeEventListener('keydown', onLightboxKeydown))
           rel="noopener"
           class="book-item__jd"
         >京东</a>
-        <!-- 右侧：微信读书线上阅读入口（绿胶囊，排在京东之后；书没上架微信读书就不显示） -->
+        <!-- 右侧：豆瓣条目入口（豆瓣绿胶囊，排在京东之后；看评分/书评用，豆瓣未收录的书不显示） -->
+        <a
+          v-if="book.douban"
+          :href="book.douban"
+          target="_blank"
+          rel="noopener"
+          class="book-item__douban"
+        >豆瓣</a>
+        <!-- 右侧：微信读书线上阅读入口（绿胶囊，排在京东/豆瓣之后；书没上架微信读书就不显示） -->
         <a
           v-if="book.weread"
           :href="book.weread"

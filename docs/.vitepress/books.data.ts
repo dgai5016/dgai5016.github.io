@@ -28,7 +28,8 @@ export interface Book {
   pages?: number // 页数（可选）：来自豆瓣/出版社信息，展示为「N 页」
   cover?: string // 封面图（可选）：站点绝对路径，如 /covers/books/xxx.jpg
   status?: BookStatus
-  jd?: string // 京东商品页链接（可选）：买了跳京东；京东搜不到的书退回填豆瓣链接
+  jd?: string // 京东商品页链接（可选）：购买入口，京东没有现货/联盟链的书不写
+  douban?: string // 豆瓣条目链接（可选）：评分/书评入口，豆瓣未收录的书（如微信读书原创）不写
   weread?: string // 微信读书链接（可选）：线上阅读入口，没上架微信读书的书不写
   dir?: string
   docs?: BookDoc[]
@@ -53,7 +54,7 @@ function normalizePubDate(v: any): string | undefined {
 }
 
 // 归一化单本书：字段缺失或类型不对时给兜底值，保证页面渲染永不崩
-// status 只有恰好等于「读完」才保留；jd 必须是 http(s) 开头的字符串才有效；
+// status 只有恰好等于「读完」才保留；jd / douban 必须是 http(s) 开头的字符串才有效；
 // translator / publisher 必须是非空字符串才保留；pubDate 见 normalizePubDate；
 // cover 必须是「/」开头的站内绝对路径才保留（防误填外链或本地路径）；
 // dir 必须是非空字符串才保留（作为 docs/books/ 下子目录名去扫描文档）
@@ -74,6 +75,7 @@ function normalizeBook(raw: any): Book {
     cover: typeof raw?.cover === 'string' && raw.cover.startsWith('/') ? raw.cover : undefined,
     status: raw?.status === '读完' ? '读完' : undefined,
     jd: typeof raw?.jd === 'string' && raw.jd.startsWith('http') ? raw.jd : undefined,
+    douban: typeof raw?.douban === 'string' && raw.douban.startsWith('http') ? raw.douban : undefined,
     weread: typeof raw?.weread === 'string' && raw.weread.startsWith('http') ? raw.weread : undefined,
     dir: typeof raw?.dir === 'string' && raw.dir ? raw.dir : undefined,
   }
