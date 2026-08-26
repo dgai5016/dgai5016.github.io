@@ -215,6 +215,16 @@ books:
     cover: /covers/books/agent-design-patterns.jpg
     jd: https://item.jd.com/15313246.html
     douban: https://book.douban.com/subject/38231086/
+  - title: 《GraphRAG实践：使用知识图谱提升LLM和RAG应用性能》
+    level: 困难
+    author: "[美] 托马兹·布拉塔尼奇、奥斯卡·哈内"
+    translator: 茹炳晟、殷海英
+    publisher: 清华大学出版社
+    pubDate: "2026-05"
+    pages: 202
+    cover: /covers/books/essential-graphrag.jpg
+    jd: https://item.jd.com/10219721239216.html
+    douban: https://book.douban.com/subject/38439868/
     weread: https://weread.qq.com/web/reader/74132a70813abb44eg010c19#outline?noScroll=1
   - title: 《Claude Code橙皮书：从入门到精通（微信读书特别版）》
     level: 简单
