@@ -419,11 +419,13 @@ body {
   padding: 0;
 }
 
-/* 单本书列表行：左书名+作者同行、右状态胶囊，hover 泛主题色 */
+/* 单本书列表行：左书名+作者同行、右状态胶囊，hover 泛主题色；
+   允许换行——有文档的书要把文档链接区换到书名行下方 */
 .book-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 0.75rem;
   padding: 0.65rem 0.5rem;
   border-radius: 8px;
@@ -438,6 +440,21 @@ body {
 
 .book-item:hover {
   background: rgba(108, 99, 255, 0.04);
+}
+
+/* 封面缩略图：竖版 2:3 小图（有真实封面用真实图，没有用通用兜底 SVG）；
+   固定尺寸防止图片加载引起布局抖动，object-fit:cover 让比例不齐的源图裁剪填满不变形；
+   圆角 + 细边框 + 轻阴影，与毛玻璃卡片的质感呼应 */
+.book-item__cover {
+  flex-shrink: 0;
+  width: 32px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--c-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  background: var(--c-bg-surface); /* 图片加载完成前垫一层浅底色 */
+  cursor: zoom-in; /* 提示可点击放大（svg 兜底图点击无反应，可接受） */
 }
 
 /* 序号：主题内从 1 开始，等宽数字对齐 */
@@ -465,30 +482,92 @@ body {
   color: var(--c-text-primary);
 }
 
-/* 带豆瓣链接的书名：默认同色（和普通书名一样），hover 时变主题色提示可点击 */
-a.book-item__title--link {
-  text-decoration: none;
-  transition: color 0.15s ease;
-}
-
-a.book-item__title--link:hover {
-  color: var(--c-accent);
-}
-
-.book-item__author {
+/* 元信息行：作者 著 / 译者 译 · 出版社 · 出版时间（由页面 metaText 拼好），弱化展示；
+   flex-basis:100% 让它强制换到书名下方，书名单独占一行 */
+.book-item__meta {
+  flex-basis: 100%;
   font-size: 0.8125rem;
   color: var(--c-text-muted);
 }
 
-/* 阅读状态胶囊：只有「读完」的书才渲染，绿色 */
-.book-status-pill {
+/* 京东购买入口胶囊：京东品牌红配浅红底，和右侧读完胶囊同一设计语言（小胶囊）；
+   hover 加深底色提示可点击 */
+.book-item__jd {
   flex-shrink: 0;
   padding: 2px 10px;
   border-radius: 9999px;
   font-size: 12px;
   white-space: nowrap;
+  text-decoration: none;
+  color: #e1251b;
+  background: rgba(225, 37, 27, 0.1);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.book-item__jd:hover {
+  background: rgba(225, 37, 27, 0.2);
+  color: #c81623;
+}
+
+/* 微信读书线上阅读入口胶囊：微信绿配浅绿底，与京东胶囊同一设计语言；
+   用微信品牌绿 #07c160（亮绿）和读完胶囊的沉稳绿 #16a34a 区分；
+   书没上架微信读书就不渲染（yaml 不写 weread 字段） */
+.book-item__weread {
+  flex-shrink: 0;
+  padding: 2px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  white-space: nowrap;
+  text-decoration: none;
+  color: #07c160;
+  background: rgba(7, 193, 96, 0.1);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.book-item__weread:hover {
+  background: rgba(7, 193, 96, 0.2);
+  color: #06ad56;
+}
+
+/* 阅读状态小标签（读完）：紧贴书名右上角上浮的小徽章；
+   与右侧京东/微信读书胶囊区分——这是状态展示，不是点击入口；
+   main 是 baseline 对齐的 flex，小字号标签的基线已与书名对齐，
+   再用 translateY 上浮一点，视觉落在书名文字的右上角 */
+.book-item__status {
+  flex-shrink: 0;
+  padding: 1px 7px;
+  border-radius: 9999px;
+  font-size: 10px;
+  line-height: 1.5;
+  white-space: nowrap;
   color: #16a34a;
   background: rgba(22, 163, 74, 0.12);
+  transform: translateY(-4px);
+}
+
+/* 书的专属文档链接区（读书笔记/大纲等）：独占书名行下方一整行，
+   左缩进 = 封面宽 32px + 列间距 0.75rem + 序号宽与间距 2rem，让文档链接与书名文字左对齐 */
+.book-item__docs {
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+  padding-left: calc(32px + 0.75rem + 2rem);
+}
+
+/* 单个文档链接：小字号弱强调，hover 变主题色（与豆瓣书名链接同款交互）。
+   链接本身用全局组件 PostLink 渲染（点击唤出右滑覆盖层），其 scoped 样式
+   （.post-link[data-v-x]，权重 0,2,0）会把颜色固定成 accent、字号重置为继承，
+   这里用三层类名选择器（0,3,0）压过它，保住书单里的弱强调层级 */
+.book-item .book-item__docs .book-item__doc-link {
+  font-size: 0.8125rem;
+  color: var(--c-text-muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.book-item .book-item__docs .book-item__doc-link:hover {
+  color: var(--c-accent);
 }
 
 /* 主题下暂时没有书的提示 */
@@ -496,6 +575,40 @@ a.book-item__title--link:hover {
   margin: 0;
   font-size: 0.875rem;
   color: var(--c-text-muted);
+}
+
+/* 封面灯箱：全屏半透明遮罩（带模糊呼应全站毛玻璃风格），点遮罩关闭；
+   高清大图限制在视口 90% 内，等比显示不溢出 */
+.book-cover-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 999; /* 压过侧栏/覆盖层等所有既有层级 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(4px);
+  cursor: zoom-out; /* 点任意处（含图片）关闭 */
+}
+
+.book-cover-lightbox img {
+  max-height: 90vh;
+  max-width: 90vw;
+  border-radius: 8px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* 小屏（≤640px）：封面缩到 28x42 给书名让空间，文档链接区缩进同步调整 */
+@media (max-width: 640px) {
+  .book-item__cover {
+    width: 28px;
+    height: 42px;
+  }
+
+  .book-item__docs {
+    padding-left: calc(28px + 0.75rem + 2rem);
+  }
 }
 
 .archive-date {

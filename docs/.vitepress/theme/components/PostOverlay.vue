@@ -13,14 +13,26 @@ const emit = defineEmits<{ close: [] }>()
 
 // 用 import.meta.glob 把所有文章 markdown 当 Vue 组件懒加载
 // key 形如 '/posts/ai/neural-network.md'，按 url 后缀匹配，兼容前缀差异
-const modules = import.meta.glob('/posts/**/*.md')
+// 书单页挂载的读书文档（/books/...）也一并纳入，书单页里的 PostLink 才能唤出覆盖层
+const modules = import.meta.glob(['/posts/**/*.md', '/books/**/*.md'])
 
 const bodyComp = shallowRef<any>(null)   // 目标文章正文的渲染组件
 const loading = ref(false)
 const scrollRef = ref<HTMLElement | null>(null) // 覆盖层滚动容器（切换文章时回顶）
+const pageMeta = ref<any>(null) // 兜底元信息：书文档等不在 posts.data 里的页面，从模块 __pageData 取
 
-// 从全站数据里取这篇的元信息（标题/日期/标签）
-const meta = computed(() => (props.url ? posts.find(p => p.url === props.url) : null))
+// 从全站数据里取这篇的元信息（标题/日期/标签）。
+// 注意两边 url 形态不同：posts.data 里带 .html 后缀，PostLink 传入前已剥掉，
+// 必须归一化后再比较（直接严格相等永远匹配不上，覆盖层会丢失标题头）；
+// posts.data 里查不到的页面（如书文档）退回用 pageMeta 兜底
+const meta = computed(() => {
+  if (!props.url) return null
+  const norm = props.url.replace(/\.html$/, '').replace(/\/$/, '')
+  return (
+    posts.find((p) => p.url.replace(/\.html$/, '').replace(/\/$/, '') === norm) ||
+    pageMeta.value
+  )
+})
 
 function findLoader(url: string) {
   const norm = url.replace(/\.md$/, '').replace(/\/$/, '')
@@ -34,6 +46,7 @@ function findLoader(url: string) {
 // url 变化时，懒加载对应文章正文组件
 watch(() => props.url, async (url) => {
   scrollRef.value?.scrollTo({ top: 0 }) // 切换文章回到顶部
+  pageMeta.value = null // 切换文章时清掉上一篇的兜底元信息，防止串页
   if (!url) { bodyComp.value = null; return }
   loading.value = true
   bodyComp.value = null
@@ -41,6 +54,12 @@ watch(() => props.url, async (url) => {
   if (loader) {
     const mod = await (loader as () => Promise<any>)()
     bodyComp.value = mod.default
+    // VitePress 的 md 模块自带 __pageData（含 frontmatter），
+    // 不在 posts.data 里的页面（书文档）用它拼出覆盖层头部需要的元信息
+    const fm = mod.__pageData?.frontmatter
+    if (fm?.title) {
+      pageMeta.value = { title: fm.title, date: fm.date || '', tags: fm.tags }
+    }
   }
   loading.value = false
   // 关键：loading 置 false 后，模板里 <component :is="bodyComp"/>（v-else-if）才渲染出正文与代码块。
@@ -115,7 +134,7 @@ onUnmounted(() => {
           </div>
 
           <div class="overlay-foot">
-            <button class="overlay-close-text" @click="emit('close')">← 返回索引</button>
+            <button class="overlay-close-text" @click="emit('close')">← 返回</button>
           </div>
         </article>
       </div>

@@ -19,7 +19,10 @@ const isPost = computed(() => frontmatter.value?.layout === 'post')
 
 const sourcePage = ref('/')
 watch(() => route.path, (path) => {
-  if (!path.startsWith('/posts/')) {
+  // 只有「非文章页」才能作为返回目标：/posts/ 下的页面全是文章（前缀判断），
+  // 书单页挂载的读书文档（/books/...）也是 layout: post 的文章页，但路径不带 /posts/ 前缀，
+  // 故再按 frontmatter.layout 排除一次，防止文档页被误记为来源页导致返回按钮失效
+  if (!path.startsWith('/posts/') && frontmatter.value?.layout !== 'post') {
     sourcePage.value = path
   }
 }, { immediate: true })

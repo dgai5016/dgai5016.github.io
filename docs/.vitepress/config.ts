@@ -8,6 +8,17 @@ export default defineConfig({
   title: "dg's Blog",
   description: '探索 AI 与编程的世界',
 
+  // texmath 渲染公式时会用非标准的 <eq>/<eqn> 标签包裹公式，
+  // 不在这里声明为自定义元素的话，Vue 会把它们当组件解析——
+  // 运行时找不到该组件，公式就整体变成空节点（页面上凭空消失）
+  vue: {
+    template: {
+      compilerOptions: {
+        isCustomElement: (tag) => tag === 'eq' || tag === 'eqn',
+      },
+    },
+  },
+
   head: [
     ['link', { rel: 'icon', href: '/favicon.svg' }],
     ['meta', { name: 'theme-color', content: '#6c63ff' }],

@@ -2,25 +2,96 @@
 name: 如何阅读
 order: 4
 books:
-  # 每本书字段：title 书名 / author 作者 / status 可选（写「读完」显示绿胶囊）
-  # / douban 可选（豆瓣链接，写了书名可点击跳转）
-  # 主题内「读完」的自动排前面，其余排在后面
+  # 每本书字段：title 书名 / author 作者（多人用「、」分隔，翻译书写原作者）
+  # / translator 可选（译者，多人用「、」分隔，中文原创书不写）
+  # / publisher 可选（出版社）/ pubDate 可选（出版时间，格式 "YYYY-MM" 或 "YYYY"，必须带引号）
+  # / cover 可选（封面图片路径，图片存 docs/public/covers/books/ 下，这里写站点绝对路径如 /covers/books/xxx.jpg）
+  # / jd 可选（京东商品页链接，写了书名可点击跳转）
+  # / status 可选（写「读完」显示绿胶囊）
+  # / level 可选（难度等级：简单/中等/困难，只影响排序不在页面显示；未写排在最后）
+  # 主题内按 简单→中等→困难 由易到难排序，同级内保持本文件书写顺序；「读完」只是状态标签不影响排序
   # 书名含「冒号+空格」时必须用引号包起来，否则 YAML 解析会出错
   - title: "《如何阅读，一个已被证实的低投入高回报的学习方法》"
-    douban: https://book.douban.com/subject/26863462/
+    level: 简单
+    author: 艾比·马克斯·比尔
+    publisher: 中国青年出版社
+    pubDate: "2016-07"
+    pages: 224
+    cover: /covers/books/proven-reading-method.jpg
+    jd: https://item.jd.com/10029745437836.html
+    weread: https://weread.qq.com/web/reader/10832d70813ab85afg015e8b#outline?noScroll=1
   - title: "《书都不会读，你还想成功 : 神奇读书法，职场菜鸟变CEO》"
-    douban: https://book.douban.com/subject/21364188/
+    level: 中等
+    author: 二志成、郑会一
+    translator: 冯适宜
+    publisher: 广西科学技术出版社
+    pubDate: "2013-04"
+    pages: 194
+    cover: /covers/books/reading-or-success.jpg
+    jd: https://item.jd.com/10161445640232.html
+    weread: https://weread.qq.com/web/reader/cca325b05b6af4cca449b44#outline?noScroll=1
   - title: "《阅读 7 堂课》"
-    douban: https://book.douban.com/subject/35238494/
+    level: 中等
+    author: 秋叶、秦阳
+    publisher: 人民邮电出版社
+    pubDate: "2020"
+    pages: 240
+    cover: /covers/books/seven-reading-lessons.jpg
+    jd: https://item.jd.com/10193212320065.html
+    weread: https://weread.qq.com/web/reader/06632380721f8b860#outline?noScroll=1
   - title: "《如何共读一本书 : 高效引导社群学习》"
-    douban: https://book.douban.com/subject/35374635/
+    level: 困难
+    author: 林扬程
+    publisher: 电子工业出版社
+    pubDate: "2020-10"
+    pages: 196
+    cover: /covers/books/reading-together.jpg
+    jd: https://item.jd.com/12728621.html
+    weread: https://weread.qq.com/web/reader/09132580721639b40912923#outline?noScroll=1
   - title: "《读书变现：如何成为一名读书博主》"
-    douban: https://book.douban.com/subject/36337224/
+    level: 困难
+    author: 弘丹
+    publisher: 东方出版社
+    pubDate: "2023-03"
+    pages: 262
+    cover: /covers/books/monetize-reading.jpg
+    jd: https://item.jd.com/13858770.html
+    weread: https://weread.qq.com/web/reader/80f32e00811e7e5b3g013dc8#outline?noScroll=1
   - title: "《快速阅读术》"
-    douban: https://book.douban.com/subject/27032526/
+    level: 简单
+    author: "[日] 印南敦史"
+    translator: 王宇新
+    publisher: 中信出版社
+    pubDate: "2017-04"
+    pages: 144
+    cover: /covers/books/speed-reading.jpg
+    jd: https://item.jd.com/10174951838949.html
+    weread: https://weread.qq.com/web/reader/43c32ee05ddb7b43cd9f47b#outline?noScroll=1
   - title: "《如何阅读一本书》"
-    douban: https://book.douban.com/subject/1013208/
+    level: 简单
+    author: "[美] 莫提默·J. 艾德勒、查尔斯·范多伦"
+    translator: 郝明义、朱衣
+    publisher: 商务印书馆
+    pubDate: "2004-01"
+    pages: 376
+    cover: /covers/books/how-to-read-a-book.jpg
+    jd: https://item.jd.com/13199090.html
+    weread: https://weread.qq.com/web/reader/272326407169ff22272934f#outline?noScroll=1
   - title: "《给大忙人的高效阅读课》"
-    douban: https://book.douban.com/subject/34809155/
+    level: 中等
+    author: 李源
+    publisher: 江苏凤凰科学技术出版社
+    pubDate: "2019-10"
+    pages: 240
+    cover: /covers/books/busy-reader.jpg
+    jd: https://item.jd.com/10158462026774.html
+    weread: https://weread.qq.com/web/reader/03432af0719714160347afa#outline?noScroll=1
   - title: "《左手阅读，右手写作： 从零开始打造你的读书IP》"
-    douban: https://book.douban.com/subject/36654637/
+    level: 困难
+    author: 笑薇
+    publisher: 中国铁道出版社
+    pubDate: "2023-11"
+    pages: 200
+    cover: /covers/books/read-and-write.jpg
+    jd: https://item.jd.com/14287516.html
+    weread: https://weread.qq.com/web/reader/6ad324c0811e7ee23g019a6e#outline?noScroll=1

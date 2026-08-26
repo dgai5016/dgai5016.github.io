@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 书单页通用兜底封面：没抓到真实封面的书统一显示这张占位图。
+     竖版 2:3（64x96），浅灰紫底 + 合上的书本轮廓图标，配色取自主题色 #6c63ff 的低饱和衍生色 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 96" width="64" height="96">
+  <!-- 底色：从浅到略深的灰紫渐变，避免纯色显得死板 -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ecebf9"/>
+      <stop offset="1" stop-color="#dcdbf3"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="96" fill="url(#bg)"/>
+  <!-- 书本轮廓：圆角矩形书体，描边用主题色的低饱和紫 -->
+  <rect x="19" y="27" width="26" height="38" rx="2.5" fill="none" stroke="#a49fdf" stroke-width="2.5"/>
+  <!-- 书脊：左侧竖线，让轮廓看起来像合上的书 -->
+  <line x1="25" y1="30" x2="25" y2="62" stroke="#a49fdf" stroke-width="2"/>
+  <!-- 封面装饰：两条短横线示意书名区，纯几何不写字 -->
+  <line x1="29.5" y1="38" x2="40" y2="38" stroke="#bcc0e8" stroke-width="2" stroke-linecap="round"/>
+  <line x1="29.5" y1="45" x2="40" y2="45" stroke="#bcc0e8" stroke-width="2" stroke-linecap="round"/>
+</svg>
