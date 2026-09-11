@@ -23,6 +23,44 @@ const bodyComp = shallowRef<any>(null)   // 当前文档的渲染组件
 const loading = ref(false)
 const scrollRef = ref<HTMLElement | null>(null)
 
+// —— 目录（TOC）：收集中文栏的 h2/h3 作章节导航 ——
+// 配对文档每个 BiRow 行的 en/zh 格标题一一对应，取 zh 栏即得完整章节结构。
+// 标题元素直接持有引用，点击 scrollIntoView 平滑滚到对应行。
+interface TocItem { key: string; level: number; text: string; el: HTMLElement }
+const tocItems = ref<TocItem[]>([])
+const activeKey = ref('')
+
+function collectToc() {
+  // 目录收集 h2/h3/h4 三级（对应原文的 ##/###/#### 层级）
+  const els = scrollRef.value
+    ? (Array.from(scrollRef.value.querySelectorAll('.bi-zh h2, .bi-zh h3, .bi-zh h4')) as HTMLElement[])
+    : []
+  tocItems.value = els.map((el, i) => ({
+    key: 'toc-' + i,
+    level: Number(el.tagName.slice(1)),
+    // 清掉 VitePress 标题锚点链接残留的零宽空格（​），否则目录文本尾部带隐形字符
+    text: (el.textContent || '').replace(/​/g, '').trim(),
+    el,
+  }))
+  activeKey.value = tocItems.value[0]?.key || ''
+}
+
+// 滚动高亮：最后一个「顶部已滚过容器顶 + 120px 缓冲」的标题视为当前节
+function onOverlayScroll() {
+  if (!scrollRef.value || !tocItems.value.length) return
+  const wrapTop = scrollRef.value.getBoundingClientRect().top
+  let current = ''
+  for (const it of tocItems.value) {
+    if (it.el.getBoundingClientRect().top - wrapTop <= 120) current = it.key
+  }
+  activeKey.value = current
+}
+
+function jumpTo(it: TocItem) {
+  // 不带 behavior 参数 = 瞬间定位（dg 验收要求去掉平滑滚动动画）
+  it.el.scrollIntoView({ block: 'start' })
+}
+
 // 清单元信息：标题（双语）/ 分组 / 原文链接
 const meta = computed(() => mcpDocs.find((d) => d.slug === props.slug) || null)
 
@@ -59,6 +97,8 @@ watch(() => props.slug, async (slug) => {
     enhanceCodeBlocks(scrollRef.value)
     // mermaid 图按需渲染（异步进行，不阻塞面板展示）
     enhanceMermaid(scrollRef.value)
+    // 目录收集：正文组件渲染完成后 zh 栏的 h2/h3 就位
+    collectToc()
   }
 }, { immediate: true })
 
@@ -104,7 +144,7 @@ onUnmounted(() => {
         </svg>
       </button>
 
-      <div ref="scrollRef" class="biol-scroll">
+      <div ref="scrollRef" class="biol-scroll" @scroll.passive="onOverlayScroll">
         <article class="biol-article">
           <!-- 头部：中文主标题 + 英文副标题 + 分组徽标 + 原文链接 -->
           <header v-if="meta" class="biol-header">
@@ -130,18 +170,21 @@ onUnmounted(() => {
             >中文</button>
           </div>
 
-          <!-- 正文：配对文档逐段 BiRow 行（代码块展开按钮已注入） -->
-          <div
-            class="glass-card vp-doc content-card biol-body"
-            :class="{ 'hide-en': mobileTab === 'zh', 'hide-zh': mobileTab === 'en' }"
-          >
-            <div v-if="loading" class="biol-loading">加载中…</div>
-            <component :is="bodyComp" v-else-if="bodyComp" />
-            <div v-else class="biol-loading">暂无内容</div>
-          </div>
+          <!-- 正文 + 目录 两栏：目录只在桌面端（≥1024px）显示，样式对齐文章页 TableOfContents -->
+          <div class="biol-content-row">
+            <div class="biol-body-col">
+              <!-- 正文：配对文档逐段 BiRow 行（代码块展开按钮已注入） -->
+              <div
+                class="glass-card vp-doc content-card biol-body"
+                :class="{ 'hide-en': mobileTab === 'zh', 'hide-zh': mobileTab === 'en' }"
+              >
+                <div v-if="loading" class="biol-loading">加载中…</div>
+                <component :is="bodyComp" v-else-if="bodyComp" />
+                <div v-else class="biol-loading">暂无内容</div>
+              </div>
 
-          <!-- 底部：上一篇 / 返回 / 下一篇 -->
-          <div class="biol-foot">
+              <!-- 底部：上一篇 / 返回 / 下一篇 -->
+              <div class="biol-foot">
             <button v-if="prevDoc" class="biol-nav" @click="emit('prev', prevDoc.slug)">
               ← {{ prevDoc.titleZh }}
             </button>
@@ -151,6 +194,28 @@ onUnmounted(() => {
               {{ nextDoc.titleZh }} →
             </button>
             <span v-else class="biol-nav placeholder"></span>
+              </div>
+            </div>
+
+            <!-- 右侧目录：sticky 跟随滚动，点击平滑滚到对应章节，当前节高亮 -->
+            <aside v-if="tocItems.length" class="biol-toc">
+              <nav class="biol-toc-container glass-card">
+                <h4 class="biol-toc-heading">目录</h4>
+                <ul class="biol-toc-list">
+                  <li v-for="it in tocItems" :key="it.key">
+                    <a
+                      :class="[
+                        'biol-toc-link',
+                        it.level === 3 ? 'biol-toc-link-h3' : '',
+                        it.level === 4 ? 'biol-toc-link-h4' : '',
+                        activeKey === it.key ? 'biol-toc-link-active' : 'biol-toc-link-default',
+                      ]"
+                      @click.prevent="jumpTo(it)"
+                    >{{ it.text }}</a>
+                  </li>
+                </ul>
+              </nav>
+            </aside>
           </div>
         </article>
       </div>
@@ -270,6 +335,99 @@ onUnmounted(() => {
   .biol-tabs { display: none; }
 }
 
+/* 正文 + 目录 两栏：目录 sticky 跟随，桌面端显示（<1024px 隐藏，与文章页 TOC 一致） */
+.biol-content-row {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.biol-body-col {
+  flex: 1;
+  min-width: 0;
+}
+
+.biol-toc {
+  display: none;
+  position: sticky;
+  top: 1rem;
+  width: 11.5rem;
+  flex-shrink: 0;
+  max-height: calc(100vh - 2.5rem);
+  overflow-y: auto;
+}
+
+@media (min-width: 1024px) {
+  .biol-toc { display: block; }
+}
+
+/* 目录样式对齐文章页 TableOfContents（glass-card 容器 + 高亮当前节） */
+.biol-toc-container {
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.biol-toc-heading {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--c-text-muted);
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.biol-toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.8125rem;
+}
+
+.biol-toc-list li {
+  margin-bottom: 0.375rem;
+}
+
+.biol-toc-list li:last-child {
+  margin-bottom: 0;
+}
+
+.biol-toc-link {
+  display: block;
+  transition: color 0.2s ease;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.biol-toc-link-h3 {
+  padding-left: 0.75rem;
+}
+
+.biol-toc-link-h4 {
+  padding-left: 1.5rem;
+}
+
+.biol-toc-link-active {
+  color: var(--c-accent);
+  font-weight: 500;
+}
+
+.biol-toc-link-default {
+  color: var(--c-text-secondary);
+}
+
+.biol-toc-link-default:hover {
+  color: var(--c-text-primary);
+}
+
+.biol-toc::-webkit-scrollbar { width: 6px; }
+.biol-toc::-webkit-scrollbar-thumb {
+  background: rgba(108, 99, 255, 0.25);
+  border-radius: 9999px;
+}
+
 /* 正文卡片 */
 .biol-body {
   border-radius: 0.75rem;
@@ -380,6 +538,12 @@ onUnmounted(() => {
   .biol-body.hide-zh .bi-zh {
     display: none;
   }
+}
+
+/* 目录点击滚动定位时，标题顶部留呼吸空间（scrollIntoView 的 block:start 对齐用）。
+   正文内容来自插槽渲染的配对组件，scoped 选择器够不到，须走非作用域 */
+.biol-body :is(h2, h3) {
+  scroll-margin-top: 1.25rem;
 }
 /* ≥1024px：双栏常显（清掉 tab 隐藏类的影响，防止窄→宽切换残留） */
 @media (min-width: 1024px) {
