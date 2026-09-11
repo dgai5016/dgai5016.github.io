@@ -12,6 +12,8 @@ import CodeBlockExpand from './components/CodeBlockExpand.vue'
 import CommandPalette from './components/CommandPalette.vue'
 // 代码块「全屏展开」按钮注入函数（Layout 与 PostOverlay 共用）
 import { enhanceCodeBlocks } from './utils/enhanceCodeBlocks'
+// mermaid 代码块按需渲染成 SVG（MCP 文档的架构图/时序图）
+import { enhanceMermaid } from './utils/enhanceMermaid'
 
 const { frontmatter } = useData()
 const router = useRouter()
@@ -164,6 +166,9 @@ const codeExpandLang = ref('')
 // 照抄 positionBackBtn 的「延迟 100ms 等正文挂载」范式（见上方 onMounted / watch route.path）。
 onMounted(() => setTimeout(() => enhanceCodeBlocks(), 100))
 watch(() => route.path, () => setTimeout(() => enhanceCodeBlocks(), 100))
+// mermaid 渲染同样要跟着路由重跑（与代码块展开按钮同款时序：延迟等正文挂载）
+onMounted(() => setTimeout(() => enhanceMermaid(), 100))
+watch(() => route.path, () => setTimeout(() => enhanceMermaid(), 100))
 
 // document 级冒泡委托（与 onImageClick 同款）：命中 .code-expand-btn 就克隆对应代码块、打开模态。
 // 一份委托同时覆盖主文章页与右滑覆盖层（PostOverlay）内的代码块——两者 DOM 都在 document 内，事件冒泡至此。

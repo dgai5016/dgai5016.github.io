@@ -689,3 +689,13 @@ body {
   background-color: var(--vp-code-copy-code-hover-bg);
   color: var(--c-accent);            /* hover 转强调色，给点击反馈 */
 }
+
+/* —— mermaid 图渲染容器（enhanceMermaid 把 ```mermaid 代码块替换成 SVG） —— */
+.mermaid-svg {
+  text-align: center;             /* 图居中 */
+  padding: 0.5rem 0;
+}
+.mermaid-svg svg {
+  max-width: 100%;                /* 超宽图自适应容器，不出横向滚动条 */
+  height: auto;
+}

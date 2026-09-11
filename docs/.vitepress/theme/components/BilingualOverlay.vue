@@ -10,6 +10,7 @@
 import { ref, shallowRef, computed, watch, nextTick, onMounted, onUnmounted } from 'vue'
 import { mcpDocs } from '../mcp-docs-manifest'
 import { enhanceCodeBlocks } from '../utils/enhanceCodeBlocks'
+import { enhanceMermaid } from '../utils/enhanceMermaid'
 
 const props = defineProps<{ slug: string | null }>()
 const emit = defineEmits<{ close: [], prev: [slug: string], next: [slug: string] }>()
@@ -54,7 +55,11 @@ watch(() => props.slug, async (slug) => {
   loading.value = false
   // 等正文渲染完再注入代码块展开按钮（与 PostOverlay 同款时序处理）
   await nextTick()
-  if (scrollRef.value) enhanceCodeBlocks(scrollRef.value)
+  if (scrollRef.value) {
+    enhanceCodeBlocks(scrollRef.value)
+    // mermaid 图按需渲染（异步进行，不阻塞面板展示）
+    enhanceMermaid(scrollRef.value)
+  }
 }, { immediate: true })
 
 // Esc 关闭：上层模态（代码全屏/图片预览）打开时让位，防止一次 Esc 连关两层

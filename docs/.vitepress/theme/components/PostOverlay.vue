@@ -7,6 +7,8 @@ import { ref, shallowRef, computed, watch, nextTick, onMounted, onUnmounted } fr
 import { data as posts } from '../../posts.data'
 // 代码块「全屏展开」按钮注入函数（与 Layout 共用同一份）
 import { enhanceCodeBlocks } from '../utils/enhanceCodeBlocks'
+// mermaid 代码块按需渲染成 SVG（覆盖层内的文章同样可能带图）
+import { enhanceMermaid } from '../utils/enhanceMermaid'
 
 const props = defineProps<{ url: string | null }>()
 const emit = defineEmits<{ close: [] }>()
@@ -76,7 +78,11 @@ watch(() => props.url, async (url) => {
   // 覆盖层正文随 props.url 切换、不触发 route.path 变化，Layout 的 watch 不会替它注入，故在此自行调用
   // （扫描范围限定到覆盖层滚动容器，避免重复处理主文章页的代码块）。
   await nextTick()
-  if (scrollRef.value) enhanceCodeBlocks(scrollRef.value)
+  if (scrollRef.value) {
+    enhanceCodeBlocks(scrollRef.value)
+    // mermaid 图按需渲染（异步进行，不阻塞面板展示）
+    enhanceMermaid(scrollRef.value)
+  }
 }, { immediate: true })
 
 // Esc 关闭
