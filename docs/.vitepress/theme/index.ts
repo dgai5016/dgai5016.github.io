@@ -1,6 +1,8 @@
 import type { Theme } from 'vitepress'
 import Layout from './Layout.vue'
 import PostLink from './components/PostLink.vue'
+import McpDocLink from './components/McpDocLink.vue'
+import BiRow from './components/BiRow.vue'
 import 'vitepress/dist/client/theme-default/styles/vars.css'
 import 'vitepress/dist/client/theme-default/styles/base.css'
 import 'vitepress/dist/client/theme-default/styles/utils.css'
@@ -20,5 +22,9 @@ export default {
   enhanceApp({ app }) {
     // 全局注册 PostLink，使 markdown 里可直接用 <PostLink to="...">文本</PostLink>
     app.component('PostLink', PostLink)
+    // McpDocLink：学习地图文章里 <McpDocLink slug="...">文本</McpDocLink> 点击开双栏 overlay
+    app.component('McpDocLink', McpDocLink)
+    // BiRow：配对 md（docs/mcp-docs/paired/）里直接使用，无需逐文件 import
+    app.component('BiRow', BiRow)
   },
 } satisfies Theme

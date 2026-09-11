@@ -6,6 +6,7 @@ import Footer from './components/Footer.vue'
 import PostMeta from './components/PostMeta.vue'
 import TableOfContents from './components/TableOfContents.vue'
 import PostOverlay from './components/PostOverlay.vue'
+import BilingualOverlay from './components/BilingualOverlay.vue'
 import ImageLightbox from './components/ImageLightbox.vue'
 import CodeBlockExpand from './components/CodeBlockExpand.vue'
 import CommandPalette from './components/CommandPalette.vue'
@@ -95,10 +96,37 @@ function closeOverlay() {
 
 function onPop() {
   overlayUrl.value = null
+  bilingualSlug.value = null
 }
 
 // 让 PostLink（正文里的链接组件）能调用 openOverlay
 provide('openOverlay', openOverlay)
+
+// —— 「右滑双语覆盖层」打开 MCP 官方文档的英中对照阅读 ——
+// 与上面的 PostOverlay 同一套历史管理模式：打开压一条 state 使后退键可关闭，
+// 覆盖层内切换文档（上/下一篇）则就地替换、不压历史。
+const bilingualSlug = ref<string | null>(null)
+
+function openBilingual(slug: string) {
+  if (bilingualSlug.value) {
+    bilingualSlug.value = slug          // 已开 → 就地切换文档
+  } else {
+    history.replaceState(null, '')
+    history.pushState({ bilingual: slug }, '')
+    bilingualSlug.value = slug
+  }
+}
+
+function closeBilingual() {
+  if (history.state?.bilingual) {
+    history.back() // 触发 popstate → onPop 关闭
+  } else {
+    bilingualSlug.value = null
+  }
+}
+
+// 让 McpDocLink（学习地图文章里的链接组件）能调用 openBilingual
+provide('openBilingual', openBilingual)
 
 onMounted(() => window.addEventListener('popstate', onPop))
 onUnmounted(() => window.removeEventListener('popstate', onPop))
@@ -222,6 +250,14 @@ onUnmounted(() => document.removeEventListener('click', onCodeExpandClick))
 
     <!-- 右滑覆盖层：点击文章正文里的站内链接时由 onLinkIntercept 触发 -->
     <PostOverlay :url="overlayUrl" @close="closeOverlay" />
+
+    <!-- 右滑双语覆盖层：点击《MCP 学习地图》里的文档链接时打开英中对照阅读 -->
+    <BilingualOverlay
+      :slug="bilingualSlug"
+      @close="closeBilingual"
+      @prev="(s: string) => (bilingualSlug = s)"
+      @next="(s: string) => (bilingualSlug = s)"
+    />
 
     <!-- 全局命令面板：任意页面按 Cmd/Ctrl+K 召唤，搜索文章并跳转（组件自管开合，无需 props） -->
     <CommandPalette />

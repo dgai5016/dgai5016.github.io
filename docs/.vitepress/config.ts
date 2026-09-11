@@ -8,13 +8,21 @@ export default defineConfig({
   title: "dg's Blog",
   description: '探索 AI 与编程的世界',
 
+  // MCP 双语文档（docs/mcp-docs/）不作为独立页面路由，只作为模块
+  // 被 BilingualOverlay 懒加载——避免 24×3 个残缺页面混进站点
+  srcExclude: ['mcp-docs/**'],
+
   // texmath 渲染公式时会用非标准的 <eq>/<eqn> 标签包裹公式，
   // 不在这里声明为自定义元素的话，Vue 会把它们当组件解析——
   // 运行时找不到该组件，公式就整体变成空节点（页面上凭空消失）
+  // 同理：MCP 文档原文里的 Mintlify 私有组件（CodeGroup/Badge/Accordion 等）
+  // 在配对 md 中原样保留，也必须声明为自定义元素——内容按原生 HTML 渲染，
+  // 标签本身退化为无样式容器（代码块平铺、徽章显示文字），不炸渲染
   vue: {
     template: {
       compilerOptions: {
-        isCustomElement: (tag) => tag === 'eq' || tag === 'eqn',
+        isCustomElement: (tag) =>
+          ['eq', 'eqn', 'CodeGroup', 'CodeGroupItem', 'Accordion', 'AccordionGroup', 'Badge', 'Tooltip', 'Info', 'Icon', 'Frame'].includes(tag),
       },
     },
   },
