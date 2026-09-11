@@ -8,9 +8,15 @@ export default defineConfig({
   title: "dg's Blog",
   description: '探索 AI 与编程的世界',
 
-  // MCP 双语文档（docs/mcp-docs/）不作为独立页面路由，只作为模块
-  // 被 BilingualOverlay 懒加载——避免 24×3 个残缺页面混进站点
-  srcExclude: ['mcp-docs/**'],
+  // MCP 双语文档库（posts/ai/mcp/ 下的 en/zh/paired 与 shared-context.md）
+  // 不作为独立页面路由，只作为模块被 BilingualOverlay 懒加载——
+  // 注意只排除文档子目录：posts/ai/mcp/ 顶层的正常 MCP 文章照常路由
+  srcExclude: [
+    'posts/ai/mcp/en/**',
+    'posts/ai/mcp/zh/**',
+    'posts/ai/mcp/paired/**',
+    'posts/ai/mcp/shared-context.md',
+  ],
 
   // texmath 渲染公式时会用非标准的 <eq>/<eqn> 标签包裹公式，
   // 不在这里声明为自定义元素的话，Vue 会把它们当组件解析——

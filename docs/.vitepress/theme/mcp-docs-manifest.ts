@@ -3,7 +3,7 @@
 // titleZh 与《MCP 学习地图》文章里的中文译名一致；sourceUrl 指向官方英文原文。
 // 消费方：BilingualOverlay（头部标题/原文链接/上下篇导航）。
 export interface McpDocMeta {
-  slug: string      // 站内标识，对应 docs/mcp-docs/paired/<slug>.md
+  slug: string      // 站内标识，对应 posts/ai/mcp/paired/<slug>.md
   group: string     // 分组名（与学习地图文章的七个分组一致）
   titleZh: string   // 中文标题（overlay 头部主标题）
   titleEn: string   // 英文标题（副标题）

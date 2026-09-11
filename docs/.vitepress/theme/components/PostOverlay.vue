@@ -14,7 +14,16 @@ const emit = defineEmits<{ close: [] }>()
 // 用 import.meta.glob 把所有文章 markdown 当 Vue 组件懒加载
 // key 形如 '/posts/ai/neural-network.md'，按 url 后缀匹配，兼容前缀差异
 // 书单页挂载的读书文档（/books/...）也一并纳入，书单页里的 PostLink 才能唤出覆盖层
-const modules = import.meta.glob(['/posts/**/*.md', '/books/**/*.md'])
+// 排除 MCP 双语文档库（en/zh/paired）：它们只归 BilingualOverlay 管，
+// 不应作为普通文章被覆盖层打开
+const modules = import.meta.glob([
+  '/posts/**/*.md',
+  '!/posts/ai/mcp/en/**',
+  '!/posts/ai/mcp/zh/**',
+  '!/posts/ai/mcp/paired/**',
+  '!/posts/ai/mcp/shared-context.md',
+  '/books/**/*.md',
+])
 
 const bodyComp = shallowRef<any>(null)   // 目标文章正文的渲染组件
 const loading = ref(false)

@@ -43,7 +43,7 @@ def split_blocks(text: str) -> list[str]:
 
 def main():
     slug = sys.argv[1]
-    en_path = REPO / "docs" / "mcp-docs" / "en" / (slug + ".md")
+    en_path = REPO / "docs" / "posts" / "ai" / "mcp" / "en" / (slug + ".md")
     zh_path = (
         Path(sys.argv[2]).resolve()
         if len(sys.argv) > 2

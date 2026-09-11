@@ -15,7 +15,8 @@ const props = defineProps<{ slug: string | null }>()
 const emit = defineEmits<{ close: [], prev: [slug: string], next: [slug: string] }>()
 
 // 懒加载全部配对文档（构建期 VitePress 编译，代码高亮/表格全保真）
-const modules = import.meta.glob('/mcp-docs/paired/*.md')
+// 路径：posts/ai/mcp/paired/<slug>.md（srcExclude 排除路由但保留模块加载）
+const modules = import.meta.glob('/posts/ai/mcp/paired/*.md')
 
 const bodyComp = shallowRef<any>(null)   // 当前文档的渲染组件
 const loading = ref(false)
@@ -36,7 +37,7 @@ const nextDoc = computed(() =>
 const mobileTab = ref<'en' | 'zh'>('zh')
 
 function findLoader(slug: string) {
-  return Object.entries(modules).find(([k]) => k === `/mcp-docs/paired/${slug}.md`)?.[1]
+  return Object.entries(modules).find(([k]) => k === `/posts/ai/mcp/paired/${slug}.md`)?.[1]
 }
 
 // slug 变化时懒加载对应配对文档

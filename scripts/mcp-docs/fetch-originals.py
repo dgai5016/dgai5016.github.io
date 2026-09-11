@@ -19,7 +19,7 @@ import urllib.request
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]  # 博客仓库根目录
-OUT_DIR = REPO / "docs" / "mcp-docs" / "en"
+OUT_DIR = REPO / "docs" / "posts" / "ai" / "mcp" / "en"
 BASE = "https://modelcontextprotocol.io/docs/2026-07-28/"
 
 # 24 篇文档清单：slug 是站内文件名（也是前端路由标识），path 是官方 URL 路径

@@ -14,7 +14,7 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
-ARTICLE = REPO / "docs" / "posts" / "ai" / "mcp-docs-guide.md"
+ARTICLE = REPO / "docs" / "posts" / "ai" / "mcp" / "mcp-docs-guide.md"
 BASE = "https://modelcontextprotocol.io/docs/2026-07-28/"
 
 # slug → 官方 URL（与 fetch-originals.py 的 MANIFEST 一致）

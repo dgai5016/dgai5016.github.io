@@ -18,9 +18,9 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
-EN = REPO / "docs" / "mcp-docs" / "en"
-ZH = REPO / "docs" / "mcp-docs" / "zh"
-PAIRED = REPO / "docs" / "mcp-docs" / "paired"
+EN = REPO / "docs" / "posts" / "ai" / "mcp" / "en"
+ZH = REPO / "docs" / "posts" / "ai" / "mcp" / "zh"
+PAIRED = REPO / "docs" / "posts" / "ai" / "mcp" / "paired"
 
 
 # Mintlify 容器组件：开闭标签之间不能按空行分块，
