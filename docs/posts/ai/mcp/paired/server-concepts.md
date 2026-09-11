@@ -184,7 +184,7 @@ Tools are schema-defined interfaces that LLMs can invoke. MCP uses JSON Schema f
 <BiRow>
 <template #en>
 
-```typescript theme={null}
+```typescript
 {
   name: "searchFlights",
   description: "Search for available flights",
@@ -203,7 +203,7 @@ required: ["origin", "destination", "date"]
 </template>
 <template #zh>
 
-```typescript theme={null}
+```typescript
 {
   name: "searchFlights",
   description: "Search for available flights",
@@ -679,7 +679,7 @@ In this case, it provides calendar data, weather information, and travel prefere
 <BiRow>
 <template #en>
 
-```json theme={null}
+```json
 {
   "uriTemplate": "weather://forecast/{city}/{date}",
   "name": "weather-forecast",
@@ -700,7 +700,7 @@ In this case, it provides calendar data, weather information, and travel prefere
 </template>
 <template #zh>
 
-```json theme={null}
+```json
 {
   "uriTemplate": "weather://forecast/{city}/{date}",
   "name": "weather-forecast",
@@ -972,7 +972,7 @@ Prompts provide structured templates for common tasks. In the travel planning co
 <BiRow>
 <template #en>
 
-```json theme={null}
+```json
 {
   "name": "plan-vacation",
   "title": "Plan a vacation",
@@ -989,7 +989,7 @@ Prompts provide structured templates for common tasks. In the travel planning co
 </template>
 <template #zh>
 
-```json theme={null}
+```json
 {
   "name": "plan-vacation",
   "title": "Plan a vacation",
@@ -1211,7 +1211,7 @@ Consider a personalized AI travel planner application, with three connected serv
 <BiRow>
 <template #en>
 
-   ```json theme={null}
+   ```json
    {
  "prompt": "plan-vacation",
  "arguments": {
@@ -1227,7 +1227,7 @@ Consider a personalized AI travel planner application, with three connected serv
 </template>
 <template #zh>
 
-   ```json theme={null}
+   ```json
    {
  "prompt": "plan-vacation",
  "arguments": {

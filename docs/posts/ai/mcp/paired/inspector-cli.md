@@ -27,14 +27,14 @@ CLI 每次运行都会连接一个服务器，执行你用 `--method` 指定的�
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 npx @modelcontextprotocol/inspector --cli node build/index.js --method tools/list
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 npx @modelcontextprotocol/inspector --cli node build/index.js --method tools/list
 ```
 
@@ -83,7 +83,7 @@ CLI 接受三种指定服务器的方式：位置参数形式的命令（stdio�
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 # stdio: everything positional is the command to spawn
 mcp-inspector --cli node build/index.js --method tools/list
 
@@ -97,7 +97,7 @@ mcp-inspector --cli --config ./mcp.json --server myserver --method tools/list
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 # stdio: everything positional is the command to spawn
 mcp-inspector --cli node build/index.js --method tools/list
 
@@ -261,7 +261,7 @@ Stream- or session-only methods (`logging/tail`, for example) are rejected, sinc
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 mcp-inspector --cli <server> --method tools/call --tool-name mytool \
   --tool-arg key=value --tool-arg count=1 --tool-arg 'options={"format":"json"}'
 ```
@@ -269,7 +269,7 @@ mcp-inspector --cli <server> --method tools/call --tool-name mytool \
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 mcp-inspector --cli <server> --method tools/call --tool-name mytool \
   --tool-arg key=value --tool-arg count=1 --tool-arg 'options={"format":"json"}'
 ```
@@ -293,7 +293,7 @@ mcp-inspector --cli <server> --method tools/call --tool-name mytool \
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 mcp-inspector --cli <server> --method tools/call --tool-name mytool \
   --tool-args-json '{"zip":"10001"}'
 ```
@@ -301,7 +301,7 @@ mcp-inspector --cli <server> --method tools/call --tool-name mytool \
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 mcp-inspector --cli <server> --method tools/call --tool-name mytool \
   --tool-args-json '{"zip":"10001"}'
 ```
@@ -338,14 +338,14 @@ mcp-inspector --cli <server> --method tools/call --tool-name mytool \
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 mcp-inspector --cli <server> --method tools/list --format json | jq '.result.tools[].name'
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 mcp-inspector --cli <server> --method tools/list --format json | jq '.result.tools[].name'
 ```
 
@@ -381,7 +381,7 @@ mcp-inspector --cli <server> --method tools/list --format json | jq '.result.too
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 # One tool -> one JSON line
 mcp-inspector --cli <server> --method tools/call --tool-name my_tool --app-info
 # {"hasApp":true,"toolName":"my_tool","resourceUri":"ui://...","csp":{...},"permissions":{...}}
@@ -393,7 +393,7 @@ mcp-inspector --cli <server> --method tools/list --app-info | jq -c 'select(.has
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 # One tool -> one JSON line
 mcp-inspector --cli <server> --method tools/call --tool-name my_tool --app-info
 # {"hasApp":true,"toolName":"my_tool","resourceUri":"ui://...","csp":{...},"permissions":{...}}
@@ -504,7 +504,7 @@ On any non-zero exit the CLI also writes a **single JSON line to stderr**:
 <BiRow>
 <template #en>
 
-```json theme={null}
+```json
 {
   "error": {
 "code": "auth_required",
@@ -518,7 +518,7 @@ On any non-zero exit the CLI also writes a **single JSON line to stderr**:
 </template>
 <template #zh>
 
-```json theme={null}
+```json
 {
   "error": {
 "code": "auth_required",
@@ -654,7 +654,7 @@ See [Authorization](https://modelcontextprotocol.io/docs/2026-07-28/tools/inspec
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 set -euo pipefail
 
 # Fail the build if the server can't be reached or doesn't expose the tool
@@ -666,7 +666,7 @@ mcp-inspector --cli --config ./ci-servers.json --server my-server \
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 set -euo pipefail
 
 # Fail the build if the server can't be reached or doesn't expose the tool
@@ -694,7 +694,7 @@ mcp-inspector --cli --config ./ci-servers.json --server my-server \
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 if out=$(mcp-inspector --cli "$URL" --transport http --method tools/list 2>err.json); then
   echo "$out"
 else
@@ -709,7 +709,7 @@ fi
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 if out=$(mcp-inspector --cli "$URL" --transport http --method tools/list 2>err.json); then
   echo "$out"
 else
@@ -740,7 +740,7 @@ fi
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 mcp-inspector --cli "$URL" --transport http --method tools/list --app-info \
   | jq -r 'select(.hasApp) | .toolName'
 ```
@@ -748,7 +748,7 @@ mcp-inspector --cli "$URL" --transport http --method tools/list --app-info \
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 mcp-inspector --cli "$URL" --transport http --method tools/list --app-info \
   | jq -r 'select(.hasApp) | .toolName'
 ```
@@ -772,7 +772,7 @@ mcp-inspector --cli "$URL" --transport http --method tools/list --app-info \
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 mcp-inspector --cli --catalog ~/.mcp-inspector/mcp.json --method servers/list
 mcp-inspector --cli --catalog ~/.mcp-inspector/mcp.json --method servers/show --server my-server
 ```
@@ -780,7 +780,7 @@ mcp-inspector --cli --catalog ~/.mcp-inspector/mcp.json --method servers/show --
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 mcp-inspector --cli --catalog ~/.mcp-inspector/mcp.json --method servers/list
 mcp-inspector --cli --catalog ~/.mcp-inspector/mcp.json --method servers/show --server my-server
 ```

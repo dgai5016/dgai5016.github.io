@@ -284,7 +284,7 @@ When implementing MCP servers, be careful about how you handle logging:
 <BiRow>
 <template #en>
 
-```python theme={null}
+```python
 import logging
 
 logger = logging.getLogger(__name__)
@@ -299,7 +299,7 @@ logger.info("Processing request")  # writes to stderr
 </template>
 <template #zh>
 
-```python theme={null}
+```python
 import logging
 
 logger = logging.getLogger(__name__)
@@ -371,28 +371,28 @@ First, let's install `uv` and set up our Python project and environment:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   curl -LsSf https://astral.sh/uv/install.sh | sh
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   curl -LsSf https://astral.sh/uv/install.sh | sh
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -426,8 +426,8 @@ Now, let's create and set up our project:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   # Create a new directory for our project
   uv init weather
   cd weather
@@ -443,7 +443,7 @@ Now, let's create and set up our project:
   touch weather.py
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   # Create a new directory for our project
   uv init weather
   cd weather
@@ -458,13 +458,13 @@ Now, let's create and set up our project:
   # Create our server file
   new-item weather.py
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   # Create a new directory for our project
   uv init weather
   cd weather
@@ -480,7 +480,7 @@ Now, let's create and set up our project:
   touch weather.py
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   # Create a new directory for our project
   uv init weather
   cd weather
@@ -495,7 +495,7 @@ Now, let's create and set up our project:
   # Create our server file
   new-item weather.py
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -555,7 +555,7 @@ Add these to the top of your `weather.py`:
 <BiRow>
 <template #en>
 
-```python theme={null}
+```python
 from typing import Any
 
 import httpx2
@@ -572,7 +572,7 @@ USER_AGENT = "weather-app/1.0"
 </template>
 <template #zh>
 
-```python theme={null}
+```python
 from typing import Any
 
 import httpx2
@@ -644,7 +644,7 @@ Next, let's add our helper functions for querying and formatting the data from t
 <BiRow>
 <template #en>
 
-```python theme={null}
+```python
 async def make_nws_request(url: str) -> dict[str, Any] | None:
     """Make a request to the NWS API with proper error handling."""
     headers = {"User-Agent": USER_AGENT, "Accept": "application/geo+json"}
@@ -671,7 +671,7 @@ Instructions: {props.get("instruction", "No specific instructions provided")}
 </template>
 <template #zh>
 
-```python theme={null}
+```python
 async def make_nws_request(url: str) -> dict[str, Any] | None:
     """Make a request to the NWS API with proper error handling."""
     headers = {"User-Agent": USER_AGENT, "Accept": "application/geo+json"}
@@ -727,7 +727,7 @@ The tool execution handler is responsible for actually executing the logic of ea
 <BiRow>
 <template #en>
 
-```python theme={null}
+```python
 @mcp.tool()
 async def get_alerts(state: str) -> str:
     """Get weather alerts for a US state.
@@ -787,7 +787,7 @@ Forecast: {period["detailedForecast"]}
 </template>
 <template #zh>
 
-```python theme={null}
+```python
 @mcp.tool()
 async def get_alerts(state: str) -> str:
     """Get weather alerts for a US state.
@@ -876,7 +876,7 @@ Finally, let's initialize and run the server:
 <BiRow>
 <template #en>
 
-```python theme={null}
+```python
 if __name__ == "__main__":
     mcp.run(transport="stdio")
 ```
@@ -884,7 +884,7 @@ if __name__ == "__main__":
 </template>
 <template #zh>
 
-```python theme={null}
+```python
 if __name__ == "__main__":
     mcp.run(transport="stdio")
 ```
@@ -975,36 +975,36 @@ For example, if you have [VS Code](https://code.visualstudio.com/) installed:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```bash Linux theme={null}
+::: code-group
+  ```bash title="[Linux]"
   code ~/.config/Claude/claude_desktop_config.json
   ```
 
-  ```bash macOS theme={null}
+  ```bash title="[macOS]"
   code ~/Library/Application\ Support/Claude/claude_desktop_config.json
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   code $env:AppData\Claude\claude_desktop_config.json
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```bash Linux theme={null}
+::: code-group
+  ```bash title="[Linux]"
   code ~/.config/Claude/claude_desktop_config.json
   ```
 
-  ```bash macOS theme={null}
+  ```bash title="[macOS]"
   code ~/Library/Application\ Support/Claude/claude_desktop_config.json
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   code $env:AppData\Claude\claude_desktop_config.json
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -1038,8 +1038,8 @@ In this case, we'll add our single weather server like so:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```json macOS/Linux theme={null}
+::: code-group
+  ```json title="[macOS/Linux]"
   {
     "mcpServers": {
       "weather": {
@@ -1055,7 +1055,7 @@ In this case, we'll add our single weather server like so:
   }
   ```
 
-  ```json Windows theme={null}
+  ```json title="[Windows]"
   {
     "mcpServers": {
       "weather": {
@@ -1070,13 +1070,13 @@ In this case, we'll add our single weather server like so:
     }
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```json macOS/Linux theme={null}
+::: code-group
+  ```json title="[macOS/Linux]"
   {
     "mcpServers": {
       "weather": {
@@ -1092,7 +1092,7 @@ In this case, we'll add our single weather server like so:
   }
   ```
 
-  ```json Windows theme={null}
+  ```json title="[Windows]"
   {
     "mcpServers": {
       "weather": {
@@ -1107,7 +1107,7 @@ In this case, we'll add our single weather server like so:
     }
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -1331,7 +1331,7 @@ When implementing MCP servers, be careful about how you handle logging:
 <BiRow>
 <template #en>
 
-```javascript theme={null}
+```javascript
 // ❌ Bad (STDIO)
 console.log("Server started");
 
@@ -1342,7 +1342,7 @@ console.error("Server started"); // stderr is safe
 </template>
 <template #zh>
 
-```javascript theme={null}
+```javascript
 // ❌ Bad (STDIO)
 console.log("Server started");
 
@@ -1410,7 +1410,7 @@ Verify your Node.js installation:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 node --version
 npm --version
 ```
@@ -1418,7 +1418,7 @@ npm --version
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 node --version
 npm --version
 ```
@@ -1455,8 +1455,8 @@ Now, let's create and set up our project:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   # Create a new directory for our project
   mkdir weather
   cd weather
@@ -1473,7 +1473,7 @@ Now, let's create and set up our project:
   touch src/index.ts
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   # Create a new directory for our project
   md weather
   cd weather
@@ -1489,13 +1489,13 @@ Now, let's create and set up our project:
   md src
   new-item src\index.ts
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   # Create a new directory for our project
   mkdir weather
   cd weather
@@ -1512,7 +1512,7 @@ Now, let's create and set up our project:
   touch src/index.ts
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   # Create a new directory for our project
   md weather
   cd weather
@@ -1528,7 +1528,7 @@ Now, let's create and set up our project:
   md src
   new-item src\index.ts
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -1549,7 +1549,7 @@ Update your package.json to add type: "module" and a build script:
 <BiRow>
 <template #en>
 
-```json package.json theme={null}
+```json title="package.json"
 {
   "type": "module",
   "bin": {
@@ -1565,7 +1565,7 @@ Update your package.json to add type: "module" and a build script:
 </template>
 <template #zh>
 
-```json package.json theme={null}
+```json title="package.json"
 {
   "type": "module",
   "bin": {
@@ -1597,7 +1597,7 @@ Create a `tsconfig.json` in the root of your project:
 <BiRow>
 <template #en>
 
-```json tsconfig.json theme={null}
+```json title="tsconfig.json"
 {
   "compilerOptions": {
     "target": "ES2022",
@@ -1619,7 +1619,7 @@ Create a `tsconfig.json` in the root of your project:
 </template>
 <template #zh>
 
-```json tsconfig.json theme={null}
+```json title="tsconfig.json"
 {
   "compilerOptions": {
     "target": "ES2022",
@@ -1696,7 +1696,7 @@ Add these to the top of your `src/index.ts`:
 <BiRow>
 <template #en>
 
-```typescript theme={null}
+```typescript
 import { McpServer } from "@modelcontextprotocol/server";
 import { StdioServerTransport } from "@modelcontextprotocol/server/stdio";
 import { z } from "zod";
@@ -1714,7 +1714,7 @@ const server = new McpServer({
 </template>
 <template #zh>
 
-```typescript theme={null}
+```typescript
 import { McpServer } from "@modelcontextprotocol/server";
 import { StdioServerTransport } from "@modelcontextprotocol/server/stdio";
 import { z } from "zod";
@@ -1761,7 +1761,7 @@ Next, let's add our helper functions for querying and formatting the data from t
 <BiRow>
 <template #en>
 
-```typescript theme={null}
+```typescript
 // Helper function for making NWS API requests
 async function makeNWSRequest<T>(url: string): Promise<T | null> {
   const headers = {
@@ -1833,7 +1833,7 @@ interface ForecastResponse {
 </template>
 <template #zh>
 
-```typescript theme={null}
+```typescript
 // Helper function for making NWS API requests
 async function makeNWSRequest<T>(url: string): Promise<T | null> {
   const headers = {
@@ -1934,7 +1934,7 @@ The tool execution handler is responsible for actually executing the logic of ea
 <BiRow>
 <template #en>
 
-```typescript theme={null}
+```typescript
 // Register weather tools
 
 server.registerTool(
@@ -2088,7 +2088,7 @@ server.registerTool(
 </template>
 <template #zh>
 
-```typescript theme={null}
+```typescript
 // Register weather tools
 
 server.registerTool(
@@ -2271,7 +2271,7 @@ Finally, implement the main function to run the server:
 <BiRow>
 <template #en>
 
-```typescript theme={null}
+```typescript
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
@@ -2287,7 +2287,7 @@ main().catch((error) => {
 </template>
 <template #zh>
 
-```typescript theme={null}
+```typescript
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
@@ -2386,36 +2386,36 @@ For example, if you have [VS Code](https://code.visualstudio.com/) installed:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```bash Linux theme={null}
+::: code-group
+  ```bash title="[Linux]"
   code ~/.config/Claude/claude_desktop_config.json
   ```
 
-  ```bash macOS theme={null}
+  ```bash title="[macOS]"
   code ~/Library/Application\ Support/Claude/claude_desktop_config.json
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   code $env:AppData\Claude\claude_desktop_config.json
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```bash Linux theme={null}
+::: code-group
+  ```bash title="[Linux]"
   code ~/.config/Claude/claude_desktop_config.json
   ```
 
-  ```bash macOS theme={null}
+  ```bash title="[macOS]"
   code ~/Library/Application\ Support/Claude/claude_desktop_config.json
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   code $env:AppData\Claude\claude_desktop_config.json
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -2449,8 +2449,8 @@ In this case, we'll add our single weather server like so:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```json macOS/Linux theme={null}
+::: code-group
+  ```json title="[macOS/Linux]"
   {
     "mcpServers": {
       "weather": {
@@ -2461,7 +2461,7 @@ In this case, we'll add our single weather server like so:
   }
   ```
 
-  ```json Windows theme={null}
+  ```json title="[Windows]"
   {
     "mcpServers": {
       "weather": {
@@ -2471,13 +2471,13 @@ In this case, we'll add our single weather server like so:
     }
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```json macOS/Linux theme={null}
+::: code-group
+  ```json title="[macOS/Linux]"
   {
     "mcpServers": {
       "weather": {
@@ -2488,7 +2488,7 @@ In this case, we'll add our single weather server like so:
   }
   ```
 
-  ```json Windows theme={null}
+  ```json title="[Windows]"
   {
     "mcpServers": {
       "weather": {
@@ -2498,7 +2498,7 @@ In this case, we'll add our single weather server like so:
     }
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -2741,8 +2741,8 @@ You will need to add the following dependencies:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```xml Maven theme={null}
+::: code-group
+  ```xml title="[Maven]"
   <dependencies>
         <dependency>
             <groupId>org.springframework.ai</groupId>
@@ -2756,19 +2756,19 @@ You will need to add the following dependencies:
   </dependencies>
   ```
 
-  ```groovy Gradle theme={null}
+  ```groovy title="[Gradle]"
   dependencies {
     implementation platform("org.springframework.ai:spring-ai-starter-mcp-server")
     implementation platform("org.springframework:spring-web")
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```xml Maven theme={null}
+::: code-group
+  ```xml title="[Maven]"
   <dependencies>
         <dependency>
             <groupId>org.springframework.ai</groupId>
@@ -2782,13 +2782,13 @@ You will need to add the following dependencies:
   </dependencies>
   ```
 
-  ```groovy Gradle theme={null}
+  ```groovy title="[Gradle]"
   dependencies {
     implementation platform("org.springframework.ai:spring-ai-starter-mcp-server")
     implementation platform("org.springframework:spring-web")
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -2809,13 +2809,13 @@ Then configure your application by setting the application properties:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```bash application.properties theme={null}
+::: code-group
+  ```bash title="[application.properties]"
   spring.main.bannerMode=off
   logging.pattern.console=
   ```
 
-  ```yaml application.yml theme={null}
+  ```yaml title="[application.yml]"
   logging:
     pattern:
       console:
@@ -2823,18 +2823,18 @@ Then configure your application by setting the application properties:
     main:
       banner-mode: off
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```bash application.properties theme={null}
+::: code-group
+  ```bash title="[application.properties]"
   spring.main.bannerMode=off
   logging.pattern.console=
   ```
 
-  ```yaml application.yml theme={null}
+  ```yaml title="[application.yml]"
   logging:
     pattern:
       console:
@@ -2842,7 +2842,7 @@ Then configure your application by setting the application properties:
     main:
       banner-mode: off
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -2915,7 +2915,7 @@ Let's implement a [WeatherService.java](https://github.com/spring-projects/sprin
 <BiRow>
 <template #en>
 
-```java theme={null}
+```java
 @Service
 public class WeatherService {
 
@@ -2959,7 +2959,7 @@ public class WeatherService {
 </template>
 <template #zh>
 
-```java theme={null}
+```java
 @Service
 public class WeatherService {
 
@@ -3047,7 +3047,7 @@ The auto-configuration will automatically register these tools with the MCP serv
 <BiRow>
 <template #en>
 
-```java theme={null}
+```java
 @SpringBootApplication
 public class McpServerApplication {
 
@@ -3065,7 +3065,7 @@ public class McpServerApplication {
 </template>
 <template #zh>
 
-```java theme={null}
+```java
 @SpringBootApplication
 public class McpServerApplication {
 
@@ -3125,14 +3125,14 @@ Finally, let's build the server:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 ./mvnw clean install
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 ./mvnw clean install
 ```
 
@@ -3226,36 +3226,36 @@ For example, if you have [VS Code](https://code.visualstudio.com/) installed:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```bash Linux theme={null}
+::: code-group
+  ```bash title="[Linux]"
   code ~/.config/Claude/claude_desktop_config.json
   ```
 
-  ```bash macOS theme={null}
+  ```bash title="[macOS]"
   code ~/Library/Application\ Support/Claude/claude_desktop_config.json
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   code $env:AppData\Claude\claude_desktop_config.json
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```bash Linux theme={null}
+::: code-group
+  ```bash title="[Linux]"
   code ~/.config/Claude/claude_desktop_config.json
   ```
 
-  ```bash macOS theme={null}
+  ```bash title="[macOS]"
   code ~/Library/Application\ Support/Claude/claude_desktop_config.json
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   code $env:AppData\Claude\claude_desktop_config.json
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -3291,8 +3291,8 @@ In this case, we'll add our single weather server like so:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```json macOS/Linux theme={null}
+::: code-group
+  ```json title="[macOS/Linux]"
   {
     "mcpServers": {
       "spring-ai-mcp-weather": {
@@ -3307,7 +3307,7 @@ In this case, we'll add our single weather server like so:
   }
   ```
 
-  ```json Windows theme={null}
+  ```json title="[Windows]"
   {
     "mcpServers": {
       "spring-ai-mcp-weather": {
@@ -3321,13 +3321,13 @@ In this case, we'll add our single weather server like so:
     }
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```json macOS/Linux theme={null}
+::: code-group
+  ```json title="[macOS/Linux]"
   {
     "mcpServers": {
       "spring-ai-mcp-weather": {
@@ -3342,7 +3342,7 @@ In this case, we'll add our single weather server like so:
   }
   ```
 
-  ```json Windows theme={null}
+  ```json title="[Windows]"
   {
     "mcpServers": {
       "spring-ai-mcp-weather": {
@@ -3356,7 +3356,7 @@ In this case, we'll add our single weather server like so:
     }
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -3459,7 +3459,7 @@ Use the `McpClient` to connect to the server:
 <BiRow>
 <template #en>
 
-```java theme={null}
+```java
 var stdioParams = ServerParameters.builder("java")
   .args("-jar", "/ABSOLUTE/PATH/TO/PARENT/FOLDER/mcp-weather-stdio-server-0.0.1-SNAPSHOT.jar")
   .build();
@@ -3485,7 +3485,7 @@ mcpClient.closeGracefully();
 </template>
 <template #zh>
 
-```java theme={null}
+```java
 var stdioParams = ServerParameters.builder("java")
   .args("-jar", "/ABSOLUTE/PATH/TO/PARENT/FOLDER/mcp-weather-stdio-server-0.0.1-SNAPSHOT.jar")
   .build();
@@ -3540,7 +3540,7 @@ Create a new boot starter application using the `spring-ai-starter-mcp-client` d
 <BiRow>
 <template #en>
 
-```xml theme={null}
+```xml
 <dependency>
     <groupId>org.springframework.ai</groupId>
     <artifactId>spring-ai-starter-mcp-client</artifactId>
@@ -3550,7 +3550,7 @@ Create a new boot starter application using the `spring-ai-starter-mcp-client` d
 </template>
 <template #zh>
 
-```xml theme={null}
+```xml
 <dependency>
     <groupId>org.springframework.ai</groupId>
     <artifactId>spring-ai-starter-mcp-client</artifactId>
@@ -3578,14 +3578,14 @@ You can reuse the existing Anthropic Desktop configuration:
 <BiRow>
 <template #en>
 
-```properties theme={null}
+```properties
 spring.ai.mcp.client.stdio.servers-configuration=file:PATH/TO/claude_desktop_config.json
 ```
 
 </template>
 <template #zh>
 
-```properties theme={null}
+```properties
 spring.ai.mcp.client.stdio.servers-configuration=file:PATH/TO/claude_desktop_config.json
 ```
 
@@ -3839,14 +3839,14 @@ Verify your `java` installation:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 java --version
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 java --version
 ```
 
@@ -3869,8 +3869,8 @@ Now, let's create and set up your project:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   # Create a new directory for our project
   mkdir weather
   cd weather
@@ -3879,7 +3879,7 @@ Now, let's create and set up your project:
   gradle init
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   # Create a new directory for our project
   md weather
   cd weather
@@ -3887,13 +3887,13 @@ Now, let's create and set up your project:
   # Initialize a new kotlin project
   gradle init
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   # Create a new directory for our project
   mkdir weather
   cd weather
@@ -3902,7 +3902,7 @@ Now, let's create and set up your project:
   gradle init
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   # Create a new directory for our project
   md weather
   cd weather
@@ -3910,7 +3910,7 @@ Now, let's create and set up your project:
   # Initialize a new kotlin project
   gradle init
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -3957,7 +3957,7 @@ After creating the project, replace the contents of your `build.gradle.kts` with
 <BiRow>
 <template #en>
 
-```kotlin build.gradle.kts theme={null}
+```kotlin title="build.gradle.kts"
 // Check latest versions at https://github.com/modelcontextprotocol/kotlin-sdk/releases
 val mcpVersion = "0.9.0"
 val ktorVersion = "3.2.3"
@@ -3986,7 +3986,7 @@ dependencies {
 </template>
 <template #zh>
 
-```kotlin build.gradle.kts theme={null}
+```kotlin title="build.gradle.kts"
 // Check latest versions at https://github.com/modelcontextprotocol/kotlin-sdk/releases
 val mcpVersion = "0.9.0"
 val ktorVersion = "3.2.3"
@@ -4031,14 +4031,14 @@ Verify that everything is set up correctly:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 ./gradlew build
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 ./gradlew build
 ```
 
@@ -4100,7 +4100,7 @@ Add a server initialization function:
 <BiRow>
 <template #en>
 
-```kotlin theme={null}
+```kotlin
 fun runMcpServer() {
     val server = Server(
         Implementation(
@@ -4133,7 +4133,7 @@ fun runMcpServer() {
 </template>
 <template #zh>
 
-```kotlin theme={null}
+```kotlin
 fun runMcpServer() {
     val server = Server(
         Implementation(
@@ -4195,7 +4195,7 @@ Next, let's add functions and data classes for querying and converting responses
 <BiRow>
 <template #en>
 
-```kotlin theme={null}
+```kotlin
 val httpClient = HttpClient(CIO) {
     defaultRequest {
         url("https://api.weather.gov")
@@ -4280,7 +4280,7 @@ data class AlertProperties(
 </template>
 <template #zh>
 
-```kotlin theme={null}
+```kotlin
 val httpClient = HttpClient(CIO) {
     defaultRequest {
         url("https://api.weather.gov")
@@ -4394,7 +4394,7 @@ The tool execution handler is responsible for actually executing the logic of ea
 <BiRow>
 <template #en>
 
-```kotlin theme={null}
+```kotlin
 // Register weather tools
 
 server.addTool(
@@ -4452,7 +4452,7 @@ server.addTool(
 </template>
 <template #zh>
 
-```kotlin theme={null}
+```kotlin
 // Register weather tools
 
 server.addTool(
@@ -4539,14 +4539,14 @@ Finally, implement the main function to run the server:
 <BiRow>
 <template #en>
 
-```kotlin theme={null}
+```kotlin
 fun main() = runMcpServer()
 ```
 
 </template>
 <template #zh>
 
-```kotlin theme={null}
+```kotlin
 fun main() = runMcpServer()
 ```
 
@@ -4569,14 +4569,14 @@ You can run the server directly during development:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 ./gradlew run
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 ./gradlew run
 ```
 
@@ -4599,7 +4599,7 @@ For production use, build the shadow JAR:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 ./gradlew build
 java -jar build/libs/weather-0.1.0-all.jar
 ```
@@ -4607,7 +4607,7 @@ java -jar build/libs/weather-0.1.0-all.jar
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 ./gradlew build
 java -jar build/libs/weather-0.1.0-all.jar
 ```
@@ -4689,36 +4689,36 @@ For example, if you have [VS Code](https://code.visualstudio.com/) installed:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```bash Linux theme={null}
+::: code-group
+  ```bash title="[Linux]"
   code ~/.config/Claude/claude_desktop_config.json
   ```
 
-  ```bash macOS theme={null}
+  ```bash title="[macOS]"
   code ~/Library/Application\ Support/Claude/claude_desktop_config.json
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   code $env:AppData\Claude\claude_desktop_config.json
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```bash Linux theme={null}
+::: code-group
+  ```bash title="[Linux]"
   code ~/.config/Claude/claude_desktop_config.json
   ```
 
-  ```bash macOS theme={null}
+  ```bash title="[macOS]"
   code ~/Library/Application\ Support/Claude/claude_desktop_config.json
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   code $env:AppData\Claude\claude_desktop_config.json
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -4754,8 +4754,8 @@ In this case, we'll add our single weather server like so:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```json macOS/Linux theme={null}
+::: code-group
+  ```json title="[macOS/Linux]"
   {
     "mcpServers": {
       "weather": {
@@ -4769,7 +4769,7 @@ In this case, we'll add our single weather server like so:
   }
   ```
 
-  ```json Windows theme={null}
+  ```json title="[Windows]"
   {
     "mcpServers": {
       "weather": {
@@ -4782,13 +4782,13 @@ In this case, we'll add our single weather server like so:
     }
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```json macOS/Linux theme={null}
+::: code-group
+  ```json title="[macOS/Linux]"
   {
     "mcpServers": {
       "weather": {
@@ -4802,7 +4802,7 @@ In this case, we'll add our single weather server like so:
   }
   ```
 
-  ```json Windows theme={null}
+  ```json title="[Windows]"
   {
     "mcpServers": {
       "weather": {
@@ -4815,7 +4815,7 @@ In this case, we'll add our single weather server like so:
     }
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -5050,14 +5050,14 @@ First, let's install `dotnet` if you haven't already. You can download `dotnet` 
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 dotnet --version
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 dotnet --version
 ```
 
@@ -5080,8 +5080,8 @@ Now, let's create and set up your project:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   # Create a new directory for our project
   mkdir weather
   cd weather
@@ -5089,20 +5089,20 @@ Now, let's create and set up your project:
   dotnet new console
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   # Create a new directory for our project
   mkdir weather
   cd weather
   # Initialize a new C# project
   dotnet new console
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   # Create a new directory for our project
   mkdir weather
   cd weather
@@ -5110,14 +5110,14 @@ Now, let's create and set up your project:
   dotnet new console
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   # Create a new directory for our project
   mkdir weather
   cd weather
   # Initialize a new C# project
   dotnet new console
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -5144,7 +5144,7 @@ After creating the project, add NuGet package for the Model Context Protocol SDK
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 # Add the Model Context Protocol SDK NuGet package
 dotnet add package ModelContextProtocol --prerelease
 # Add the .NET Hosting NuGet package
@@ -5154,7 +5154,7 @@ dotnet add package Microsoft.Extensions.Hosting
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 # Add the Model Context Protocol SDK NuGet package
 dotnet add package ModelContextProtocol --prerelease
 # Add the .NET Hosting NuGet package
@@ -5206,7 +5206,7 @@ Open the `Program.cs` file in your project and replace its contents with the fol
 <BiRow>
 <template #en>
 
-```csharp theme={null}
+```csharp
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ModelContextProtocol;
@@ -5233,7 +5233,7 @@ await app.RunAsync();
 </template>
 <template #zh>
 
-```csharp theme={null}
+```csharp
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ModelContextProtocol;
@@ -5317,7 +5317,7 @@ Create an extension class for `HttpClient` which helps simplify JSON request han
 <BiRow>
 <template #en>
 
-```csharp theme={null}
+```csharp
 using System.Text.Json;
 
 internal static class HttpClientExt
@@ -5334,7 +5334,7 @@ internal static class HttpClientExt
 </template>
 <template #zh>
 
-```csharp theme={null}
+```csharp
 using System.Text.Json;
 
 internal static class HttpClientExt
@@ -5367,7 +5367,7 @@ Next, define a class with the tool execution handlers for querying and convertin
 <BiRow>
 <template #en>
 
-```csharp theme={null}
+```csharp
 using ModelContextProtocol.Server;
 using System.ComponentModel;
 using System.Globalization;
@@ -5432,7 +5432,7 @@ public static class WeatherTools
 </template>
 <template #zh>
 
-```csharp theme={null}
+```csharp
 using ModelContextProtocol.Server;
 using System.ComponentModel;
 using System.Globalization;
@@ -5526,14 +5526,14 @@ Finally, run the server using the following command:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 dotnet run
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 dotnet run
 ```
 
@@ -5588,36 +5588,36 @@ For example, if you have [VS Code](https://code.visualstudio.com/) installed:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```bash Linux theme={null}
+::: code-group
+  ```bash title="[Linux]"
   code ~/.config/Claude/claude_desktop_config.json
   ```
 
-  ```bash macOS theme={null}
+  ```bash title="[macOS]"
   code ~/Library/Application\ Support/Claude/claude_desktop_config.json
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   code $env:AppData\Claude\claude_desktop_config.json
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```bash Linux theme={null}
+::: code-group
+  ```bash title="[Linux]"
   code ~/.config/Claude/claude_desktop_config.json
   ```
 
-  ```bash macOS theme={null}
+  ```bash title="[macOS]"
   code ~/Library/Application\ Support/Claude/claude_desktop_config.json
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   code $env:AppData\Claude\claude_desktop_config.json
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -5640,8 +5640,8 @@ In this case, we'll add our single weather server like so:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```json macOS/Linux theme={null}
+::: code-group
+  ```json title="[macOS/Linux]"
   {
     "mcpServers": {
       "weather": {
@@ -5652,7 +5652,7 @@ In this case, we'll add our single weather server like so:
   }
   ```
 
-  ```json Windows theme={null}
+  ```json title="[Windows]"
   {
     "mcpServers": {
       "weather": {
@@ -5667,13 +5667,13 @@ In this case, we'll add our single weather server like so:
     }
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```json macOS/Linux theme={null}
+::: code-group
+  ```json title="[macOS/Linux]"
   {
     "mcpServers": {
       "weather": {
@@ -5684,7 +5684,7 @@ In this case, we'll add our single weather server like so:
   }
   ```
 
-  ```json Windows theme={null}
+  ```json title="[Windows]"
   {
     "mcpServers": {
       "weather": {
@@ -5699,7 +5699,7 @@ In this case, we'll add our single weather server like so:
     }
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -5882,7 +5882,7 @@ When implementing MCP servers, be careful about how you handle logging:
 <BiRow>
 <template #en>
 
-```ruby theme={null}
+```ruby
 # ❌ Bad (STDIO)
 puts "Processing request"
 
@@ -5895,7 +5895,7 @@ logger.info("Processing request")
 </template>
 <template #zh>
 
-```ruby theme={null}
+```ruby
 # ❌ Bad (STDIO)
 puts "Processing request"
 
@@ -5963,14 +5963,14 @@ First, let's make sure you have Ruby installed. You can check by running:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 ruby --version
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 ruby --version
 ```
 
@@ -5993,8 +5993,8 @@ Now, let's create and set up our project:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   # Create a new directory for our project
   mkdir weather
   cd weather
@@ -6009,7 +6009,7 @@ Now, let's create and set up our project:
   touch weather.rb
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   # Create a new directory for our project
   mkdir weather
   cd weather
@@ -6023,13 +6023,13 @@ Now, let's create and set up our project:
   # Create our server file
   new-item weather.rb
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   # Create a new directory for our project
   mkdir weather
   cd weather
@@ -6044,7 +6044,7 @@ Now, let's create and set up our project:
   touch weather.rb
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   # Create a new directory for our project
   mkdir weather
   cd weather
@@ -6058,7 +6058,7 @@ Now, let's create and set up our project:
   # Create our server file
   new-item weather.rb
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -6118,7 +6118,7 @@ Open `weather.rb` and add these requires and constants at the top:
 <BiRow>
 <template #en>
 
-```ruby theme={null}
+```ruby
 require "json"
 require "mcp"
 require "net/http"
@@ -6131,7 +6131,7 @@ USER_AGENT = "weather-app/1.0"
 </template>
 <template #zh>
 
-```ruby theme={null}
+```ruby
 require "json"
 require "mcp"
 require "net/http"
@@ -6186,7 +6186,7 @@ Next, let's add helper methods for querying and formatting data from the Nationa
 <BiRow>
 <template #en>
 
-```ruby theme={null}
+```ruby
 module HelperMethods
   def make_nws_request(url)
     uri = URI(url)
@@ -6220,7 +6220,7 @@ end
 </template>
 <template #zh>
 
-```ruby theme={null}
+```ruby
 module HelperMethods
   def make_nws_request(url)
     uri = URI(url)
@@ -6283,7 +6283,7 @@ Now let's define our tool classes. Each tool subclasses `MCP::Tool` and implemen
 <BiRow>
 <template #en>
 
-```ruby theme={null}
+```ruby
 class GetAlerts < MCP::Tool
   extend HelperMethods
 
@@ -6368,7 +6368,7 @@ end
 </template>
 <template #zh>
 
-```ruby theme={null}
+```ruby
 class GetAlerts < MCP::Tool
   extend HelperMethods
 
@@ -6482,7 +6482,7 @@ Finally, initialize and run the server:
 <BiRow>
 <template #en>
 
-```ruby theme={null}
+```ruby
 server = MCP::Server.new(
   name: "weather",
   version: "1.0.0",
@@ -6496,7 +6496,7 @@ transport.open
 </template>
 <template #zh>
 
-```ruby theme={null}
+```ruby
 server = MCP::Server.new(
   name: "weather",
   version: "1.0.0",
@@ -6591,36 +6591,36 @@ For example, if you have [VS Code](https://code.visualstudio.com/) installed:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```bash Linux theme={null}
+::: code-group
+  ```bash title="[Linux]"
   code ~/.config/Claude/claude_desktop_config.json
   ```
 
-  ```bash macOS theme={null}
+  ```bash title="[macOS]"
   code ~/Library/Application\ Support/Claude/claude_desktop_config.json
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   code $env:AppData\Claude\claude_desktop_config.json
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```bash Linux theme={null}
+::: code-group
+  ```bash title="[Linux]"
   code ~/.config/Claude/claude_desktop_config.json
   ```
 
-  ```bash macOS theme={null}
+  ```bash title="[macOS]"
   code ~/Library/Application\ Support/Claude/claude_desktop_config.json
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   code $env:AppData\Claude\claude_desktop_config.json
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -6654,8 +6654,8 @@ In this case, we'll add our single weather server like so:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```json macOS/Linux theme={null}
+::: code-group
+  ```json title="[macOS/Linux]"
   {
     "mcpServers": {
       "weather": {
@@ -6667,7 +6667,7 @@ In this case, we'll add our single weather server like so:
   }
   ```
 
-  ```json Windows theme={null}
+  ```json title="[Windows]"
   {
     "mcpServers": {
       "weather": {
@@ -6678,13 +6678,13 @@ In this case, we'll add our single weather server like so:
     }
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```json macOS/Linux theme={null}
+::: code-group
+  ```json title="[macOS/Linux]"
   {
     "mcpServers": {
       "weather": {
@@ -6696,7 +6696,7 @@ In this case, we'll add our single weather server like so:
   }
   ```
 
-  ```json Windows theme={null}
+  ```json title="[Windows]"
   {
     "mcpServers": {
       "weather": {
@@ -6707,7 +6707,7 @@ In this case, we'll add our single weather server like so:
     }
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -6920,7 +6920,7 @@ When implementing MCP servers, be careful about how you handle logging:
 <BiRow>
 <template #en>
 
-```rust theme={null}
+```rust
 // ❌ Bad (STDIO)
 println!("Processing request");
 
@@ -6931,7 +6931,7 @@ eprintln!("Processing request"); // writes to stderr
 </template>
 <template #zh>
 
-```rust theme={null}
+```rust
 // ❌ Bad (STDIO)
 println!("Processing request");
 
@@ -6999,28 +6999,28 @@ First, let's install Rust if you haven't already. You can install Rust from [rus
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   # Download and run rustup-init.exe from https://rustup.rs/
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   # Download and run rustup-init.exe from https://rustup.rs/
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -7041,7 +7041,7 @@ Verify your Rust installation:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 rustc --version
 cargo --version
 ```
@@ -7049,7 +7049,7 @@ cargo --version
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 rustc --version
 cargo --version
 ```
@@ -7073,36 +7073,36 @@ Now, let's create and set up our project:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   # Create a new Rust project
   cargo new weather
   cd weather
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   # Create a new Rust project
   cargo new weather
   cd weather
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   # Create a new Rust project
   cargo new weather
   cd weather
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   # Create a new Rust project
   cargo new weather
   cd weather
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -7123,7 +7123,7 @@ Update your `Cargo.toml` to add the required dependencies:
 <BiRow>
 <template #en>
 
-```toml Cargo.toml theme={null}
+```toml title="Cargo.toml"
 [package]
 name = "weather"
 version = "0.1.0"
@@ -7143,7 +7143,7 @@ tracing-subscriber = { version = "0.3", features = ["env-filter", "std", "fmt"] 
 </template>
 <template #zh>
 
-```toml Cargo.toml theme={null}
+```toml title="Cargo.toml"
 [package]
 name = "weather"
 version = "0.1.0"
@@ -7218,7 +7218,7 @@ Open `src/main.rs` and add these imports and constants at the top:
 <BiRow>
 <template #en>
 
-```rust theme={null}
+```rust
 use anyhow::Result;
 use rmcp::{
     ServerHandler, ServiceExt,
@@ -7236,7 +7236,7 @@ const USER_AGENT: &str = "weather-app/1.0";
 </template>
 <template #zh>
 
-```rust theme={null}
+```rust
 use anyhow::Result;
 use rmcp::{
     ServerHandler, ServiceExt,
@@ -7296,7 +7296,7 @@ Next, let's define the data structures for deserializing responses from the Nati
 <BiRow>
 <template #en>
 
-```rust theme={null}
+```rust
 #[derive(Debug, Deserialize)]
 struct AlertsResponse {
     features: Vec<AlertFeature>,
@@ -7355,7 +7355,7 @@ struct ForecastPeriod {
 </template>
 <template #zh>
 
-```rust theme={null}
+```rust
 #[derive(Debug, Deserialize)]
 struct AlertsResponse {
     features: Vec<AlertFeature>,
@@ -7430,7 +7430,7 @@ Now define the request types that MCP clients will send:
 <BiRow>
 <template #en>
 
-```rust theme={null}
+```rust
 #[derive(serde::Deserialize, schemars::JsonSchema)]
 pub struct MCPForecastRequest {
     latitude: f32,
@@ -7446,7 +7446,7 @@ pub struct MCPAlertRequest {
 </template>
 <template #zh>
 
-```rust theme={null}
+```rust
 #[derive(serde::Deserialize, schemars::JsonSchema)]
 pub struct MCPForecastRequest {
     latitude: f32,
@@ -7491,7 +7491,7 @@ Add helper functions for making API requests and formatting responses:
 <BiRow>
 <template #en>
 
-```rust theme={null}
+```rust
 async fn make_nws_request<T: DeserializeOwned>(url: &str) -> Result<T> {
     let client = reqwest::Client::new();
     let rsp = client
@@ -7538,7 +7538,7 @@ fn format_period(period: &ForecastPeriod) -> String {
 </template>
 <template #zh>
 
-```rust theme={null}
+```rust
 async fn make_nws_request<T: DeserializeOwned>(url: &str) -> Result<T> {
     let client = reqwest::Client::new();
     let rsp = client
@@ -7614,7 +7614,7 @@ Now let's implement the main Weather server struct with the tool handlers:
 <BiRow>
 <template #en>
 
-```rust theme={null}
+```rust
 pub struct Weather {
     tool_router: ToolRouter<Weather>,
 }
@@ -7688,7 +7688,7 @@ impl Weather {
 </template>
 <template #zh>
 
-```rust theme={null}
+```rust
 pub struct Weather {
     tool_router: ToolRouter<Weather>,
 }
@@ -7804,7 +7804,7 @@ Implement the `ServerHandler` trait to define server capabilities:
 <BiRow>
 <template #en>
 
-```rust theme={null}
+```rust
 #[tool_handler]
 impl ServerHandler for Weather {
     fn get_info(&self) -> ServerInfo {
@@ -7819,7 +7819,7 @@ impl ServerHandler for Weather {
 </template>
 <template #zh>
 
-```rust theme={null}
+```rust
 #[tool_handler]
 impl ServerHandler for Weather {
     fn get_info(&self) -> ServerInfo {
@@ -7863,7 +7863,7 @@ Finally, implement the main function to run the server with stdio transport:
 <BiRow>
 <template #en>
 
-```rust theme={null}
+```rust
 #[tokio::main]
 async fn main() -> Result<()> {
     let transport = (tokio::io::stdin(), tokio::io::stdout());
@@ -7876,7 +7876,7 @@ async fn main() -> Result<()> {
 </template>
 <template #zh>
 
-```rust theme={null}
+```rust
 #[tokio::main]
 async fn main() -> Result<()> {
     let transport = (tokio::io::stdin(), tokio::io::stdout());
@@ -7905,14 +7905,14 @@ Build your server with:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 cargo build --release
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 cargo build --release
 ```
 
@@ -8000,36 +8000,36 @@ For example, if you have [VS Code](https://code.visualstudio.com/) installed:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```bash Linux theme={null}
+::: code-group
+  ```bash title="[Linux]"
   code ~/.config/Claude/claude_desktop_config.json
   ```
 
-  ```bash macOS theme={null}
+  ```bash title="[macOS]"
   code ~/Library/Application\ Support/Claude/claude_desktop_config.json
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   code $env:AppData\Claude\claude_desktop_config.json
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```bash Linux theme={null}
+::: code-group
+  ```bash title="[Linux]"
   code ~/.config/Claude/claude_desktop_config.json
   ```
 
-  ```bash macOS theme={null}
+  ```bash title="[macOS]"
   code ~/Library/Application\ Support/Claude/claude_desktop_config.json
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   code $env:AppData\Claude\claude_desktop_config.json
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -8063,8 +8063,8 @@ In this case, we'll add our single weather server like so:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```json macOS/Linux theme={null}
+::: code-group
+  ```json title="[macOS/Linux]"
   {
     "mcpServers": {
       "weather": {
@@ -8074,7 +8074,7 @@ In this case, we'll add our single weather server like so:
   }
   ```
 
-  ```json Windows theme={null}
+  ```json title="[Windows]"
   {
     "mcpServers": {
       "weather": {
@@ -8083,13 +8083,13 @@ In this case, we'll add our single weather server like so:
     }
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```json macOS/Linux theme={null}
+::: code-group
+  ```json title="[macOS/Linux]"
   {
     "mcpServers": {
       "weather": {
@@ -8099,7 +8099,7 @@ In this case, we'll add our single weather server like so:
   }
   ```
 
-  ```json Windows theme={null}
+  ```json title="[Windows]"
   {
     "mcpServers": {
       "weather": {
@@ -8108,7 +8108,7 @@ In this case, we'll add our single weather server like so:
     }
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -8319,7 +8319,7 @@ When implementing MCP servers, be careful about how you handle logging:
 <BiRow>
 <template #en>
 
-```go theme={null}
+```go
 // ❌ Bad (STDIO)
 fmt.Println("Processing request")
 
@@ -8333,7 +8333,7 @@ fmt.Fprintln(os.Stderr, "Processing request")
 </template>
 <template #zh>
 
-```go theme={null}
+```go
 // ❌ Bad (STDIO)
 fmt.Println("Processing request")
 
@@ -8415,14 +8415,14 @@ Verify your Go installation:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 go version
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 go version
 ```
 
@@ -8445,8 +8445,8 @@ Now, let's create and set up our project:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   # Create a new directory for our project
   mkdir weather
   cd weather
@@ -8461,7 +8461,7 @@ Now, let's create and set up our project:
   touch main.go
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   # Create a new directory for our project
   md weather
   cd weather
@@ -8475,13 +8475,13 @@ Now, let's create and set up our project:
   # Create our server file
   new-item main.go
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   # Create a new directory for our project
   mkdir weather
   cd weather
@@ -8496,7 +8496,7 @@ Now, let's create and set up our project:
   touch main.go
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   # Create a new directory for our project
   md weather
   cd weather
@@ -8510,7 +8510,7 @@ Now, let's create and set up our project:
   # Create our server file
   new-item main.go
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -8570,7 +8570,7 @@ Add these to the top of your `main.go`:
 <BiRow>
 <template #en>
 
-```go theme={null}
+```go
 package main
 
 import (
@@ -8595,7 +8595,7 @@ const (
 </template>
 <template #zh>
 
-```go theme={null}
+```go
 package main
 
 import (
@@ -8649,7 +8649,7 @@ Next, let's define the data structures used by our tools:
 <BiRow>
 <template #en>
 
-```go theme={null}
+```go
 type PointsResponse struct {
 	Properties struct {
 		Forecast string `json:"forecast"`
@@ -8700,7 +8700,7 @@ type AlertsInput struct {
 </template>
 <template #zh>
 
-```go theme={null}
+```go
 type PointsResponse struct {
 	Properties struct {
 		Forecast string `json:"forecast"`
@@ -8780,7 +8780,7 @@ Next, let's add our helper functions for querying and formatting the data from t
 <BiRow>
 <template #en>
 
-```go theme={null}
+```go
 func makeNWSRequest[T any](ctx context.Context, url string) (*T, error) {
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
 	if err != nil {
@@ -8841,7 +8841,7 @@ Forecast: %s
 </template>
 <template #zh>
 
-```go theme={null}
+```go
 func makeNWSRequest[T any](ctx context.Context, url string) (*T, error) {
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
 	if err != nil {
@@ -8931,7 +8931,7 @@ The tool execution handler is responsible for actually executing the logic of ea
 <BiRow>
 <template #en>
 
-```go theme={null}
+```go
 func getForecast(ctx context.Context, req *mcp.CallToolRequest, input ForecastInput) (
 	*mcp.CallToolResult, any, error,
 ) {
@@ -9034,7 +9034,7 @@ func getAlerts(ctx context.Context, req *mcp.CallToolRequest, input AlertsInput)
 </template>
 <template #zh>
 
-```go theme={null}
+```go
 func getForecast(ctx context.Context, req *mcp.CallToolRequest, input ForecastInput) (
 	*mcp.CallToolResult, any, error,
 ) {
@@ -9166,7 +9166,7 @@ Finally, implement the main function to run the server:
 <BiRow>
 <template #en>
 
-```go theme={null}
+```go
 func main() {
 	// Create MCP server
 	server := mcp.NewServer(&mcp.Implementation{
@@ -9196,7 +9196,7 @@ func main() {
 </template>
 <template #zh>
 
-```go theme={null}
+```go
 func main() {
 	// Create MCP server
 	server := mcp.NewServer(&mcp.Implementation{
@@ -9242,14 +9242,14 @@ Build your server with:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 go build -o weather .
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 go build -o weather .
 ```
 
@@ -9337,36 +9337,36 @@ For example, if you have [VS Code](https://code.visualstudio.com/) installed:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```bash Linux theme={null}
+::: code-group
+  ```bash title="[Linux]"
   code ~/.config/Claude/claude_desktop_config.json
   ```
 
-  ```bash macOS theme={null}
+  ```bash title="[macOS]"
   code ~/Library/Application\ Support/Claude/claude_desktop_config.json
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   code $env:AppData\Claude\claude_desktop_config.json
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```bash Linux theme={null}
+::: code-group
+  ```bash title="[Linux]"
   code ~/.config/Claude/claude_desktop_config.json
   ```
 
-  ```bash macOS theme={null}
+  ```bash title="[macOS]"
   code ~/Library/Application\ Support/Claude/claude_desktop_config.json
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   code $env:AppData\Claude\claude_desktop_config.json
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -9400,8 +9400,8 @@ In this case, we'll add our single weather server like so:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```json macOS/Linux theme={null}
+::: code-group
+  ```json title="[macOS/Linux]"
   {
     "mcpServers": {
       "weather": {
@@ -9411,7 +9411,7 @@ In this case, we'll add our single weather server like so:
   }
   ```
 
-  ```json Windows theme={null}
+  ```json title="[Windows]"
   {
     "mcpServers": {
       "weather": {
@@ -9420,13 +9420,13 @@ In this case, we'll add our single weather server like so:
     }
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```json macOS/Linux theme={null}
+::: code-group
+  ```json title="[macOS/Linux]"
   {
     "mcpServers": {
       "weather": {
@@ -9436,7 +9436,7 @@ In this case, we'll add our single weather server like so:
   }
   ```
 
-  ```json Windows theme={null}
+  ```json title="[Windows]"
   {
     "mcpServers": {
       "weather": {
@@ -9445,7 +9445,7 @@ In this case, we'll add our single weather server like so:
     }
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -9729,12 +9729,12 @@ Claude.app logging related to MCP is written to log files in `~/Library/Logs/Cla
 
 You can run the following command to list recent logs and follow along with any new ones:
 
-```bash macOS theme={null}
+```bash title="macOS"
 # Check Claude's logs for errors
 tail -n 20 -f ~/Library/Logs/Claude/mcp*.log
 ```
 
-```bash Linux theme={null}
+```bash title="Linux"
 # Check Claude's logs for errors
 tail -n 20 -f ~/.config/Claude/logs/mcp*.log
 ```
@@ -9802,12 +9802,12 @@ Claude.app 中与 MCP 相关的日志会写入 `~/Library/Logs/Claude`（macOS�
 
 你可以运行以下命令来列出最近的日志并持续跟踪新增日志：
 
-```bash macOS theme={null}
+```bash title="macOS"
 # Check Claude's logs for errors
 tail -n 20 -f ~/Library/Logs/Claude/mcp*.log
 ```
 
-```bash Linux theme={null}
+```bash title="Linux"
 # Check Claude's logs for errors
 tail -n 20 -f ~/.config/Claude/logs/mcp*.log
 ```

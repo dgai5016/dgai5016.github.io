@@ -167,7 +167,7 @@ When your MCP client first tries to connect, your server responds with a `401 Un
 <BiRow>
 <template #en>
 
-```http theme={null}
+```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: Bearer realm="mcp",
   resource_metadata="https://your-server.com/.well-known/oauth-protected-resource"
@@ -176,7 +176,7 @@ WWW-Authenticate: Bearer realm="mcp",
 </template>
 <template #zh>
 
-```http theme={null}
+```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: Bearer realm="mcp",
   resource_metadata="https://your-server.com/.well-known/oauth-protected-resource"
@@ -214,7 +214,7 @@ With the URI pointer to the PRM document, the client will fetch the metadata to 
 <BiRow>
 <template #en>
 
-```json theme={null}
+```json
 {
   "resource": "https://your-server.com/mcp",
   "authorization_servers": ["https://auth.your-server.com"],
@@ -225,7 +225,7 @@ With the URI pointer to the PRM document, the client will fetch the metadata to 
 </template>
 <template #zh>
 
-```json theme={null}
+```json
 {
   "resource": "https://your-server.com/mcp",
   "authorization_servers": ["https://auth.your-server.com"],
@@ -280,7 +280,7 @@ and retrieve another set of metadata properties that will allow it to know the e
 <BiRow>
 <template #en>
 
-```json theme={null}
+```json
 {
   "issuer": "https://auth.your-server.com",
   "authorization_endpoint": "https://auth.your-server.com/authorize",
@@ -292,7 +292,7 @@ and retrieve another set of metadata properties that will allow it to know the e
 </template>
 <template #zh>
 
-```json theme={null}
+```json
 {
   "issuer": "https://auth.your-server.com",
   "authorization_endpoint": "https://auth.your-server.com/authorize",
@@ -346,7 +346,7 @@ Alternatively, the client can use **Dynamic Client Registration** (DCR) to dynam
 <BiRow>
 <template #en>
 
-```json theme={null}
+```json
 {
   "client_name": "My MCP Client",
   "redirect_uris": ["http://localhost:3000/callback"],
@@ -358,7 +358,7 @@ Alternatively, the client can use **Dynamic Client Registration** (DCR) to dynam
 </template>
 <template #zh>
 
-```json theme={null}
+```json
 {
   "client_name": "My MCP Client",
   "redirect_uris": ["http://localhost:3000/callback"],
@@ -427,7 +427,7 @@ The client will now need to open a browser to the `/authorize` endpoint, where t
 <BiRow>
 <template #en>
 
-```json theme={null}
+```json
 {
   "access_token": "eyJhbGciOiJSUzI1NiIs...",
   "refresh_token": "def502...",
@@ -439,7 +439,7 @@ The client will now need to open a browser to the `/authorize` endpoint, where t
 </template>
 <template #zh>
 
-```json theme={null}
+```json
 {
   "access_token": "eyJhbGciOiJSUzI1NiIs...",
   "refresh_token": "def502...",
@@ -480,7 +480,7 @@ Finally, the client can make requests to your MCP server using the access token 
 <BiRow>
 <template #en>
 
-```http theme={null}
+```http
 GET /mcp HTTP/1.1
 Host: your-server.com
 Authorization: Bearer eyJhbGciOiJSUzI1NiIs...
@@ -489,7 +489,7 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIs...
 </template>
 <template #zh>
 
-```http theme={null}
+```http
 GET /mcp HTTP/1.1
 Host: your-server.com
 Authorization: Bearer eyJhbGciOiJSUzI1NiIs...
@@ -579,14 +579,14 @@ From your terminal application, run the following command to start the Keycloak 
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 docker run -p 127.0.0.1:8080:8080 -e KC_BOOTSTRAP_ADMIN_USERNAME=admin -e KC_BOOTSTRAP_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak start-dev
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 docker run -p 127.0.0.1:8080:8080 -e KC_BOOTSTRAP_ADMIN_USERNAME=admin -e KC_BOOTSTRAP_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak start-dev
 ```
 
@@ -676,14 +676,14 @@ When running with the default configuration, Keycloak will already support many 
 <BiRow>
 <template #en>
 
-```http theme={null}
+```http
 http://localhost:8080/realms/master/.well-known/openid-configuration
 ```
 
 </template>
 <template #zh>
 
-```http theme={null}
+```http
 http://localhost:8080/realms/master/.well-known/openid-configuration
 ```
 
@@ -993,14 +993,14 @@ Keycloak 配置完成后，每次触发授权流程时，你的 MCP 服务器都
 <BiRow>
 <template #en>
 
-```text theme={null}
+```text
 eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI1TjcxMGw1WW5MWk13WGZ1VlJKWGtCS3ZZMzZzb3JnRG5scmlyZ2tlTHlzIn0.eyJleHAiOjE3NTU1NDA4MTcsImlhdCI6MTc1NTU0MDc1NywiYXV0aF90aW1lIjoxNzU1NTM4ODg4LCJqdGkiOiJvbnJ0YWM6YjM0MDgwZmYtODQwNC02ODY3LTgxYmUtMTIzMWI1MDU5M2E4IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9tYXN0ZXIiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjMwMDAiLCJzdWIiOiIzM2VkNmM2Yi1jNmUwLTQ5MjgtYTE2MS1mMmY2OWM3YTAzYjkiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiI3OTc1YTViNi04YjU5LTRhODUtOWNiYS04ZmFlYmRhYjg5NzQiLCJzaWQiOiI4ZjdlYzI3Ni0zNThmLTRjY2MtYjMxMy1kYjA4MjkwZjM3NmYiLCJzY29wZSI6Im1jcDp0b29scyJ9.P5xCRtXORly0R0EXjyqRCUx-z3J4uAOWNAvYtLPXroykZuVCCJ-K1haiQSwbURqfsVOMbL7jiV-sD6miuPzI1tmKOkN_Yct0Vp-azvj7U5rEj7U6tvPfMkg2Uj_jrIX0KOskyU2pVvGZ-5BgqaSvwTEdsGu_V3_E0xDuSBq2uj_wmhqiyTFm5lJ1WkM3Hnxxx1_AAnTj7iOKMFZ4VCwMmk8hhSC7clnDauORc0sutxiJuYUZzxNiNPkmNeQtMCGqWdP1igcbWbrfnNXhJ6NswBOuRbh97_QraET3hl-CNmyS6C72Xc0aOwR_uJ7xVSBTD02OaQ1JA6kjCATz30kGYg
 ```
 
 </template>
 <template #zh>
 
-```text theme={null}
+```text
 eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI1TjcxMGw1WW5MWk13WGZ1VlJKWGtCS3ZZMzZzb3JnRG5scmlyZ2tlTHlzIn0.eyJleHAiOjE3NTU1NDA4MTcsImlhdCI6MTc1NTU0MDc1NywiYXV0aF90aW1lIjoxNzU1NTM4ODg4LCJqdGkiOiJvbnJ0YWM6YjM0MDgwZmYtODQwNC02ODY3LTgxYmUtMTIzMWI1MDU5M2E4IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9tYXN0ZXIiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjMwMDAiLCJzdWIiOiIzM2VkNmM2Yi1jNmUwLTQ5MjgtYTE2MS1mMmY2OWM3YTAzYjkiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiI3OTc1YTViNi04YjU5LTRhODUtOWNiYS04ZmFlYmRhYjg5NzQiLCJzaWQiOiI4ZjdlYzI3Ni0zNThmLTRjY2MtYjMxMy1kYjA4MjkwZjM3NmYiLCJzY29wZSI6Im1jcDp0b29scyJ9.P5xCRtXORly0R0EXjyqRCUx-z3J4uAOWNAvYtLPXroykZuVCCJ-K1haiQSwbURqfsVOMbL7jiV-sD6miuPzI1tmKOkN_Yct0Vp-azvj7U5rEj7U6tvPfMkg2Uj_jrIX0KOskyU2pVvGZ-5BgqaSvwTEdsGu_V3_E0xDuSBq2uj_wmhqiyTFm5lJ1WkM3Hnxxx1_AAnTj7iOKMFZ4VCwMmk8hhSC7clnDauORc0sutxiJuYUZzxNiNPkmNeQtMCGqWdP1igcbWbrfnNXhJ6NswBOuRbh97_QraET3hl-CNmyS6C72Xc0aOwR_uJ7xVSBTD02OaQ1JA6kjCATz30kGYg
 ```
 
@@ -1023,7 +1023,7 @@ Decoded, it will look like this:
 <BiRow>
 <template #en>
 
-```json theme={null}
+```json
 {
   "alg": "RS256",
   "typ": "JWT",
@@ -1046,7 +1046,7 @@ Decoded, it will look like this:
 </template>
 <template #zh>
 
-```json theme={null}
+```json
 {
   "alg": "RS256",
   "typ": "JWT",
@@ -1165,7 +1165,7 @@ Prior to running the code below, ensure that you have a `.env` file with the fol
 <BiRow>
 <template #en>
 
-```env theme={null}
+```env
 # Server host/port
 HOST=localhost
 PORT=3000
@@ -1183,7 +1183,7 @@ OAUTH_CLIENT_SECRET=<YOUR_SERVER_CLIENT_SECRET>
 </template>
 <template #zh>
 
-```env theme={null}
+```env
 # Server host/port
 HOST=localhost
 PORT=3000
@@ -1230,7 +1230,7 @@ In addition to implementing the MCP authorization specification, the server belo
 <BiRow>
 <template #en>
 
-```typescript theme={null}
+```typescript
 import "dotenv/config";
 import express from "express";
 import { randomUUID } from "node:crypto";
@@ -1534,7 +1534,7 @@ app.listen(CONFIG.port, CONFIG.host, () => {
 </template>
 <template #zh>
 
-```typescript theme={null}
+```typescript
 import "dotenv/config";
 import express from "express";
 import { randomUUID } from "node:crypto";
@@ -1906,7 +1906,7 @@ Prior to writing the actual server, we need to set up our configuration in `conf
 <BiRow>
 <template #en>
 
-```python theme={null}
+```python
 """Configuration settings for the MCP auth server."""
 
 import os
@@ -1947,7 +1947,7 @@ config = Config()
 </template>
 <template #zh>
 
-```python theme={null}
+```python
 """Configuration settings for the MCP auth server."""
 
 import os
@@ -2017,7 +2017,7 @@ The server implementation is as follows:
 <BiRow>
 <template #en>
 
-```python theme={null}
+```python
 import datetime
 import logging
 from typing import Any
@@ -2148,7 +2148,7 @@ if __name__ == "__main__":
 </template>
 <template #zh>
 
-```python theme={null}
+```python
 import datetime
 import logging
 from typing import Any
@@ -2295,7 +2295,7 @@ Lastly, the token verification logic is delegated entirely to `token_verifier.py
 <BiRow>
 <template #en>
 
-```python theme={null}
+```python
 """Token verifier implementation using OAuth 2.0 Token Introspection (RFC 7662)."""
 
 import logging
@@ -2410,7 +2410,7 @@ class IntrospectionTokenVerifier(TokenVerifier):
 </template>
 <template #zh>
 
-```python theme={null}
+```python
 """Token verifier implementation using OAuth 2.0 Token Introspection (RFC 7662)."""
 
 import logging
@@ -2567,7 +2567,7 @@ In the server's root have a `pyproject.toml` file and a `mcp_server` folder. Put
 <BiRow>
 <template #en>
 
-```toml theme={null}
+```toml
 [project]
 name = "mcp-simple-auth"
 version = "0.1.0"
@@ -2598,7 +2598,7 @@ dev = ["pyright>=1.1.391", "pytest>=8.3.4", "ruff>=0.8.5"]
 </template>
 <template #zh>
 
-```toml theme={null}
+```toml
 [project]
 name = "mcp-simple-auth"
 version = "0.1.0"
@@ -2645,7 +2645,7 @@ Then run the commands below to start the server.
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 uv sync
 uv run mcp-simple-auth-rs
 ```
@@ -2653,7 +2653,7 @@ uv run mcp-simple-auth-rs
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 uv sync
 uv run mcp-simple-auth-rs
 ```
@@ -2703,7 +2703,7 @@ In the root of your server folder, create two files, `Program.cs` and `Protected
 <BiRow>
 <template #en>
 
-```csharp theme={null}
+```csharp
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using ModelContextProtocol.AspNetCore.Authentication;
@@ -2797,7 +2797,7 @@ app.Run(serverUrl);
 </template>
 <template #zh>
 
-```csharp theme={null}
+```csharp
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using ModelContextProtocol.AspNetCore.Authentication;
@@ -2907,7 +2907,7 @@ Fill `ProtectedMcpServer.csproj` with:
 <BiRow>
 <template #en>
 
-```xml theme={null}
+```xml
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
@@ -2930,7 +2930,7 @@ Fill `ProtectedMcpServer.csproj` with:
 </template>
 <template #zh>
 
-```xml theme={null}
+```xml
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
@@ -2969,7 +2969,7 @@ In the `Tools` folder, create `MathTools.cs` and fill it with:
 <BiRow>
 <template #en>
 
-```csharp theme={null}
+```csharp
 using System.ComponentModel;
 using ModelContextProtocol.Server;
 
@@ -2999,7 +2999,7 @@ public sealed class MathTools
 </template>
 <template #zh>
 
-```csharp theme={null}
+```csharp
 using System.ComponentModel;
 using ModelContextProtocol.Server;
 
@@ -3045,14 +3045,14 @@ Then from the server's root, run:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 dotnet run
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 dotnet run
 ```
 
@@ -3114,7 +3114,7 @@ Press <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> and select **MCP: Add ser
 <BiRow>
 <template #en>
 
-```json theme={null}
+```json
 "my-mcp-server-18676652": {
   "url": "http://localhost:3000",
   "type": "http"
@@ -3124,7 +3124,7 @@ Press <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> and select **MCP: Add ser
 </template>
 <template #zh>
 
-```json theme={null}
+```json
 "my-mcp-server-18676652": {
   "url": "http://localhost:3000",
   "type": "http"

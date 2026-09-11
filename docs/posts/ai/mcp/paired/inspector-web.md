@@ -27,7 +27,7 @@ Web 客户端是 Inspector 中功能最丰富的形态：一个由小型 Node �
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 npx @modelcontextprotocol/inspector                       # empty, add servers in the UI
 npx @modelcontextprotocol/inspector node build/index.js   # with an ad-hoc stdio server
 npx @modelcontextprotocol/inspector --catalog ./mcp.json  # with a catalog file
@@ -36,7 +36,7 @@ npx @modelcontextprotocol/inspector --catalog ./mcp.json  # with a catalog file
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 npx @modelcontextprotocol/inspector                       # empty, add servers in the UI
 npx @modelcontextprotocol/inspector node build/index.js   # with an ad-hoc stdio server
 npx @modelcontextprotocol/inspector --catalog ./mcp.json  # with a catalog file
@@ -143,14 +143,14 @@ Set the `MCP_INSPECTOR_API_TOKEN` environment variable to pin a known token (use
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 mcp-inspector --web --dev
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 mcp-inspector --web --dev
 ```
 

@@ -213,14 +213,14 @@ In the Connectors section, click the "Add" button at the top-right of the window
 <BiRow>
 <template #en>
 
-```text Example Remote Server theme={null}
+```text title="Example Remote Server"
 https://example-server.modelcontextprotocol.io/mcp
 ```
 
 </template>
 <template #zh>
 
-```text Example Remote Server theme={null}
+```text title="Example Remote Server"
 https://example-server.modelcontextprotocol.io/mcp
 ```
 

@@ -694,6 +694,7 @@ body {
 .mermaid-svg {
   text-align: center;             /* 图居中 */
   padding: 0.5rem 0;
+  cursor: zoom-in;                /* 提示可点击放大（与配图 lightbox 同一交互） */
 }
 .mermaid-svg svg {
   max-width: 100%;                /* 超宽图自适应容器，不出横向滚动条 */

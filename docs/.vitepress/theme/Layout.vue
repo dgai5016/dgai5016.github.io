@@ -138,10 +138,34 @@ const lightboxOpen = ref(false)
 const lightboxImages = ref<string[]>([])
 const lightboxIndex = ref(0)
 
-// 冒泡阶段监听 document 的 click：命中 .vp-doc 内的 <img> 就放大。
+// 冒泡阶段监听 document 的 click：命中 .vp-doc 内的 <img> 或 mermaid 图就放大。
 // 刻意用冒泡（非 capture）：不碰 VitePress 对 <a> 的 capture 路由拦截，img 点击与之无冲突。
 function onImageClick(e: MouseEvent) {
   const target = e.target as HTMLElement
+  // mermaid 图：点击 .mermaid-svg → SVG 序列化成 data URI，复用同一套 lightbox 图集。
+  // SVG 是矢量，放大后依然清晰；与配图行为一致——收集容器内全部 mermaid 图组成图集，
+  // 支持左右切换。序列化时剥掉根节点的 max-width 内联样式，避免大屏下图片被限宽。
+  const mermaidWrap = target.closest?.('.mermaid-svg') as HTMLElement | null
+  if (mermaidWrap) {
+    if (mermaidWrap.closest('a')) return // 防御：包在链接里则交给路由
+    const container = mermaidWrap.closest('.vp-doc')
+    if (!container) return
+    const svgs = Array.from(container.querySelectorAll('.mermaid-svg svg')) as SVGSVGElement[]
+    if (!svgs.length) return
+    const clicked = mermaidWrap.querySelector('svg') as SVGSVGElement
+    lightboxImages.value = svgs.map((s) => {
+      let html = s.outerHTML
+      // 根节点处理：剥掉原 style（含 max-width 限宽），注入白色背景——
+      // mermaid 默认主题是深色线条 + 透明背景，深色 lightbox 遮罩上会看不见线
+      html = html.replace(/^<svg[^>]*>/, (m) =>
+        m.replace(/\sstyle="[^"]*"/, '').replace('<svg', '<svg style="background-color:#fff"'),
+      )
+      return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(html)
+    })
+    lightboxIndex.value = Math.max(0, svgs.indexOf(clicked))
+    lightboxOpen.value = true
+    return
+  }
   if (target.tagName !== 'IMG') return
   if (target.closest('a')) return              // 防御：图片若被 <a> 包裹则交给 VitePress 路由，不放大
   const container = target.closest('.vp-doc')  // 定位图片所属的文章正文容器

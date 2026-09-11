@@ -45,6 +45,7 @@ export async function enhanceMermaid(container: HTMLElement | Document = documen
       )
       const wrap = document.createElement('div')
       wrap.className = 'mermaid-svg'
+      wrap.title = '点击放大' // 提示可点击（Layout 的全局委托会唤起 ImageLightbox）
       wrap.innerHTML = svg
       // 整块替换：代码壳（pre/复制按钮/语言标签）不再需要
       block.replaceChildren(wrap)

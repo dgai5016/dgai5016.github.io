@@ -96,7 +96,7 @@ Code:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 /plugin marketplace add anthropics/claude-plugins-official
 /plugin install mcp-server-dev
 ```
@@ -104,7 +104,7 @@ Code:
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 /plugin marketplace add anthropics/claude-plugins-official
 /plugin install mcp-server-dev
 ```

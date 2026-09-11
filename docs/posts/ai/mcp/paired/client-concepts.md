@@ -180,7 +180,7 @@ Elicitation follows the [Multi Round-Trip Requests](https://modelcontextprotocol
 <BiRow>
 <template #en>
 
-```mermaid theme={null}
+```mermaid
 sequenceDiagram
 participant User
 participant Client
@@ -204,7 +204,7 @@ Server-->>Client: Final result
 </template>
 <template #zh>
 
-```mermaid theme={null}
+```mermaid
 sequenceDiagram
 participant User
 participant Client
@@ -257,7 +257,7 @@ The flow enables dynamic information gathering. Servers can request specific dat
 <BiRow>
 <template #en>
 
-```typescript theme={null}
+```typescript
 {
   method: "elicitation/create",
   params: {
@@ -295,7 +295,7 @@ requestedSchema: {
 </template>
 <template #zh>
 
-```typescript theme={null}
+```typescript
 {
   method: "elicitation/create",
   params: {
@@ -549,7 +549,7 @@ Roots are a mechanism for clients to communicate filesystem access boundaries to
 <BiRow>
 <template #en>
 
-```json theme={null}
+```json
 {
   "uri": "file:///Users/agent/travel-planning",
   "name": "Travel Planning Workspace"
@@ -559,7 +559,7 @@ Roots are a mechanism for clients to communicate filesystem access boundaries to
 </template>
 <template #zh>
 
-```json theme={null}
+```json
 {
   "uri": "file:///Users/agent/travel-planning",
   "name": "Travel Planning Workspace"
@@ -879,7 +879,7 @@ Servers can also request tool use during sampling by including a `tools` array a
 <BiRow>
 <template #en>
 
-```mermaid theme={null}
+```mermaid
 sequenceDiagram
 participant LLM
 participant User
@@ -910,7 +910,7 @@ Server-->>Client: Final result
 </template>
 <template #zh>
 
-```mermaid theme={null}
+```mermaid
 sequenceDiagram
 participant LLM
 participant User
@@ -970,7 +970,7 @@ The flow ensures security through multiple human-in-the-loop checkpoints. Users 
 <BiRow>
 <template #en>
 
-```typescript theme={null}
+```typescript
 {
   messages: [
 {
@@ -999,7 +999,7 @@ intelligencePriority: 0.9  // Need complex trade-off evaluation
 </template>
 <template #zh>
 
-```typescript theme={null}
+```typescript
 {
   messages: [
 {

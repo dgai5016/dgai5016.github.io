@@ -188,8 +188,8 @@ server is doing as it runs:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```python Python theme={null}
+::: code-group
+  ```python title="[Python]"
   import logging
 
   from mcp.server import MCPServer
@@ -205,19 +205,19 @@ server is doing as it runs:
   return f"Report {report_id} is ready."
   ```
 
-  ```typescript TypeScript theme={null}
+  ```typescript title="[TypeScript]"
   await server.sendLoggingMessage({
 level: "info",
 data: "Server started successfully",
   });
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```python Python theme={null}
+::: code-group
+  ```python title="[Python]"
   import logging
 
   from mcp.server import MCPServer
@@ -233,13 +233,13 @@ data: "Server started successfully",
   return f"Report {report_id} is ready."
   ```
 
-  ```typescript TypeScript theme={null}
+  ```typescript title="[TypeScript]"
   await server.sendLoggingMessage({
 level: "info",
 data: "Server started successfully",
   });
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -388,7 +388,7 @@ For example in `claude_desktop_config.json`, use:
 <BiRow>
 <template #en>
 
-```json theme={null}
+```json
 {
   "mcpServers": {
 "filesystem": {
@@ -406,7 +406,7 @@ For example in `claude_desktop_config.json`, use:
 </template>
 <template #zh>
 
-```json theme={null}
+```json
 {
   "mcpServers": {
 "filesystem": {
@@ -481,7 +481,7 @@ To override the default variables or provide your own, you can specify an
 <BiRow>
 <template #en>
 
-```json theme={null}
+```json
 {
   "mcpServers": {
 "myserver": {
@@ -497,7 +497,7 @@ To override the default variables or provide your own, you can specify an
 </template>
 <template #zh>
 
-```json theme={null}
+```json
 {
   "mcpServers": {
 "myserver": {
@@ -752,28 +752,28 @@ Log files are written to:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```bash macOS theme={null}
+::: code-group
+  ```bash title="[macOS]"
   tail -n 20 -F ~/Library/Logs/Claude/mcp*.log
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   type "$env:AppData\Claude\logs\mcp*.log"
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```bash macOS theme={null}
+::: code-group
+  ```bash title="[macOS]"
   tail -n 20 -F ~/Library/Logs/Claude/mcp*.log
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   type "$env:AppData\Claude\logs\mcp*.log"
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -853,28 +853,28 @@ client-side errors:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```bash macOS theme={null}
+::: code-group
+  ```bash title="[macOS]"
   echo '{"allowDevTools": true}' > ~/Library/Application\ Support/Claude/developer_settings.json
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   '{"allowDevTools": true}' | Set-Content "$env:AppData\Claude\developer_settings.json"
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```bash macOS theme={null}
+::: code-group
+  ```bash title="[macOS]"
   echo '{"allowDevTools": true}' > ~/Library/Application\ Support/Claude/developer_settings.json
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   '{"allowDevTools": true}' | Set-Content "$env:AppData\Claude\developer_settings.json"
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>

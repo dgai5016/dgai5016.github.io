@@ -454,14 +454,14 @@ For CI, be explicit:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 mcp-inspector --cli "$URL" --transport http --stored-auth-only --method tools/list
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 mcp-inspector --cli "$URL" --transport http --stored-auth-only --method tools/list
 ```
 
@@ -548,7 +548,7 @@ A typical remote-VM sequence:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 # On the VM: print what the human needs in order to complete OAuth in their browser
 mcp-inspector --cli --server-url https://api.example/mcp --print-handoff
 
@@ -560,7 +560,7 @@ mcp-inspector --cli --transport http --server-url https://api.example/mcp \
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 # On the VM: print what the human needs in order to complete OAuth in their browser
 mcp-inspector --cli --server-url https://api.example/mcp --print-handoff
 

@@ -124,8 +124,8 @@ First, create a new Python project with `uv`:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   # Create project directory
   uv init mcp-client
   cd mcp-client
@@ -146,7 +146,7 @@ First, create a new Python project with `uv`:
   touch client.py
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   # Create project directory
   uv init mcp-client
   cd mcp-client
@@ -166,13 +166,13 @@ First, create a new Python project with `uv`:
   # Create our main file
   new-item client.py
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   # Create project directory
   uv init mcp-client
   cd mcp-client
@@ -193,7 +193,7 @@ First, create a new Python project with `uv`:
   touch client.py
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   # Create project directory
   uv init mcp-client
   cd mcp-client
@@ -213,7 +213,7 @@ First, create a new Python project with `uv`:
   # Create our main file
   new-item client.py
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -260,14 +260,14 @@ Create a `.env` file to store it:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 echo "ANTHROPIC_API_KEY=your-api-key-goes-here" > .env
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 echo "ANTHROPIC_API_KEY=your-api-key-goes-here" > .env
 ```
 
@@ -290,14 +290,14 @@ Add `.env` to your `.gitignore`:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 echo ".env" >> .gitignore
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 echo ".env" >> .gitignore
 ```
 
@@ -361,7 +361,7 @@ First, let's set up our imports and the pieces the rest of the file shares:
 <BiRow>
 <template #en>
 
-```python theme={null}
+```python
 import asyncio
 import sys
 
@@ -381,7 +381,7 @@ anthropic = Anthropic()
 </template>
 <template #zh>
 
-```python theme={null}
+```python
 import asyncio
 import sys
 
@@ -443,7 +443,7 @@ Next, we'll work out which process to launch for a given server script:
 <BiRow>
 <template #en>
 
-```python theme={null}
+```python
 def server_params(server_script_path: str) -> StdioServerParameters:
     """Describe the subprocess that runs an MCP server
 
@@ -463,7 +463,7 @@ def server_params(server_script_path: str) -> StdioServerParameters:
 </template>
 <template #zh>
 
-```python theme={null}
+```python
 def server_params(server_script_path: str) -> StdioServerParameters:
     """Describe the subprocess that runs an MCP server
 
@@ -525,7 +525,7 @@ Now let's add the core functionality for processing queries and handling tool ca
 <BiRow>
 <template #en>
 
-```python theme={null}
+```python
 async def process_query(client: Client, query: str) -> str:
     """Process a query using Claude and available tools"""
     messages = [
@@ -598,7 +598,7 @@ async def process_query(client: Client, query: str) -> str:
 </template>
 <template #zh>
 
-```python theme={null}
+```python
 async def process_query(client: Client, query: str) -> str:
     """Process a query using Claude and available tools"""
     messages = [
@@ -713,7 +713,7 @@ Now we'll add the chat loop:
 <BiRow>
 <template #en>
 
-```python theme={null}
+```python
 async def chat_loop(client: Client) -> None:
     """Run an interactive chat loop"""
     print("\nMCP Client Started!")
@@ -738,7 +738,7 @@ async def chat_loop(client: Client) -> None:
 </template>
 <template #zh>
 
-```python theme={null}
+```python
 async def chat_loop(client: Client) -> None:
     """Run an interactive chat loop"""
     print("\nMCP Client Started!")
@@ -805,7 +805,7 @@ Finally, we'll add the main execution logic:
 <BiRow>
 <template #en>
 
-```python theme={null}
+```python
 async def main() -> None:
     if len(sys.argv) < 2:
         print("Usage: python client.py <path_to_server_script>")
@@ -825,7 +825,7 @@ if __name__ == "__main__":
 </template>
 <template #zh>
 
-```python theme={null}
+```python
 async def main() -> None:
     if len(sys.argv) < 2:
         print("Usage: python client.py <path_to_server_script>")
@@ -1117,7 +1117,7 @@ To run your client with any MCP server:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 uv run client.py path/to/server.py # python server
 uv run client.py path/to/build/index.js # node server
 ```
@@ -1125,7 +1125,7 @@ uv run client.py path/to/build/index.js # node server
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 uv run client.py path/to/server.py # python server
 uv run client.py path/to/build/index.js # node server
 ```
@@ -1376,7 +1376,7 @@ Example of correct path usage:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 # Relative path
 uv run client.py ./server/weather.py
 
@@ -1391,7 +1391,7 @@ uv run client.py C:\\projects\\mcp-server\\weather.py
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 # Relative path
 uv run client.py ./server/weather.py
 
@@ -1576,8 +1576,8 @@ First, let's create and set up our project:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   # Create project directory
   mkdir mcp-client-typescript
   cd mcp-client-typescript
@@ -1595,7 +1595,7 @@ First, let's create and set up our project:
   touch index.ts
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   # Create project directory
   md mcp-client-typescript
   cd mcp-client-typescript
@@ -1612,13 +1612,13 @@ First, let's create and set up our project:
   # Create source file
   new-item index.ts
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   # Create project directory
   mkdir mcp-client-typescript
   cd mcp-client-typescript
@@ -1636,7 +1636,7 @@ First, let's create and set up our project:
   touch index.ts
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   # Create project directory
   md mcp-client-typescript
   cd mcp-client-typescript
@@ -1653,7 +1653,7 @@ First, let's create and set up our project:
   # Create source file
   new-item index.ts
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -1674,7 +1674,7 @@ Update your `package.json` to set `type: "module"` and a build script:
 <BiRow>
 <template #en>
 
-```json package.json theme={null}
+```json title="package.json"
 {
   "type": "module",
   "scripts": {
@@ -1686,7 +1686,7 @@ Update your `package.json` to set `type: "module"` and a build script:
 </template>
 <template #zh>
 
-```json package.json theme={null}
+```json title="package.json"
 {
   "type": "module",
   "scripts": {
@@ -1714,7 +1714,7 @@ Create a `tsconfig.json` in the root of your project:
 <BiRow>
 <template #en>
 
-```json tsconfig.json theme={null}
+```json title="tsconfig.json"
 {
   "compilerOptions": {
     "target": "ES2022",
@@ -1736,7 +1736,7 @@ Create a `tsconfig.json` in the root of your project:
 </template>
 <template #zh>
 
-```json tsconfig.json theme={null}
+```json title="tsconfig.json"
 {
   "compilerOptions": {
     "target": "ES2022",
@@ -1800,14 +1800,14 @@ Create a `.env` file to store it:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 echo "ANTHROPIC_API_KEY=<your key here>" > .env
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 echo "ANTHROPIC_API_KEY=<your key here>" > .env
 ```
 
@@ -1830,14 +1830,14 @@ Add `.env` to your `.gitignore`:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 echo ".env" >> .gitignore
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 echo ".env" >> .gitignore
 ```
 
@@ -1901,7 +1901,7 @@ First, let's set up our imports and create the basic client class in `index.ts`:
 <BiRow>
 <template #en>
 
-```typescript theme={null}
+```typescript
 import { Anthropic } from "@anthropic-ai/sdk";
 import {
   MessageParam,
@@ -1938,7 +1938,7 @@ class MCPClient {
 </template>
 <template #zh>
 
-```typescript theme={null}
+```typescript
 import { Anthropic } from "@anthropic-ai/sdk";
 import {
   MessageParam,
@@ -2004,7 +2004,7 @@ Next, we'll implement the method to connect to an MCP server:
 <BiRow>
 <template #en>
 
-```typescript theme={null}
+```typescript
 async connectToServer(serverScriptPath: string) {
   try {
     const isJs = serverScriptPath.endsWith(".js");
@@ -2046,7 +2046,7 @@ async connectToServer(serverScriptPath: string) {
 </template>
 <template #zh>
 
-```typescript theme={null}
+```typescript
 async connectToServer(serverScriptPath: string) {
   try {
     const isJs = serverScriptPath.endsWith(".js");
@@ -2117,7 +2117,7 @@ Now let's add the core functionality for processing queries and handling tool ca
 <BiRow>
 <template #en>
 
-```typescript theme={null}
+```typescript
 async processQuery(query: string) {
   const messages: MessageParam[] = [
     {
@@ -2177,7 +2177,7 @@ async processQuery(query: string) {
 </template>
 <template #zh>
 
-```typescript theme={null}
+```typescript
 async processQuery(query: string) {
   const messages: MessageParam[] = [
     {
@@ -2266,7 +2266,7 @@ Now we'll add the chat loop and cleanup functionality:
 <BiRow>
 <template #en>
 
-```typescript theme={null}
+```typescript
 async chatLoop() {
   const rl = readline.createInterface({
     input: process.stdin,
@@ -2298,7 +2298,7 @@ async cleanup() {
 </template>
 <template #zh>
 
-```typescript theme={null}
+```typescript
 async chatLoop() {
   const rl = readline.createInterface({
     input: process.stdin,
@@ -2359,7 +2359,7 @@ Finally, we'll add the main execution logic:
 <BiRow>
 <template #en>
 
-```typescript theme={null}
+```typescript
 async function main() {
   if (process.argv.length < 3) {
     console.log("Usage: node index.ts <path_to_server_script>");
@@ -2385,7 +2385,7 @@ main();
 </template>
 <template #zh>
 
-```typescript theme={null}
+```typescript
 async function main() {
   if (process.argv.length < 3) {
     console.log("Usage: node index.ts <path_to_server_script>");
@@ -2440,7 +2440,7 @@ To run your client with any MCP server:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 # Build TypeScript
 npm run build
 
@@ -2452,7 +2452,7 @@ node build/index.js path/to/build/index.js # node server
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 # Build TypeScript
 npm run build
 
@@ -2669,7 +2669,7 @@ Example of correct path usage:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 # Relative path
 node build/index.js ./server/build/index.js
 
@@ -2684,7 +2684,7 @@ node build/index.js C:\\projects\\mcp-server\\build\\index.js
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 # Relative path
 node build/index.js ./server/build/index.js
 
@@ -2897,14 +2897,14 @@ Before starting, ensure your system meets these requirements:
 <BiRow>
 <template #en>
 
-   ```bash theme={null}
+   ```bash
    npm install -g npx
    ```
 
 </template>
 <template #zh>
 
-   ```bash theme={null}
+   ```bash
    npm install -g npx
    ```
 
@@ -2927,7 +2927,7 @@ Before starting, ensure your system meets these requirements:
 <BiRow>
 <template #en>
 
-   ```bash theme={null}
+   ```bash
    git clone https://github.com/spring-projects/spring-ai-examples.git
    cd model-context-protocol/web-search/brave-chatbot
    ```
@@ -2935,7 +2935,7 @@ Before starting, ensure your system meets these requirements:
 </template>
 <template #zh>
 
-   ```bash theme={null}
+   ```bash
    git clone https://github.com/spring-projects/spring-ai-examples.git
    cd model-context-protocol/web-search/brave-chatbot
    ```
@@ -2959,7 +2959,7 @@ Before starting, ensure your system meets these requirements:
 <BiRow>
 <template #en>
 
-   ```bash theme={null}
+   ```bash
    export ANTHROPIC_API_KEY='your-anthropic-api-key-here'
    export BRAVE_API_KEY='your-brave-api-key-here'
    ```
@@ -2967,7 +2967,7 @@ Before starting, ensure your system meets these requirements:
 </template>
 <template #zh>
 
-   ```bash theme={null}
+   ```bash
    export ANTHROPIC_API_KEY='your-anthropic-api-key-here'
    export BRAVE_API_KEY='your-brave-api-key-here'
    ```
@@ -2991,14 +2991,14 @@ Before starting, ensure your system meets these requirements:
 <BiRow>
 <template #en>
 
-   ```bash theme={null}
+   ```bash
    ./mvnw clean install
    ```
 
 </template>
 <template #zh>
 
-   ```bash theme={null}
+   ```bash
    ./mvnw clean install
    ```
 
@@ -3009,7 +3009,7 @@ Before starting, ensure your system meets these requirements:
 <template #en>
 
 5. Run the application using Maven:
-   ```bash theme={null}
+   ```bash
    ./mvnw spring-boot:run
    ```
 
@@ -3017,7 +3017,7 @@ Before starting, ensure your system meets these requirements:
 <template #zh>
 
 5. 使用 Maven 运行应用：
-   ```bash theme={null}
+   ```bash
    ./mvnw spring-boot:run
    ```
 
@@ -3094,7 +3094,7 @@ The application integrates Spring AI with the Brave Search MCP server through se
 <BiRow>
 <template #en>
 
-```xml theme={null}
+```xml
 <dependency>
     <groupId>org.springframework.ai</groupId>
     <artifactId>spring-ai-starter-mcp-client</artifactId>
@@ -3108,7 +3108,7 @@ The application integrates Spring AI with the Brave Search MCP server through se
 </template>
 <template #zh>
 
-```xml theme={null}
+```xml
 <dependency>
     <groupId>org.springframework.ai</groupId>
     <artifactId>spring-ai-starter-mcp-client</artifactId>
@@ -3138,7 +3138,7 @@ The application integrates Spring AI with the Brave Search MCP server through se
 <BiRow>
 <template #en>
 
-```yml theme={null}
+```yml
 spring:
   ai:
     mcp:
@@ -3160,7 +3160,7 @@ spring:
 </template>
 <template #zh>
 
-```yml theme={null}
+```yml
 spring:
   ai:
     mcp:
@@ -3215,7 +3215,7 @@ It is disabled by default.
 <BiRow>
 <template #en>
 
-```json theme={null}
+```json
 {
   "mcpServers": {
     "brave-search": {
@@ -3232,7 +3232,7 @@ It is disabled by default.
 </template>
 <template #zh>
 
-```json theme={null}
+```json
 {
   "mcpServers": {
     "brave-search": {
@@ -3278,7 +3278,7 @@ The chatbot is implemented using Spring AI's ChatClient with MCP tool integratio
 <BiRow>
 <template #en>
 
-```java theme={null}
+```java
 var chatClient = chatClientBuilder
     .defaultSystem("You are useful assistant, expert in AI and Java.")
     .defaultToolCallbacks((Object[]) mcpToolAdapter.toolCallbacks())
@@ -3289,7 +3289,7 @@ var chatClient = chatClientBuilder
 </template>
 <template #zh>
 
-```java theme={null}
+```java
 var chatClient = chatClientBuilder
     .defaultSystem("You are useful assistant, expert in AI and Java.")
     .defaultToolCallbacks((Object[]) mcpToolAdapter.toolCallbacks())
@@ -3348,7 +3348,7 @@ Key features:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 ./mvnw clean install
 java -jar ./target/ai-mcp-brave-chatbot-0.0.1-SNAPSHOT.jar
 ```
@@ -3356,7 +3356,7 @@ java -jar ./target/ai-mcp-brave-chatbot-0.0.1-SNAPSHOT.jar
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 ./mvnw clean install
 java -jar ./target/ai-mcp-brave-chatbot-0.0.1-SNAPSHOT.jar
 ```
@@ -3380,14 +3380,14 @@ or
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 ./mvnw spring-boot:run
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 ./mvnw spring-boot:run
 ```
 
@@ -3500,14 +3500,14 @@ To connect to a remote MCP server over Streamable HTTP, configure a connection U
 <BiRow>
 <template #en>
 
-```properties theme={null}
+```properties
 spring.ai.mcp.client.streamable-http.connections.server1.url=http://localhost:8080
 ```
 
 </template>
 <template #zh>
 
-```properties theme={null}
+```properties
 spring.ai.mcp.client.streamable-http.connections.server1.url=http://localhost:8080
 ```
 
@@ -3530,7 +3530,7 @@ For WebFlux-based applications, you can use the WebFlux starter instead:
 <BiRow>
 <template #en>
 
-```xml theme={null}
+```xml
 <dependency>
     <groupId>org.springframework.ai</groupId>
     <artifactId>spring-ai-starter-mcp-client-webflux</artifactId>
@@ -3540,7 +3540,7 @@ For WebFlux-based applications, you can use the WebFlux starter instead:
 </template>
 <template #zh>
 
-```xml theme={null}
+```xml
 <dependency>
     <groupId>org.springframework.ai</groupId>
     <artifactId>spring-ai-starter-mcp-client-webflux</artifactId>
@@ -3650,14 +3650,14 @@ Verify your `java` installation:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 java --version
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 java --version
 ```
 
@@ -3680,8 +3680,8 @@ Now, let's create and set up your project:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   # Create a new directory for our project
   mkdir kotlin-mcp-client
   cd kotlin-mcp-client
@@ -3690,20 +3690,20 @@ Now, let's create and set up your project:
   gradle init
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   # Create a new directory for our project
   md kotlin-mcp-client
   cd kotlin-mcp-client
   # Initialize a new kotlin project
   gradle init
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   # Create a new directory for our project
   mkdir kotlin-mcp-client
   cd kotlin-mcp-client
@@ -3712,14 +3712,14 @@ Now, let's create and set up your project:
   gradle init
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   # Create a new directory for our project
   md kotlin-mcp-client
   cd kotlin-mcp-client
   # Initialize a new kotlin project
   gradle init
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -3766,7 +3766,7 @@ After creating the project, replace the contents of your `build.gradle.kts` with
 <BiRow>
 <template #en>
 
-```kotlin build.gradle.kts theme={null}
+```kotlin title="build.gradle.kts"
 // Check latest versions at https://github.com/modelcontextprotocol/kotlin-sdk/releases
 val mcpVersion = "0.9.0"
 val ktorVersion = "3.2.3"
@@ -3794,7 +3794,7 @@ dependencies {
 </template>
 <template #zh>
 
-```kotlin build.gradle.kts theme={null}
+```kotlin title="build.gradle.kts"
 // Check latest versions at https://github.com/modelcontextprotocol/kotlin-sdk/releases
 val mcpVersion = "0.9.0"
 val ktorVersion = "3.2.3"
@@ -3838,14 +3838,14 @@ Verify that everything is set up correctly:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 ./gradlew build
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 ./gradlew build
 ```
 
@@ -3894,14 +3894,14 @@ Set up your API key:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 export ANTHROPIC_API_KEY='your-anthropic-api-key-here'
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 export ANTHROPIC_API_KEY='your-anthropic-api-key-here'
 ```
 
@@ -3965,7 +3965,7 @@ First, let's create the basic client class:
 <BiRow>
 <template #en>
 
-```kotlin theme={null}
+```kotlin
 class MCPClient(apiKey: String) : AutoCloseable {
     private val anthropic = AnthropicOkHttpClient.builder()
         .apiKey(apiKey)
@@ -3992,7 +3992,7 @@ class MCPClient(apiKey: String) : AutoCloseable {
 </template>
 <template #zh>
 
-```kotlin theme={null}
+```kotlin
 class MCPClient(apiKey: String) : AutoCloseable {
     private val anthropic = AnthropicOkHttpClient.builder()
         .apiKey(apiKey)
@@ -4048,7 +4048,7 @@ Next, we'll implement the method to connect to an MCP server:
 <BiRow>
 <template #en>
 
-```kotlin theme={null}
+```kotlin
 suspend fun connectToServer(serverScriptPath: String) {
     val command = buildList {
         when (serverScriptPath.substringAfterLast(".")) {
@@ -4093,7 +4093,7 @@ suspend fun connectToServer(serverScriptPath: String) {
 </template>
 <template #zh>
 
-```kotlin theme={null}
+```kotlin
 suspend fun connectToServer(serverScriptPath: String) {
     val command = buildList {
         when (serverScriptPath.substringAfterLast(".")) {
@@ -4144,7 +4144,7 @@ suspend fun connectToServer(serverScriptPath: String) {
 <Accordion title="JsonObject.toJsonValue() helper">
   This helper converts a kotlinx.serialization `JsonObject` to an Anthropic SDK `JsonValue` using Jackson:
 
-  ```kotlin theme={null}
+  ```kotlin
   private fun JsonObject.toJsonValue(): JsonValue {
       val mapper = ObjectMapper()
       val node = mapper.readTree(this.toString())
@@ -4159,7 +4159,7 @@ suspend fun connectToServer(serverScriptPath: String) {
 <Accordion title="JsonObject.toJsonValue() helper">
 这个辅助函数用 Jackson 把 kotlinx.serialization 的 `JsonObject` 转换为 Anthropic SDK 的 `JsonValue`：
 
-  ```kotlin theme={null}
+  ```kotlin
   private fun JsonObject.toJsonValue(): JsonValue {
       val mapper = ObjectMapper()
       val node = mapper.readTree(this.toString())
@@ -4200,7 +4200,7 @@ Now let's add the core functionality for processing queries and handling tool ca
 <BiRow>
 <template #en>
 
-```kotlin theme={null}
+```kotlin
 suspend fun processQuery(query: String): String {
     val messages = mutableListOf(
         MessageParam.builder()
@@ -4265,7 +4265,7 @@ suspend fun processQuery(query: String): String {
 </template>
 <template #zh>
 
-```kotlin theme={null}
+```kotlin
 suspend fun processQuery(query: String): String {
     val messages = mutableListOf(
         MessageParam.builder()
@@ -4359,7 +4359,7 @@ We'll add the chat loop:
 <BiRow>
 <template #en>
 
-```kotlin theme={null}
+```kotlin
 suspend fun chatLoop() {
     println("\nMCP Client Started!")
     println("Type your queries or 'quit' to exit.")
@@ -4382,7 +4382,7 @@ suspend fun chatLoop() {
 </template>
 <template #zh>
 
-```kotlin theme={null}
+```kotlin
 suspend fun chatLoop() {
     println("\nMCP Client Started!")
     println("Type your queries or 'quit' to exit.")
@@ -4434,7 +4434,7 @@ Finally, we'll add the main execution function:
 <BiRow>
 <template #en>
 
-```kotlin theme={null}
+```kotlin
 fun main(args: Array<String>) = runBlocking {
     require(args.isNotEmpty()) { "Usage: java -jar <path> <path_to_server_script>" }
 
@@ -4452,7 +4452,7 @@ fun main(args: Array<String>) = runBlocking {
 </template>
 <template #zh>
 
-```kotlin theme={null}
+```kotlin
 fun main(args: Array<String>) = runBlocking {
     require(args.isNotEmpty()) { "Usage: java -jar <path> <path_to_server_script>" }
 
@@ -4499,7 +4499,7 @@ To run your client with any MCP server:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 ./gradlew build
 
 # Run the client
@@ -4511,7 +4511,7 @@ java -jar build/libs/kotlin-mcp-client-0.1.0-all.jar path/to/build/index.js # No
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 ./gradlew build
 
 # Run the client
@@ -4539,14 +4539,14 @@ Alternatively, you can run directly with Gradle:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 ./gradlew run --args="path/to/server.jar"
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 ./gradlew run --args="path/to/server.jar"
 ```
 
@@ -4633,7 +4633,7 @@ Here's a high-level workflow schema:
 <BiRow>
 <template #en>
 
-```mermaid theme={null}
+```mermaid
 ---
 config:
     theme: neutral
@@ -4661,7 +4661,7 @@ sequenceDiagram
 </template>
 <template #zh>
 
-```mermaid theme={null}
+```mermaid
 ---
 config:
     theme: neutral
@@ -4838,7 +4838,7 @@ Example of correct path usage:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 # Relative path
 java -jar build/libs/client.jar ./server/build/libs/server.jar
 
@@ -4853,7 +4853,7 @@ java -jar build/libs/client.jar C:\\projects\\mcp-server\\build\\libs\\server.ja
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 # Relative path
 java -jar build/libs/client.jar ./server/build/libs/server.jar
 
@@ -5062,7 +5062,7 @@ First, create a new .NET project:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 dotnet new console -n QuickstartClient
 cd QuickstartClient
 ```
@@ -5070,7 +5070,7 @@ cd QuickstartClient
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 dotnet new console -n QuickstartClient
 cd QuickstartClient
 ```
@@ -5094,7 +5094,7 @@ Then, add the required dependencies to your project:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 dotnet add package ModelContextProtocol --prerelease
 dotnet add package Anthropic.SDK
 dotnet add package Microsoft.Extensions.Hosting
@@ -5104,7 +5104,7 @@ dotnet add package Microsoft.Extensions.AI
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 dotnet add package ModelContextProtocol --prerelease
 dotnet add package Anthropic.SDK
 dotnet add package Microsoft.Extensions.Hosting
@@ -5143,7 +5143,7 @@ You'll need an Anthropic API key from the [Anthropic Console](https://console.an
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 dotnet user-secrets init
 dotnet user-secrets set "ANTHROPIC_API_KEY" "<your key here>"
 ```
@@ -5151,7 +5151,7 @@ dotnet user-secrets set "ANTHROPIC_API_KEY" "<your key here>"
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 dotnet user-secrets init
 dotnet user-secrets set "ANTHROPIC_API_KEY" "<your key here>"
 ```
@@ -5201,7 +5201,7 @@ First, let's setup the basic client class in the file `Program.cs`:
 <BiRow>
 <template #en>
 
-```csharp theme={null}
+```csharp
 using Anthropic.SDK;
 using Microsoft.Extensions.AI;
 using Microsoft.Extensions.Configuration;
@@ -5219,7 +5219,7 @@ builder.Configuration
 </template>
 <template #zh>
 
-```csharp theme={null}
+```csharp
 using Anthropic.SDK;
 using Microsoft.Extensions.AI;
 using Microsoft.Extensions.Configuration;
@@ -5266,7 +5266,7 @@ Next, we'll setup the MCP Client:
 <BiRow>
 <template #en>
 
-```csharp theme={null}
+```csharp
 var (command, arguments) = GetCommandAndArguments(args);
 
 var clientTransport = new StdioClientTransport(new()
@@ -5288,7 +5288,7 @@ foreach (var tool in tools)
 </template>
 <template #zh>
 
-```csharp theme={null}
+```csharp
 var (command, arguments) = GetCommandAndArguments(args);
 
 var clientTransport = new StdioClientTransport(new()
@@ -5326,7 +5326,7 @@ Add this function at the end of the `Program.cs` file:
 <BiRow>
 <template #en>
 
-```csharp theme={null}
+```csharp
 static (string command, string[] arguments) GetCommandAndArguments(string[] args)
 {
     return args switch
@@ -5342,7 +5342,7 @@ static (string command, string[] arguments) GetCommandAndArguments(string[] args
 </template>
 <template #zh>
 
-```csharp theme={null}
+```csharp
 static (string command, string[] arguments) GetCommandAndArguments(string[] args)
 {
     return args switch
@@ -5400,7 +5400,7 @@ Now let's add the core functionality for processing queries and handling tool ca
 <BiRow>
 <template #en>
 
-```csharp theme={null}
+```csharp
 using var anthropicClient = new AnthropicClient(new APIAuthentication(builder.Configuration["ANTHROPIC_API_KEY"]))
     .Messages
     .AsBuilder()
@@ -5448,7 +5448,7 @@ static void PromptForInput()
 </template>
 <template #zh>
 
-```csharp theme={null}
+```csharp
 using var anthropicClient = new AnthropicClient(new APIAuthentication(builder.Configuration["ANTHROPIC_API_KEY"]))
     .Messages
     .AsBuilder()
@@ -5630,7 +5630,7 @@ To run your client with any MCP server:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 dotnet run -- path/to/server.csproj # dotnet server
 dotnet run -- path/to/server.py # python server
 dotnet run -- path/to/server.js # node server
@@ -5639,7 +5639,7 @@ dotnet run -- path/to/server.js # node server
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 dotnet run -- path/to/server.csproj # dotnet server
 dotnet run -- path/to/server.py # python server
 dotnet run -- path/to/server.js # node server
@@ -5812,8 +5812,8 @@ First, create a new Ruby project:
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   # Create project directory
   mkdir mcp-client
   cd mcp-client
@@ -5828,7 +5828,7 @@ First, create a new Ruby project:
   touch client.rb
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   # Create project directory
   mkdir mcp-client
   cd mcp-client
@@ -5842,13 +5842,13 @@ First, create a new Ruby project:
   # Create our main file
   new-item client.rb
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   # Create project directory
   mkdir mcp-client
   cd mcp-client
@@ -5863,7 +5863,7 @@ First, create a new Ruby project:
   touch client.rb
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   # Create project directory
   mkdir mcp-client
   cd mcp-client
@@ -5877,7 +5877,7 @@ First, create a new Ruby project:
   # Create our main file
   new-item client.rb
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -5924,14 +5924,14 @@ Create a `.env` file to store it:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 echo "ANTHROPIC_API_KEY=your-api-key-goes-here" > .env
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 echo "ANTHROPIC_API_KEY=your-api-key-goes-here" > .env
 ```
 
@@ -5954,14 +5954,14 @@ Add `.env` to your `.gitignore`:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 echo ".env" >> .gitignore
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 echo ".env" >> .gitignore
 ```
 
@@ -6025,7 +6025,7 @@ First, let's set up our requires and create the basic client class:
 <BiRow>
 <template #en>
 
-```ruby theme={null}
+```ruby
 require "anthropic"
 require "dotenv/load"
 require "json"
@@ -6047,7 +6047,7 @@ end
 </template>
 <template #zh>
 
-```ruby theme={null}
+```ruby
 require "anthropic"
 require "dotenv/load"
 require "json"
@@ -6098,7 +6098,7 @@ Next, we'll implement the method to connect to an MCP server:
 <BiRow>
 <template #en>
 
-```ruby theme={null}
+```ruby
 def connect_to_server(server_script_path)
   command = case File.extname(server_script_path)
   when ".rb"
@@ -6123,7 +6123,7 @@ end
 </template>
 <template #zh>
 
-```ruby theme={null}
+```ruby
 def connect_to_server(server_script_path)
   command = case File.extname(server_script_path)
   when ".rb"
@@ -6177,7 +6177,7 @@ Now let's add the core functionality for processing queries and handling tool ca
 <BiRow>
 <template #en>
 
-```ruby theme={null}
+```ruby
 private
 
 def process_query(query)
@@ -6253,7 +6253,7 @@ end
 </template>
 <template #zh>
 
-```ruby theme={null}
+```ruby
 private
 
 def process_query(query)
@@ -6358,7 +6358,7 @@ Now we'll add the chat loop and cleanup functionality:
 <BiRow>
 <template #en>
 
-```ruby theme={null}
+```ruby
 def chat_loop
   puts <<~MESSAGE
     MCP Client Started!
@@ -6391,7 +6391,7 @@ end
 </template>
 <template #zh>
 
-```ruby theme={null}
+```ruby
 def chat_loop
   puts <<~MESSAGE
     MCP Client Started!
@@ -6453,7 +6453,7 @@ Finally, we'll add the main execution logic:
 <BiRow>
 <template #en>
 
-```ruby theme={null}
+```ruby
 if ARGV.empty?
   puts "Usage: ruby client.rb <path_to_server_script>"
   exit 1
@@ -6485,7 +6485,7 @@ end
 </template>
 <template #zh>
 
-```ruby theme={null}
+```ruby
 if ARGV.empty?
   puts "Usage: ruby client.rb <path_to_server_script>"
   exit 1
@@ -6734,7 +6734,7 @@ To run your client with any MCP server:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 bundle exec ruby client.rb path/to/server.rb # ruby server
 bundle exec ruby client.rb path/to/server.py # python server
 bundle exec ruby client.rb path/to/build/index.js # node server
@@ -6743,7 +6743,7 @@ bundle exec ruby client.rb path/to/build/index.js # node server
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 bundle exec ruby client.rb path/to/server.rb # ruby server
 bundle exec ruby client.rb path/to/server.py # python server
 bundle exec ruby client.rb path/to/build/index.js # node server
@@ -6969,7 +6969,7 @@ Example of correct path usage:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 # Relative path
 bundle exec ruby client.rb ./server/weather.rb
 
@@ -6984,7 +6984,7 @@ bundle exec ruby client.rb C:\\projects\\mcp-server\\weather.rb
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 # Relative path
 bundle exec ruby client.rb ./server/weather.rb
 
@@ -7167,7 +7167,7 @@ First, create a new Rust project:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 cargo new mcp-client-rust
 cd mcp-client-rust
 ```
@@ -7175,7 +7175,7 @@ cd mcp-client-rust
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 cargo new mcp-client-rust
 cd mcp-client-rust
 ```
@@ -7199,7 +7199,7 @@ Replace the contents of `Cargo.toml` with the following:
 <BiRow>
 <template #en>
 
-```toml Cargo.toml theme={null}
+```toml title="Cargo.toml"
 [package]
 name = "mcp-client-rust"
 version = "0.1.0"
@@ -7220,7 +7220,7 @@ reqwest = "0.12.23"
 </template>
 <template #zh>
 
-```toml Cargo.toml theme={null}
+```toml title="Cargo.toml"
 [package]
 name = "mcp-client-rust"
 version = "0.1.0"
@@ -7296,14 +7296,14 @@ Create a `.env` file to store it:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 echo "ANTHROPIC_API_KEY=your-api-key-goes-here" > .env
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 echo "ANTHROPIC_API_KEY=your-api-key-goes-here" > .env
 ```
 
@@ -7326,14 +7326,14 @@ Add `.env` to your `.gitignore`:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 echo ".env" >> .gitignore
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 echo ".env" >> .gitignore
 ```
 
@@ -7410,7 +7410,7 @@ First, add the imports, model constant, and basic client structure:
 <BiRow>
 <template #en>
 
-```rust theme={null}
+```rust
 use anyhow::{Context, Result, bail};
 use genai::Client;
 use genai::chat::{
@@ -7435,7 +7435,7 @@ struct MCPClient {
 </template>
 <template #zh>
 
-```rust theme={null}
+```rust
 use anyhow::{Context, Result, bail};
 use genai::Client;
 use genai::chat::{
@@ -7502,7 +7502,7 @@ Next, initialize the model client and start without an MCP session or tools:
 <BiRow>
 <template #en>
 
-```rust theme={null}
+```rust
 impl MCPClient {
     fn new() -> Result<Self> {
         Ok(MCPClient {
@@ -7519,7 +7519,7 @@ impl MCPClient {
 </template>
 <template #zh>
 
-```rust theme={null}
+```rust
 impl MCPClient {
     fn new() -> Result<Self> {
         Ok(MCPClient {
@@ -7578,7 +7578,7 @@ Add this method inside the `impl MCPClient` block:
 <BiRow>
 <template #en>
 
-```rust theme={null}
+```rust
 async fn connect_to_server(&mut self, server_args: &[String]) -> Result<()> {
     if self.session.is_some() {
         bail!("Client is already connected to a server");
@@ -7613,7 +7613,7 @@ async fn connect_to_server(&mut self, server_args: &[String]) -> Result<()> {
 </template>
 <template #zh>
 
-```rust theme={null}
+```rust
 async fn connect_to_server(&mut self, server_args: &[String]) -> Result<()> {
     if self.session.is_some() {
         bail!("Client is already connected to a server");
@@ -7709,7 +7709,7 @@ Add this function outside the `impl MCPClient` block:
 <BiRow>
 <template #en>
 
-```rust theme={null}
+```rust
 fn convert_tools(tools: &[McpTool]) -> Vec<GenaiTool> {
     tools
         .iter()
@@ -7726,7 +7726,7 @@ fn convert_tools(tools: &[McpTool]) -> Vec<GenaiTool> {
 </template>
 <template #zh>
 
-```rust theme={null}
+```rust
 fn convert_tools(tools: &[McpTool]) -> Vec<GenaiTool> {
     tools
         .iter()
@@ -7785,7 +7785,7 @@ Add this helper method inside `impl MCPClient`:
 <BiRow>
 <template #en>
 
-```rust theme={null}
+```rust
 async fn request_model(&self, chat_req: &ChatRequest) -> Result<ChatResponse> {
     let response = self
         .anthropic
@@ -7800,7 +7800,7 @@ async fn request_model(&self, chat_req: &ChatRequest) -> Result<ChatResponse> {
 </template>
 <template #zh>
 
-```rust theme={null}
+```rust
 async fn request_model(&self, chat_req: &ChatRequest) -> Result<ChatResponse> {
     let response = self
         .anthropic
@@ -7857,7 +7857,7 @@ Now add the core query-processing method inside `impl MCPClient`:
 <BiRow>
 <template #en>
 
-```rust theme={null}
+```rust
 async fn process_query(&mut self, query: &str) -> Result<String> {
     let session = self
         .session
@@ -7931,7 +7931,7 @@ async fn process_query(&mut self, query: &str) -> Result<String> {
 </template>
 <template #zh>
 
-```rust theme={null}
+```rust
 async fn process_query(&mut self, query: &str) -> Result<String> {
     let session = self
         .session
@@ -8047,7 +8047,7 @@ Add the interactive terminal loop inside `impl MCPClient`:
 <BiRow>
 <template #en>
 
-```rust theme={null}
+```rust
 async fn chat_loop(&mut self) -> Result<()> {
     println!("\nMCP Client Started!");
     println!("Type your queries or 'quit' to exit.");
@@ -8085,7 +8085,7 @@ async fn chat_loop(&mut self) -> Result<()> {
 </template>
 <template #zh>
 
-```rust theme={null}
+```rust
 async fn chat_loop(&mut self) -> Result<()> {
     println!("\nMCP Client Started!");
     println!("Type your queries or 'quit' to exit.");
@@ -8165,7 +8165,7 @@ Add this method inside `impl MCPClient` to stop the MCP session and child proces
 <BiRow>
 <template #en>
 
-```rust theme={null}
+```rust
 async fn cleanup(&mut self) -> Result<()> {
     if let Some(session) = self.session.take() {
         let _ = session.cancel().await;
@@ -8177,7 +8177,7 @@ async fn cleanup(&mut self) -> Result<()> {
 </template>
 <template #zh>
 
-```rust theme={null}
+```rust
 async fn cleanup(&mut self) -> Result<()> {
     if let Some(session) = self.session.take() {
         let _ = session.cancel().await;
@@ -8218,7 +8218,7 @@ Finally, add the asynchronous entry point outside the `impl MCPClient` block:
 <BiRow>
 <template #en>
 
-```rust theme={null}
+```rust
 #[tokio::main]
 async fn main() -> Result<()> {
     dotenvy::dotenv().context("Failed to load env file")?;
@@ -8252,7 +8252,7 @@ async fn main() -> Result<()> {
 </template>
 <template #zh>
 
-```rust theme={null}
+```rust
 #[tokio::main]
 async fn main() -> Result<()> {
     dotenvy::dotenv().context("Failed to load env file")?;
@@ -8356,7 +8356,7 @@ Rust 并不要求这些内容按特定顺序出现，但方法和自由函数必
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 cargo fmt --check
 cargo check
 ```
@@ -8364,7 +8364,7 @@ cargo check
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 cargo fmt --check
 cargo check
 ```
@@ -8401,7 +8401,7 @@ Use `cargo run --` followed by the command you would normally use to start the M
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 # Python server
 cargo run -- python path/to/server.py
 
@@ -8415,7 +8415,7 @@ cargo run -- path/to/server-binary
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 # Python server
 cargo run -- python path/to/server.py
 
@@ -8632,7 +8632,7 @@ The arguments after `cargo run --` must form a complete command. Interpreted ser
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 # Correct
 cargo run -- python ./server/weather.py
 cargo run -- node ./server/build/index.js
@@ -8644,7 +8644,7 @@ cargo run -- ./server/weather.py
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 # Correct
 cargo run -- python ./server/weather.py
 cargo run -- node ./server/build/index.js
@@ -8711,14 +8711,14 @@ If the model request reports a missing API key, confirm that `.env` contains:
 <BiRow>
 <template #en>
 
-```text theme={null}
+```text
 ANTHROPIC_API_KEY=your-api-key-goes-here
 ```
 
 </template>
 <template #zh>
 
-```text theme={null}
+```text
 ANTHROPIC_API_KEY=your-api-key-goes-here
 ```
 

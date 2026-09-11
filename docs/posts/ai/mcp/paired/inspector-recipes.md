@@ -53,14 +53,14 @@ stdio 服务器是 Inspector 派生的一个进程。所有按位置传递的内
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 mcp-inspector node build/index.js -- --verbose --config /etc/myserver.conf
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 mcp-inspector node build/index.js -- --verbose --config /etc/myserver.conf
 ```
 
@@ -97,7 +97,7 @@ Give the process environment variables with `-e` and a working directory with `-
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 mcp-inspector -e API_KEY=abc123 -e REGION=us-east-1 --cwd ~/projects/my-server \
   node build/index.js
 ```
@@ -105,7 +105,7 @@ mcp-inspector -e API_KEY=abc123 -e REGION=us-east-1 --cwd ~/projects/my-server \
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 mcp-inspector -e API_KEY=abc123 -e REGION=us-east-1 --cwd ~/projects/my-server \
   node build/index.js
 ```
@@ -142,7 +142,7 @@ The server's `stderr` lands in the **Console** tab (web) or the Console tab (`o`
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 mcp-inspector --server-url https://api.example.com/mcp --transport http \
   --header "X-Tenant: acme"
 ```
@@ -150,7 +150,7 @@ mcp-inspector --server-url https://api.example.com/mcp --transport http \
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 mcp-inspector --server-url https://api.example.com/mcp --transport http \
   --header "X-Tenant: acme"
 ```
@@ -230,14 +230,14 @@ not touch your catalog at all, launch against the foreign file read-only instead
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 mcp-inspector --config ~/Library/Application\ Support/Claude/claude_desktop_config.json
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 mcp-inspector --config ~/Library/Application\ Support/Claude/claude_desktop_config.json
 ```
 
@@ -299,7 +299,7 @@ mcp-inspector --config ~/Library/Application\ Support/Claude/claude_desktop_conf
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 mcp-inspector --cli --transport http --server-url https://example.com/mcp \
   --method tools/call --tool-name <tool> --app-info
 ```
@@ -307,7 +307,7 @@ mcp-inspector --cli --transport http --server-url https://example.com/mcp \
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 mcp-inspector --cli --transport http --server-url https://example.com/mcp \
   --method tools/call --tool-name <tool> --app-info
 ```
@@ -331,7 +331,7 @@ stdout 上只有一行 JSON；工具带 app 时退出码为 `0`，不带则为 `
 <BiRow>
 <template #en>
 
-```json theme={null}
+```json
 {
   "hasApp": true,
   "toolName": "get_pros",
@@ -346,7 +346,7 @@ stdout 上只有一行 JSON；工具带 app 时退出码为 `0`，不带则为 `
 </template>
 <template #zh>
 
-```json theme={null}
+```json
 {
   "hasApp": true,
   "toolName": "get_pros",
@@ -377,7 +377,7 @@ stdout 上只有一行 JSON；工具带 app 时退出码为 `0`，不带则为 `
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 mcp-inspector --cli --transport http --server-url https://example.com/mcp \
   --method tools/call --tool-name <tool> --tool-args-json '{"zip":"10001"}' --format json
 ```
@@ -385,7 +385,7 @@ mcp-inspector --cli --transport http --server-url https://example.com/mcp \
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 mcp-inspector --cli --transport http --server-url https://example.com/mcp \
   --method tools/call --tool-name <tool> --tool-args-json '{"zip":"10001"}' --format json
 ```
@@ -396,7 +396,7 @@ mcp-inspector --cli --transport http --server-url https://example.com/mcp \
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 TOKEN="$(openssl rand -hex 24)"
 HOST=127.0.0.1 CLIENT_PORT=6274 MCP_SANDBOX_PORT=6275 \
 MCP_AUTO_OPEN_ENABLED=false MCP_INSPECTOR_API_TOKEN="$TOKEN" \
@@ -406,7 +406,7 @@ mcp-inspector --web &
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 TOKEN="$(openssl rand -hex 24)"
 HOST=127.0.0.1 CLIENT_PORT=6274 MCP_SANDBOX_PORT=6275 \
 MCP_AUTO_OPEN_ENABLED=false MCP_INSPECTOR_API_TOKEN="$TOKEN" \
@@ -522,14 +522,14 @@ A container image is published to GitHub Container Registry for `linux/amd64` an
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 docker run --rm -p 6274:6274 ghcr.io/modelcontextprotocol/inspector
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 docker run --rm -p 6274:6274 ghcr.io/modelcontextprotocol/inspector
 ```
 
@@ -578,14 +578,14 @@ Its `HEALTHCHECK` probes the web UI, so add `--no-healthcheck` when running `--c
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 docker run --rm --no-healthcheck ghcr.io/modelcontextprotocol/inspector --cli <target> --method tools/list
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 docker run --rm --no-healthcheck ghcr.io/modelcontextprotocol/inspector --cli <target> --method tools/list
 ```
 

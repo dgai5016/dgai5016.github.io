@@ -159,7 +159,7 @@ Every section below ends with a **Reproduce with ...** pointer to a JSON config 
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 git clone https://github.com/modelcontextprotocol/inspector
 cd inspector && npm install && npm run build
 cd clients/web && npm run test-servers:build
@@ -168,7 +168,7 @@ cd clients/web && npm run test-servers:build
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 git clone https://github.com/modelcontextprotocol/inspector
 cd inspector && npm install && npm run build
 cd clients/web && npm run test-servers:build

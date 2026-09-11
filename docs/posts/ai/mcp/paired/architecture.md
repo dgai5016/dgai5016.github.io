@@ -198,7 +198,7 @@ When Visual Studio Code subsequently connects to another MCP server, such as the
 <BiRow>
 <template #en>
 
-```mermaid theme={null}
+```mermaid
 graph TB
 subgraph "MCP Host (AI Application)"
     Client1["MCP Client 1"]
@@ -220,7 +220,7 @@ Client4 ---|"Dedicated<br/>connection"| ServerC
 </template>
 <template #zh>
 
-```mermaid theme={null}
+```mermaid
 graph TB
 subgraph "MCP Host (AI Application)"
     Client1["MCP Client 1"]
@@ -767,8 +767,8 @@ As described in the [statelessness and discovery](#statelessness-and-discovery) 
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```json Discover Request theme={null}
+::: code-group
+  ```json title="[Discover Request]"
   {
     "jsonrpc": "2.0",
     "id": 1,
@@ -788,7 +788,7 @@ As described in the [statelessness and discovery](#statelessness-and-discovery) 
   }
   ```
 
-  ```json Discover Response theme={null}
+  ```json title="[Discover Response]"
   {
     "jsonrpc": "2.0",
     "id": 1,
@@ -812,13 +812,13 @@ As described in the [statelessness and discovery](#statelessness-and-discovery) 
     }
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```json Discover Request theme={null}
+::: code-group
+  ```json title="[Discover Request]"
   {
     "jsonrpc": "2.0",
     "id": 1,
@@ -838,7 +838,7 @@ As described in the [statelessness and discovery](#statelessness-and-discovery) 
   }
   ```
 
-  ```json Discover Response theme={null}
+  ```json title="[Discover Response]"
   {
     "jsonrpc": "2.0",
     "id": 1,
@@ -862,7 +862,7 @@ As described in the [statelessness and discovery](#statelessness-and-discovery) 
     }
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -1019,7 +1019,7 @@ AI 应用的 MCP 客户端管理器连接配置好的服务器，并保存发现
 <BiRow>
 <template #en>
 
-```python Pseudo-code for AI application discovery theme={null}
+```python title="Pseudo-code for AI application discovery"
 # Pseudo Code
 async with Client(stdio_client(server_config)) as client:
     if client.server_capabilities.tools:
@@ -1030,7 +1030,7 @@ async with Client(stdio_client(server_config)) as client:
 </template>
 <template #zh>
 
-```python Pseudo-code for AI application discovery theme={null}
+```python title="Pseudo-code for AI application discovery"
 # Pseudo Code
 async with Client(stdio_client(server_config)) as client:
     if client.server_capabilities.tools:
@@ -1057,8 +1057,8 @@ The client can discover available tools by sending a `tools/list` request. This 
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```json Tools List Request theme={null}
+::: code-group
+  ```json title="[Tools List Request]"
   {
     "jsonrpc": "2.0",
     "id": 2,
@@ -1078,7 +1078,7 @@ The client can discover available tools by sending a `tools/list` request. This 
   }
   ```
 
-  ```json Tools List Response theme={null}
+  ```json title="[Tools List Response]"
   {
     "jsonrpc": "2.0",
     "id": 2,
@@ -1127,13 +1127,13 @@ The client can discover available tools by sending a `tools/list` request. This 
     }
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```json Tools List Request theme={null}
+::: code-group
+  ```json title="[Tools List Request]"
   {
     "jsonrpc": "2.0",
     "id": 2,
@@ -1153,7 +1153,7 @@ The client can discover available tools by sending a `tools/list` request. This 
   }
   ```
 
-  ```json Tools List Response theme={null}
+  ```json title="[Tools List Response]"
   {
     "jsonrpc": "2.0",
     "id": 2,
@@ -1202,7 +1202,7 @@ The client can discover available tools by sending a `tools/list` request. This 
     }
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -1333,7 +1333,7 @@ AI 应用从所有已连接的 MCP 服务器拉取可用工具，并把它们合
 <BiRow>
 <template #en>
 
-```python Pseudo-code for AI application tool discovery theme={null}
+```python title="Pseudo-code for AI application tool discovery"
 # Pseudo-code using MCP Python SDK patterns
 available_tools = []
 for client in app.mcp_clients():
@@ -1345,7 +1345,7 @@ conversation.register_available_tools(available_tools)
 </template>
 <template #zh>
 
-```python Pseudo-code for AI application tool discovery theme={null}
+```python title="Pseudo-code for AI application tool discovery"
 # Pseudo-code using MCP Python SDK patterns
 available_tools = []
 for client in app.mcp_clients():
@@ -1412,8 +1412,8 @@ The `tools/call` request follows a structured format that ensures type safety an
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```json Tool Call Request theme={null}
+::: code-group
+  ```json title="[Tool Call Request]"
   {
     "jsonrpc": "2.0",
     "id": 3,
@@ -1438,7 +1438,7 @@ The `tools/call` request follows a structured format that ensures type safety an
   }
   ```
 
-  ```json Tool Call Response theme={null}
+  ```json title="[Tool Call Response]"
   {
     "jsonrpc": "2.0",
     "id": 3,
@@ -1453,13 +1453,13 @@ The `tools/call` request follows a structured format that ensures type safety an
     }
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```json Tool Call Request theme={null}
+::: code-group
+  ```json title="[Tool Call Request]"
   {
     "jsonrpc": "2.0",
     "id": 3,
@@ -1484,7 +1484,7 @@ The `tools/call` request follows a structured format that ensures type safety an
   }
   ```
 
-  ```json Tool Call Response theme={null}
+  ```json title="[Tool Call Response]"
   {
     "jsonrpc": "2.0",
     "id": 3,
@@ -1499,7 +1499,7 @@ The `tools/call` request follows a structured format that ensures type safety an
     }
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -1638,7 +1638,7 @@ When the language model decides to use a tool during a conversation, the AI appl
 <BiRow>
 <template #en>
 
-```python theme={null}
+```python
 # Pseudo-code for AI application tool execution
 async def handle_tool_call(conversation, tool_name, arguments):
     client = app.find_mcp_client_for_tool(tool_name)
@@ -1649,7 +1649,7 @@ async def handle_tool_call(conversation, tool_name, arguments):
 </template>
 <template #zh>
 
-```python theme={null}
+```python
 # Pseudo-code for AI application tool execution
 async def handle_tool_call(conversation, tool_name, arguments):
     client = app.find_mcp_client_for_tool(tool_name)
@@ -1702,7 +1702,7 @@ Change notifications are opt-in. To receive them, the client opens a long-lived 
 <BiRow>
 <template #en>
 
-```json Listen Request theme={null}
+```json title="Listen Request"
 {
   "jsonrpc": "2.0",
   "id": 4,
@@ -1728,7 +1728,7 @@ Change notifications are opt-in. To receive them, the client opens a long-lived 
 </template>
 <template #zh>
 
-```json Listen Request theme={null}
+```json title="Listen Request"
 {
   "jsonrpc": "2.0",
   "id": 4,
@@ -1783,7 +1783,7 @@ The server acknowledges the subscription with `notifications/subscriptions/ackno
 <BiRow>
 <template #en>
 
-```json Acknowledgment theme={null}
+```json title="Acknowledgment"
 {
   "jsonrpc": "2.0",
   "method": "notifications/subscriptions/acknowledged",
@@ -1801,7 +1801,7 @@ The server acknowledges the subscription with `notifications/subscriptions/ackno
 </template>
 <template #zh>
 
-```json Acknowledgment theme={null}
+```json title="Acknowledgment"
 {
   "jsonrpc": "2.0",
   "method": "notifications/subscriptions/acknowledged",
@@ -1848,7 +1848,7 @@ After the acknowledgment, when the server's available tools change (for example,
 <BiRow>
 <template #en>
 
-```json Notification theme={null}
+```json title="Notification"
 {
   "jsonrpc": "2.0",
   "method": "notifications/tools/list_changed",
@@ -1863,7 +1863,7 @@ After the acknowledgment, when the server's available tools change (for example,
 </template>
 <template #zh>
 
-```json Notification theme={null}
+```json title="Notification"
 {
   "jsonrpc": "2.0",
   "method": "notifications/tools/list_changed",
@@ -1941,7 +1941,7 @@ Upon receiving this notification, the client typically reacts by requesting the 
 <BiRow>
 <template #en>
 
-```json Request theme={null}
+```json title="Request"
 {
   "jsonrpc": "2.0",
   "id": 5,
@@ -1964,7 +1964,7 @@ Upon receiving this notification, the client typically reacts by requesting the 
 </template>
 <template #zh>
 
-```json Request theme={null}
+```json title="Request"
 {
   "jsonrpc": "2.0",
   "id": 5,
@@ -2074,7 +2074,7 @@ AI 应用会为自己关心的变更保持一条打开的通知流。通知一�
 <BiRow>
 <template #en>
 
-```python theme={null}
+```python
 # Pseudo-code for AI application notification handling
 async def follow_tool_changes(client):
     async with client.listen(tools_list_changed=True) as sub:
@@ -2088,7 +2088,7 @@ async def follow_tool_changes(client):
 </template>
 <template #zh>
 
-```python theme={null}
+```python
 # Pseudo-code for AI application notification handling
 async def follow_tool_changes(client):
     async with client.listen(tools_list_changed=True) as sub:

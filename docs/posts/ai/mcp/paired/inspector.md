@@ -100,7 +100,7 @@ Inspector 要求 **Node 22.19.0 或更高版本**，可直接通过 `npx` 运行
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 # Launch the web UI and connect to a local stdio server
 npx @modelcontextprotocol/inspector node path/to/server/index.js
 
@@ -111,7 +111,7 @@ npx @modelcontextprotocol/inspector
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 # Launch the web UI and connect to a local stdio server
 npx @modelcontextprotocol/inspector node path/to/server/index.js
 
@@ -138,7 +138,7 @@ The command prints a URL containing a one-time session token; open it in your br
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 # List a server's tools and exit
 npx @modelcontextprotocol/inspector --cli node path/to/server/index.js --method tools/list
 
@@ -150,7 +150,7 @@ npx @modelcontextprotocol/inspector --cli https://api.example.com/mcp --transpor
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 # List a server's tools and exit
 npx @modelcontextprotocol/inspector --cli node path/to/server/index.js --method tools/list
 
@@ -178,14 +178,14 @@ See [CLI client](https://modelcontextprotocol.io/docs/2026-07-28/tools/inspector
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 npx @modelcontextprotocol/inspector --tui node path/to/server/index.js
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 npx @modelcontextprotocol/inspector --tui node path/to/server/index.js
 ```
 
@@ -234,14 +234,14 @@ Pass the command that launches the server as the Inspector's arguments, or point
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 npx -y @modelcontextprotocol/inspector npx @modelcontextprotocol/server-filesystem ~/Desktop
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 npx -y @modelcontextprotocol/inspector npx @modelcontextprotocol/server-filesystem ~/Desktop
 ```
 
@@ -251,14 +251,14 @@ npx -y @modelcontextprotocol/inspector npx @modelcontextprotocol/server-filesyst
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 npx @modelcontextprotocol/inspector uvx mcp-server-git --repository ~/code/mcp/servers.git
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 npx @modelcontextprotocol/inspector uvx mcp-server-git --repository ~/code/mcp/servers.git
 ```
 
@@ -268,14 +268,14 @@ npx @modelcontextprotocol/inspector uvx mcp-server-git --repository ~/code/mcp/s
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 npx @modelcontextprotocol/inspector --server-url https://api.example.com/mcp --transport http
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 npx @modelcontextprotocol/inspector --server-url https://api.example.com/mcp --transport http
 ```
 
@@ -367,14 +367,14 @@ Everything else (`--catalog`, `--config`, `--server-url`, `--transport`, `--meth
 <BiRow>
 <template #en>
 
-  ```bash theme={null}
+  ```bash
   mcp-inspector --cli node server.js --cli   # mode is CLI; the trailing --cli goes to server.js
   ```
 
 </template>
 <template #zh>
 
-  ```bash theme={null}
+  ```bash
   mcp-inspector --cli node server.js --cli   # mode is CLI; the trailing --cli goes to server.js
   ```
 

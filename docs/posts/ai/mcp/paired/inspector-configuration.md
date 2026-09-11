@@ -164,7 +164,7 @@ The two are **mutually exclusive**, and neither combines with an ad-hoc target. 
 <BiRow>
 <template #en>
 
-  ```json theme={null}
+  ```json
   {
 "mcpServers": {
   "filesystem-server-default": {
@@ -184,7 +184,7 @@ The two are **mutually exclusive**, and neither combines with an ad-hoc target. 
 </template>
 <template #zh>
 
-  ```json theme={null}
+  ```json
   {
 "mcpServers": {
   "filesystem-server-default": {
@@ -277,7 +277,7 @@ Instead of a file you can name one server directly, either as a positional comma
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 mcp-inspector node build/index.js                              # stdio, positional
 mcp-inspector --server-url https://api.example.com/mcp --transport http
 ```
@@ -285,7 +285,7 @@ mcp-inspector --server-url https://api.example.com/mcp --transport http
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 mcp-inspector node build/index.js                              # stdio, positional
 mcp-inspector --server-url https://api.example.com/mcp --transport http
 ```
@@ -381,14 +381,14 @@ The **web and CLI** clients split their arguments at a bare `--` and pass everyt
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 mcp-inspector node build/index.js -- --config /etc/myserver.conf --verbose
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 mcp-inspector node build/index.js -- --config /etc/myserver.conf --verbose
 ```
 
@@ -726,7 +726,7 @@ A catalog or config file is the familiar MCP client config shape (a `mcpServers`
 <BiRow>
 <template #en>
 
-```json theme={null}
+```json
 {
   "mcpServers": {
 "my-stdio-server": {
@@ -749,7 +749,7 @@ A catalog or config file is the familiar MCP client config shape (a `mcpServers`
 </template>
 <template #zh>
 
-```json theme={null}
+```json
 {
   "mcpServers": {
 "my-stdio-server": {

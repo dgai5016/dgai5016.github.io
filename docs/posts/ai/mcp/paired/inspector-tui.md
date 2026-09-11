@@ -27,14 +27,14 @@ TUI 是 Inspector 的终端界面，可以像 web 客户端一样交互式地探
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 npx @modelcontextprotocol/inspector --tui node build/index.js   # with an ad-hoc stdio server
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 npx @modelcontextprotocol/inspector --tui node build/index.js   # with an ad-hoc stdio server
 ```
 
@@ -83,7 +83,7 @@ Unlike the CLI, the TUI has no `--server <name>` flag for picking one entry: it 
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 mcp-inspector --tui --catalog mcp.json   # writable catalog, seeded empty if missing (unlike the web client)
 mcp-inspector --tui --config mcp.json    # read-only session, errors if absent
 ```
@@ -91,7 +91,7 @@ mcp-inspector --tui --config mcp.json    # read-only session, errors if absent
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 mcp-inspector --tui --catalog mcp.json   # writable catalog, seeded empty if missing (unlike the web client)
 mcp-inspector --tui --config mcp.json    # read-only session, errors if absent
 ```

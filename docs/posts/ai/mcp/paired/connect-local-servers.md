@@ -144,14 +144,14 @@ The Filesystem Server and many other MCP servers require Node.js to run. Verify 
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 node --version
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 node --version
 ```
 
@@ -390,8 +390,8 @@ Replace the contents of the configuration file with the following JSON structure
 <BiRow>
 <template #en>
 
-<CodeGroup>
-  ```json macOS theme={null}
+::: code-group
+  ```json title="[macOS]"
   {
     "mcpServers": {
       "filesystem": {
@@ -407,7 +407,7 @@ Replace the contents of the configuration file with the following JSON structure
   }
   ```
 
-  ```json Windows theme={null}
+  ```json title="[Windows]"
   {
     "mcpServers": {
       "filesystem": {
@@ -422,13 +422,13 @@ Replace the contents of the configuration file with the following JSON structure
     }
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 <template #zh>
 
-<CodeGroup>
-  ```json macOS theme={null}
+::: code-group
+  ```json title="[macOS]"
   {
     "mcpServers": {
       "filesystem": {
@@ -444,7 +444,7 @@ Replace the contents of the configuration file with the following JSON structure
   }
   ```
 
-  ```json Windows theme={null}
+  ```json title="[Windows]"
   {
     "mcpServers": {
       "filesystem": {
@@ -459,7 +459,7 @@ Replace the contents of the configuration file with the following JSON structure
     }
   }
   ```
-</CodeGroup>
+:::
 
 </template>
 </BiRow>
@@ -764,15 +764,15 @@ If you encounter issues setting up or using the Filesystem Server, these solutio
 4. Look at [logs](#getting-logs-from-claude-for-desktop) to see why the server is not connecting
 5. In your command line, try manually running the server (replacing `username` as you did in `claude_desktop_config.json`) to see if you get any errors:
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   npx -y @modelcontextprotocol/server-filesystem /Users/username/Desktop /Users/username/Downloads
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   npx -y @modelcontextprotocol/server-filesystem C:\Users\username\Desktop C:\Users\username\Downloads
   ```
-</CodeGroup>
+:::
   </Accordion>
 
   <Accordion title="Getting logs from Claude Desktop">
@@ -785,15 +785,15 @@ Claude.app logging related to MCP is written to log files in:
 
 You can run the following command to list recent logs and follow along with any new ones (on Windows, it will only show recent logs):
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   tail -n 20 -f ~/Library/Logs/Claude/mcp*.log
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   type "%APPDATA%\Claude\logs\mcp*.log"
   ```
-</CodeGroup>
+:::
   </Accordion>
 
   <Accordion title="Tool calls failing silently">
@@ -811,7 +811,7 @@ Please refer to our [debugging guide](https://modelcontextprotocol.io/docs/2026-
   <Accordion title="ENOENT error and `${APPDATA}` in paths on Windows">
 If your configured server fails to load, and you see within its logs an error referring to `${APPDATA}` within a path, you may need to add the expanded value of `%APPDATA%` to your `env` key in `claude_desktop_config.json`:
 
-```json theme={null}
+```json
 {
   "brave-search": {
     "command": "npx",
@@ -831,7 +831,7 @@ With this change in place, launch Claude Desktop once again.
 
   The `npx` command may continue to fail if you have not installed npm globally. If npm is already installed globally, you will find `%APPDATA%\npm` exists on your system. If not, you can install npm globally by running the following command:
 
-  ```bash theme={null}
+  ```bash
   npm install -g npm
   ```
 
@@ -849,15 +849,15 @@ With this change in place, launch Claude Desktop once again.
 4. 查看[日志](#getting-logs-from-claude-for-desktop)，了解服务器未连接的原因
 5. 在命令行中尝试手动运行服务器（像在 `claude_desktop_config.json` 中那样替换 `username`），看是否报错：
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   npx -y @modelcontextprotocol/server-filesystem /Users/username/Desktop /Users/username/Downloads
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   npx -y @modelcontextprotocol/server-filesystem C:\Users\username\Desktop C:\Users\username\Downloads
   ```
-</CodeGroup>
+:::
   </Accordion>
 
   <Accordion title="获取 Claude Desktop 的日志">
@@ -870,15 +870,15 @@ Claude.app 中与 MCP 相关的日志会写入以下日志文件：
 
 你可以运行以下命令来列出最近的日志并持续跟踪新增日志（在 Windows 上只会显示最近的日志）：
 
-<CodeGroup>
-  ```bash macOS/Linux theme={null}
+::: code-group
+  ```bash title="[macOS/Linux]"
   tail -n 20 -f ~/Library/Logs/Claude/mcp*.log
   ```
 
-  ```powershell Windows theme={null}
+  ```powershell title="[Windows]"
   type "%APPDATA%\Claude\logs\mcp*.log"
   ```
-</CodeGroup>
+:::
   </Accordion>
 
   <Accordion title="工具调用静默失败">
@@ -896,7 +896,7 @@ Claude.app 中与 MCP 相关的日志会写入以下日志文件：
   <Accordion title="ENOENT 错误与 Windows 路径中的 `${APPDATA}`">
 如果你配置的服务器加载失败，并在其日志中看到路径中含 `${APPDATA}` 的报错，可能需要在 `claude_desktop_config.json` 的 `env` 键里加入 `%APPDATA%` 展开后的值：
 
-```json theme={null}
+```json
 {
   "brave-search": {
     "command": "npx",
@@ -916,7 +916,7 @@ Claude.app 中与 MCP 相关的日志会写入以下日志文件：
 
   如果没有全局安装 npm，`npx` 命令可能仍会失败。若 npm 已全局安装，你的系统中会存在 `%APPDATA%\npm`；若不存在，可以运行以下命令来全局安装 npm：
 
-  ```bash theme={null}
+  ```bash
   npm install -g npm
   ```
 

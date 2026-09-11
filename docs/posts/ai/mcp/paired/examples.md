@@ -221,14 +221,14 @@ TypeScript-based servers can be used directly with `npx`:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 npx -y @modelcontextprotocol/server-memory
 ```
 
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 npx -y @modelcontextprotocol/server-memory
 ```
 
@@ -251,7 +251,7 @@ Python-based servers can be used with `uvx` (recommended) or `pip`:
 <BiRow>
 <template #en>
 
-```bash theme={null}
+```bash
 # Using uvx
 uvx mcp-server-git
 
@@ -263,7 +263,7 @@ python -m mcp_server_git
 </template>
 <template #zh>
 
-```bash theme={null}
+```bash
 # Using uvx
 uvx mcp-server-git
 
@@ -304,7 +304,7 @@ To use an MCP server with Claude, add it to your configuration:
 <BiRow>
 <template #en>
 
-```json theme={null}
+```json
 {
   "mcpServers": {
 "memory": {
@@ -333,7 +333,7 @@ To use an MCP server with Claude, add it to your configuration:
 </template>
 <template #zh>
 
-```json theme={null}
+```json
 {
   "mcpServers": {
 "memory": {

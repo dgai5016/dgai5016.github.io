@@ -30,7 +30,7 @@ CONTAINER_RE = re.compile(r"<(/?)(CodeGroup|AccordionGroup|Accordion|Tabs|Tab|St
 
 
 def split_blocks(text: str) -> list[str]:
-    """按空行切块；代码围栏内部与容器组件开闭标签之间的空行不切块。"""
+    """按空行切块；代码围栏内部、容器组件开闭标签之间、::: 容器内的空行不切块。"""
     blocks, cur, in_fence, stack = [], [], False, []
     for line in text.split("\n"):
         s = line.strip()
@@ -44,6 +44,13 @@ def split_blocks(text: str) -> list[str]:
                         pass
                 else:
                     stack.append(m.group(2))
+            # ::: 容器（::: code-group 等）同理不能拆块，
+            # 否则开头 ::: 和结尾 ::: 会分进不同 BiRow 行导致容器断裂
+            if re.match(r"^:::\s*\S", s):
+                stack.append(":::")
+            elif s == ":::" and ":::" in stack:
+                while stack and stack.pop() != ":::":
+                    pass
         if s == "" and not in_fence and not stack:
             if cur:
                 blocks.append("\n".join(cur).strip("\n"))
@@ -66,6 +73,61 @@ def dedent4(block: str) -> str:
     return "\n".join(out)
 
 
+def _fence_open_rewriter(in_group: bool):
+    """围栏开行重写器：```lang label theme={null} → VitePress 语法。
+    组内（in_group=True）：标签进方括号 ```lang [label]（成为 tab 名）；
+    独立块：标签进 title ```lang title="label"（成为块标题）。"""
+
+    def rewrite(line: str) -> str:
+        m = re.match(r"^(\s*```)([A-Za-z0-9_+-]*)?([^`]*)$", line.rstrip())
+        if not m:
+            return line
+        head, lang, rest = m.group(1), m.group(2) or "", m.group(3) or ""
+        label = rest.replace(" theme={null}", "").strip()
+        if not label:
+            return head + lang
+        return "%s%s%s [%s]" % (head, lang, "", label) if in_group else '%s%s title="%s"' % (head, lang, label)
+
+    return rewrite
+
+
+CODEGROUP_RE = re.compile(r"<CodeGroup>\s*\n(.*?)\n\s*</CodeGroup>", re.DOTALL)
+
+
+def wrap_code_groups(block: str) -> str:
+    """Mintlify <CodeGroup>（tab 切换的代码组）→ VitePress 原生 ::: code-group。
+    组内每个围栏的标签（macOS/Linux、Windows 等）转成 [标签] 形态作 tab 名。
+    转换后整组仍是一个块（split_blocks 已把 ::: 容器视为不可拆分）。"""
+
+    def repl(m):
+        inner = m.group(1)
+        in_fence = False
+        out = []
+        for line in inner.split("\n"):
+            s = line.strip()
+            if s.startswith("```"):
+                out.append(_fence_open_rewriter(in_group=True)(line) if not in_fence else line)
+                in_fence = not in_fence
+            else:
+                out.append(line)
+        return "::: code-group\n" + "\n".join(out) + "\n:::"
+
+    return CODEGROUP_RE.sub(repl, block)
+
+
+def normalize_fences(block: str) -> str:
+    """清理不在代码组里的围栏：去掉 theme={null} 残留，多余标签转 title="..."。"""
+    in_fence = False
+    out = []
+    for line in block.split("\n"):
+        if line.strip().startswith("```"):
+            out.append(line if in_fence else _fence_open_rewriter(in_group=False)(line))
+            in_fence = not in_fence
+        else:
+            out.append(line)
+    return "\n".join(out)
+
+
 def strip_jsx_attrs(block: str) -> str:
     """剥掉 Mintlify 残留的 JSX 风格属性（如 <img style={{display:...}}>）。
     Vue 模板会把 {{...}} 当插值表达式解析导致构建失败，且这些内联样式只是装饰；
@@ -74,10 +136,15 @@ def strip_jsx_attrs(block: str) -> str:
 
 
 def bi_row(en_b: str, zh_b: str) -> str:
-    """一对块 → 一个 BiRow 组件用法（入参先过 JSX 属性剥离）。"""
+    """一对块 → 一个 BiRow 组件用法。
+    清理链：JSX 属性剥离 → 去 4 空格缩进 → CodeGroup 转 code-group → 围栏信息串规范化。"""
+
+    def prep(b: str) -> str:
+        return normalize_fences(wrap_code_groups(dedent4(strip_jsx_attrs(b))))
+
     return (
         '<BiRow>\n<template #en>\n\n%s\n\n</template>\n<template #zh>\n\n%s\n\n</template>\n</BiRow>'
-        % (dedent4(strip_jsx_attrs(en_b)), dedent4(strip_jsx_attrs(zh_b)))
+        % (prep(en_b), prep(zh_b))
     )
 
 
