@@ -11,6 +11,7 @@ dg 的个人博客，基于 VitePress 自定义主题，部署到 GitHub Pages�
 ### 布局系统
 
 两种 frontmatter layout：
+
 - `layout: page` — 首页、归档、标签、教程列表等页面，使用 Sidebar + 内容区
 - `layout: post` — 文章详情页，使用 Sidebar + TutorialNav（可选）+ 文章卡片 + TOC + Giscus 评论
 
@@ -22,30 +23,29 @@ dg 的个人博客，基于 VitePress 自定义主题，部署到 GitHub Pages�
 - `tags.data.ts` — 统计所有文章标签出现次数
 - `tutorial.data.ts` — 加载教程文章，从 YAML 配置解析章节列表
 
-
 ### 样式系统
 
 纯 CSS，无 Tailwind 或其他 CSS 框架。所有设计 token 和组件样式在 `theme/style.css` 中定义。
+
 - 主色调：`#6c63ff`
 - 毛玻璃效果：`.glass`、`.glass-sidebar`、`.glass-card` 使用 `backdrop-filter: blur()`
 - 响应式断点：640px（sm）、1024px（lg）
 
 ### 关键组件
 
-| 组件 | 用途 |
-|------|------|
-| `Layout.vue` | 核心布局，区分 page/post 视图 |
-| `Sidebar.vue` | 左侧导航栏，桌面端固定，移动端抽屉 |
-| `TutorialNav.vue` | 教程章节导航，桌面侧边栏 + 移动端折叠 |
-| `TableOfContents.vue` | 文章目录，滚动高亮当前标题 |
-| `TagCloud.vue` | 标签筛选按钮 |
-| `PostList.vue` / `PostCard.vue` | 文章列表和卡片 |
-| `CommentGiscus.vue` | Giscus 评论组件，懒加载 |
+| 组件                                | 用途                                  |
+| ----------------------------------- | ------------------------------------- |
+| `Layout.vue`                      | 核心布局，区分 page/post 视图         |
+| `Sidebar.vue`                     | 左侧导航栏，桌面端固定，移动端抽屉    |
+| `TutorialNav.vue`                 | 教程章节导航，桌面侧边栏 + 移动端折叠 |
+| `TableOfContents.vue`             | 文章目录，滚动高亮当前标题            |
+| `TagCloud.vue`                    | 标签筛选按钮                          |
+| `PostList.vue` / `PostCard.vue` | 文章列表和卡片                        |
+| `CommentGiscus.vue`               | Giscus 评论组件，懒加载               |
 
 ## 部署
 
 GitHub Actions（`.github/workflows/deploy.yml`）：push 到 `main` 触发构建并部署到 GitHub Pages。Node 20，`npm ci && npm run build`。
-
 
 ## 常用命令
 
@@ -61,6 +61,11 @@ npm run test:e2e  # Playwright 截图测试（先构建再截图）
 ### 代码编写规则
 
 - 每次修改或新增代码，添加注释，以便用户更好理解代码的作用。
+
+### 文章规则
+
+- 每篇文章仅运行有一个标签。
+- 新建文章的 date 用真实当前时间，统一为中国北京时间（写 frontmatter 前先执行 `TZ=Asia/Shanghai date "+%Y-%m-%d %H:%M"` 获取）。
 
 ## 注意实现
 

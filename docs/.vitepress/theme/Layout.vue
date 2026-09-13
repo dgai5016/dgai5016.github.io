@@ -62,9 +62,16 @@ onMounted(() => {
 onUnmounted(() => window.removeEventListener('resize', positionBackBtn))
 watch(() => route.path, () => setTimeout(positionBackBtn, 100))
 
+// 评论功能（Giscus）暂时下线：仓库未安装 giscus GitHub App，
+// 页面会报 "giscus is not installed on this repository"。
+// 想恢复评论：把 GISCUS_ENABLED 改回 true 即可（组件文件保留未动）。
+const GISCUS_ENABLED = false
+
 const CommentGiscus = shallowRef<any>(null)
 
 onMounted(() => {
+  // 开关关闭时直接返回，不加载评论组件，页面也不会渲染评论区
+  if (!GISCUS_ENABLED) return
   import('./components/CommentGiscus.vue').then(mod => {
     CommentGiscus.value = mod.default
   })
