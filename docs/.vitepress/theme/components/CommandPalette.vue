@@ -19,13 +19,13 @@ const activeIndex = ref(0)                                // 键盘当前选中�
 const inputRef = ref<HTMLInputElement | null>(null)       // 输入框引用：打开时自动聚焦
 const itemRefs = ref<HTMLElement[]>([])                   // 各结果项引用：键盘移动时让其滚入可视区
 
-// 搜索结果（逻辑照抄首页 index.md 的 filtered：仅按标题模糊匹配）
+// 搜索结果（仅按标题模糊匹配）
 // - 有搜索词：fuzzyScore 打分 → 过滤不匹配(-Infinity) → 分数降序
-// - 无搜索词：保持 posts.data.ts 原排序（pin 置顶 + 日期倒序）
+// - 无搜索词：返回空数组——面板默认不展示任何文章，输入后才显示匹配内容
 // - 命令面板最多展示 10 条，避免弹层过长
 const results = computed(() => {
   const q = query.value.trim()
-  if (!q) return posts.slice(0, 10)
+  if (!q) return []
   const lower = q.toLowerCase()
   return posts
     .map(post => ({ post, score: fuzzyScore(lower, post.title.toLowerCase()) }))
@@ -175,8 +175,8 @@ onUnmounted(() => {
           </div>
         </a>
 
-        <!-- 空状态：复用首页 .empty-state 样式 -->
-        <p v-if="!results.length" class="empty-state">没有找到匹配的文章</p>
+        <!-- 空状态：未输入时给引导提示；输入了但没有匹配才提示「没有找到」 -->
+        <p v-if="!results.length" class="empty-state">{{ query.trim() ? '没有找到匹配的文章' : '输入关键词搜索文章' }}</p>
       </div>
 
       <!-- 底部操作提示栏 -->
