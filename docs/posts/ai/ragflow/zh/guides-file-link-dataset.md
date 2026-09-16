@@ -1,0 +1,22 @@
+# 关联知识库
+
+文件管理页面允许你将文件直接添加到知识库。关联创建后，你可以从知识库侧继续解析、分块、检索等操作。具体的处理状态以知识库文档页面为准。
+
+![解析文件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/parse_file.jpg)
+
+## 关联单个文件
+
+1. 在文件列表中找到目标文件。
+2. 将鼠标悬停在该行上，点击 **Operations**（操作）列中的 **Add to Knowledge Base**（添加到知识库）图标。
+3. 在弹出窗口中选择一个或多个知识库。
+4. 点击 **Save**（保存）保存关联。
+
+![关联单个文件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/link_a_single_file.jpg)
+
+## 批量关联
+
+1. 选中多个需要关联的文件。
+2. 在批量操作栏中，点击 **Add to Knowledge Base**。
+3. 选择目标知识库并保存。
+
+单个文件操作会将该文件的知识库关联替换为当前选择。批量操作会将所选文件添加到目标知识库。如果同一个文件被多个知识库共用，请在保存前确认目标知识库名称。

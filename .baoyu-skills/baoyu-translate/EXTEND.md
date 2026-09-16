@@ -14,6 +14,7 @@ style: technical
 chunk_threshold: 4000
 chunk_max_words: 5000
 
-# MCP 文档专用术语表（与内置术语表叠加，本表优先级更高）
+# MCP / RAGFlow 文档专用术语表（与内置术语表叠加，本表优先级更高）
 glossary_files:
   - ./mcp-glossary.md
+  - ./ragflow-glossary.md

@@ -1,0 +1,57 @@
+# 功能总览与创建
+
+Chat 用于创建基于数据集的问答应用。为 Chat 配置好数据集、大语言模型、系统提示词和检索参数后，用户就可以在对话界面中基于数据集内容提问。
+
+Chat 支持数据集检索、引用展示、关键词分析、多轮对话优化、跨语言搜索、网页搜索等能力。
+
+创建 Chat 后，需要按照实际业务场景配置它的数据集、模型、系统提示词和检索参数，然后再用它来回答问题。这些设置之后可以修改。
+
+## 创建 Chat
+
+1. 在左侧导航栏选择 **Chat**。
+2. 点击 **Create chat**。
+3. 为 Chat 输入名称。
+4. 确认创建。
+5. 打开 **Chat setting**，配置数据集、模型、系统提示词和检索参数。
+6. 保存设置，然后打开对话窗口测试并使用 Chat。
+
+![从导航栏打开 Chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_chat_1.jpg)
+
+![创建 Chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_chat_2.jpg)
+
+![为 Chat 输入名称](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_chat_3.jpg)
+
+![配置新建的 Chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_chat_4.jpg)
+
+创建 Chat 时不必完成所有设置。之后可以从 Chat 列表回到对应的 Chat，更新它的配置。
+
+## 基本信息
+
+可以为 Chat 设置以下基本信息：
+
+- **名称**：Chat 的显示名称，用于在 Chat 列表、发布页面或嵌入场景中标识该 Chat。请使用能体现其业务范围或用途的清晰名称。
+- **头像**：Chat 显示的图片。根据场景选择品牌、产品或通用图标。
+- **描述**：对 Chat 用途、服务范围、目标用户或数据集覆盖范围的简要说明。
+
+![Chat 基本信息](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/basic_information_chat.jpg)
+
+## 配置 Chat
+
+根据实际场景完成 Chat 的主要设置：
+
+- **数据集**：选择 Chat 可以检索的数据集。回答问题时，系统会在关联的数据集中搜索相关内容。
+- **模型**：选择用于生成回答的大语言模型。
+- **检索配置**：配置相似度阈值、向量相似度权重、Top N 等设置，控制检索范围和结果。
+- **高级设置**：使用当前版本提供的选项，进一步调整回答生成和检索行为。
+
+保存设置并在对话窗口中测试。
+
+![配置 Chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/configure_chat.jpg)
+
+先使用默认参数做基础测试，再根据实际回答质量逐步调整检索参数和系统提示词。
+
+## 修改已有 Chat
+
+可以随时修改已有的 Chat。在 Chat 列表中找到该 Chat，打开 **Chat setting**，更新它的数据集、模型、系统提示词或检索参数，然后保存更改。
+
+修改配置后，用有代表性的问题重新测试，确认新设置符合预期。

@@ -1,0 +1,7 @@
+# 进入团队页面
+
+点击页面右上角的头像，然后在左侧面板中选择 **Team**（团队），进入 **Team** 页面。
+
+页面标题显示为当前用户的昵称加上 **workspace**（工作区）。在该页面上，你可以查看当前工作区的成员以及当前用户已加入的团队。
+
+![进入团队页面](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/enter_the_team_page.jpg)

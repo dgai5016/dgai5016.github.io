@@ -2,6 +2,7 @@ import type { Theme } from 'vitepress'
 import Layout from './Layout.vue'
 import PostLink from './components/PostLink.vue'
 import McpDocLink from './components/McpDocLink.vue'
+import RagflowDocLink from './components/RagflowDocLink.vue'
 import BiRow from './components/BiRow.vue'
 import 'vitepress/dist/client/theme-default/styles/vars.css'
 import 'vitepress/dist/client/theme-default/styles/base.css'
@@ -24,6 +25,8 @@ export default {
     app.component('PostLink', PostLink)
     // McpDocLink：学习地图文章里 <McpDocLink slug="...">文本</McpDocLink> 点击开双栏 overlay
     app.component('McpDocLink', McpDocLink)
+    // RagflowDocLink：RAGFlow 学习地图文章里同款链接组件（与 McpDocLink 共用同一 overlay）
+    app.component('RagflowDocLink', RagflowDocLink)
     // BiRow：配对 md（docs/mcp-docs/paired/）里直接使用，无需逐文件 import
     app.component('BiRow', BiRow)
   },

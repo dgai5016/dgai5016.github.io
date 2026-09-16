@@ -1,0 +1,16 @@
+# 查看已加入的团队
+
+**Joined teams**（已加入的团队）列表显示当前用户已加入或被邀请加入的其他工作区。
+
+该列表包含以下字段：
+
+| 字段 | 说明 |
+| --- | --- |
+| Name（名称） | 工作区所有者的昵称。 |
+| Update date（更新日期） | 成员关系记录最近一次更新的时间。 |
+| Email（邮箱） | 工作区所有者的电子邮箱地址。 |
+| Action（操作） | 已加入团队可用的操作，例如接受、拒绝或退出。 |
+
+你可以按所有者昵称或邮箱地址搜索已加入的团队，并按 **Update date** 排序。
+
+![查看已加入的团队](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_joined_teams.jpg)

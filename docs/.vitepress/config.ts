@@ -8,14 +8,18 @@ export default defineConfig({
   title: "dg's Blog",
   description: '探索 AI 与编程的世界',
 
-  // MCP 双语文档库（posts/ai/mcp/ 下的 en/zh/paired 与 shared-context.md）
+  // 双语文档库（posts/ai/mcp、posts/ai/ragflow 下的 en/zh/paired 与 shared-context.md）
   // 不作为独立页面路由，只作为模块被 BilingualOverlay 懒加载——
-  // 注意只排除文档子目录：posts/ai/mcp/ 顶层的正常 MCP 文章照常路由
+  // 注意只排除文档子目录：posts/ai/<合集>/ 顶层的正常文章照常路由
   srcExclude: [
     'posts/ai/mcp/en/**',
     'posts/ai/mcp/zh/**',
     'posts/ai/mcp/paired/**',
     'posts/ai/mcp/shared-context.md',
+    'posts/ai/ragflow/en/**',
+    'posts/ai/ragflow/zh/**',
+    'posts/ai/ragflow/paired/**',
+    'posts/ai/ragflow/shared-context.md',
   ],
 
   // texmath 渲染公式时会用非标准的 <eq>/<eqn> 标签包裹公式，
@@ -24,11 +28,13 @@ export default defineConfig({
   // 同理：MCP 文档原文里的 Mintlify 私有组件（CodeGroup/Badge/Accordion 等）
   // 在配对 md 中原样保留，也必须声明为自定义元素——内容按原生 HTML 渲染，
   // 标签本身退化为无样式容器（代码块平铺、徽章显示文字），不炸渲染
+  // RAGFlow（Docusaurus）侧同理：清洗脚本正常会拆掉 Tabs/TabItem/APITable 等壳，
+  // 这里声明是防御——万一漏网也不至于让 Vue 构建失败
   vue: {
     template: {
       compilerOptions: {
         isCustomElement: (tag) =>
-          ['eq', 'eqn', 'CodeGroup', 'CodeGroupItem', 'Accordion', 'AccordionGroup', 'Badge', 'Tooltip', 'Info', 'Icon', 'Frame'].includes(tag),
+          ['eq', 'eqn', 'CodeGroup', 'CodeGroupItem', 'Accordion', 'AccordionGroup', 'Badge', 'Tooltip', 'Info', 'Icon', 'Frame', 'Tabs', 'TabItem', 'APITable', 'TOCInline', 'BrowserWindow', 'CodeBlock'].includes(tag),
       },
     },
   },

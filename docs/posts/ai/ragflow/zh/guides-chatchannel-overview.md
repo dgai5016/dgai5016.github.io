@@ -1,0 +1,61 @@
+# 对话渠道总览
+
+本章介绍如何在 RAGFlow 中配置对话渠道，包括支持的第三方平台、各平台所需的参数、连接 Chat 的流程以及连接验证方式。
+
+通过对话渠道，用户可以直接在 Discord、Telegram、企业微信、飞书 / Lark 等聊天应用中与 Chat 对话。来自第三方平台的用户消息进入 RAGFlow 后，由绑定的 Chat 生成回复并发回原来的聊天窗口。
+
+对话渠道只负责平台接入和消息转发。回复内容、知识库范围、模型能力和回答质量由绑定的对话模型决定。
+
+**支持的渠道**
+
+| 对话渠道 | 接入方式 | 需要开放平台或开发者后台 | 使用场景 |
+| --- | --- | --- | --- |
+| Discord | `BotToken` | 是 | 适合 Discord 社区支持、产品问答和用户反馈收集。 |
+| DingTalk | `ClientID` + `ClientSecret` | 是 | 适合钉钉组织内的知识问答、流程咨询和协作支持。 |
+| Feishu / Lark | `AppID` + `AppSecret` | 是 | 适合飞书或 Lark 中的企业知识助手和内部业务问答。 |
+| QQ Bot | `AppID` + `ClientSecret` | 是 | 适合 QQ 用户服务、社区问答和频道互动。 |
+| Telegram | `BotToken` | 是 | 适合海外用户服务、社区运营和实时机器人对话。 |
+| WeCom | `Webhook` 或 `WebSocket` | 是 | 适合企业微信内的员工服务、知识问答和业务机器人。 |
+| WhatsApp | 扫码配对 | 否 | 扫描二维码登录 WhatsApp 账号，并把消息转发给 Chat。 |
+
+**进入对话渠道页面**
+
+登录 RAGFlow 后，进入 **User Settings**，点击 **Chat channels**。页面上方显示已添加的对话渠道，下方显示当前可添加的渠道类型。
+
+首次使用该功能时，页面会提示尚未添加任何对话渠道。可以从 **Available channels** 区域选择所需平台。
+
+![进入对话渠道页面](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/chat-channel-overview-enter-chat-channel-page.jpg)
+
+**通用配置与操作流程**
+
+完成对话渠道配置前，先根据实际使用场景选择合适的平台，然后创建渠道并完成连接配置。配置完成后，用户就可以把对话渠道连接到 Chat，并通过第三方平台与机器人交互。
+
+操作步骤：
+
+1. 进入 **Chat channels** 页面。
+2. 在 **Available channels** 区域选择所需平台。
+3. 创建渠道并填写名称。
+4. 根据所选平台填写相应的凭证，或完成扫码配对。
+5. 保存渠道配置。
+6. 把对话渠道连接到 Chat。
+7. 在对应的第三方平台上向机器人发送测试消息。
+
+![通用配置与操作流程](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/chat-channel-overview-general-configuration-and-workflow.jpg)
+
+部分平台在保存后，页面可能要过几秒钟才会显示连接状态、二维码或后续操作提示。请按页面提示操作，在二维码或状态生成之前不要反复创建渠道。
+
+添加渠道后，需要把它连接到 Chat。如果渠道已启用但没有连接 Chat，RAGFlow 能接收外部消息，但不会生成回复。
+
+修改机器人凭证或渠道类型后，RAGFlow 会自动重启对应的渠道连接。如果凭证不正确，渠道可能启动失败。请回到第三方平台确认机器人状态、权限和密钥是否有效。
+
+配置结果：
+
+配置完成并把渠道连接到 Chat 后，第三方平台上的机器人即可使用。用户在对应的聊天应用中发送消息时，机器人会调用绑定的 Chat 生成回答，并把回答返回到原来的聊天窗口。
+
+配置成功后，通常可以看到以下结果：
+
+- 机器人在对应平台上在线，或可以正常调用。
+- 用户消息能被 RAGFlow 接收。
+- Chat 生成的回答会返回到同一个聊天窗口。
+
+例如，完成 Discord 渠道配置后，用户可以直接在 Discord 中给机器人发消息。机器人会调用绑定的 Chat 并返回回复。WhatsApp 渠道则是填写名称并保存后，页面过几秒生成二维码。扫码配对完成并把渠道连接到 Chat 后，其他用户给该 WhatsApp 账号发消息就能收到 Chat 的回复。

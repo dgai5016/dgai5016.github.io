@@ -7,3 +7,5 @@ docs/.vitepress/cache
 .e2e/
 ai-posts/
 .env
+# Python 字节码缓存（scripts/ragflow-docs 的脚本间 import 会生成）
+__pycache__/

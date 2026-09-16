@@ -1,0 +1,14 @@
+# 移除成员
+
+团队所有者可以从团队中移除成员。
+
+移除成员的步骤：
+
+1. 打开 **Team**（团队）页面。
+2. 在 **Team members**（团队成员）列表中找到该成员。
+3. 点击 **Action**（操作）列中的删除操作。
+4. 确认该操作。
+
+工作区所有者不能被移出工作区。移除成员不会删除该成员的个人资源，但会影响该成员对仅在团队内共享的资源的访问。
+
+![移除成员](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/remove_members.jpg)

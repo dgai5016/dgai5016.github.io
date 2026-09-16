@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vitepress dev docs",
-    "build": "vitepress build docs",
+    "build": "NODE_OPTIONS=--max-old-space-size=4096 vitepress build docs",
     "preview": "vitepress preview docs",
     "test:e2e": "node .e2e/screenshot.mjs"
   },

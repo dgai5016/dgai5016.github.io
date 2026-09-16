@@ -1,0 +1,158 @@
+# 数据操作组件
+## Code 组件
+Code 组件执行 Python 或 JavaScript 代码，用于复杂的数据处理、格式转换、计算、文件生成和自定义逻辑。
+
+前置条件：Code 组件依赖安全的沙箱环境。部署环境需要安装并启用 gVisor、RAGFlow sandbox 以及相关环境变量。依赖变更后需重启服务。
+
+配置：
+1. **Input**：定义传入代码的参数，脚本内可以直接引用这些变量。
+2. **Code**：选择 Python 或 JavaScript，编写业务逻辑。
+3. **Return Value**：定义返回给下游组件的输出数据。
+
+![Code 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/code_component.jpg)
+
+## Text Processing 组件
+Text Processing 用于拆分或合并文本。可以按分隔符拆分上游的长文本，或把多个变量组合成一个模板。
+
+处理模式：
+- **Merge**：按顺序拼接内容
+- **Split**：按指定的分隔符（逗号、换行符、空格等）拆分文本
+
+配置脚本内容，通过 `/` 插入变量。输出结果可供后续节点引用。
+
+![Text Processing 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/text_processing_component.jpg)
+
+## Data Operation 组件
+Data Operation 用于处理上游工具、代码或数据库节点返回的结构化对象，清洗数据供下游使用。
+
+配置步骤：
+1. 在画布上添加并选中 Data Operation 组件。
+2. 在 Query variables 中选择目标数据变量。
+3. 点击 `+` 添加多个输入变量。Query variables 为必填项。
+4. 在 Operations 中选择处理操作，并填写相应的配置。
+5. 保存并运行测试。
+
+![Data Operation 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/data_operation_component.jpg)
+
+输出：处理后的数据存入变量 `result`。
+
+支持的操作：
+| 操作 | 功能 | 场景 |
+| ---- | ---- | ---- |
+| Select keys | 只保留指定字段 | 为下游节点提取所需字段 |
+| Literal eval | 把字符串形式的 list/dict/bool/number 转换为实际的数据类型 | 解析序列化的结构化字符串 |
+| Combine | 把多个对象合并为一个 | 汇总多个上游节点的输出 |
+| Filter values | 筛选符合条件的数据 | 过滤数组/对象集合 |
+| Append or update | 新增字段或覆盖已有字段的值 | 补充或修改对象属性 |
+| Remove keys | 删除指定字段 | 移除不必要的敏感或无用字段 |
+| Rename keys | 重命名对象的字段键 | 统一字段命名规范 |
+
+## Variable Assignor 组件
+Variable Assignor 在工作流执行过程中写入或更新变量。它可以把上游结果保存到目标变量，并支持对数字、数组、对象执行覆盖、清空、追加和算术运算。
+
+配置步骤：
+1. 点击 **Variable Assigner** 组件，在 **Variables** 下新增一条变量规则。
+2. 选择要更新的目标变量。
+3. 选择赋值操作，例如 **Overwrite**、**Set**、**Append** 或 **Add**。
+4. 如果所选操作需要值，从右侧面板选择一个变量，或输入固定值。
+5. 要一次更新多个变量，可继续添加变量规则。系统会按添加的顺序依次执行。
+
+![Variable Assigner 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/variable_assigner_component.jpg)
+
+参数说明：
+
+| 参数 | 类型 | 必填 | 说明 |
+|---|---|---|---|
+| Target Variable | Variable | 是 | 选择要写入或更新的变量。支持组件输出变量、系统变量、环境变量、会话变量等多种变量类型。 |
+| Operation | Enum | 是 | 选择要对目标变量执行的操作。系统会根据变量类型自动显示可用的操作。 |
+| Value | Variable / Constant | 视情况 | 操作所使用的值。可以选择另一个变量，或输入固定值（取决于支持的操作类型）。部分操作不需要值。 |
+
+支持的操作：
+| 操作 | 需要值 | 说明 |
+| ---- | ---- | ---- |
+| Overwritten by | 是 | 用另一个变量的值覆盖目标变量 |
+| Set | 是 | 为目标变量赋固定的常量值 |
+| Clear | 否 | 清空目标变量 |
+
+## List Operation 组件
+List Operation 用于处理数组数据，支持元素提取、取头尾、筛选、排序和去重。适合处理 Begin、HTTP Request、Code 和 SQL 输出的数组。
+
+配置步骤：
+1. 在画布上添加 **List** 组件并选中。
+2. 在右侧配置面板的 **Query variables** 中选择要处理的数组变量。点击下拉菜单，从 **Begin** 节点、上游节点或会话变量中选择数组类型的变量。
+3. 在 **Operations** 中选择列表处理方式。
+4. 根据所选操作配置相应参数。
+5. 如有需要，启用 **Strict mode**。
+6. 保存配置，然后点击页面上的 **运行** 测试并查看执行结果。
+7. 处理结果会通过该组件输出，可供后续节点引用。
+
+参数说明：
+| 参数 | 必填 | 说明 |
+|---|---|---|
+| Query variables | 是 | 选择要处理的数组变量。 |
+| Operations | 是 | 选择列表处理操作。 |
+| Strict mode | 否 | 启用后，系统在处理过程中执行严格校验，出现异常即返回错误；未启用时，系统按配置的规则处理。 |
+| Operation Parameters | 视情况 | 根据所选操作配置相应参数，例如 N、筛选条件或排序规则。 |
+
+支持的操作：
+| 操作 | 说明 | 用例 |
+|---|---|---|
+| Nth | 从列表中取出指定位置的元素。 | 获取列表中的第 N 项。 |
+| Head | 从列表开头取出一个或多个元素。 | 获取列表前 N 项。 |
+| Tail | 从列表末尾取出一个或多个元素。 | 获取列表后 N 项。 |
+| Filter | 按条件筛选列表中的元素。 | 保留满足指定条件的数据。 |
+| Sort | 对列表中的元素排序。 | 按指定字段或顺序排序。 |
+| Drop duplicates | 移除列表中的重复元素。 | 对列表数据去重。 |
+
+操作配置说明：
+| 操作 | 说明 | 配置 |
+|---|---|---|
+| Nth | 从列表中取出指定位置的元素。 | 配置 **N** 指定元素索引（从 0 开始）。 |
+| Head | 从列表开头取出元素。 | 配置返回数量 **N**，返回前 N 个元素。 |
+| Tail | 从列表末尾取出元素。 | 配置返回数量 **N**，返回后 N 个元素。 |
+| Filter | 按条件筛选列表元素。 | 配置筛选条件，只保留满足要求的元素。 |
+| Sort | 对列表中的元素排序。 | 配置排序字段和顺序（升序或降序）。 |
+| Drop duplicates | 移除列表中的重复元素。 | 无需额外配置，返回去重后的列表。 |
+
+严格模式：
+- 启用：输入数据格式异常时返回错误
+- 未启用：以默认的容错方式处理异常数据
+
+## Variable Aggregator 组件
+Variable Aggregator 把多个独立变量合并为一个输出组，供下游节点统一引用。常用于多分支的条件工作流，收集来自不同分支的数据。
+
+配置步骤：
+1. 在画布上添加 **Variable Aggregator** 组件并选中。
+2. 在 **Variable Group**（默认为 **Group0**）中，点击 **Select value** 选择要聚合的变量。
+3. 点击 **Add** 继续添加要聚合的变量。
+4. 要新建变量组，点击 **+** 图标；要删除变量组，点击删除按钮。
+5. 保存配置，然后点击页面顶部的 **运行** 测试执行结果。
+6. 聚合后的变量会通过相应的变量组名（例如 **Group0**）输出，可供后续节点引用。
+
+> **注意**
+>
+> 一个变量组可以包含多个变量。也可以按不同的业务需求创建多个变量组，分别聚合。
+
+参数说明：
+| 参数 | 必填 | 说明 |
+|---|---|---|
+| Group | 是 | 用于存放待聚合变量的变量组。系统会自动创建默认组 **Group0**，也可以添加更多变量组。 |
+| Select value | 是 | 选择要聚合的变量。支持系统变量、**Begin** 节点输入、会话变量或上游节点的输出变量。 |
+| Add | 否 | 继续向当前变量组添加变量。 |
+| + | 否 | 新建变量组。 |
+| Delete | 否 | 删除当前变量组。 |
+
+输出结果：
+| 输出 | 说明 |
+|---|---|
+| Group0（或其他变量组名） | 输出当前变量组中聚合后的变量，可供后续节点直接引用。 |
+
+使用说明：
+| 操作 | 说明 |
+|---|---|
+| 添加变量 | 在 **Select value** 中选择变量，然后点击 **Add** 继续添加多个变量。 |
+| 新建变量组 | 点击 **+** 图标新建变量组。 |
+| 删除变量组 | 点击变量组的删除按钮，移除当前组。 |
+| 引用输出 | 后续节点可以直接引用变量组（例如 **Group0**）作为输入。 |
+
+![变量聚合组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/variable_aggregation_component.jpg)

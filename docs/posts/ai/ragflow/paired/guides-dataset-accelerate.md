@@ -1,0 +1,57 @@
+<BiRow>
+<template #en>
+
+A checklist to speed up document parsing and indexing.
+
+</template>
+<template #zh>
+
+一份用于加快文档解析和索引的检查清单。
+
+</template>
+</BiRow>
+
+<BiRow>
+<template #en>
+
+---
+
+</template>
+<template #zh>
+
+---
+
+</template>
+</BiRow>
+
+<BiRow>
+<template #en>
+
+Please note that some of your settings may consume a significant amount of time. If you often find that document parsing is time-consuming, here is a checklist to consider:
+
+</template>
+<template #zh>
+
+请注意，某些设置可能会消耗大量时间。如果你经常发现文档解析非常耗时，可以参考以下检查清单：
+
+</template>
+</BiRow>
+
+<BiRow>
+<template #en>
+
+- On the configuration page of your dataset, switch off **Use RAPTOR to enhance retrieval**.
+- Extracting knowledge graph (GraphRAG) is time-consuming.
+- Disable **Auto-keyword** and **Auto-question** on the configuration page of your dataset, as both depend on the LLM.
+- **v0.17.0+:** If all PDFs in your dataset are plain text and do not require GPU-intensive processes like OCR (Optical Character Recognition), TSR (Table Structure Recognition), or DLA (Document Layout Analysis), you can choose **Naive** over **DeepDoc** or other time-consuming large model options in the **Document parser** dropdown. This will substantially reduce document parsing time.
+
+</template>
+<template #zh>
+
+- 在数据集配置页关闭 **Use RAPTOR to enhance retrieval**（使用 RAPTOR 增强检索）。
+- 抽取知识图谱（GraphRAG）非常耗时。
+- 在数据集配置页禁用 **Auto-keyword**（自动关键词）和 **Auto-question**（自动问题），因为二者都依赖 LLM。
+- **v0.17.0+：**如果数据集中的所有 PDF 都是纯文本，不需要 OCR（光学字符识别）、TSR（表格结构识别）或 DLA（文档版面分析）等高 GPU 消耗的处理，可在 **Document parser**（文档解析器）下拉菜单中选择 **Naive**，而不是 **DeepDoc** 或其他耗时的大模型选项。这可以显著缩短文档解析时间。
+
+</template>
+</BiRow>

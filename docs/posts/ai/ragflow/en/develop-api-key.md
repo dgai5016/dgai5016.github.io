@@ -1,0 +1,13 @@
+# Acquire RAGFlow API Key
+
+An API key is required for the RAGFlow server to authenticate your HTTP/Python or MCP requests. This document provides instructions on obtaining a RAGFlow API key.
+
+1. Click your avatar in the top right corner of the RAGFlow UI to access the configuration page.
+2. Click **API** to switch to the **API** page.
+3. Obtain a RAGFlow API key:
+
+![ragflow_api_key](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/ragflow_api_key.jpg)
+
+:::tip NOTE
+See the [RAGFlow HTTP API reference](https://ragflow.io/docs/references/http_api_reference) or the [RAGFlow Python API reference](https://ragflow.io/docs/references/python_api_reference) for a complete reference of RAGFlow's HTTP or Python APIs.
+:::

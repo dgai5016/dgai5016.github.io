@@ -1,0 +1,18 @@
+# 邀请成员
+
+团队所有者可以邀请 RAGFlow 用户加入团队。
+
+邀请成员的步骤：
+
+1. 打开 **Team**（团队）页面。
+2. 在 **Team members**（团队成员）区域，点击 **Invite**（邀请）。
+3. 输入要邀请的用户的邮箱地址。
+4. 点击 **OK**（确定）。
+
+该邮箱地址必须属于已存在的 RAGFlow 用户。如果邮箱地址匹配不到任何用户，系统会返回用户不存在的错误。如果该用户已加入团队或已被邀请，系统会拒绝重复邀请。
+
+邀请创建后，成员关系记录会以 `invite` 角色保存。被邀请的用户必须接受邀请，才能成为正式团队成员。
+
+![邀请成员](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/invite_members_1.jpg)
+
+![邀请成员](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/invite_members_2.jpg)
