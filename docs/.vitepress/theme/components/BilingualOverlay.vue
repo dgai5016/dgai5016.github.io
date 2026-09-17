@@ -13,6 +13,7 @@
 import { ref, shallowRef, computed, watch, nextTick, onMounted, onUnmounted } from 'vue'
 import { mcpDocs } from '../mcp-docs-manifest'
 import { ragflowDocs } from '../ragflow-docs-manifest'
+import { vectorDbDocs } from '../vector-db-docs-manifest'
 import { enhanceCodeBlocks } from '../utils/enhanceCodeBlocks'
 import { enhanceMermaid } from '../utils/enhanceMermaid'
 
@@ -24,12 +25,14 @@ const emit = defineEmits<{ close: [], prev: [slug: string], next: [slug: string]
 const modules = {
   ...import.meta.glob('/posts/ai/mcp/paired/*.md'),
   ...import.meta.glob('/posts/ai/ragflow/paired/*.md'),
+  ...import.meta.glob('/posts/ai/vector-db-101/paired/*.md'),
 }
 
 // 合并清单：每条标注所属合集，供「同合集内」的上下篇导航
 const allDocs = [
   ...mcpDocs.map((d) => ({ ...d, collection: 'mcp' })),
   ...ragflowDocs.map((d) => ({ ...d, collection: 'ragflow' })),
+  ...vectorDbDocs.map((d) => ({ ...d, collection: 'vector-db-101' })),
 ]
 
 const bodyComp = shallowRef<any>(null)   // 当前文档的渲染组件
@@ -95,8 +98,12 @@ const nextDoc = computed(() =>
 const mobileTab = ref<'en' | 'zh'>('zh')
 
 function findLoader(slug: string) {
-  // 两个合集目录都试：slug 在各自目录内唯一，命中即返回对应的懒加载器
-  const paths = [`/posts/ai/mcp/paired/${slug}.md`, `/posts/ai/ragflow/paired/${slug}.md`]
+  // 各合集目录都试：slug 在各自目录内唯一，命中即返回对应的懒加载器
+  const paths = [
+    `/posts/ai/mcp/paired/${slug}.md`,
+    `/posts/ai/ragflow/paired/${slug}.md`,
+    `/posts/ai/vector-db-101/paired/${slug}.md`,
+  ]
   return paths.map((p) => modules[p]).find(Boolean)
 }
 

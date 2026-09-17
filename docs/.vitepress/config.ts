@@ -8,8 +8,9 @@ export default defineConfig({
   title: "dg's Blog",
   description: '探索 AI 与编程的世界',
 
-  // 双语文档库（posts/ai/mcp、posts/ai/ragflow 下的 en/zh/paired 与 shared-context.md）
-  // 不作为独立页面路由，只作为模块被 BilingualOverlay 懒加载——
+  // 双语文档库（posts/ai/mcp、posts/ai/ragflow、posts/ai/vector-db-101 下的
+  // en/zh/paired 与 shared-context.md）不作为独立页面路由，
+  // 只作为模块被 BilingualOverlay 懒加载——
   // 注意只排除文档子目录：posts/ai/<合集>/ 顶层的正常文章照常路由
   srcExclude: [
     'posts/ai/mcp/en/**',
@@ -20,6 +21,10 @@ export default defineConfig({
     'posts/ai/ragflow/zh/**',
     'posts/ai/ragflow/paired/**',
     'posts/ai/ragflow/shared-context.md',
+    'posts/ai/vector-db-101/en/**',
+    'posts/ai/vector-db-101/zh/**',
+    'posts/ai/vector-db-101/paired/**',
+    'posts/ai/vector-db-101/shared-context.md',
   ],
 
   // texmath 渲染公式时会用非标准的 <eq>/<eqn> 标签包裹公式，

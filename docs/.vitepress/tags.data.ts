@@ -9,7 +9,7 @@ declare const data: TagInfo[]
 export { data }
 
 // 双语文档库不是文章，不参与标签统计（与 posts.data.ts 同一排除规则，覆盖 mcp/ragflow 两库）
-const DOC_LIB_RE = /^\/posts\/ai\/(mcp|ragflow)\/(en|zh|paired)\/|^\/posts\/ai\/(mcp|ragflow)\/shared-context(\.html)?$/
+const DOC_LIB_RE = /^\/posts\/ai\/(mcp|ragflow|vector-db-101)\/(en|zh|paired)\/|^\/posts\/ai\/(mcp|ragflow|vector-db-101)\/shared-context(\.html)?$/
 
 export default createContentLoader('posts/**/*.md', {
   transform(raw): TagInfo[] {

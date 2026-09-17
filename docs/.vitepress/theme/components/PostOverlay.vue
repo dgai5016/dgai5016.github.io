@@ -16,14 +16,23 @@ const emit = defineEmits<{ close: [] }>()
 // 用 import.meta.glob 把所有文章 markdown 当 Vue 组件懒加载
 // key 形如 '/posts/ai/neural-network.md'，按 url 后缀匹配，兼容前缀差异
 // 书单页挂载的读书文档（/books/...）也一并纳入，书单页里的 PostLink 才能唤出覆盖层
-// 排除 MCP 双语文档库（en/zh/paired）：它们只归 BilingualOverlay 管，
-// 不应作为普通文章被覆盖层打开
+// 排除双语文档库（mcp / ragflow / vector-db-101 的 en/zh/paired）：
+// 它们只归 BilingualOverlay 管，不应作为普通文章被覆盖层打开
+// （ragflow 此前漏排——当前无 URL 指向它所以无害，一并补上防患）
 const modules = import.meta.glob([
   '/posts/**/*.md',
   '!/posts/ai/mcp/en/**',
   '!/posts/ai/mcp/zh/**',
   '!/posts/ai/mcp/paired/**',
   '!/posts/ai/mcp/shared-context.md',
+  '!/posts/ai/ragflow/en/**',
+  '!/posts/ai/ragflow/zh/**',
+  '!/posts/ai/ragflow/paired/**',
+  '!/posts/ai/ragflow/shared-context.md',
+  '!/posts/ai/vector-db-101/en/**',
+  '!/posts/ai/vector-db-101/zh/**',
+  '!/posts/ai/vector-db-101/paired/**',
+  '!/posts/ai/vector-db-101/shared-context.md',
   '/books/**/*.md',
 ])
 

@@ -58,7 +58,7 @@ npm run test:e2e  # Playwright 截图测试（先构建再截图）
 
 ## 双语文档管线
 
-MCP / RAGFlow 双语文档（浮层左右对照阅读）的抓取、翻译、配对管线在 `scripts/ragflow-docs/`（RAGFlow，129 个阅读单元）与 `scripts/mcp-docs/`（MCP）。官方文档更新后的维护流程（增量抓取 / 新增篇目 / 大版本升级三场景）见 `scripts/ragflow-docs/README.md`。
+MCP / RAGFlow / Vector Database 101 三套双语文档（浮层左右对照阅读）的抓取、翻译、配对管线：`scripts/ragflow-docs/`（RAGFlow，129 个阅读单元）、`scripts/mcp-docs/`（MCP）、`scripts/vector-db-docs/`（Zilliz 向量数据库课程 12 篇，合集目录 `docs/posts/ai/vector-db-101/`）。官方文档更新后的维护流程（增量抓取 / 新增篇目 / 大版本升级三场景）见 `scripts/ragflow-docs/README.md`。
 
 ## 资料总结技能
 
