@@ -85,7 +85,7 @@ Failure:
 
 Updates a session of a specified chat assistant.
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `PUT /api/v1/chats/{chat_id}/sessions/{session_id}` is deprecated. Use this endpoint instead.
 :::
 
@@ -514,7 +514,7 @@ Failure:
 
 Starts a chat completion request. The same endpoint supports three modes:
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `POST /api/v1/chats/{chat_id}/completions` is deprecated. Use this endpoint instead.
 :::
 
@@ -1065,7 +1065,7 @@ Asks a specified agent a question to start an AI-powered conversation.
 
 Uses a single completion endpoint for all agent conversations.
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `POST /api/v1/agents/{agent_id}/completions` is deprecated. Use this endpoint instead.
 :::
 
@@ -1823,13 +1823,13 @@ Failure:
 
 Generates five to ten alternative question strings from the user's original query to retrieve more relevant search results.
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `POST /api/v1/sessions/related_questions` is deprecated. Use this endpoint instead.
 :::
 
 This operation requires a `Bearer Login Token`, which typically expires with in 24 hours. You can find it in the Request Headers in your browser easily as shown below:
 
-![Image](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/login_token.jpg)
+![Image](/ragflow-images/login_token.jpg)
 
 :::tip NOTE
 The chat model autonomously determines the number of questions to generate based on the instruction, typically between five and ten.

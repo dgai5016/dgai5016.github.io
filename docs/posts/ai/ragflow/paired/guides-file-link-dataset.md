@@ -14,12 +14,12 @@ The file management page allows you to add files directly to a knowledge base. A
 <BiRow>
 <template #en>
 
-![Parse file](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/parse_file.jpg)
+![Parse file](/ragflow-images/parse_file.jpg)
 
 </template>
 <template #zh>
 
-![解析文件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/parse_file.jpg)
+![解析文件](/ragflow-images/parse_file.jpg)
 
 </template>
 </BiRow>
@@ -59,12 +59,12 @@ The file management page allows you to add files directly to a knowledge base. A
 <BiRow>
 <template #en>
 
-![Link a single file](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/link_a_single_file.jpg)
+![Link a single file](/ragflow-images/link_a_single_file.jpg)
 
 </template>
 <template #zh>
 
-![关联单个文件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/link_a_single_file.jpg)
+![关联单个文件](/ragflow-images/link_a_single_file.jpg)
 
 </template>
 </BiRow>

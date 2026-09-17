@@ -16,7 +16,7 @@ This user guide does not intend to cover much of the installation or configurati
 
 [Ollama](https://github.com/ollama/ollama) enables you to run open-source large language models that you deployed locally. It bundles model weights, configurations, and data into a single package, defined by a Modelfile, and optimizes setup and configurations, including GPU usage.
 
-:::note
+:::info
 - For information about downloading Ollama, see [here](https://github.com/ollama/ollama?tab=readme-ov-file#ollama).
 - For a complete list of supported models and variants, see the [Ollama model library](https://ollama.com/library).
 :::
@@ -84,7 +84,7 @@ In the popup window, complete basic settings for Ollama:
 2. Put in the Ollama base URL, i.e. `http://host.docker.internal:11434`, `http://localhost:11434` or `http://${IP_OF_OLLAMA_MACHINE}:11434`.
 3. OPTIONAL: Switch on the toggle under **Does it support Vision?** if your model includes an image-to-text model.
 
-:::caution WARNING
+:::warning WARNING
 Improper base URL settings will trigger the following error:
 ```bash
 Max retries exceeded with url: /api/chat (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0xffff98b81ff0>: Failed to establish a new connection: [Errno 111] Connection refused'))
@@ -105,7 +105,7 @@ Update your model(s) accordingly in **Chat Configuration**.
 
 Xorbits Inference ([Xinference](https://github.com/xorbitsai/inference)) enables you to unleash the full potential of cutting-edge AI models.
 
-:::note
+:::info
 - For information about installing Xinference Ollama, see [here](https://inference.readthedocs.io/en/latest/getting_started/).
 - For a complete list of supported models, see the [Builtin Models](https://inference.readthedocs.io/en/latest/models/builtin/).
 :::
@@ -291,13 +291,13 @@ Application startup complete.
 
 Go to **Settings** → **Model Providers** → **Search** → **vLLM** → **Add**; configure as follows:
 
-![add vllm](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/ragflow_vllm.png)
+![add vllm](/ragflow-images/ragflow_vllm.png)
 
 Select the vLLM chat model as the default LLM model:
-![chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/ragflow_vllm1.png)
+![chat](/ragflow-images/ragflow_vllm1.png)
 ### 5.3 Chat with vLLM Chat Model
 Create a chat and start a conversation as follows:
-![chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/ragflow_vllm2.png)
+![chat](/ragflow-images/ragflow_vllm2.png)
 
 ### 6. Deploy GPUStack
 
@@ -327,7 +327,7 @@ abf59be84b1a   gpustack/gpustack   "/usr/bin/entrypoint…"   6 hours ago   Up 6
 
 setting->model providers->search->gpustack->add ,configure as follow:
 
-![add vllm](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/ragflow-gpustack11.png)
+![add vllm](/ragflow-images/ragflow-gpustack11.png)
 
 select gpustack chat model as default llm model as follow:
-![chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/ragflow-gpustack22.png)
+![chat](/ragflow-images/ragflow-gpustack22.png)

@@ -24,4 +24,4 @@
 
 部分数据源支持测试连接功能。保存或修改连接后，可以先测试连接，确认账号权限、连接参数和数据访问都正常，然后在知识库中启动同步。
 
-![同步与更新](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Synchronization_and_Updates.jpg)
+![同步与更新](/ragflow-images/Synchronization_and_Updates.jpg)

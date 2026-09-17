@@ -72,12 +72,12 @@ After the invitation is created, the membership record is stored with the `invit
 <BiRow>
 <template #en>
 
-![Invite Members](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/invite_members_1.jpg)
+![Invite Members](/ragflow-images/invite_members_1.jpg)
 
 </template>
 <template #zh>
 
-![邀请成员](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/invite_members_1.jpg)
+![邀请成员](/ragflow-images/invite_members_1.jpg)
 
 </template>
 </BiRow>
@@ -85,12 +85,12 @@ After the invitation is created, the membership record is stored with the `invit
 <BiRow>
 <template #en>
 
-![Invite Members](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/invite_members_2.jpg)
+![Invite Members](/ragflow-images/invite_members_2.jpg)
 
 </template>
 <template #zh>
 
-![邀请成员](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/invite_members_2.jpg)
+![邀请成员](/ragflow-images/invite_members_2.jpg)
 
 </template>
 </BiRow>

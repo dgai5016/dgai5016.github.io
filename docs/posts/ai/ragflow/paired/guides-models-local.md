@@ -96,7 +96,7 @@ This user guide does not intend to cover much of the installation or configurati
 <BiRow>
 <template #en>
 
-:::note
+:::info
 - For information about downloading Ollama, see [here](https://github.com/ollama/ollama?tab=readme-ov-file#ollama).
 - For a complete list of supported models and variants, see the [Ollama model library](https://ollama.com/library).
 :::
@@ -104,7 +104,7 @@ This user guide does not intend to cover much of the installation or configurati
 </template>
 <template #zh>
 
-:::note
+:::info
 - 关于下载 Ollama 的信息，见[这里](https://github.com/ollama/ollama?tab=readme-ov-file#ollama)。
 - 关于支持的模型和变体的完整列表，见 [Ollama 模型库](https://ollama.com/library)。
 :::
@@ -376,7 +376,7 @@ In the popup window, complete basic settings for Ollama:
 <BiRow>
 <template #en>
 
-:::caution WARNING
+:::warning WARNING
 Improper base URL settings will trigger the following error:
 ```bash
 Max retries exceeded with url: /api/chat (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0xffff98b81ff0>: Failed to establish a new connection: [Errno 111] Connection refused'))
@@ -386,7 +386,7 @@ Max retries exceeded with url: /api/chat (Caused by NewConnectionError('<urllib3
 </template>
 <template #zh>
 
-:::caution 警告
+:::warning 警告
 base URL 设置不当会触发以下错误：
 ```bash
 Max retries exceeded with url: /api/chat (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0xffff98b81ff0>: Failed to establish a new connection: [Errno 111] Connection refused'))
@@ -490,7 +490,7 @@ Xorbits Inference（[Xinference](https://github.com/xorbitsai/inference)）帮�
 <BiRow>
 <template #en>
 
-:::note
+:::info
 - For information about installing Xinference Ollama, see [here](https://inference.readthedocs.io/en/latest/getting_started/).
 - For a complete list of supported models, see the [Builtin Models](https://inference.readthedocs.io/en/latest/models/builtin/).
 :::
@@ -498,7 +498,7 @@ Xorbits Inference（[Xinference](https://github.com/xorbitsai/inference)）帮�
 </template>
 <template #zh>
 
-:::note
+:::info
 - 关于安装 Xinference 的信息，见[这里](https://inference.readthedocs.io/en/latest/getting_started/)。
 - 关于支持的模型的完整列表，见 [Builtin Models](https://inference.readthedocs.io/en/latest/models/builtin/)。
 :::
@@ -1429,12 +1429,12 @@ Go to **Settings** → **Model Providers** → **Search** → **vLLM** → **Add
 <BiRow>
 <template #en>
 
-![add vllm](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/ragflow_vllm.png)
+![add vllm](/ragflow-images/ragflow_vllm.png)
 
 </template>
 <template #zh>
 
-![add vllm](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/ragflow_vllm.png)
+![add vllm](/ragflow-images/ragflow_vllm.png)
 
 </template>
 </BiRow>
@@ -1443,19 +1443,19 @@ Go to **Settings** → **Model Providers** → **Search** → **vLLM** → **Add
 <template #en>
 
 Select the vLLM chat model as the default LLM model:
-![chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/ragflow_vllm1.png)
+![chat](/ragflow-images/ragflow_vllm1.png)
 ### 5.3 Chat with vLLM Chat Model
 Create a chat and start a conversation as follows:
-![chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/ragflow_vllm2.png)
+![chat](/ragflow-images/ragflow_vllm2.png)
 
 </template>
 <template #zh>
 
 选择 vLLM 对话模型作为默认 LLM 模型：
-![chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/ragflow_vllm1.png)
+![chat](/ragflow-images/ragflow_vllm1.png)
 ### 5.3 使用 vLLM 对话模型进行对话
 创建一个对话，并按如下方式开始会话：
-![chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/ragflow_vllm2.png)
+![chat](/ragflow-images/ragflow_vllm2.png)
 
 </template>
 </BiRow>
@@ -1564,12 +1564,12 @@ setting->model providers->search->gpustack->add ,configure as follow:
 <BiRow>
 <template #en>
 
-![add vllm](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/ragflow-gpustack11.png)
+![add vllm](/ragflow-images/ragflow-gpustack11.png)
 
 </template>
 <template #zh>
 
-![add vllm](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/ragflow-gpustack11.png)
+![add vllm](/ragflow-images/ragflow-gpustack11.png)
 
 </template>
 </BiRow>
@@ -1578,13 +1578,13 @@ setting->model providers->search->gpustack->add ,configure as follow:
 <template #en>
 
 select gpustack chat model as default llm model as follow:
-![chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/ragflow-gpustack22.png)
+![chat](/ragflow-images/ragflow-gpustack22.png)
 
 </template>
 <template #zh>
 
 按如下方式将 gpustack 对话模型选为默认 LLM 模型：
-![chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/ragflow-gpustack22.png)
+![chat](/ragflow-images/ragflow-gpustack22.png)
 
 </template>
 </BiRow>

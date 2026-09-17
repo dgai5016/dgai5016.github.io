@@ -299,14 +299,14 @@ AI Badgr 实现了 `/v1/chat/completions`、`/v1/embeddings` 和 `/v1/models` �
 <BiRow>
 <template #en>
 
-:::note
+:::info
 The list of supported models is extracted from [this source](https://github.com/infiniflow/ragflow/blob/main/rag/llm/__init__.py) and may not be the most current. For the latest supported model list, please refer to the Python file.
 :::
 
 </template>
 <template #zh>
 
-:::note
+:::info
 支持的模型列表提取自[这个源文件](https://github.com/infiniflow/ragflow/blob/main/rag/llm/__init__.py)，可能不是最新的。如需最新的支持模型列表，请查阅该 Python 文件。
 :::
 

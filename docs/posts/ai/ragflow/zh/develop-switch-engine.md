@@ -6,7 +6,7 @@
 
 RAGFlow 默认使用 Elasticsearch 存储全文和向量。要切换到 [Infinity](https://github.com/infiniflow/infinity/)，请按以下步骤操作：
 
-:::caution 警告
+:::warning 警告
 在 Linux/arm64 机器上切换到 Infinity 尚未获得官方支持。
 :::
 
@@ -16,7 +16,7 @@ RAGFlow 默认使用 Elasticsearch 存储全文和向量。要切换到 [Infinit
    $ docker compose -f docker/docker-compose.yml down -v
    ```
 
-:::caution 警告
+:::warning 警告
 `-v` 会删除 Docker 容器卷，现有数据将被清空。
 :::
 

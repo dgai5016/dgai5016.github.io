@@ -14,7 +14,7 @@ You can perform the following conversation operations:
 - **Search conversations**: Use the search box to filter existing conversations by name.
 - **Delete conversations**: Use the **More** menu beside a conversation. You can also select multiple conversations and delete them together.
 
-![Create and manage conversations](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_and_manage_sessions.jpg)
+![Create and manage conversations](/ragflow-images/create_and_manage_sessions.jpg)
 
 Use different conversations for different topics. For example, after discussing a product issue, create a new conversation before starting a completely different task so that the earlier context does not affect subsequent answers.
 
@@ -32,7 +32,7 @@ Click the paperclip icon in the message box, or drag files into the message box,
 
 Text files can be parsed into text for the model to reference. Processing images requires a model with multimodal capabilities.
 
-![Upload files in a conversation](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/upload_files.jpg)
+![Upload files in a conversation](/ragflow-images/upload_files.jpg)
 
 Files uploaded in a conversation provide supplemental context only and are not automatically added to a knowledge base. To make a file permanently available for knowledge base retrieval, add it to a knowledge base and complete parsing.
 
@@ -44,7 +44,7 @@ Click the microphone icon in the message box to start recording, then click it a
 
 After recording, the system converts the speech to text with the configured speech recognition model and sends it as a question.
 
-![Use voice input](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/use_voice_input.jpg)
+![Use voice input](/ragflow-images/use_voice_input.jpg)
 
 ## Embed into a Website
 
@@ -62,6 +62,6 @@ You can also embed the created Chat assistant in a third-party webpage with an i
 2. Hover over the target Chat assistant and click **Edit** to open the iframe window.
 3. Copy the iframe code and embed it in your webpage.
 
-![Open the iframe configuration](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/embed_into_website_1.jpg)
+![Open the iframe configuration](/ragflow-images/embed_into_website_1.jpg)
 
-![Copy the iframe code](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/embed_into_website_2.jpg)
+![Copy the iframe code](/ragflow-images/embed_into_website_2.jpg)

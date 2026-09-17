@@ -10,7 +10,7 @@
 
 如果添加了多条消息，系统会随机选择其中一条发送。当 `Begin` 组件选择 `Webhook` 且响应方式为 `Final response` 时，回复消息组件可以设置 200 到 399 范围内的 HTTP 状态码。
 
-![Reply Message 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/reply_message_component_1.jpg)
+![Reply Message 组件](/ragflow-images/reply_message_component_1.jpg)
 
 ### 保存到记忆
 
@@ -24,7 +24,7 @@
 
 回复消息组件会把配置好的文本或变量内容输出到对话窗口、webhook 响应或嵌入页面。
 
-![Reply Message 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/reply_message_component_2.jpg)
+![Reply Message 组件](/ragflow-images/reply_message_component_2.jpg)
 
 ## Await Response 组件
 Await Response 会暂停工作流，等待用户补充信息。适合多轮对话、表单收集、确认操作或文件上传等需求。
@@ -38,4 +38,4 @@ Await Response 会暂停工作流，等待用户补充信息。适合多轮对�
 - 文件上传：接收合同、报告或截图
 - 布尔值：确认继续/取消操作
 
-![用户输入组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/user_input_component.jpg)
+![用户输入组件](/ragflow-images/user_input_component.jpg)

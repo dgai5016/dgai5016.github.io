@@ -116,7 +116,7 @@ docker compose -f docker/docker-compose-base.yml up -d
 
    *The following message appears, showing the IP address and port number of your frontend service:*
 
-   ![](https://github.com/user-attachments/assets/0daf462c-a24d-4496-a66f-92533534e187)
+   ![](/ragflow-images/0daf462c-a24d-4496-a66f-92533534e187.jpg)
 
 ### Access the RAGFlow Service
 

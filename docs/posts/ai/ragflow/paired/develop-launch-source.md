@@ -593,12 +593,12 @@ docker compose -f docker/docker-compose-base.yml up -d
 <BiRow>
 <template #en>
 
-   ![](https://github.com/user-attachments/assets/0daf462c-a24d-4496-a66f-92533534e187)
+   ![](/ragflow-images/0daf462c-a24d-4496-a66f-92533534e187.jpg)
 
 </template>
 <template #zh>
 
-![](https://github.com/user-attachments/assets/0daf462c-a24d-4496-a66f-92533534e187)
+![](/ragflow-images/0daf462c-a24d-4496-a66f-92533534e187.jpg)
 
 </template>
 </BiRow>

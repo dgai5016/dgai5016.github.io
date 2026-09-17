@@ -9,6 +9,6 @@
 
 只有邀请关系才能接受。接受邀请后，当这些资源同时满足其共享范围和操作权限规则时，你才能访问该工作区中团队共享的资源。
 
-![接受或拒绝邀请](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/accept_or_decline_an_invitation_1.jpg)
+![接受或拒绝邀请](/ragflow-images/accept_or_decline_an_invitation_1.jpg)
 
-![接受或拒绝邀请](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/accept_or_decline_an_invitation_2.jpg)
+![接受或拒绝邀请](/ragflow-images/accept_or_decline_an_invitation_2.jpg)

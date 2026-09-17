@@ -1260,7 +1260,7 @@ After completing QR scanning and connecting the channel to a Chat, use another W
 <BiRow>
 <template #en>
 
-:::caution NOTE
+:::warning NOTE
 
 After deleting a WhatsApp channel or clearing the gateway login state, you may need to scan the QR code again for pairing. If the QR code is not displayed for a long time, confirm that `WhatsAppGateway` has started and check network connectivity between the backend service and the gateway.
 
@@ -1269,7 +1269,7 @@ After deleting a WhatsApp channel or clearing the gateway login state, you may n
 </template>
 <template #zh>
 
-:::caution 注意
+:::warning 注意
 
 删除 WhatsApp 渠道或清除网关登录状态后，可能需要重新扫码配对。如果二维码长时间未显示，请确认 `WhatsAppGateway` 已启动，并检查后端服务与网关之间的网络连通性。
 

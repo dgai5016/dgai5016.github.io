@@ -16,13 +16,13 @@
 <BiRow>
 <template #en>
 
-![Create an Ingestion Pipeline](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_an_ingestion_pipeline.jpg)
+![Create an Ingestion Pipeline](/ragflow-images/create_an_ingestion_pipeline.jpg)
 3. On the canvas, drag, drop and connect components from the right panel to design your flow, for example: Parser -> Chunker -> Transformer -> Indexer.
 
 </template>
 <template #zh>
 
-![创建摄取管道](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_an_ingestion_pipeline.jpg)
+![创建摄取管道](/ragflow-images/create_an_ingestion_pipeline.jpg)
 3. 在画布上，从右侧面板拖拽、放置并连接组件来设计你的流程，例如：解析器 -> 分块器 -> 转换器 -> 索引器。
 
 </template>

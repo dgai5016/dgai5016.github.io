@@ -16,7 +16,7 @@ RAGFlow 与 Ollama 和 Xinference 无缝集成，无需额外的环境配置。�
 
 [Ollama](https://github.com/ollama/ollama) 让你能够运行本地部署的开源大语言模型。它把模型权重、配置和数据打包成由 Modelfile 定义的单个包，并优化了包括 GPU 使用在内的安装与配置。
 
-:::note
+:::info
 - 关于下载 Ollama 的信息，见[这里](https://github.com/ollama/ollama?tab=readme-ov-file#ollama)。
 - 关于支持的模型和变体的完整列表，见 [Ollama 模型库](https://ollama.com/library)。
 :::
@@ -84,7 +84,7 @@ $ curl http://${IP_OF_OLLAMA_MACHINE}:11434/
 2. 填入 Ollama base URL，即 `http://host.docker.internal:11434`、`http://localhost:11434` 或 `http://${IP_OF_OLLAMA_MACHINE}:11434`。
 3. 可选：如果你的模型包含图生文模型，打开 **Does it support Vision?**（是否支持视觉？）下的开关。
 
-:::caution 警告
+:::warning 警告
 base URL 设置不当会触发以下错误：
 ```bash
 Max retries exceeded with url: /api/chat (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0xffff98b81ff0>: Failed to establish a new connection: [Errno 111] Connection refused'))
@@ -105,7 +105,7 @@ Max retries exceeded with url: /api/chat (Caused by NewConnectionError('<urllib3
 
 Xorbits Inference（[Xinference](https://github.com/xorbitsai/inference)）帮助你充分发挥前沿 AI 模型的潜力。
 
-:::note
+:::info
 - 关于安装 Xinference 的信息，见[这里](https://inference.readthedocs.io/en/latest/getting_started/)。
 - 关于支持的模型的完整列表，见 [Builtin Models](https://inference.readthedocs.io/en/latest/models/builtin/)。
 :::
@@ -291,13 +291,13 @@ Application startup complete.
 
 进入 **Settings**（设置）→ **Model Providers** → **Search**（搜索）→ **vLLM** → **Add**（添加），按如下配置：
 
-![add vllm](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/ragflow_vllm.png)
+![add vllm](/ragflow-images/ragflow_vllm.png)
 
 选择 vLLM 对话模型作为默认 LLM 模型：
-![chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/ragflow_vllm1.png)
+![chat](/ragflow-images/ragflow_vllm1.png)
 ### 5.3 使用 vLLM 对话模型进行对话
 创建一个对话，并按如下方式开始会话：
-![chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/ragflow_vllm2.png)
+![chat](/ragflow-images/ragflow_vllm2.png)
 
 ### 6. 部署 GPUStack
 
@@ -327,7 +327,7 @@ abf59be84b1a   gpustack/gpustack   "/usr/bin/entrypoint…"   6 hours ago   Up 6
 
 依次进入 设置 -> 模型提供商 -> 搜索 -> gpustack -> 添加，按如下配置：
 
-![add vllm](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/ragflow-gpustack11.png)
+![add vllm](/ragflow-images/ragflow-gpustack11.png)
 
 按如下方式将 gpustack 对话模型选为默认 LLM 模型：
-![chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/ragflow-gpustack22.png)
+![chat](/ragflow-images/ragflow-gpustack22.png)

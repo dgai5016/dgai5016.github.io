@@ -46,13 +46,13 @@ Steps:
 <BiRow>
 <template #en>
 
-![Embed Agent into webpage menu](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/embed_agent_into_webpage.jpg)
+![Embed Agent into webpage menu](/ragflow-images/embed_agent_into_webpage.jpg)
 3. Copy the iframe code and embed it into your webpage.
 
 </template>
 <template #zh>
 
-![将 Agent 嵌入网页的菜单](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/embed_agent_into_webpage.jpg)
+![将 Agent 嵌入网页的菜单](/ragflow-images/embed_agent_into_webpage.jpg)
 3. 复制 iframe 代码并将其嵌入你的网页。
 
 </template>
@@ -61,13 +61,13 @@ Steps:
 <BiRow>
 <template #en>
 
-![Embed an Agent web page](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/embed_an_agent_web_page.jpg)
+![Embed an Agent web page](/ragflow-images/embed_an_agent_web_page.jpg)
 > **Note:** Currently, only **Workflow** agents can be embedded in web pages. **Ingestion pipeline** and **Compilation Operator** agents do not support web embedding.
 
 </template>
 <template #zh>
 
-![嵌入 Agent 网页](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/embed_an_agent_web_page.jpg)
+![嵌入 Agent 网页](/ragflow-images/embed_an_agent_web_page.jpg)
 > **注意：** 目前只有 **工作流（Workflow）** Agent 支持嵌入网页；**摄取管道（Ingestion pipeline）** 和 **编译算子（Compilation Operator）** Agent 不支持网页嵌入。
 
 </template>

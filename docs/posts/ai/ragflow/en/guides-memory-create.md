@@ -11,4 +11,4 @@ This chapter describes how to create and configure memories in RAGFlow, view and
 5. Click **Confirm** to create the memory.
 6. After confirmation, enter the memory list or details page.
 
-![Create memory](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_memory.jpg)
+![Create memory](/ragflow-images/create_memory.jpg)

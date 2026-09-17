@@ -4,11 +4,11 @@
 
 进入管理后台（Admin UI）后，打开 **Service status** 页面，即可查看 RAGFlow 及其依赖服务的运行状态。页面会展示每个服务的名称、服务类型、主机、端口和当前状态，方便管理员确认系统各组件是否正常运行。
 
-![检查服务是否正常](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/check_whether_services_are_normal.jpg)
+![检查服务是否正常](/ragflow-images/check_whether_services_are_normal.jpg)
 
 当 **Status** 为 `Alive` 时，服务运行正常；出现其他状态时，可能影响对应功能。
 
-![系统状态](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/system_status.jpg)
+![系统状态](/ragflow-images/system_status.jpg)
 
 | 服务名称 | 主要用途 | 异常时可能出现的问题 | 受影响的功能 |
 | --- | --- | --- | --- |
@@ -26,15 +26,15 @@
 
 管理员可以从 **Actions** 打开服务详情。不同服务展示的详情各不相同。例如，`mysql` 服务的详情会显示当前的数据库连接与进程信息，包括 `command`、`db`、`host`、`id`、`info`、`state`、`time` 和 `user`。管理员可以据此判断是否存在长时间运行的连接、等待状态或异常查询。
 
-![查看服务详情](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_service_details_1.jpg)
+![查看服务详情](/ragflow-images/view_service_details_1.jpg)
 
-![查看服务详情](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_service_details_2.jpg)
+![查看服务详情](/ragflow-images/view_service_details_2.jpg)
 
 部分服务还会提供 **Extra information** 对话框，展示补充的配置信息。例如，对象存储服务可能会显示 `store_type`、`user` 等信息。这些信息主要用于确认服务配置。
 
-![查看服务详情](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_service_details_3.jpg)
+![查看服务详情](/ragflow-images/view_service_details_3.jpg)
 
-![查看服务详情](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_service_details_4.jpg)
+![查看服务详情](/ragflow-images/view_service_details_4.jpg)
 
 如果某个服务的 `Status` 不是 `Alive`，请先记录该服务的 `ID`、`Name`、`Service type`、`Host`、`Port`，以及详情对话框或 **Extra information** 中可见的异常信息。
 

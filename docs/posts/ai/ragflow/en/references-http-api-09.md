@@ -10,7 +10,7 @@
 
 Check the health status of RAGFlow's dependencies (database, Redis, document engine, object storage).
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `GET /v1/system/healthz` is deprecated. Use this endpoint instead.
 :::
 

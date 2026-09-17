@@ -26,7 +26,7 @@ RAGFlow 提供了一个端到端的 RAG（检索增强生成）平台，能力�
 
 你可以在 UI 的 **System**（系统）页面查看 RAGFlow 的版本号：
 
-![Image](https://github.com/user-attachments/assets/20cf7213-2537-4e18-a88c-4dadf6228c6b)
+![Image](/ragflow-images/20cf7213-2537-4e18-a88c-4dadf6228c6b.jpg)
 
 如果你是从源码构建的 RAGFlow，版本号也会出现在系统日志中：
 
@@ -194,13 +194,13 @@ FileNotFoundError: [Errno 2] No such file or directory: '/root/.cache/huggingfac
 
 要解决此问题，可以从 [GitHub](https://github.com/infiniflow/ragflow) 上对应 tag 下载缺失的文件，或者按如下方式更新 `~/ragflow/docker/docker-compose.yml`：
 
-![](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/docker-compose_missing.jpg)
+![](/ragflow-images/docker-compose_missing.jpg)
 
 ---
 
 ### `network anomaly There is an abnormality in your network and you cannot connect to the server.`
 
-![anomaly](https://github.com/infiniflow/ragflow/assets/93570324/beb7ad10-92e4-4a58-8886-bfb7cbd09e5d)
+![anomaly](/ragflow-images/beb7ad10-92e4-4a58-8886-bfb7cbd09e5d.jpg)
 
 服务器完全初始化之前，你无法登录 RAGFlow。请运行 `docker logs -f docker-ragflow-cpu-1` 查看日志。
 
@@ -225,7 +225,7 @@ FileNotFoundError: [Errno 2] No such file or directory: '/root/.cache/huggingfac
 
 忽略该警告并继续即可。所有系统警告都可以忽略。
 
-![](https://github.com/infiniflow/ragflow/assets/93570324/ef5a6194-084a-4fe3-bdd5-1c025b40865c)
+![](/ragflow-images/ef5a6194-084a-4fe3-bdd5-1c025b40865c.png)
 
 ---
 
@@ -300,7 +300,7 @@ docker rm $(docker ps -aq)
 
 ### 为什么我的文档解析卡在不到 1% 的进度？
 
-![stall](https://github.com/infiniflow/ragflow/assets/93570324/3589cc25-c733-47d5-bbfc-fedb74a3da50)
+![stall](/ragflow-images/3589cc25-c733-47d5-bbfc-fedb74a3da50.jpg)
 
 点击“解析状态”栏旁边的红色叉号，然后重新启动解析流程，看问题是否依旧存在。如果问题仍然存在且你的 RAGFlow 是本地部署的，请尝试以下操作：
 
@@ -319,7 +319,7 @@ docker rm $(docker ps -aq)
 
 点击“解析状态”栏旁边的红色叉号，然后重新启动解析流程，看问题是否依旧存在。如果问题仍然存在且你的 RAGFlow 是本地部署的，解析进程很可能是因内存（RAM）不足而被系统终止。可尝试增大 **docker/.env** 中 `MEM_LIMIT` 的值来增加内存分配。
 
-:::note
+:::info
 请务必重启 RAGFlow 服务器，以使更改生效！
 
 ```bash
@@ -332,7 +332,7 @@ docker compose up -d
 
 :::
 
-![nearcompletion](https://github.com/infiniflow/ragflow/assets/93570324/563974c3-f8bb-4ec8-b241-adcda8929cbb)
+![nearcompletion](/ragflow-images/563974c3-f8bb-4ec8-b241-adcda8929cbb.png)
 
 ---
 
@@ -387,9 +387,9 @@ tail -f ragflow/docker/ragflow-logs/*.log
 
 2. 按照[系统健康 API](https://ragflow.io/docs/references/http_api_reference.md#check-system-health)的说明检查 Elasticsearch 服务的健康状态。
 
-   :::danger 重要
+:::danger 重要
    Docker 容器的状态不一定反映其服务的状态。即使对应的 Docker 容器已在运行，你也可能发现服务并不健康。可能的原因包括网络故障、端口号不正确或 DNS 问题。
-   :::
+:::
 
 3. 如果容器不断重启，请确保 `vm.max_map_count` >= 262144。在 Linux 上，更新 **/etc/sysctl.conf** 可让更改永久生效；macOS 请参见下面的常见问题。
 
@@ -496,7 +496,7 @@ colima start
 
 如果你的模型目前不在支持之列，但其 API 与 OpenAI 的 API 兼容，可点击 **Model providers**（模型提供商）页面上的 **OpenAI-API-Compatible** 来配置你的模型：
 
-![openai-api-compatible](https://github.com/user-attachments/assets/b1e964f2-b86e-41af-8528-fd8a96dc5f6f)
+![openai-api-compatible](/ragflow-images/b1e964f2-b86e-41af-8528-fd8a96dc5f6f.png)
 
 ---
 
@@ -547,9 +547,9 @@ colima start
    ```bash
    $ docker compose -f docker/docker-compose.yml down -v
    ```
-   :::caution 警告
+:::warning 警告
    `-v` 会删除所有 Docker 容器卷，现有数据将被清空。
-   :::
+:::
 
 2. 在 **docker/.env** 中设置以下值：
 
@@ -686,15 +686,15 @@ Agent 的响应时间取决于工作流中涉及的组件数量、模型调用�
    - 如果你打算从 **Built-in**（内置）下拉列表中选择分块方法，请确认该方法支持 PDF 解析，然后从 **PDF parser** 下拉列表中选择 **MinerU**。
    - 如果你使用自定义摄取管道，则在 **Parser**（解析器）组件的 **PDF parser** 部分选择 **MinerU**。
 
-:::note
+:::info
 所有 MinerU 环境变量都是可选的。设置后，这些值会在首次使用时为租户自动预置（auto-provision）一个 MinerU OCR 模型。若不想自动预置，请跳过环境变量设置，只在 UI 的 **Model providers** 页面配置 MinerU。
 :::
 
-:::caution 警告
+:::warning 警告
 **升级说明：**旧的后端名称（`vlm-transformers`、`vlm-vllm-engine`、`vlm-mlx-engine`、`vlm-vllm-async-engine`、`vlm-lmdeploy-engine`）不再被接受。升级后，请在 **Model providers** 中重新选择当前可用的后端（或更新 `MINERU_BACKEND`），并确保你的 MinerU API 服务版本 &ge; 3.3.0。
 :::
 
-:::caution 警告
+:::warning 警告
 第三方视觉模型被标记为 **Experimental**（实验性），因为我们尚未针对上述数据提取任务充分测试这些模型。
 :::
 ---

@@ -243,12 +243,12 @@ The output usually contains search result summaries, titles, links, snippets, an
 <BiRow>
 <template #en>
 
-![Tavily Search](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/tavily_search.jpg)
+![Tavily Search](/ragflow-images/tavily_search.jpg)
 
 </template>
 <template #zh>
 
-![Tavily Search](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/tavily_search.jpg)
+![Tavily Search](/ragflow-images/tavily_search.jpg)
 
 </template>
 </BiRow>
@@ -420,12 +420,12 @@ The output contains the page body, title, URL, and extraction status. `formalize
 <BiRow>
 <template #en>
 
-![Tavily Extract](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/tavily_extract.jpg)
+![Tavily Extract](/ragflow-images/tavily_extract.jpg)
 
 </template>
 <template #zh>
 
-![Tavily Extract](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/tavily_extract.jpg)
+![Tavily Extract](/ragflow-images/tavily_extract.jpg)
 
 </template>
 </BiRow>
@@ -565,12 +565,12 @@ The output contains search result titles, links, and summaries. The organized te
 <BiRow>
 <template #en>
 
-![Google Search](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/google_search.jpg)
+![Google Search](/ragflow-images/google_search.jpg)
 
 </template>
 <template #zh>
 
-![Google Search](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/google_search.jpg)
+![Google Search](/ragflow-images/google_search.jpg)
 
 </template>
 </BiRow>
@@ -698,12 +698,12 @@ The output contains titles, links, and summaries returned by DuckDuckGo. It can 
 <BiRow>
 <template #en>
 
-![Duckduckgo](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/duckduckgo_1.jpg)
+![Duckduckgo](/ragflow-images/duckduckgo_1.jpg)
 
 </template>
 <template #zh>
 
-![Duckduckgo](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/duckduckgo_1.jpg)
+![Duckduckgo](/ragflow-images/duckduckgo_1.jpg)
 
 </template>
 </BiRow>
@@ -711,12 +711,12 @@ The output contains titles, links, and summaries returned by DuckDuckGo. It can 
 <BiRow>
 <template #en>
 
-![Duckduckgo](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/duckduckgo_2.jpg)
+![Duckduckgo](/ragflow-images/duckduckgo_2.jpg)
 
 </template>
 <template #zh>
 
-![Duckduckgo](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/duckduckgo_2.jpg)
+![Duckduckgo](/ragflow-images/duckduckgo_2.jpg)
 
 </template>
 </BiRow>
@@ -976,12 +976,12 @@ The output contains search entries, summaries, and links returned by Keenable. I
 <BiRow>
 <template #en>
 
-![Keenable Search](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/keenable_search.jpg)
+![Keenable Search](/ragflow-images/keenable_search.jpg)
 
 </template>
 <template #zh>
 
-![Keenable Search](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/keenable_search.jpg)
+![Keenable Search](/ragflow-images/keenable_search.jpg)
 
 </template>
 </BiRow>
@@ -1098,12 +1098,12 @@ The output contains the titles, summaries, and page links of matching entries. I
 <BiRow>
 <template #en>
 
-![Wikipedia](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/wikipedia.jpg)
+![Wikipedia](/ragflow-images/wikipedia.jpg)
 
 </template>
 <template #zh>
 
-![Wikipedia](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/wikipedia.jpg)
+![Wikipedia](/ragflow-images/wikipedia.jpg)
 
 </template>
 </BiRow>
@@ -1227,12 +1227,12 @@ The output contains repository, issue, code, or user search entries, usually inc
 <BiRow>
 <template #en>
 
-![GitHub](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/GitHub.jpg)
+![GitHub](/ragflow-images/GitHub.jpg)
 
 </template>
 <template #zh>
 
-![GitHub](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/GitHub.jpg)
+![GitHub](/ragflow-images/GitHub.jpg)
 
 </template>
 </BiRow>
@@ -1385,12 +1385,12 @@ The output contains academic retrieval entries such as paper titles, authors, ab
 <BiRow>
 <template #en>
 
-![Google Scholar](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/google_scholar.jpg)
+![Google Scholar](/ragflow-images/google_scholar.jpg)
 
 </template>
 <template #zh>
 
-![Google Scholar](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/google_scholar.jpg)
+![Google Scholar](/ragflow-images/google_scholar.jpg)
 
 </template>
 </BiRow>
@@ -1518,12 +1518,12 @@ The output contains paper titles, authors, abstracts, publication times, categor
 <BiRow>
 <template #en>
 
-![ArXiv](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/arxiv.jpg)
+![ArXiv](/ragflow-images/arxiv.jpg)
 
 </template>
 <template #zh>
 
-![ArXiv](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/arxiv.jpg)
+![ArXiv](/ragflow-images/arxiv.jpg)
 
 </template>
 </BiRow>
@@ -1651,12 +1651,12 @@ The output contains medical literature titles, authors, journals, abstracts, pub
 <BiRow>
 <template #en>
 
-![PubMed](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/pubmed.jpg)
+![PubMed](/ragflow-images/pubmed.jpg)
 
 </template>
 <template #zh>
 
-![PubMed](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/pubmed.jpg)
+![PubMed](/ragflow-images/pubmed.jpg)
 
 </template>
 </BiRow>
@@ -1788,12 +1788,12 @@ The output contains biomedical knowledge retrieval results and summaries, which 
 <BiRow>
 <template #en>
 
-![BGPT](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/bgpt.jpg)
+![BGPT](/ragflow-images/bgpt.jpg)
 
 </template>
 <template #zh>
 
-![BGPT](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/bgpt.jpg)
+![BGPT](/ragflow-images/bgpt.jpg)
 
 </template>
 </BiRow>
@@ -2009,12 +2009,12 @@ The output contains SQL execution results, field names, and record content. You 
 <BiRow>
 <template #en>
 
-![Execute SQL](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/execute_sql.jpg)
+![Execute SQL](/ragflow-images/execute_sql.jpg)
 
 </template>
 <template #zh>
 
-![Execute SQL](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/execute_sql.jpg)
+![Execute SQL](/ragflow-images/execute_sql.jpg)
 
 </template>
 </BiRow>
@@ -2556,12 +2556,12 @@ The output contains sending status and error information. `success` being `true`
 <BiRow>
 <template #en>
 
-![Email](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/email.jpg)
+![Email](/ragflow-images/email.jpg)
 
 </template>
 <template #zh>
 
-![Email](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/email.jpg)
+![Email](/ragflow-images/email.jpg)
 
 </template>
 </BiRow>
@@ -2755,12 +2755,12 @@ The output contains response status code, response headers, and response body. T
 <BiRow>
 <template #en>
 
-![HTTP Request](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/http_request.jpg)
+![HTTP Request](/ragflow-images/http_request.jpg)
 
 </template>
 <template #zh>
 
-![HTTP Request](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/http_request.jpg)
+![HTTP Request](/ragflow-images/http_request.jpg)
 
 </template>
 </BiRow>
@@ -2971,12 +2971,12 @@ The output contains generated file attachment information, download links, and f
 <BiRow>
 <template #en>
 
-![Document Generator](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/document_generator.jpg)
+![Document Generator](/ragflow-images/document_generator.jpg)
 
 </template>
 <template #zh>
 
-![Document Generator](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/document_generator.jpg)
+![Document Generator](/ragflow-images/document_generator.jpg)
 
 </template>
 </BiRow>

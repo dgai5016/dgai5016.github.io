@@ -66,14 +66,14 @@ Uploads one or multiple files to the system.
 <BiRow>
 <template #en>
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `POST /api/v1/file/upload` is deprecated. Use this endpoint instead.
 :::
 
 </template>
 <template #zh>
 
-:::caution 已弃用
+:::warning 已弃用
 `POST /api/v1/file/upload` 已弃用，请改用本端点。
 :::
 
@@ -354,14 +354,14 @@ Uploads a file and creates the respective document.
 <BiRow>
 <template #en>
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `POST /v1/document/upload_info` and `POST /api/v1/file/upload_info` are deprecated. Use this endpoint instead.
 :::
 
 </template>
 <template #zh>
 
-:::caution 已弃用
+:::warning 已弃用
 `POST /v1/document/upload_info` 与 `POST /api/v1/file/upload_info` 已弃用，请改用本端点。
 :::
 
@@ -674,14 +674,14 @@ Failure:
 <BiRow>
 <template #en>
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 The previous endpoints `GET /v1/document/download/{doc_id}` and `GET /api/v1/document/download/{doc_id}` are deprecated. Use this endpoint instead.
 :::
 
 </template>
 <template #zh>
 
-:::caution 已弃用
+:::warning 已弃用
 之前的端点 `GET /v1/document/download/{doc_id}` 与 `GET /api/v1/document/download/{doc_id}` 已弃用，请改用本端点。
 :::
 
@@ -947,14 +947,14 @@ Creates a new file or folder in the system.
 <BiRow>
 <template #en>
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `POST /api/v1/file/create` is deprecated. Use this endpoint instead.
 :::
 
 </template>
 <template #zh>
 
-:::caution 已弃用
+:::warning 已弃用
 `POST /api/v1/file/create` 已弃用，请改用本端点。
 :::
 
@@ -1243,14 +1243,14 @@ Lists files and folders under a specific folder.
 <BiRow>
 <template #en>
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `GET /api/v1/file/list` is deprecated. Use this endpoint instead.
 :::
 
 </template>
 <template #zh>
 
-:::caution 已弃用
+:::warning 已弃用
 `GET /api/v1/file/list` 已弃用，请改用本端点。
 :::
 
@@ -1545,14 +1545,14 @@ Retrieves the immediate parent folder information of a specified file.
 <BiRow>
 <template #en>
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `GET /api/v1/file/parent_folder?file_id=...` is deprecated. Use this endpoint instead.
 :::
 
 </template>
 <template #zh>
 
-:::caution 已弃用
+:::warning 已弃用
 `GET /api/v1/file/parent_folder?file_id=...` 已弃用，请改用本端点。
 :::
 
@@ -1803,14 +1803,14 @@ Retrieves all parent folders of a specified file in the folder hierarchy.
 <BiRow>
 <template #en>
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `GET /api/v1/file/all_parent_folder?file_id=...` is deprecated. Use this endpoint instead.
 :::
 
 </template>
 <template #zh>
 
-:::caution 已弃用
+:::warning 已弃用
 `GET /api/v1/file/all_parent_folder?file_id=...` 已弃用，请改用本端点。
 :::
 
@@ -2073,14 +2073,14 @@ Deletes one or multiple files or folders.
 <BiRow>
 <template #en>
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `POST /api/v1/file/rm` is deprecated. Use this endpoint instead.
 :::
 
 </template>
 <template #zh>
 
-:::caution 已弃用
+:::warning 已弃用
 `POST /api/v1/file/rm` 已弃用，请改用本端点。
 :::
 
@@ -2351,14 +2351,14 @@ Downloads a file from the system.
 <BiRow>
 <template #en>
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `GET /api/v1/file/get/{file_id}` is deprecated. Use this endpoint instead.
 :::
 
 </template>
 <template #zh>
 
-:::caution 已弃用
+:::warning 已弃用
 `GET /api/v1/file/get/{file_id}` 已弃用，请改用本端点。
 :::
 
@@ -2591,14 +2591,14 @@ Moves and/or renames files or folders. Follows Linux `mv` semantics: at least on
 <BiRow>
 <template #en>
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 The previous endpoints `POST /api/v1/file/mv` and `POST /api/v1/file/rename` are deprecated. Use this endpoint instead.
 :::
 
 </template>
 <template #zh>
 
-:::caution 已弃用
+:::warning 已弃用
 之前的端点 `POST /api/v1/file/mv` 与 `POST /api/v1/file/rename` 已弃用，请改用本端点。
 :::
 
@@ -3013,14 +3013,14 @@ Converts files to documents and links them to specified datasets.
 <BiRow>
 <template #en>
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `POST /api/v1/file/convert` is deprecated. Use this endpoint instead.
 :::
 
 </template>
 <template #zh>
 
-:::caution 已弃用
+:::warning 已弃用
 `POST /api/v1/file/convert` 已弃用，请改用本端点。
 :::
 
@@ -3553,14 +3553,14 @@ Success:
 <BiRow>
 <template #en>
 
-:::note
+:::info
 `tree_state` is a JSON string containing a flat map of file entries. Each entry includes `parent_id` to track which sub-folder the file belonged to at commit time. Sub-folders are inferred from `parent_id` values.
 :::
 
 </template>
 <template #zh>
 
-:::note
+:::info
 `tree_state` 是一个 JSON 字符串，包含文件条目的扁平映射。每个条目都带有 `parent_id`，用于记录提交时该文件所属的子文件夹。子文件夹结构由 `parent_id` 的值推导得出。
 :::
 

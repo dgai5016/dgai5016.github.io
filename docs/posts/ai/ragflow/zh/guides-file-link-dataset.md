@@ -2,7 +2,7 @@
 
 文件管理页面允许你将文件直接添加到知识库。关联创建后，你可以从知识库侧继续解析、分块、检索等操作。具体的处理状态以知识库文档页面为准。
 
-![解析文件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/parse_file.jpg)
+![解析文件](/ragflow-images/parse_file.jpg)
 
 ## 关联单个文件
 
@@ -11,7 +11,7 @@
 3. 在弹出窗口中选择一个或多个知识库。
 4. 点击 **Save**（保存）保存关联。
 
-![关联单个文件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/link_a_single_file.jpg)
+![关联单个文件](/ragflow-images/link_a_single_file.jpg)
 
 ## 批量关联
 

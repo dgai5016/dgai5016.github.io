@@ -11,7 +11,7 @@ Supported operators: Equals, Not equal, Greater than, Greater equal, Less than, 
 Switch is rule-based judgment for structured data and clear conditions. Categorize uses LLM-based classification for natural language intent recognition.
 :::
 
-![Condition Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/condition_component.jpg)
+![Condition Component](/ragflow-images/condition_component.jpg)
 
 ### Iteration
 The Iteration component iterates over an array and repeatedly executes the same processing logic for each element. It is suitable for scenarios such as batch file processing or processing multiple data items with the same logic.
@@ -32,7 +32,7 @@ Iteration splits text into fragments and executes the same set of internal compo
 ### Internal Workflow:
 Iteration contains built-in `Loop Item`. Components dragged inside Iteration can only be accessed within the loop. Reference `Loop Item` to obtain current fragment data.
 
-![Loop Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/loop_component.jpg)
+![Loop Component](/ragflow-images/loop_component.jpg)
 
 ### Configuration Method
 ###### **Configuration**
@@ -60,4 +60,4 @@ Categorize uses LLM to judge user intent or input category and branch the workfl
 Use easy-to-understand category names, e.g. Product Consultation, Installation Reservation, After-sales Fault, Other Questions.
 Examples improve classification stability; provide 2~3 typical samples for each category.
 
-![Question Classification Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/question_classification_component.jpg)
+![Question Classification Component](/ragflow-images/question_classification_component.jpg)

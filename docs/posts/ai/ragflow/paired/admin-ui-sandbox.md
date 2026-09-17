@@ -80,12 +80,12 @@ After selecting a `Provider`, the page displays the corresponding configuration 
 <BiRow>
 <template #en>
 
-![Select Sandbox Provider](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/select_sandbox_provider.jpg)
+![Select Sandbox Provider](/ragflow-images/select_sandbox_provider.jpg)
 
 </template>
 <template #zh>
 
-![选择沙箱提供方](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/select_sandbox_provider.jpg)
+![选择沙箱提供方](/ragflow-images/select_sandbox_provider.jpg)
 
 </template>
 </BiRow>

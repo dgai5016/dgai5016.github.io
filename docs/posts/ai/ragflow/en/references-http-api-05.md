@@ -477,7 +477,7 @@ Failure:
 
 Deletes chat assistants by ID.
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 The `chat_id` in the request body is deprecated, please use `ids` list.
 :::
 

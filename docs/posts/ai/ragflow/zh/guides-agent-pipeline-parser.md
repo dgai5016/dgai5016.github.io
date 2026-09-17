@@ -4,7 +4,7 @@
 
 它支持 8 大文件类别、23 种以上格式，包括 PDF、图片、音频、视频、邮件、电子表格（Excel）、Word、PPT、HTML 和 Markdown。
 
-![选择解析器文件格式](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/configure_the_parser_component_2.jpg)
+![选择解析器文件格式](/ragflow-images/configure_the_parser_component_2.jpg)
 
 关键配置：
 
@@ -14,7 +14,7 @@ PDF 文件请从以下解析方式中选择：
 - **MinerU**：处理数学公式、复杂版式等复杂元素的能力业界领先。
 - **Naive**：简单文本提取，适用于没有复杂元素、以文本为主的干净 PDF。
 
-![配置 PDF 解析方式](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/configure_the_parser_component_1.jpg)
+![配置 PDF 解析方式](/ragflow-images/configure_the_parser_component_1.jpg)
 
 图片文件：
 

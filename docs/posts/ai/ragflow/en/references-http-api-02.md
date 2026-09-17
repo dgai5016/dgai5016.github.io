@@ -43,7 +43,7 @@ curl --request POST \
 
 ##### A request example specifying ingestion pipeline
 
-:::caution WARNING
+:::warning WARNING
 You must *not* include `"chunk_method"` or `"parser_config"` when specifying an ingestion pipeline.
 :::
 
@@ -145,7 +145,7 @@ curl --request POST \
   - Must be a 32-character lowercase hexadecimal string, e.g., `"d0bebe30ae2211f0970942010a8e0005"`.
   - Must not be included when `"chunk_method"` is specified.
 
-:::caution WARNING
+:::warning WARNING
 You can choose either of the following ingestion options when creating a dataset, but *not* both:
 
 - Use a built-in chunk method -- specify `"chunk_method"` (optionally with `"parser_config"`).

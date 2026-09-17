@@ -13,4 +13,4 @@
 
 你可以按所有者昵称或邮箱地址搜索已加入的团队，并按 **Update date** 排序。
 
-![查看已加入的团队](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_joined_teams.jpg)
+![查看已加入的团队](/ragflow-images/view_joined_teams.jpg)

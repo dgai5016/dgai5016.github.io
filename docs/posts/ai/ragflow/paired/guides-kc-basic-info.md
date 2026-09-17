@@ -271,12 +271,12 @@ Whether this feature is enabled must be determined when configuring the knowledg
 <BiRow>
 <template #en>
 
-![Re-Split Parser Output](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/basic-info-config-rechunk-parser-output.jpg)
+![Re-Split Parser Output](/ragflow-images/basic-info-config-rechunk-parser-output.jpg)
 
 </template>
 <template #zh>
 
-![重新切分解析器输出](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/basic-info-config-rechunk-parser-output.jpg)
+![重新切分解析器输出](/ragflow-images/basic-info-config-rechunk-parser-output.jpg)
 
 </template>
 </BiRow>

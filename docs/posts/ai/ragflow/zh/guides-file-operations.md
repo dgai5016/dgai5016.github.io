@@ -2,7 +2,7 @@
 
 将鼠标悬停在文件行上后，**Operations**（操作）列会显示可用的操作按钮。文件夹和普通文件可用的操作略有不同。对于来自外部数据源的文件，移动、重命名、删除等部分操作可能受数据源权限的限制。
 
-![文件操作](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/file_operations.jpg)
+![文件操作](/ragflow-images/file_operations.jpg)
 
 **Add to Knowledge Base**（添加到知识库）：适用于文件。将文件关联到一个或多个知识库，使知识库可以把该文件用作数据源。
 

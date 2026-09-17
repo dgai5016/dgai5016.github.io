@@ -24,4 +24,4 @@ If changes to external content do not appear in the knowledge base immediately, 
 
 Some data sources support the test connection feature. After saving or modifying a connection, you can test the connection first to confirm that account permissions, connection parameters, and data access are normal, and then start synchronization in the knowledge base.
 
-![Synchronization and Updates](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Synchronization_and_Updates.jpg)
+![Synchronization and Updates](/ragflow-images/Synchronization_and_Updates.jpg)

@@ -436,7 +436,7 @@ If you cannot download the RAGFlow Docker image, try the following mirrors.
 - For the `nightly` edition:
   - `RAGFLOW_IMAGE=swr.cn-north-4.myhuaweicloud.com/infiniflow/ragflow:nightly` or,
   - `RAGFLOW_IMAGE=registry.cn-hangzhou.aliyuncs.com/infiniflow/ragflow:nightly`.
-  :::
+:::
 
 </template>
 <template #zh>
@@ -447,7 +447,7 @@ If you cannot download the RAGFlow Docker image, try the following mirrors.
 - `nightly` 版本：
   - `RAGFLOW_IMAGE=swr.cn-north-4.myhuaweicloud.com/infiniflow/ragflow:nightly`，或
   - `RAGFLOW_IMAGE=registry.cn-hangzhou.aliyuncs.com/infiniflow/ragflow:nightly`。
-  :::
+:::
 
 </template>
 </BiRow>
@@ -1075,14 +1075,14 @@ The Enterprise Edition provides role-level default model settings.
 <BiRow>
 <template #en>
 
-:::note Builtin embedding
+:::info Builtin embedding
 If you deploy TEI, keep the shipped `user_default_llm.default_models.embedding_model` connection settings in **service_conf.yaml.template**. They are used by the TEI `Builtin` embedding service and do not assign administrator-owned model instances to new tenants.
 :::
 
 </template>
 <template #zh>
 
-:::note Builtin embedding
+:::info Builtin embedding
 如果你部署了 TEI，请保留 **service_conf.yaml.template** 中自带的 `user_default_llm.default_models.embedding_model` 连接设置。这些设置供 TEI 的 `Builtin` 嵌入服务使用，不会把管理员名下的模型实例分配给新租户。
 :::
 

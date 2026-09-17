@@ -40,12 +40,12 @@ After entering the Admin UI, administrators can perform service health checks, m
 <BiRow>
 <template #en>
 
-![Enter The Admin Console](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/enter_the_admin_console.jpg)
+![Enter The Admin Console](/ragflow-images/enter_the_admin_console.jpg)
 
 </template>
 <template #zh>
 
-![进入管理控制台](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/enter_the_admin_console.jpg)
+![进入管理控制台](/ragflow-images/enter_the_admin_console.jpg)
 
 </template>
 </BiRow>

@@ -27,12 +27,12 @@ User accounts are managed on the **User management** page. Administrators can vi
 <BiRow>
 <template #en>
 
-![User Management](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/user_management_1.jpg)
+![User Management](/ragflow-images/user_management_1.jpg)
 
 </template>
 <template #zh>
 
-![用户管理](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/user_management_1.jpg)
+![用户管理](/ragflow-images/user_management_1.jpg)
 
 </template>
 </BiRow>
@@ -40,12 +40,12 @@ User accounts are managed on the **User management** page. Administrators can vi
 <BiRow>
 <template #en>
 
-![User Management](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/user_management_2.jpg)
+![User Management](/ragflow-images/user_management_2.jpg)
 
 </template>
 <template #zh>
 
-![用户管理](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/user_management_2.jpg)
+![用户管理](/ragflow-images/user_management_2.jpg)
 
 </template>
 </BiRow>
@@ -53,12 +53,12 @@ User accounts are managed on the **User management** page. Administrators can vi
 <BiRow>
 <template #en>
 
-![User Management](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/user_management_3.jpg)
+![User Management](/ragflow-images/user_management_3.jpg)
 
 </template>
 <template #zh>
 
-![用户管理](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/user_management_3.jpg)
+![用户管理](/ragflow-images/user_management_3.jpg)
 
 </template>
 </BiRow>
@@ -79,12 +79,12 @@ Use the search box in the upper-right corner to search users by `Email` or `Nick
 <BiRow>
 <template #en>
 
-![View And Search Users](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_and_search_users_1.jpg)
+![View And Search Users](/ragflow-images/view_and_search_users_1.jpg)
 
 </template>
 <template #zh>
 
-![查看与搜索用户](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_and_search_users_1.jpg)
+![查看与搜索用户](/ragflow-images/view_and_search_users_1.jpg)
 
 </template>
 </BiRow>
@@ -92,12 +92,12 @@ Use the search box in the upper-right corner to search users by `Email` or `Nick
 <BiRow>
 <template #en>
 
-![View And Search Users](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_and_search_users_2.jpg)
+![View And Search Users](/ragflow-images/view_and_search_users_2.jpg)
 
 </template>
 <template #zh>
 
-![查看与搜索用户](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_and_search_users_2.jpg)
+![查看与搜索用户](/ragflow-images/view_and_search_users_2.jpg)
 
 </template>
 </BiRow>
@@ -154,12 +154,12 @@ To create an account for a new member, go to **User management** and click **New
 <BiRow>
 <template #en>
 
-![Create A New User](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_a_new_user_1.jpg)
+![Create A New User](/ragflow-images/create_a_new_user_1.jpg)
 
 </template>
 <template #zh>
 
-![新建用户](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_a_new_user_1.jpg)
+![新建用户](/ragflow-images/create_a_new_user_1.jpg)
 
 </template>
 </BiRow>
@@ -167,12 +167,12 @@ To create an account for a new member, go to **User management** and click **New
 <BiRow>
 <template #en>
 
-![Create A New User](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_a_new_user_2.jpg)
+![Create A New User](/ragflow-images/create_a_new_user_2.jpg)
 
 </template>
 <template #zh>
 
-![新建用户](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_a_new_user_2.jpg)
+![新建用户](/ragflow-images/create_a_new_user_2.jpg)
 
 </template>
 </BiRow>
@@ -279,12 +279,12 @@ The `Status` field in the user list controls whether an account can log in to th
 <BiRow>
 <template #en>
 
-![Disable Or Restore Accounts](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/disable_or_restore_accounts.jpg)
+![Disable Or Restore Accounts](/ragflow-images/disable_or_restore_accounts.jpg)
 
 </template>
 <template #zh>
 
-![禁用或恢复账号](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/disable_or_restore_accounts.jpg)
+![禁用或恢复账号](/ragflow-images/disable_or_restore_accounts.jpg)
 
 </template>
 </BiRow>
@@ -350,12 +350,12 @@ The `Status` field in the user list controls whether an account can log in to th
 <BiRow>
 <template #en>
 
-![Set Backend Administrator Identity](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/set_backend_administrator_identity.jpg)
+![Set Backend Administrator Identity](/ragflow-images/set_backend_administrator_identity.jpg)
 
 </template>
 <template #zh>
 
-![设置后台管理员身份](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/set_backend_administrator_identity.jpg)
+![设置后台管理员身份](/ragflow-images/set_backend_administrator_identity.jpg)
 
 </template>
 </BiRow>
@@ -421,12 +421,12 @@ When a user forgets their password or must be forced to change it, administrator
 <BiRow>
 <template #en>
 
-![Reset User Passwords](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/reset_user_passwords_1.jpg)
+![Reset User Passwords](/ragflow-images/reset_user_passwords_1.jpg)
 
 </template>
 <template #zh>
 
-![重置用户密码](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/reset_user_passwords_1.jpg)
+![重置用户密码](/ragflow-images/reset_user_passwords_1.jpg)
 
 </template>
 </BiRow>
@@ -434,12 +434,12 @@ When a user forgets their password or must be forced to change it, administrator
 <BiRow>
 <template #en>
 
-![Reset User Passwords](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/reset_user_passwords_2.jpg)
+![Reset User Passwords](/ragflow-images/reset_user_passwords_2.jpg)
 
 </template>
 <template #zh>
 
-![重置用户密码](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/reset_user_passwords_2.jpg)
+![重置用户密码](/ragflow-images/reset_user_passwords_2.jpg)
 
 </template>
 </BiRow>
@@ -503,12 +503,12 @@ When a user no longer needs system access and related resources have been handed
 <BiRow>
 <template #en>
 
-![Delete Users](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/delete_users.jpg)
+![Delete Users](/ragflow-images/delete_users.jpg)
 
 </template>
 <template #zh>
 
-![删除用户](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/delete_users.jpg)
+![删除用户](/ragflow-images/delete_users.jpg)
 
 </template>
 </BiRow>
@@ -581,12 +581,12 @@ Click the detail button in **Actions** on the user list to enter the user detail
 <BiRow>
 <template #en>
 
-![View User Details And Resource Impact](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_user_details_and_resource_impact.jpg)
+![View User Details And Resource Impact](/ragflow-images/view_user_details_and_resource_impact.jpg)
 
 </template>
 <template #zh>
 
-![查看用户详情与资源影响](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_user_details_and_resource_impact.jpg)
+![查看用户详情与资源影响](/ragflow-images/view_user_details_and_resource_impact.jpg)
 
 </template>
 </BiRow>

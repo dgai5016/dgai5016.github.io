@@ -10,7 +10,7 @@
 
 向系统上传一个或多个文件。
 
-:::caution 已弃用
+:::warning 已弃用
 `POST /api/v1/file/upload` 已弃用，请改用本端点。
 :::
 
@@ -82,7 +82,7 @@ curl --request POST \
 
 上传文件并创建相应的文档。
 
-:::caution 已弃用
+:::warning 已弃用
 `POST /v1/document/upload_info` 与 `POST /api/v1/file/upload_info` 已弃用，请改用本端点。
 :::
 
@@ -161,7 +161,7 @@ curl --request POST \
 
 **GET** `/api/v1/agents/attachments/{attachment_id}/download`
 
-:::caution 已弃用
+:::warning 已弃用
 之前的端点 `GET /v1/document/download/{doc_id}` 与 `GET /api/v1/document/download/{doc_id}` 已弃用，请改用本端点。
 :::
 
@@ -221,7 +221,7 @@ curl --request GET \
 
 在系统中创建新文件或文件夹。
 
-:::caution 已弃用
+:::warning 已弃用
 `POST /api/v1/file/create` 已弃用，请改用本端点。
 :::
 
@@ -297,7 +297,7 @@ curl --request POST \
 
 列出指定文件夹下的文件和文件夹。
 
-:::caution 已弃用
+:::warning 已弃用
 `GET /api/v1/file/list` 已弃用，请改用本端点。
 :::
 
@@ -376,7 +376,7 @@ curl --request GET \
 
 获取指定文件的直接父文件夹信息。
 
-:::caution 已弃用
+:::warning 已弃用
 `GET /api/v1/file/parent_folder?file_id=...` 已弃用，请改用本端点。
 :::
 
@@ -433,7 +433,7 @@ curl --request GET \
 
 获取指定文件在文件夹层级中的所有父文件夹。
 
-:::caution 已弃用
+:::warning 已弃用
 `GET /api/v1/file/all_parent_folder?file_id=...` 已弃用，请改用本端点。
 :::
 
@@ -496,7 +496,7 @@ curl --request GET \
 
 删除一个或多个文件或文件夹。
 
-:::caution 已弃用
+:::warning 已弃用
 `POST /api/v1/file/rm` 已弃用，请改用本端点。
 :::
 
@@ -563,7 +563,7 @@ curl --request DELETE \
 
 从系统下载文件。
 
-:::caution 已弃用
+:::warning 已弃用
 `GET /api/v1/file/get/{file_id}` 已弃用，请改用本端点。
 :::
 
@@ -611,7 +611,7 @@ curl --request GET \
 
 移动和/或重命名文件或文件夹。遵循 Linux `mv` 语义：`dest_file_id` 与 `new_name` 至少提供其一。
 
-:::caution 已弃用
+:::warning 已弃用
 之前的端点 `POST /api/v1/file/mv` 与 `POST /api/v1/file/rename` 已弃用，请改用本端点。
 :::
 
@@ -714,7 +714,7 @@ curl --request POST \
 
 将文件转换为文档，并关联到指定数据集。
 
-:::caution 已弃用
+:::warning 已弃用
 `POST /api/v1/file/convert` 已弃用，请改用本端点。
 :::
 
@@ -858,7 +858,7 @@ curl --request POST \
 }
 ```
 
-:::note
+:::info
 `tree_state` 是一个 JSON 字符串，包含文件条目的扁平映射。每个条目都带有 `parent_id`，用于记录提交时该文件所属的子文件夹。子文件夹结构由 `parent_id` 的值推导得出。
 :::
 

@@ -40,14 +40,14 @@ RAGFlow 默认使用 Elasticsearch 存储全文和向量。要切换到 [Infinit
 <BiRow>
 <template #en>
 
-:::caution WARNING
+:::warning WARNING
 Switching to Infinity on a Linux/arm64 machine is not yet officially supported.
 :::
 
 </template>
 <template #zh>
 
-:::caution 警告
+:::warning 警告
 在 Linux/arm64 机器上切换到 Infinity 尚未获得官方支持。
 :::
 
@@ -87,14 +87,14 @@ Switching to Infinity on a Linux/arm64 machine is not yet officially supported.
 <BiRow>
 <template #en>
 
-:::caution WARNING
+:::warning WARNING
 `-v` will delete the docker container volumes, and the existing data will be cleared.
 :::
 
 </template>
 <template #zh>
 
-:::caution 警告
+:::warning 警告
 `-v` 会删除 Docker 容器卷，现有数据将被清空。
 :::
 

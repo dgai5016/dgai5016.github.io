@@ -11,4 +11,4 @@ To leave a joined team:
 
 After leaving a team, the team no longer appears as a joined team. The user can no longer access resources that are only shared within that team. The user's own workspace does not provide a leave operation.
 
-![Leave A Joined Team](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/leave_a_joined_team.jpg)
+![Leave A Joined Team](/ragflow-images/leave_a_joined_team.jpg)

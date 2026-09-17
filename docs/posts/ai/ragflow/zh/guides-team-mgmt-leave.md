@@ -11,4 +11,4 @@
 
 退出团队后，该团队不再显示为已加入的团队，用户也无法再访问仅在团队内共享的资源。用户自己的工作区不提供退出操作。
 
-![退出已加入的团队](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/leave_a_joined_team.jpg)
+![退出已加入的团队](/ragflow-images/leave_a_joined_team.jpg)

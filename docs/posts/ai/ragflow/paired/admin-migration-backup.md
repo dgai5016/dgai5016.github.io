@@ -153,14 +153,14 @@ These volumes contain all the data you need to migrate.
 <BiRow>
 <template #en>
 
-:::note
+:::info
 The volume name prefix (e.g., `docker_`) comes from the Docker Compose project name. By default it is `docker` (derived from the directory name). If you started RAGFlow with `docker compose -p <project_name>`, your volumes will be prefixed with `<project_name>_` instead, for example `ragflow_mysql_data`.
 :::
 
 </template>
 <template #zh>
 
-:::note
+:::info
 卷名前缀（例如 `docker_`）来自 Docker Compose 的项目名。默认为 `docker`（由目录名推导而来）。如果你是通过 `docker compose -p <project_name>` 启动 RAGFlow 的，卷名前缀将是 `<project_name>_`，例如 `ragflow_mysql_data`。
 :::
 

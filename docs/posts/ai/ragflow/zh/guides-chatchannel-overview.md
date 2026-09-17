@@ -24,7 +24,7 @@
 
 首次使用该功能时，页面会提示尚未添加任何对话渠道。可以从 **Available channels** 区域选择所需平台。
 
-![进入对话渠道页面](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/chat-channel-overview-enter-chat-channel-page.jpg)
+![进入对话渠道页面](/ragflow-images/chat-channel-overview-enter-chat-channel-page.jpg)
 
 **通用配置与操作流程**
 
@@ -40,7 +40,7 @@
 6. 把对话渠道连接到 Chat。
 7. 在对应的第三方平台上向机器人发送测试消息。
 
-![通用配置与操作流程](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/chat-channel-overview-general-configuration-and-workflow.jpg)
+![通用配置与操作流程](/ragflow-images/chat-channel-overview-general-configuration-and-workflow.jpg)
 
 部分平台在保存后，页面可能要过几秒钟才会显示连接状态、二维码或后续操作提示。请按页面提示操作，在二维码或状态生成之前不要反复创建渠道。
 

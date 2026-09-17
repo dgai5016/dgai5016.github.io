@@ -338,7 +338,7 @@ Failure:
 
 Updates content or configurations for a specified chunk.
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `PUT /api/v1/datasets/{dataset_id}/documents/{document_id}/chunks/{chunk_id}` is deprecated. Use this endpoint instead.
 :::
 

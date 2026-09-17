@@ -17,7 +17,7 @@
 
 选择某个 `Provider` 后，页面会显示相应的配置区域。
 
-![选择沙箱提供方](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/select_sandbox_provider.jpg)
+![选择沙箱提供方](/ragflow-images/select_sandbox_provider.jpg)
 
 **注意：** 沙箱配置不仅影响连接可用性，还关系到代码隔离、网络访问、文件访问以及运行时资源限制。在生产环境中，应优先选择 `Self-Managed`、云方案或具备隔离能力的独立远程执行方案，不建议直接使用 `Local`。
 

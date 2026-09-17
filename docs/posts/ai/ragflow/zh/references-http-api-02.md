@@ -43,7 +43,7 @@ curl --request POST \
 
 ##### 指定摄取管道的请求示例
 
-:::caution 警告
+:::warning 警告
 指定摄取管道时，*不得*包含 `"chunk_method"` 或 `"parser_config"`。
 :::
 
@@ -145,7 +145,7 @@ curl --request POST \
   - 必须是 32 个字符的小写十六进制字符串，例如 `"d0bebe30ae2211f0970942010a8e0005"`。
   - 指定了 `"chunk_method"` 时不得包含该参数。
 
-:::caution 警告
+:::warning 警告
 创建数据集时，可以在以下两种摄取方式中任选其一，但*不能*同时使用：
 
 - 使用内置分块方法——指定 `"chunk_method"`（可选搭配 `"parser_config"`）。

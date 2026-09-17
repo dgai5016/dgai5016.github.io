@@ -1684,14 +1684,14 @@ Deletes chat assistants by ID.
 <BiRow>
 <template #en>
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 The `chat_id` in the request body is deprecated, please use `ids` list.
 :::
 
 </template>
 <template #zh>
 
-:::caution 已弃用
+:::warning 已弃用
 请求体中的 `chat_id` 已弃用，请使用 `ids` 列表。
 :::
 

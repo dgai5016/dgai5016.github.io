@@ -85,7 +85,7 @@ curl --request POST \
 
 更新指定对话助手的某个会话。
 
-:::caution 已弃用
+:::warning 已弃用
 `PUT /api/v1/chats/{chat_id}/sessions/{session_id}` 已弃用。请改用本端点。
 :::
 
@@ -514,7 +514,7 @@ curl --request DELETE \
 
 发起一个对话补全请求。同一端点支持三种模式：
 
-:::caution 已弃用
+:::warning 已弃用
 `POST /api/v1/chats/{chat_id}/completions` 已弃用。请改用本端点。
 :::
 
@@ -1065,7 +1065,7 @@ curl --request POST \
 
 所有 Agent 对话共用一个补全端点。
 
-:::caution 已弃用
+:::warning 已弃用
 `POST /api/v1/agents/{agent_id}/completions` 已弃用。请改用本端点。
 :::
 
@@ -1823,13 +1823,13 @@ curl --request POST \
 
 从用户的原始查询生成五到十个备选问题字符串，以检索出更相关的搜索结果。
 
-:::caution 已弃用
+:::warning 已弃用
 `POST /api/v1/sessions/related_questions` 已弃用。请改用本端点。
 :::
 
 此操作需要 `Bearer Login Token`，该 token 通常在 24 小时内过期。你可以按下面所示，在浏览器的请求标头中轻松找到它：
 
-![Image](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/login_token.jpg)
+![Image](/ragflow-images/login_token.jpg)
 
 :::tip 注意
 对话模型会依据指令自主决定生成的问题数量，通常在五到十个之间。

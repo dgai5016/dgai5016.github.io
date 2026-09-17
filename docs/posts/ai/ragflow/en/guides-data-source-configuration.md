@@ -20,7 +20,7 @@ The Confluence data source is used to synchronize spaces, pages, and subpages ma
 - **Recursive indexing**: Available when the index mode is **Page**. After it is enabled, the page and its subpages are synchronized.
 - **Sync deleted files**: After this is enabled, content deleted from the external system is removed from the knowledge base index.
 
-![Confluence](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Confluence.jpg)
+![Confluence](/ragflow-images/Confluence.jpg)
 
 ## Notion
 
@@ -37,7 +37,7 @@ The Notion data source is used to synchronize Notion pages and database content 
 - **Root page ID**: Fill in the root page ID that needs to be synchronized.
 - **Sync deleted files**: After this is enabled, content deleted from the external system is removed from the knowledge base index.
 
-![Notion](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Notion.jpg)
+![Notion](/ragflow-images/Notion.jpg)
 
 ## Google Drive
 
@@ -55,7 +55,7 @@ The Google Drive data source is used to synchronize files or folders in Google D
 - **My Drive email**: Fill in the email address of the user whose **My Drive** needs to be indexed.
 - **Shared folder URL**: Fill in the Google Drive shared folder URL that needs to be synchronized.
 
-![Google Drive](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Google_Drive.jpg)
+![Google Drive](/ragflow-images/Google_Drive.jpg)
 
 ## Feishu Wiki
 
@@ -104,7 +104,7 @@ The OneDrive data source is used to synchronize files in OneDrive or OneDrive fo
 - **Batch size**: Set the number of items processed in each batch.
 - **Sync deleted files**: After this is enabled, content deleted from the external system is removed from the knowledge base index.
 
-![OneDrive](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/OneDrive.jpg)
+![OneDrive](/ragflow-images/OneDrive.jpg)
 
 ## SharePoint
 
@@ -123,7 +123,7 @@ The SharePoint data source is used to synchronize SharePoint site document libra
 - **Client secret**: Fill in the client secret from the app registration.
 - **Sync deleted files**: After this is enabled, content deleted from the external system is removed from the knowledge base index.
 
-![SharePoint](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/SharePoint.jpg)
+![SharePoint](/ragflow-images/SharePoint.jpg)
 
 ## Box
 
@@ -140,7 +140,7 @@ The Box data source is used to synchronize files and folders in Box cloud drive 
 - **Folder ID**: Fill in the Box folder ID that needs to be synchronized.
 - **Sync deleted files**: After this is enabled, content deleted from the external system is removed from the knowledge base index.
 
-![Box](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Box.jpg)
+![Box](/ragflow-images/Box.jpg)
 
 ## Dropbox
 
@@ -157,7 +157,7 @@ The Dropbox data source is used to synchronize files and folders in Dropbox to a
 - **Batch size**: Set the number of files synchronized in each batch.
 - **Sync deleted files**: After this is enabled, content deleted from the external system is removed from the knowledge base index.
 
-![Dropbox](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Dropbox.jpg)
+![Dropbox](/ragflow-images/Dropbox.jpg)
 
 ## SeaFile
 
@@ -180,7 +180,7 @@ The SeaFile data source is used to synchronize account, library, or directory co
 - **Batch size**: Set the number of items processed in each batch.
 - **Sync deleted files**: After this is enabled, content deleted from the external system is removed from the knowledge base index.
 
-![SeaFile](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/SeaFile.jpg)
+![SeaFile](/ragflow-images/SeaFile.jpg)
 
 ## S3
 
@@ -221,7 +221,7 @@ The Google Cloud Storage data source is used to synchronize files in a GCS bucke
 - **Bucket name**: Fill in the bucket name that needs to be synchronized.
 - **Sync deleted files**: After this is enabled, content deleted from the external system is removed from the knowledge base index.
 
-![Google Cloud Storage](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Google_Cloud_Storage.jpg)
+![Google Cloud Storage](/ragflow-images/Google_Cloud_Storage.jpg)
 
 ## Oracle Storage
 
@@ -241,7 +241,7 @@ The Oracle Storage data source is used to synchronize files in Oracle Cloud Obje
 - **Bucket name**: Fill in the bucket name that needs to be synchronized.
 - **Sync deleted files**: After this is enabled, content deleted from the external system is removed from the knowledge base index.
 
-![Oracle Storage](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Oracle_Storage.jpg)
+![Oracle Storage](/ragflow-images/Oracle_Storage.jpg)
 
 ## R2
 
@@ -260,7 +260,7 @@ The R2 data source is used to synchronize files in a Cloudflare R2 bucket to a R
 - **Bucket name**: Fill in the bucket name that needs to be synchronized.
 - **Sync deleted files**: After this is enabled, content deleted from the external system is removed from the knowledge base index.
 
-![R2](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/R2.jpg)
+![R2](/ragflow-images/R2.jpg)
 
 ## Azure Blob Storage
 
@@ -284,7 +284,7 @@ The Azure Blob Storage data source is used to synchronize files in an Azure Blob
 - **Batch size**: Set the number of files processed in each batch.
 - **Sync deleted files**: After this is enabled, content deleted from the external system is removed from the knowledge base index.
 
-![Azure Blob Storage](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Azure_Blob_Storage.jpg)
+![Azure Blob Storage](/ragflow-images/Azure_Blob_Storage.jpg)
 
 ## MySQL
 
@@ -309,7 +309,7 @@ The MySQL data source is used to synchronize table records or query results in M
 - **Timestamp column**: Select the field used to determine incremental updates.
 - **Sync deleted files**: After this is enabled, deleted records can be removed from the knowledge base index according to the field mapping or cleanup task.
 
-![MySQL](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/MySQL.jpg)
+![MySQL](/ragflow-images/MySQL.jpg)
 
 ## PostgreSQL
 
@@ -321,7 +321,7 @@ The PostgreSQL data source is used to synchronize table records or query results
 
 **Configuration parameters**: The configuration fields are the same as those for MySQL, including name, host, port, database, username, password, SQL query, content column, metadata column, ID column, timestamp column, and sync deleted files.
 
-![PostgreSQL](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/PostgreSQL.jpg)
+![PostgreSQL](/ragflow-images/PostgreSQL.jpg)
 
 ## BigQuery
 
@@ -345,7 +345,7 @@ The BigQuery data source is used to synchronize table records or query results i
 - **Timestamp column**: Select the field used to determine incremental updates.
 - **Sync deleted files**: After this is enabled, deleted records can be removed from the knowledge base index according to the field mapping or cleanup task.
 
-![BigQuery](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/BigQuery.jpg)
+![BigQuery](/ragflow-images/BigQuery.jpg)
 
 ## GitHub
 
@@ -365,7 +365,7 @@ The GitHub data source is used to synchronize issues and pull requests in GitHub
 - **Include Issues**: Select whether to synchronize issues.
 - **Sync deleted files**: After this is enabled, content deleted from the external system is removed from the knowledge base index.
 
-![GitHub](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/GitHub.jpg)
+![GitHub](/ragflow-images/GitHub.jpg)
 
 ## GitLab
 
@@ -386,7 +386,7 @@ The GitLab data source is used to synchronize GitLab repositories, issues, merge
 - **Include repository files**: Select whether to synchronize repository files.
 - **Sync deleted files**: After this is enabled, content deleted from the external system is removed from the knowledge base index.
 
-![GitLab](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/GitLab.jpg)
+![GitLab](/ragflow-images/GitLab.jpg)
 
 ## Bitbucket
 
@@ -407,7 +407,7 @@ The Bitbucket data source is used to synchronize Bitbucket repository content, i
 - **Include issues**: Select whether to synchronize issues.
 - **Sync deleted files**: After this is enabled, content deleted from the external system is removed from the knowledge base index.
 
-![Bitbucket](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Bitbucket.jpg)
+![Bitbucket](/ragflow-images/Bitbucket.jpg)
 
 ## Azure DevOps
 
@@ -456,7 +456,7 @@ The Jira data source is used to synchronize issues, comments, and project record
 - **Sync attachments**: Select whether to synchronize attachments.
 - **Sync deleted files**: After this is enabled, content deleted from the external system is removed from the knowledge base index.
 
-![Jira](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Jira.jpg)
+![Jira](/ragflow-images/Jira.jpg)
 
 ## Asana
 
@@ -476,7 +476,7 @@ The Asana data source is used to synchronize tasks, projects, and comments in As
 - **Sync attachments**: Select whether to synchronize attachments.
 - **Sync deleted files**: After this is enabled, content deleted from the external system is removed from the knowledge base index.
 
-![Asana](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Asana.jpg)
+![Asana](/ragflow-images/Asana.jpg)
 
 ## Gmail
 
@@ -496,7 +496,7 @@ The Gmail data source is used to synchronize Gmail email content to a RAGFlow kn
 - **Batch size**: Set the number of emails processed in each batch.
 - **Sync deleted files**: After this is enabled, emails deleted from the external system are removed from the knowledge base index.
 
-![Gmail](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Gmail.jpg)
+![Gmail](/ragflow-images/Gmail.jpg)
 
 ## Outlook
 
@@ -517,7 +517,7 @@ The Outlook data source is used to synchronize Outlook mailbox emails to a RAGFl
 - **Batch size**: Set the number of emails processed in each batch.
 - **Sync deleted files**: After this is enabled, emails deleted from the external system are removed from the knowledge base index.
 
-![Outlook](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Outlook.jpg)
+![Outlook](/ragflow-images/Outlook.jpg)
 
 ## IMAP
 
@@ -539,7 +539,7 @@ The IMAP data source is used to synchronize email content in mail services that 
 - **Batch size**: Set the number of emails processed in each batch.
 - **Sync deleted files**: After this is enabled, emails deleted from the external system are removed from the knowledge base index.
 
-![IMAP](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/IMAP.jpg)
+![IMAP](/ragflow-images/IMAP.jpg)
 
 ## Microsoft Teams
 
@@ -560,7 +560,7 @@ The Microsoft Teams data source is used to synchronize Teams channel messages an
 - **Batch size**: Set the number of messages processed in each batch.
 - **Sync deleted files**: After this is enabled, messages deleted from the external system are removed from the knowledge base index.
 
-![Microsoft Teams](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Microsoft_Teams.jpg)
+![Microsoft Teams](/ragflow-images/Microsoft_Teams.jpg)
 
 ## Slack
 
@@ -579,7 +579,7 @@ The Slack data source is used to synchronize Slack channel messages and collabor
 - **Batch size**: Set the number of messages processed in each batch.
 - **Sync deleted files**: After this is enabled, messages deleted from the external system are removed from the knowledge base index.
 
-![Slack](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Slack.jpg)
+![Slack](/ragflow-images/Slack.jpg)
 
 ## Discord
 
@@ -598,7 +598,7 @@ The Discord data source is used to synchronize Discord server and channel messag
 - **Batch size**: Set the number of messages processed in each batch.
 - **Sync deleted files**: After this is enabled, messages deleted from the external system are removed from the knowledge base index.
 
-![Discord](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Discord.jpg)
+![Discord](/ragflow-images/Discord.jpg)
 
 ## Dingtalk AI Table
 
@@ -619,7 +619,7 @@ The Dingtalk AI Table data source is used to synchronize records in Dingtalk AI 
 - **Metadata field**: Select the field to be written as metadata.
 - **Sync deleted files**: After this is enabled, deleted records are removed from the knowledge base index.
 
-![Dingtalk AI Table](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Dingtalk_AI_Table.jpg)
+![Dingtalk AI Table](/ragflow-images/Dingtalk_AI_Table.jpg)
 
 ## Zendesk
 
@@ -657,7 +657,7 @@ The Moodle data source is used to synchronize course content, forums, resources,
 - **Batch size**: Set the number of records processed in each batch.
 - **Sync deleted files**: After this is enabled, content deleted from the external system is removed from the knowledge base index.
 
-![Moodle](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Moodle.jpg)
+![Moodle](/ragflow-images/Moodle.jpg)
 
 ## REST API
 
@@ -680,7 +680,7 @@ The REST API data source is used to synchronize data returned by custom business
 - **Unique ID field**: Specify the unique ID field of each record.
 - **Sync deleted files**: After this is enabled, deleted records are removed from the knowledge base index according to the synchronization or cleanup task.
 
-![REST API](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/REST_API.jpg)
+![REST API](/ragflow-images/REST_API.jpg)
 
 ## Xquik
 
@@ -717,7 +717,7 @@ The RSS data source is used to subscribe public websites, blogs, announcements, 
 - **Batch size**: Set the number of subscription entries processed in each batch.
 - **Sync deleted files**: After this is enabled, content deleted from the external system is removed from the knowledge base index.
 
-![RSS](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/RSS.jpg)
+![RSS](/ragflow-images/RSS.jpg)
 
 ## Sitemap
 

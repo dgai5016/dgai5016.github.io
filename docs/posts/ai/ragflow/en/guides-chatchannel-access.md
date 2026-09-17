@@ -229,7 +229,7 @@ Connection verification:
 
 After completing QR scanning and connecting the channel to a Chat, use another WhatsApp account to send a test message to this account and verify whether replies are received normally.
 
-:::caution NOTE
+:::warning NOTE
 
 After deleting a WhatsApp channel or clearing the gateway login state, you may need to scan the QR code again for pairing. If the QR code is not displayed for a long time, confirm that `WhatsAppGateway` has started and check network connectivity between the backend service and the gateway.
 

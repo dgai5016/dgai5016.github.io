@@ -20,4 +20,4 @@
 | 启用 | 控制该消息是否参与后续检索。禁用后消息仍会保留，但不再影响 Agent 的检索结果。 |
 | 操作 | 用于查看、复制、查看日志或遗忘消息。具体按钮取决于当前权限和消息状态。 |
 
-![消息页面](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/message_page.jpg)
+![消息页面](/ragflow-images/message_page.jpg)

@@ -10,7 +10,7 @@
 4. 选择目标记忆。若需要按用户区分历史记录，请配置用户 ID。
 5. 保存 Agent 并运行测试。运行后回到记忆的 **Messages** 页面，检查是否生成了新消息。
 
-![将 Agent 消息写入记忆](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/write_agent_messages_to_memory.jpg)
+![将 Agent 消息写入记忆](/ragflow-images/write_agent_messages_to_memory.jpg)
 
 ### 让 Agent 从记忆中检索
 
@@ -21,4 +21,4 @@
 5. 把检索结果连接到后续的大语言模型或回答组件，使 Agent 能够使用检索到的历史上下文。
 6. 保存并运行测试，检查回答是否正确引用了历史记忆。
 
-![让 Agent 从记忆中检索](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/let_an_agent_retrieve_from_memory.jpg)
+![让 Agent 从记忆中检索](/ragflow-images/let_an_agent_retrieve_from_memory.jpg)

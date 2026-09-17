@@ -98,12 +98,12 @@ After clicking **Add File** in the upper-right corner of the page, select **Uplo
 <BiRow>
 <template #en>
 
-![Upload files](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/upload_files.jpg)
+![Upload files](/ragflow-images/upload_files.jpg)
 
 </template>
 <template #zh>
 
-![上传文件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/upload_files.jpg)
+![上传文件](/ragflow-images/upload_files.jpg)
 
 </template>
 </BiRow>
@@ -145,12 +145,12 @@ After clicking **Add File** in the upper-right corner of the page, select **Uplo
 <BiRow>
 <template #en>
 
-![Upload file 1](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/upload_file_1.jpg)
+![Upload file 1](/ragflow-images/upload_file_1.jpg)
 
 </template>
 <template #zh>
 
-![上传文件 1](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/upload_file_1.jpg)
+![上传文件 1](/ragflow-images/upload_file_1.jpg)
 
 </template>
 </BiRow>
@@ -190,12 +190,12 @@ After clicking **Add File** in the upper-right corner of the page, select **Uplo
 <BiRow>
 <template #en>
 
-![Upload file 2](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/upload_file_2.jpg)
+![Upload file 2](/ragflow-images/upload_file_2.jpg)
 
 </template>
 <template #zh>
 
-![上传文件 2](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/upload_file_2.jpg)
+![上传文件 2](/ragflow-images/upload_file_2.jpg)
 
 </template>
 </BiRow>

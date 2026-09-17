@@ -18,12 +18,12 @@
 <BiRow>
 <template #en>
 
-![Select Pipeline while creating a knowledge base](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/connect_the_pipeline_to_a_knowledge_base_1.jpg)
+![Select Pipeline while creating a knowledge base](/ragflow-images/connect_the_pipeline_to_a_knowledge_base_1.jpg)
 
 </template>
 <template #zh>
 
-![创建知识库时选择管道](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/connect_the_pipeline_to_a_knowledge_base_1.jpg)
+![创建知识库时选择管道](/ragflow-images/connect_the_pipeline_to_a_knowledge_base_1.jpg)
 
 </template>
 </BiRow>
@@ -31,12 +31,12 @@
 <BiRow>
 <template #en>
 
-![Select a saved Pipeline](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/connect_the_pipeline_to_a_knowledge_base_2.jpg)
+![Select a saved Pipeline](/ragflow-images/connect_the_pipeline_to_a_knowledge_base_2.jpg)
 
 </template>
 <template #zh>
 
-![选择已保存的管道](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/connect_the_pipeline_to_a_knowledge_base_2.jpg)
+![选择已保存的管道](/ragflow-images/connect_the_pipeline_to_a_knowledge_base_2.jpg)
 
 </template>
 </BiRow>

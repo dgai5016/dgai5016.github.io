@@ -31,12 +31,12 @@ After adding a component, click the component itself to open the configuration p
 <BiRow>
 <template #en>
 
-![Add component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/add_component.jpg)
+![Add component](/ragflow-images/add_component.jpg)
 
 </template>
 <template #zh>
 
-![添加组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/add_component.jpg)
+![添加组件](/ragflow-images/add_component.jpg)
 
 </template>
 </BiRow>
@@ -134,14 +134,14 @@ Operation Steps:
 <BiRow>
 <template #en>
 
-![Use variables](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/use_variables.jpg)
+![Use variables](/ragflow-images/use_variables.jpg)
 ## Save & Run
 After configuration, click **Save** to save the Agent. During debugging, click **Run** at the top of the canvas, enter test questions and observe the execution result of each component. If a component returns no output, check input variables, model configuration, knowledge base permissions, external interface addresses or tool configuration.
 
 </template>
 <template #zh>
 
-![使用变量](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/use_variables.jpg)
+![使用变量](/ragflow-images/use_variables.jpg)
 ## 保存与运行
 配置完成后，点击 **保存** 保存 Agent。调试时，点击画布顶部的 **运行**，输入测试问题并观察各组件的执行结果。如果某个组件没有输出，请检查输入变量、模型配置、知识库权限、外部接口地址或工具配置。
 
@@ -151,14 +151,14 @@ After configuration, click **Save** to save the Agent. During debugging, click *
 <BiRow>
 <template #en>
 
-![Save and run](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/save_and_run.jpg)
+![Save and run](/ragflow-images/save_and_run.jpg)
 ## Component Connection Rules
 Connections define component execution order. Sequential components run along a single path. Branch components such as `Switch` and `Categorize` route workflows to different exits according to conditions. `Iteration` executes sub-processes in loops. Components not connected to the execution path will not run. Before deleting a component, check upstream/downstream connections and variable references to avoid missing inputs for subsequent nodes.
 
 </template>
 <template #zh>
 
-![保存并运行](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/save_and_run.jpg)
+![保存并运行](/ragflow-images/save_and_run.jpg)
 ## 组件连线规则
 连线定义组件的执行顺序。顺序组件沿单一路径运行；`Switch`、`Categorize` 等分支组件根据条件将工作流路由到不同出口；`Iteration` 以循环方式执行子流程。未连接到执行路径上的组件不会运行。删除组件前，请检查上游/下游连线及变量引用，避免后续节点缺少输入。
 

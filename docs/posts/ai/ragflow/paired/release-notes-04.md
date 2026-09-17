@@ -220,12 +220,12 @@ From this release onwards, built-in rerank models have been removed because they
 <BiRow>
 <template #en>
 
-![export_agent](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/export_agent_as_json.jpg)
+![export_agent](/ragflow-images/export_agent_as_json.jpg)
 
 </template>
 <template #zh>
 
-![export_agent](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/export_agent_as_json.jpg)
+![export_agent](/ragflow-images/export_agent_as_json.jpg)
 
 </template>
 </BiRow>
@@ -716,12 +716,12 @@ The following diagram illustrates the workflow of RAGFlow's Deep research:
 <BiRow>
 <template #en>
 
-![Image](https://github.com/user-attachments/assets/f65d4759-4f09-4d9d-9549-c0e1fe907525)
+![Image](/ragflow-images/f65d4759-4f09-4d9d-9549-c0e1fe907525.png)
 
 </template>
 <template #zh>
 
-![Image](https://github.com/user-attachments/assets/f65d4759-4f09-4d9d-9549-c0e1fe907525)
+![Image](/ragflow-images/f65d4759-4f09-4d9d-9549-c0e1fe907525.png)
 
 </template>
 </BiRow>
@@ -742,12 +742,12 @@ The following is a screenshot of a conversation that integrates Deep research:
 <BiRow>
 <template #en>
 
-![Image](https://github.com/user-attachments/assets/165b88ff-1f5d-4fb8-90e2-c836b25e32e9)
+![Image](/ragflow-images/165b88ff-1f5d-4fb8-90e2-c836b25e32e9.png)
 
 </template>
 <template #zh>
 
-![Image](https://github.com/user-attachments/assets/165b88ff-1f5d-4fb8-90e2-c836b25e32e9)
+![Image](/ragflow-images/165b88ff-1f5d-4fb8-90e2-c836b25e32e9.png)
 
 </template>
 </BiRow>

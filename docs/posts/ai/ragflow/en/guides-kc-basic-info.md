@@ -45,4 +45,4 @@ This setting only affects the knowledge compilation process and does not replace
 
 Whether this feature is enabled must be determined when configuring the knowledge compilation template. After the template is saved, the setting takes effect when the template is used for knowledge compilation.
 
-![Re-Split Parser Output](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/basic-info-config-rechunk-parser-output.jpg)
+![Re-Split Parser Output](/ragflow-images/basic-info-config-rechunk-parser-output.jpg)

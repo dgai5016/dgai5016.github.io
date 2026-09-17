@@ -6,7 +6,7 @@
 
 进入管理后台后，管理员可以执行服务健康检查、维护用户账户、配置沙箱、控制注册、管理角色与权限、配置系统设置以及配置身份提供者。管理后台应仅暴露给受信任的管理员。
 
-![进入管理控制台](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/enter_the_admin_console.jpg)
+![进入管理控制台](/ragflow-images/enter_the_admin_console.jpg)
 
 普通用户在使用知识库、对话、Agent、文件和模型提供商等业务功能时，无需进入管理后台。
 

@@ -83,12 +83,12 @@ You can perform the following conversation operations:
 <BiRow>
 <template #en>
 
-![Create and manage conversations](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_and_manage_sessions.jpg)
+![Create and manage conversations](/ragflow-images/create_and_manage_sessions.jpg)
 
 </template>
 <template #zh>
 
-![创建和管理对话](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_and_manage_sessions.jpg)
+![创建和管理对话](/ragflow-images/create_and_manage_sessions.jpg)
 
 </template>
 </BiRow>
@@ -200,12 +200,12 @@ Text files can be parsed into text for the model to reference. Processing images
 <BiRow>
 <template #en>
 
-![Upload files in a conversation](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/upload_files.jpg)
+![Upload files in a conversation](/ragflow-images/upload_files.jpg)
 
 </template>
 <template #zh>
 
-![在对话中上传文件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/upload_files.jpg)
+![在对话中上传文件](/ragflow-images/upload_files.jpg)
 
 </template>
 </BiRow>
@@ -278,12 +278,12 @@ After recording, the system converts the speech to text with the configured spee
 <BiRow>
 <template #en>
 
-![Use voice input](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/use_voice_input.jpg)
+![Use voice input](/ragflow-images/use_voice_input.jpg)
 
 </template>
 <template #zh>
 
-![使用语音输入](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/use_voice_input.jpg)
+![使用语音输入](/ragflow-images/use_voice_input.jpg)
 
 </template>
 </BiRow>
@@ -377,12 +377,12 @@ You can also embed the created Chat assistant in a third-party webpage with an i
 <BiRow>
 <template #en>
 
-![Open the iframe configuration](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/embed_into_website_1.jpg)
+![Open the iframe configuration](/ragflow-images/embed_into_website_1.jpg)
 
 </template>
 <template #zh>
 
-![打开 iframe 配置](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/embed_into_website_1.jpg)
+![打开 iframe 配置](/ragflow-images/embed_into_website_1.jpg)
 
 </template>
 </BiRow>
@@ -390,12 +390,12 @@ You can also embed the created Chat assistant in a third-party webpage with an i
 <BiRow>
 <template #en>
 
-![Copy the iframe code](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/embed_into_website_2.jpg)
+![Copy the iframe code](/ragflow-images/embed_into_website_2.jpg)
 
 </template>
 <template #zh>
 
-![复制 iframe 代码](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/embed_into_website_2.jpg)
+![复制 iframe 代码](/ragflow-images/embed_into_website_2.jpg)
 
 </template>
 </BiRow>

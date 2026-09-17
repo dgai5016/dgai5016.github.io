@@ -104,6 +104,6 @@ RAGFlow 支持的模型提供商完整列表，该列表将持续扩充。
 
 AI Badgr 实现了 `/v1/chat/completions`、`/v1/embeddings` 和 `/v1/models` 的 OpenAI 兼容端点，因此无需在 RAGFlow 中做任何额外的代码改动。
 
-:::note
+:::info
 支持的模型列表提取自[这个源文件](https://github.com/infiniflow/ragflow/blob/main/rag/llm/__init__.py)，可能不是最新的。如需最新的支持模型列表，请查阅该 Python 文件。
 :::

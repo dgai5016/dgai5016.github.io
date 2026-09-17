@@ -11,4 +11,4 @@
 
 工作区所有者不能被移出工作区。移除成员不会删除该成员的个人资源，但会影响该成员对仅在团队内共享的资源的访问。
 
-![移除成员](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/remove_members.jpg)
+![移除成员](/ragflow-images/remove_members.jpg)

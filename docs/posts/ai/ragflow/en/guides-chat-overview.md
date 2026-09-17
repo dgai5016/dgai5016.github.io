@@ -15,13 +15,13 @@ After creating a Chat, configure its datasets, model, system prompt, and retriev
 5. Open **Chat setting**, then configure the datasets, model, system prompt, and retrieval parameters.
 6. Save the setting, then open the chat window to test and use the Chat.
 
-![Open Chat from the navigation bar](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_chat_1.jpg)
+![Open Chat from the navigation bar](/ragflow-images/create_chat_1.jpg)
 
-![Create a Chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_chat_2.jpg)
+![Create a Chat](/ragflow-images/create_chat_2.jpg)
 
-![Enter a name for the Chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_chat_3.jpg)
+![Enter a name for the Chat](/ragflow-images/create_chat_3.jpg)
 
-![Configure the newly created Chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_chat_4.jpg)
+![Configure the newly created Chat](/ragflow-images/create_chat_4.jpg)
 
 You do not need to complete every setting when creating a Chat. You can return to the corresponding Chat from the Chat list and update its configuration later.
 
@@ -33,7 +33,7 @@ You can set the following basic information for a Chat:
 - **Avatar**: The image displayed for the Chat. Select a brand, product, or general-purpose icon according to the scenario.
 - **Description**: A brief description of the Chat's purpose, service scope, intended audience, or dataset coverage.
 
-![Basic Chat information](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/basic_information_chat.jpg)
+![Basic Chat information](/ragflow-images/basic_information_chat.jpg)
 
 ## Configure a Chat
 
@@ -46,7 +46,7 @@ Complete the main Chat settings according to the actual scenario:
 
 Save the setting and test it in the chat window.
 
-![Configure a Chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/configure_chat.jpg)
+![Configure a Chat](/ragflow-images/configure_chat.jpg)
 
 Start with the default parameters for a basic test. Then gradually adjust the retrieval parameters and system prompt based on the quality of the actual answers.
 

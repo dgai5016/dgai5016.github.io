@@ -9,7 +9,7 @@
 - **问题**：生成每个文本分块可以回答的问题。
 - **元数据**：自定义元数据提取。
 
-![选择 Transformer 生成类型](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/transformer2.png)
+![选择 Transformer 生成类型](/ragflow-images/transformer2.png)
 
 如果你使用了多个 **Transformer** 组件，请确保为每个功能单独配置一个 **Transformer** 组件，例如一个用于摘要、另一个用于关键词。
 
@@ -21,7 +21,7 @@
 - **Precise**（精确）：严格忠于原文，适合摘要和关键词提取。
 - **Balanced**（均衡）：居中的折中选项，适合大多数场景。
 
-![配置 Transformer 模型模式](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/transformer1.png)
+![配置 Transformer 模型模式](/ragflow-images/transformer1.png)
 
 提示词工程：
 
@@ -39,4 +39,4 @@
 
 - 链接多个 **Transformer** 组件时，只要变量引用正确，第二个 **Transformer** 组件就会处理第一个的输出，例如基于摘要生成关键词。
 
-![链式连接 Transformer 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/transformer3.png)
+![链式连接 Transformer 组件](/ragflow-images/transformer3.png)

@@ -87,7 +87,7 @@ RelationSpecification 定义知识图谱中需要识别的实体关系类型。�
 - 关系类型应含义明确，避免定义过于宽泛。
 - 对于复杂业务场景，通过规则（rule）字段补充额外约束。
 
-![Graph 配置建议](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/graph-configuration-recommendations.jpg)
+![Graph 配置建议](/ragflow-images/graph-configuration-recommendations.jpg)
 
 ## Tree
 
@@ -121,7 +121,7 @@ Tree 模板主要通过摘要规则、摘要长度、内容聚类和树结构参
 
 调整 Tree 结构中的内容聚类比例，影响最终层级数量和结构细节。调大该参数通常会生成更丰富的层级。调小该参数可以减少节点数量，使整体结构更简洁。
 
-![Tree 聚类比例](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/tree-clustering-ratio.jpg)
+![Tree 聚类比例](/ragflow-images/tree-clustering-ratio.jpg)
 
 ## PageIndex
 
@@ -200,7 +200,7 @@ PageIndex 模板默认已配置基础字段和关系规则。用户可以根据�
 - 删除不需要的字段，以减少无效内容生成。
 - 修改关系规则，以调整章节之间的关联。
 
-![PageIndex 配置说明](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/page-index-configuration-description.jpg)
+![PageIndex 配置说明](/ragflow-images/page-index-configuration-description.jpg)
 
 ## MindMap
 
@@ -283,7 +283,7 @@ RelationSpecification 定义思维导图中不同节点之间的关系，描述�
 - 节点名称应简短清晰，便于最终展示。
 - 根据文档类型调整节点定义。例如，技术类文档可以添加「module」「function」等类型，业务类文档可以添加「process」「role」等类型。
 
-![MindMap 节点配置说明](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/mind-map-node-configuration-description.jpg)
+![MindMap 节点配置说明](/ragflow-images/mind-map-node-configuration-description.jpg)
 
 ## Timeline
 
@@ -345,7 +345,7 @@ Timeline 识别文档中的关键时间信息及相关事件，并按时间顺�
 
 用户可以根据实际需求添加关系类型，以描述更复杂的事件关系。
 
-![Timeline 配置建议](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/timeline-configuration-recommendations.jpg)
+![Timeline 配置建议](/ragflow-images/timeline-configuration-recommendations.jpg)
 
 ### 配置建议
 
@@ -495,7 +495,7 @@ Blueprint（蓝图）定义生成 Wiki 页面时使用的结构模板。系统�
 | Blueprint | 指定 Wiki 页面生成所用的模板。 |
 | Instruction | 补充页面生成规则，例如章节结构、内容格式和展示要求。 |
 
-![Wiki 蓝图配置](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/built-in-templates-and-dedicated-config-wiki.jpg)
+![Wiki 蓝图配置](/ragflow-images/built-in-templates-and-dedicated-config-wiki.jpg)
 
 选择蓝图后，系统会按照对应蓝图预设的页面结构和规则生成 Wiki 内容。选择 Custom 时，可以通过 Instruction 自定义页面生成要求，例如章节结构、内容格式和展示方式。
 

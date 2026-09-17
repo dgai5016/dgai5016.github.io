@@ -50,12 +50,12 @@ This chapter describes how to create and configure memories in RAGFlow, view and
 <BiRow>
 <template #en>
 
-![Create memory](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_memory.jpg)
+![Create memory](/ragflow-images/create_memory.jpg)
 
 </template>
 <template #zh>
 
-![创建记忆](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_memory.jpg)
+![创建记忆](/ragflow-images/create_memory.jpg)
 
 </template>
 </BiRow>

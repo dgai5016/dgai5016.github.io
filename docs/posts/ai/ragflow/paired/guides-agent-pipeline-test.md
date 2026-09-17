@@ -14,12 +14,12 @@ On the pipeline canvas, click **Run** to upload a sample file and view step-by-s
 <BiRow>
 <template #en>
 
-![Test Run](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/test_run.jpg)
+![Test Run](/ragflow-images/test_run.jpg)
 
 </template>
 <template #zh>
 
-![测试运行](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/test_run.jpg)
+![测试运行](/ragflow-images/test_run.jpg)
 
 </template>
 </BiRow>

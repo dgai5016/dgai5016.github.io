@@ -16,12 +16,12 @@ After logging into RAGFlow, click **Agent** in the top navigation bar to enter t
 <BiRow>
 <template #en>
 
-![Agent list](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/agent_list.jpg)
+![Agent list](/ragflow-images/agent_list.jpg)
 
 </template>
 <template #zh>
 
-![Agent 列表](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/agent_list.jpg)
+![Agent 列表](/ragflow-images/agent_list.jpg)
 
 </template>
 </BiRow>
@@ -44,12 +44,12 @@ RAGFlow 为不同业务场景提供了 Agent 模板。从模板创建时，系�
 <BiRow>
 <template #en>
 
-![Agent template list](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/agent_template_list.jpg)
+![Agent template list](/ragflow-images/agent_template_list.jpg)
 
 </template>
 <template #zh>
 
-![Agent 模板列表](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/agent_template_list.jpg)
+![Agent 模板列表](/ragflow-images/agent_template_list.jpg)
 
 </template>
 </BiRow>
@@ -74,13 +74,13 @@ Steps:
 <BiRow>
 <template #en>
 
-![Create from a template entry](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_from_a_template_2.jpg)
+![Create from a template entry](/ragflow-images/create_from_a_template_2.jpg)
 3. Select an appropriate template on the template page, such as Deep Research, Knowledge Base Q&A, Data Analysis or E-commerce Customer Service template.
 
 </template>
 <template #zh>
 
-![从模板创建入口](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_from_a_template_2.jpg)
+![从模板创建入口](/ragflow-images/create_from_a_template_2.jpg)
 3. 在模板页面选择合适的模板，例如深度研究（Deep Research）、知识库问答、数据分析或电商客服模板。
 
 </template>
@@ -89,14 +89,14 @@ Steps:
 <BiRow>
 <template #en>
 
-![Select an Agent template](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_from_a_template_3.jpg)
+![Select an Agent template](/ragflow-images/create_from_a_template_3.jpg)
 4. Enter the Agent name.
 5. Click **OK**.
 
 </template>
 <template #zh>
 
-![选择 Agent 模板](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_from_a_template_3.jpg)
+![选择 Agent 模板](/ragflow-images/create_from_a_template_3.jpg)
 4. 输入 Agent 名称。
 5. 点击 **确定**。
 
@@ -106,13 +106,13 @@ Steps:
 <BiRow>
 <template #en>
 
-![Create from a template settings](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_from_a_template_1.jpg)
+![Create from a template settings](/ragflow-images/create_from_a_template_1.jpg)
 6. After entering the canvas, check the configuration of each component and save.
 
 </template>
 <template #zh>
 
-![从模板创建设置](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_from_a_template_1.jpg)
+![从模板创建设置](/ragflow-images/create_from_a_template_1.jpg)
 6. 进入画布后，检查各组件的配置并保存。
 
 </template>
@@ -121,14 +121,14 @@ Steps:
 <BiRow>
 <template #en>
 
-![Template Agent canvas](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_from_a_template_4.jpg)
+![Template Agent canvas](/ragflow-images/create_from_a_template_4.jpg)
 ## Create from Blank Agent
 When creating a blank Agent, the canvas contains a default `Begin` component. Users can click the plus sign next to the Begin component or other components to add downstream components.
 
 </template>
 <template #zh>
 
-![模板 Agent 画布](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_from_a_template_4.jpg)
+![模板 Agent 画布](/ragflow-images/create_from_a_template_4.jpg)
 ## 从空白 Agent 创建
 创建空白 Agent 时，画布中包含一个默认的 `Begin` 组件。用户可以点击 Begin 组件或其他组件旁边的加号，添加下游组件。
 
@@ -157,13 +157,13 @@ Steps:
 <BiRow>
 <template #en>
 
-![Create from blank entry](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_an_agent_from_blank_1.jpg)
+![Create from blank entry](/ragflow-images/create_an_agent_from_blank_1.jpg)
 4. Enter the Agent name and select the agent type.
 
 </template>
 <template #zh>
 
-![从空白创建入口](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_an_agent_from_blank_1.jpg)
+![从空白创建入口](/ragflow-images/create_an_agent_from_blank_1.jpg)
 4. 输入 Agent 名称并选择 Agent 类型。
 
 </template>
@@ -172,14 +172,14 @@ Steps:
 <BiRow>
 <template #en>
 
-![Create blank Agent settings](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_an_agent_from_blank_2.jpg)
+![Create blank Agent settings](/ragflow-images/create_an_agent_from_blank_2.jpg)
 5. Enter the canvas.
 6. Click the plus sign next to the `Begin` component, and add components according to business processes.
 
 </template>
 <template #zh>
 
-![创建空白 Agent 设置](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_an_agent_from_blank_2.jpg)
+![创建空白 Agent 设置](/ragflow-images/create_an_agent_from_blank_2.jpg)
 5. 进入画布。
 6. 点击 `Begin` 组件旁边的加号，按业务流程添加组件。
 
@@ -189,14 +189,14 @@ Steps:
 <BiRow>
 <template #en>
 
-![Add components to a blank Agent](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_an_agent_from_blank_3.jpg)
+![Add components to a blank Agent](/ragflow-images/create_an_agent_from_blank_3.jpg)
 7. Configure each component.
 8. Click **Save**.
 
 </template>
 <template #zh>
 
-![为空白 Agent 添加组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_an_agent_from_blank_3.jpg)
+![为空白 Agent 添加组件](/ragflow-images/create_an_agent_from_blank_3.jpg)
 7. 配置各组件。
 8. 点击 **保存**。
 

@@ -177,14 +177,14 @@ curl --request POST \
 <BiRow>
 <template #en>
 
-:::caution WARNING
+:::warning WARNING
 You must *not* include `"chunk_method"` or `"parser_config"` when specifying an ingestion pipeline.
 :::
 
 </template>
 <template #zh>
 
-:::caution 警告
+:::warning 警告
 指定摄取管道时，*不得*包含 `"chunk_method"` 或 `"parser_config"`。
 :::
 
@@ -426,7 +426,7 @@ curl --request POST \
 <BiRow>
 <template #en>
 
-:::caution WARNING
+:::warning WARNING
 You can choose either of the following ingestion options when creating a dataset, but *not* both:
 
 - Use a built-in chunk method -- specify `"chunk_method"` (optionally with `"parser_config"`).
@@ -438,7 +438,7 @@ If none of `"chunk_method"`, `"parse_type"`, or `"pipeline_id"` are provided, th
 </template>
 <template #zh>
 
-:::caution 警告
+:::warning 警告
 创建数据集时，可以在以下两种摄取方式中任选其一，但*不能*同时使用：
 
 - 使用内置分块方法——指定 `"chunk_method"`（可选搭配 `"parser_config"`）。

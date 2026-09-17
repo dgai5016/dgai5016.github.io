@@ -66,14 +66,14 @@ Check the health status of RAGFlow's dependencies (database, Redis, document eng
 <BiRow>
 <template #en>
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `GET /v1/system/healthz` is deprecated. Use this endpoint instead.
 :::
 
 </template>
 <template #zh>
 
-:::caution 已弃用
+:::warning 已弃用
 `GET /v1/system/healthz` 已弃用，请改用本端点。
 :::
 

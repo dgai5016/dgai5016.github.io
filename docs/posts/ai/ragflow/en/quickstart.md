@@ -55,7 +55,7 @@ $ sysctl vm.max_map_count
 $ sudo sysctl -w vm.max_map_count=262144
 ```
 
-:::caution WARNING
+:::warning WARNING
 This change will be reset after a system reboot. If you forget to update the value the next time you start up the server, you may get a `Can't connect to ES cluster` exception.
 :::
 
@@ -73,7 +73,7 @@ If you are on macOS with Docker Desktop, run the following command to update `vm
 docker run --rm --privileged --pid=host alpine sysctl -w vm.max_map_count=262144
 ```
 
-:::caution WARNING
+:::warning WARNING
 This change will be reset after a system reboot. If you forget to update the value the next time you start up the server, you may get a `Can't connect to ES cluster` exception.
 :::
 
@@ -118,7 +118,7 @@ sudo launchctl load /Library/LaunchDaemons/com.user.vmmaxmap.plist
 sudo launchctl load /Library/LaunchDaemons/com.user.vmmaxmap.plist
 ```
 
-:::note
+:::info
 If the above steps do not work, consider using [this workaround](https://github.com/docker/for-mac/issues/7047#issuecomment-1791912053), which employs a container and does not require manual editing of the macOS settings.
 :::
 
@@ -138,7 +138,7 @@ $ wsl -d docker-desktop -u root
 $ sysctl -w vm.max_map_count=262144
 ```
 
-:::caution WARNING
+:::warning WARNING
 This change will be reset after you restart Docker. If you forget to update the value the next time you start up the server, you may get a `Can't connect to ES cluster` exception.
 :::
 
@@ -150,7 +150,7 @@ kernelCommandLine = "sysctl.vm.max_map_count=262144"
 ```
 *This causes all WSL2 virtual machines to have that setting assigned when they start.*
 
-:::note
+:::info
 If you are on Windows 11 or Windows 10 version 22H2, and have installed the Microsoft Store version of WSL, you can also update the **/etc/sysctl.conf** within the docker-desktop WSL distribution to keep your change permanent:
 
 ```bash
@@ -198,9 +198,9 @@ vm.max_map_count = 262144
    
    ```
 
-   :::tip NOTE
+:::tip NOTE
    The image size shown refers to the size of the *downloaded* Docker image, which is compressed. When Docker runs the image, it unpacks it, resulting in significantly greater disk usage. A Docker image will expand to around 7 GB once unpacked.
-   :::
+:::
 
 5. Check the server status after having the server up and running:
 
@@ -220,21 +220,21 @@ vm.max_map_count = 262144
     * Running on all addresses (0.0.0.0)
    ```
 
-   :::danger IMPORTANT
+:::danger IMPORTANT
    If you skip this confirmation step and directly log in to RAGFlow, your browser may prompt a `network anomaly` error because, at that moment, your RAGFlow may not be fully initialized.
-   :::
+:::
 
 6. In your web browser, enter the IP address of your server and log in to RAGFlow.
 
-   :::caution WARNING
+:::warning WARNING
    With the default settings, you only need to enter `http://IP_OF_YOUR_MACHINE` (**sans** port number) as the default HTTP serving port `80` can be omitted when using the default configurations.
-   :::
+:::
 
 ## Configure LLMs
 
 RAGFlow is a RAG engine and needs to work with an LLM to offer grounded, hallucination-free question-answering capabilities. RAGFlow supports most mainstream LLMs. For a complete list of supported models, please refer to [Supported Models](https://ragflow.io/docs/guides/models/supported_models).
 
-:::note
+:::info
 RAGFlow also supports deploying LLMs locally using Ollama, Xinference, or LocalAI, but this part is not covered in this quick start guide.
 :::
 
@@ -261,25 +261,25 @@ To create your first dataset:
 
    _You are taken to the **Configuration** page of your dataset._
 
-   ![dataset configuration](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/configure_knowledge_base.jpg)
+   ![dataset configuration](/ragflow-images/configure_knowledge_base.jpg)
 
 3. RAGFlow offers multiple chunk templates that cater to different document layouts and file formats. Select the embedding model and chunking method (template) for your dataset.
 
-   :::danger IMPORTANT
+:::danger IMPORTANT
    Once you have selected an embedding model and used it to parse a file, you are no longer allowed to change it. The obvious reason is that we must ensure that all files in a specific dataset are parsed using the *same* embedding model (ensure that they are being compared in the same embedding space).
-   :::
+:::
 
    _You are taken to the **Dataset** page of your dataset._
 
 4. Click **+ Add file** **>** **Local files** to start uploading a particular file to the dataset.
 5. In the uploaded file entry, click the play button to start file parsing:
 
-   ![parse file](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/parse_file.jpg)
+   ![parse file](/ragflow-images/parse_file.jpg)
 
-   :::caution NOTE
+:::warning NOTE
    - If your file parsing gets stuck at below 1%, see [this FAQ](https://ragflow.io/docs/faq.mdx#why-does-my-document-parsing-stall-at-under-one-percent).
    - If your file parsing gets stuck at near completion, see [this FAQ](https://ragflow.io/docs/faq.mdx#why-does-my-pdf-parsing-stall-near-completion-while-the-log-does-not-show-any-error)
-   :::
+:::
 
 ## Intervene with file parsing
 
@@ -289,22 +289,22 @@ RAGFlow features visibility and explainability, allowing you to view the chunkin
 
    _You are taken to the **Chunk** page:_
 
-   ![chunks](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/file_chunks.jpg)
+   ![chunks](/ragflow-images/file_chunks.jpg)
 
 2. Hover over each snapshot for a quick view of each chunk.
 3. Double click the chunked texts to add keywords or make *manual* changes where necessary:
 
-   ![update chunk](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/add_keyword_question.jpg)
+   ![update chunk](/ragflow-images/add_keyword_question.jpg)
 
-   :::caution NOTE
+:::warning NOTE
    You can add keywords or questions to a file chunk to improve its ranking for queries containing those keywords. This action increases its keyword weight and can improve its position in search list.
-   :::
+:::
 
 4. In Retrieval testing, ask a quick question in **Test text** to double check if your configurations work:
 
    _As you can tell from the following, RAGFlow responds with truthful citations._
 
-   ![retrieval test](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/retrieval_test.jpg)
+   ![retrieval test](/ragflow-images/retrieval_test.jpg)
 
 ## Set up an AI chat
 
@@ -323,7 +323,7 @@ Conversations in RAGFlow are based on a particular dataset or multiple datasets.
 4. Select a chat model in the **Model** dropdown list.
 5. Now, let's start the show:
 
-   ![chat_thermal_solution](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/chat_thermal_solution.jpg)
+   ![chat_thermal_solution](/ragflow-images/chat_thermal_solution.jpg)
 
 :::tip NOTE
 RAGFlow also offers HTTP and Python APIs for you to integrate RAGFlow's capabilities into your applications. Read the following documents for more information:

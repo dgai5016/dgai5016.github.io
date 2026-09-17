@@ -42,7 +42,7 @@ From this release onwards, built-in rerank models have been removed because they
 - Team collaboration: Agents can be shared with team members.
 - Agent version control: all updates are continuously logged and can be rolled back to a previous version via export.
 
-![export_agent](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/export_agent_as_json.jpg)
+![export_agent](/ragflow-images/export_agent_as_json.jpg)
 
 ### Improvements
 
@@ -137,11 +137,11 @@ Released on March 3, 2025.
 
 The following diagram illustrates the workflow of RAGFlow's Deep research:
 
-![Image](https://github.com/user-attachments/assets/f65d4759-4f09-4d9d-9549-c0e1fe907525)
+![Image](/ragflow-images/f65d4759-4f09-4d9d-9549-c0e1fe907525.png)
 
 The following is a screenshot of a conversation that integrates Deep research:
 
-![Image](https://github.com/user-attachments/assets/165b88ff-1f5d-4fb8-90e2-c836b25e32e9)
+![Image](/ragflow-images/165b88ff-1f5d-4fb8-90e2-c836b25e32e9.png)
 
 ### API changes
 

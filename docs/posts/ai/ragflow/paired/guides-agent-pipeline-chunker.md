@@ -87,14 +87,14 @@ Title-based chunking (hierarchical):
 <BiRow>
 <template #en>
 
-:::caution IMPORTANT
+:::warning IMPORTANT
 In the current design, if both token-based and title-based methods are used, connect the **Token Chunker** component first, and then connect the **Title Chunker** component. Connecting the **Title Chunker** directly to the **Parser** may cause formatting errors for emails, images, spreadsheets and text files.
 :::
 
 </template>
 <template #zh>
 
-:::caution 重要
+:::warning 重要
 当前设计中，若同时使用基于 token 的切分和基于标题的切分，请先连接 **Token Chunker** 组件，再连接 **Title Chunker** 组件。将 **Title Chunker** 直接连接到 **Parser**，可能导致邮件、图片、电子表格和文本文件出现格式错误。
 :::
 

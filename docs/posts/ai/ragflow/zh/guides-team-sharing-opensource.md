@@ -7,4 +7,4 @@
 
 资源不会自动共享。要让资源对其他用户可用，需要显式配置其共享范围或权限。
 
-![开源版共享范围配置](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/open_source_edition_sharing_scope_configuration.jpg)
+![开源版共享范围配置](/ragflow-images/open_source_edition_sharing_scope_configuration.jpg)

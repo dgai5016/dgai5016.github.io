@@ -59,12 +59,12 @@ After leaving a team, the team no longer appears as a joined team. The user can 
 <BiRow>
 <template #en>
 
-![Leave A Joined Team](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/leave_a_joined_team.jpg)
+![Leave A Joined Team](/ragflow-images/leave_a_joined_team.jpg)
 
 </template>
 <template #zh>
 
-![退出已加入的团队](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/leave_a_joined_team.jpg)
+![退出已加入的团队](/ragflow-images/leave_a_joined_team.jpg)
 
 </template>
 </BiRow>

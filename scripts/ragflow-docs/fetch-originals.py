@@ -159,6 +159,30 @@ def absolutize_links(text: str, doc_path: str) -> str:
     return text
 
 
+def dedent_container_markers(text: str) -> str:
+    """容器标记修正（围栏感知，只动标记行，不动内容行——不影响块结构）。
+    1) 顶格化：官方源码里嵌在列表项内的提示块带 3 空格缩进——Docusaurus 认，
+       但 markdown-it-container 只认顶格 :::，缩进的会整块按原文显示。
+    2) 类型映射：Docusaurus 的容器类型 VitePress 不全支持——
+       caution→warning、note→info（视觉语义对应：黄框、蓝框）；
+       tip/info/danger 两边同名不用动。"""
+    lines, in_fence = text.split("\n"), False
+    kind_map = {"caution": "warning", "note": "info"}
+    for i, line in enumerate(lines):
+        if line.strip().startswith("```"):
+            in_fence = not in_fence
+            continue
+        if in_fence:
+            continue
+        if re.match(r"^\s+:::", line):
+            line = line.lstrip()
+        m = re.match(r"^(:::)(caution|note)\b(.*)$", line)
+        if m:
+            line = m.group(1) + kind_map[m.group(2)] + m.group(3)
+        lines[i] = line
+    return "\n".join(lines)
+
+
 def normalize(text: str) -> str:
     """块结构规范化：这是后续「逐段配对」的前提。
     1) 连续多个空行压成一个（空行是块分隔符，数量必须恒为 1）
@@ -177,12 +201,13 @@ def normalize(text: str) -> str:
 
 
 def clean(text: str, doc_path: str) -> str:
-    """完整清洗链：frontmatter → MDX 语句 → 组件壳 → Tabs → 链接 → 规范化。"""
+    """完整清洗链：frontmatter → MDX 语句 → 组件壳 → Tabs → 链接 → 容器顶格化 → 规范化。"""
     text = strip_frontmatter(text)
     text = strip_mdx_statements(text)
     text = strip_component_shells(text)
     text = convert_tabs(text)
     text = absolutize_links(text, doc_path)
+    text = dedent_container_markers(text)
     return normalize(text)
 
 

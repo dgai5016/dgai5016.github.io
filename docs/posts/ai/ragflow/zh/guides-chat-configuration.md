@@ -93,7 +93,7 @@ Thinking 模式决定 Chat 在回答前对可用数据挖掘到什么程度。
 
 如果不确定选哪档，正式业务问答先从 **Medium** 开始。简单问题或速度优先时，用 **None** 或 **Low**。回答不完整或需要跨文档比较时，再升级到 **High** 或 **Ultra**。
 
-![选择 Thinking 模式](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/select_thinking_mode.jpg)
+![选择 Thinking 模式](/ragflow-images/select_thinking_mode.jpg)
 
 ## 检索增强选项
 
@@ -104,12 +104,12 @@ Thinking 模式决定 Chat 在回答前对可用数据挖掘到什么程度。
 - **Cross-language search**：改善跨语言检索。当提问语言与数据集文档语言不一致时，该选项可以提升跨语言内容的召回。
 
 <img
-  src="https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/retrieval_augmentation_options_1.jpg"
+  src="/ragflow-images/retrieval_augmentation_options_1.jpg"
   alt="Retrieval augmentation options"
   width="700"
 />
 
-![更多检索增强设置](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/retrieval_augmentation_options_2.jpg)
+![更多检索增强设置](/ragflow-images/retrieval_augmentation_options_2.jpg)
 
 ## 回答与显示设置
 

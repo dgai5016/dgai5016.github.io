@@ -55,7 +55,7 @@ $ sysctl vm.max_map_count
 $ sudo sysctl -w vm.max_map_count=262144
 ```
 
-:::caution 警告
+:::warning 警告
 这一修改会在系统重启后被重置。如果下次启动服务器时忘记更新该值，你可能会遇到 `Can't connect to ES cluster` 异常。
 :::
 
@@ -73,7 +73,7 @@ vm.max_map_count=262144
 docker run --rm --privileged --pid=host alpine sysctl -w vm.max_map_count=262144
 ```
 
-:::caution 警告
+:::warning 警告
 这一修改会在系统重启后被重置。如果下次启动服务器时忘记更新该值，你可能会遇到 `Can't connect to ES cluster` 异常。
 :::
 
@@ -118,7 +118,7 @@ sudo launchctl load /Library/LaunchDaemons/com.user.vmmaxmap.plist
 sudo launchctl load /Library/LaunchDaemons/com.user.vmmaxmap.plist
 ```
 
-:::note
+:::info
 如果上述步骤不起作用，可以考虑使用[这个替代方案](https://github.com/docker/for-mac/issues/7047#issuecomment-1791912053)，它借助一个容器实现，无需手动修改 macOS 设置。
 :::
 
@@ -138,7 +138,7 @@ $ wsl -d docker-desktop -u root
 $ sysctl -w vm.max_map_count=262144
 ```
 
-:::caution 警告
+:::warning 警告
 这一修改会在重启 Docker 后被重置。如果下次启动服务器时忘记更新该值，你可能会遇到 `Can't connect to ES cluster` 异常。
 :::
 
@@ -150,7 +150,7 @@ kernelCommandLine = "sysctl.vm.max_map_count=262144"
 ```
 *这会使所有 WSL2 虚拟机在启动时都带上该设置。*
 
-:::note
+:::info
 如果你使用的是 Windows 11 或 Windows 10 22H2 版本，并且安装了 Microsoft Store 版的 WSL，也可以更新 docker-desktop WSL 发行版内的 **/etc/sysctl.conf** 来让修改永久生效：
 
 ```bash
@@ -198,9 +198,9 @@ vm.max_map_count = 262144
    
    ```
 
-   :::tip 注意
+:::tip 注意
    这里显示的镜像大小指的是*已下载*的 Docker 镜像的大小（经过压缩）。Docker 运行镜像时会将其解包，因此磁盘占用会大得多。Docker 镜像解包后会膨胀到约 7 GB。
-   :::
+:::
 
 5. 服务器启动并运行后，检查服务器状态：
 
@@ -220,21 +220,21 @@ vm.max_map_count = 262144
     * Running on all addresses (0.0.0.0)
    ```
 
-   :::danger 重要
+:::danger 重要
    如果你跳过这一确认步骤直接登录 RAGFlow，浏览器可能会提示 `network anomaly` 错误，因为此时你的 RAGFlow 可能尚未完全初始化。
-   :::
+:::
 
 6. 在浏览器中输入服务器的 IP 地址并登录 RAGFlow。
 
-   :::caution 警告
+:::warning 警告
    在默认设置下，你只需输入 `http://IP_OF_YOUR_MACHINE`（**不带**端口号），因为使用默认配置时，默认的 HTTP 服务端口 `80` 可以省略。
-   :::
+:::
 
 ## 配置 LLM
 
 RAGFlow 是一个 RAG 引擎，需要与 LLM 配合才能提供有依据、无幻觉的问答能力。RAGFlow 支持大多数主流 LLM。完整的支持模型列表请参阅[支持的模型](https://ragflow.io/docs/guides/models/supported_models)。
 
-:::note
+:::info
 RAGFlow 也支持使用 Ollama、Xinference 或 LocalAI 在本地部署 LLM，但这部分内容不在本快速开始指南的范围内。
 :::
 
@@ -261,25 +261,25 @@ RAGFlow 也支持使用 Ollama、Xinference 或 LocalAI 在本地部署 LLM，�
 
    _你将进入该数据集的 **Configuration** 页面。_
 
-   ![数据集配置](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/configure_knowledge_base.jpg)
+   ![数据集配置](/ragflow-images/configure_knowledge_base.jpg)
 
 3. RAGFlow 提供多种分块模板，以适配不同的文档布局和文件格式。请为你的数据集选择嵌入模型和分块方法（模板）。
 
-   :::danger 重要
+:::danger 重要
    一旦选定某个嵌入模型并用它解析过文件，就不允许再更换。原因显而易见：必须确保同一数据集中的所有文件都使用*同一个*嵌入模型解析（确保它们在同一嵌入空间中进行比较）。
-   :::
+:::
 
    _你将进入该数据集的 **Dataset** 页面。_
 
 4. 点击 **+ Add file** **>** **Local files**，开始向该数据集上传文件。
 5. 在已上传文件的条目中，点击播放按钮开始解析文件：
 
-   ![解析文件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/parse_file.jpg)
+   ![解析文件](/ragflow-images/parse_file.jpg)
 
-   :::caution 注意
+:::warning 注意
    - 如果文件解析卡在 1% 以下，请参阅[此 FAQ](https://ragflow.io/docs/faq.mdx#why-does-my-document-parsing-stall-at-under-one-percent)。
    - 如果文件解析卡在即将完成之处，请参阅[此 FAQ](https://ragflow.io/docs/faq.mdx#why-does-my-pdf-parsing-stall-near-completion-while-the-log-does-not-show-any-error)。
-   :::
+:::
 
 ## 干预文件解析
 
@@ -289,22 +289,22 @@ RAGFlow 具备可见性与可解释性，允许你查看分块结果并在必要
 
    _你将进入 **Chunk** 页面：_
 
-   ![分块](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/file_chunks.jpg)
+   ![分块](/ragflow-images/file_chunks.jpg)
 
 2. 将鼠标悬停在每个快照上，快速查看每个分块。
 3. 双击分块文本，在必要时添加关键词或进行*手动*修改：
 
-   ![更新分块](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/add_keyword_question.jpg)
+   ![更新分块](/ragflow-images/add_keyword_question.jpg)
 
-   :::caution 注意
+:::warning 注意
    可以为文件分块添加关键词或问题，以提升它在包含这些关键词的查询中的排名。该操作会增加该分块的关键词权重，进而提升它在搜索列表中的位置。
-   :::
+:::
 
 4. 在检索测试（Retrieval testing）中，在 **Test text** 里快速提一个问题，再次确认你的配置是否有效：
 
    _如下所示，RAGFlow 会给出真实可信的引用。_
 
-   ![检索测试](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/retrieval_test.jpg)
+   ![检索测试](/ragflow-images/retrieval_test.jpg)
 
 ## 建立 AI 对话
 
@@ -323,7 +323,7 @@ RAGFlow 中的对话基于某个特定的数据集或多个数据集。创建好
 4. 在 **Model** 下拉列表中选择一个对话模型。
 5. 现在，好戏开场：
 
-   ![chat_thermal_solution](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/chat_thermal_solution.jpg)
+   ![chat_thermal_solution](/ragflow-images/chat_thermal_solution.jpg)
 
 :::tip 注意
 RAGFlow 还提供 HTTP 和 Python API，供你将 RAGFlow 的能力集成到自己的应用中。更多信息请阅读以下文档：

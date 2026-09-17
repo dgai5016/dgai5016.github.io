@@ -531,7 +531,7 @@ Failure:
 
 Parses documents in a specified dataset using the built-in chunking pipeline.
 
-:::note
+:::info
 This endpoint only supports datasets that use the built-in chunking pipeline. For datasets configured with an ingestion pipeline, use `POST /api/v1/documents/ingest` instead.
 :::
 

@@ -14,12 +14,12 @@ After you hover over a file row, the **Operations** column displays the availabl
 <BiRow>
 <template #en>
 
-![File operations](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/file_operations.jpg)
+![File operations](/ragflow-images/file_operations.jpg)
 
 </template>
 <template #zh>
 
-![文件操作](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/file_operations.jpg)
+![文件操作](/ragflow-images/file_operations.jpg)
 
 </template>
 </BiRow>

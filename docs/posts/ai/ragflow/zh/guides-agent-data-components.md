@@ -9,7 +9,7 @@ Code 组件执行 Python 或 JavaScript 代码，用于复杂的数据处理、�
 2. **Code**：选择 Python 或 JavaScript，编写业务逻辑。
 3. **Return Value**：定义返回给下游组件的输出数据。
 
-![Code 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/code_component.jpg)
+![Code 组件](/ragflow-images/code_component.jpg)
 
 ## Text Processing 组件
 Text Processing 用于拆分或合并文本。可以按分隔符拆分上游的长文本，或把多个变量组合成一个模板。
@@ -20,7 +20,7 @@ Text Processing 用于拆分或合并文本。可以按分隔符拆分上游的�
 
 配置脚本内容，通过 `/` 插入变量。输出结果可供后续节点引用。
 
-![Text Processing 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/text_processing_component.jpg)
+![Text Processing 组件](/ragflow-images/text_processing_component.jpg)
 
 ## Data Operation 组件
 Data Operation 用于处理上游工具、代码或数据库节点返回的结构化对象，清洗数据供下游使用。
@@ -32,7 +32,7 @@ Data Operation 用于处理上游工具、代码或数据库节点返回的结�
 4. 在 Operations 中选择处理操作，并填写相应的配置。
 5. 保存并运行测试。
 
-![Data Operation 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/data_operation_component.jpg)
+![Data Operation 组件](/ragflow-images/data_operation_component.jpg)
 
 输出：处理后的数据存入变量 `result`。
 
@@ -57,7 +57,7 @@ Variable Assignor 在工作流执行过程中写入或更新变量。它可以�
 4. 如果所选操作需要值，从右侧面板选择一个变量，或输入固定值。
 5. 要一次更新多个变量，可继续添加变量规则。系统会按添加的顺序依次执行。
 
-![Variable Assigner 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/variable_assigner_component.jpg)
+![Variable Assigner 组件](/ragflow-images/variable_assigner_component.jpg)
 
 参数说明：
 
@@ -155,4 +155,4 @@ Variable Aggregator 把多个独立变量合并为一个输出组，供下游节
 | 删除变量组 | 点击变量组的删除按钮，移除当前组。 |
 | 引用输出 | 后续节点可以直接引用变量组（例如 **Group0**）作为输入。 |
 
-![变量聚合组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/variable_aggregation_component.jpg)
+![变量聚合组件](/ragflow-images/variable_aggregation_component.jpg)

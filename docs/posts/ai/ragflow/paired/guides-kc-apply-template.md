@@ -119,12 +119,12 @@ Note: CompilationTemplate only defines "how to compile". A KnowledgeArtifact is 
 <BiRow>
 <template #en>
 
-![Create a Dataset and select Pipeline](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/connect_the_pipeline_to_a_knowledge_base_1.jpg)
+![Create a Dataset and select Pipeline](/ragflow-images/connect_the_pipeline_to_a_knowledge_base_1.jpg)
 
 </template>
 <template #zh>
 
-![创建数据集并选择管道](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/connect_the_pipeline_to_a_knowledge_base_1.jpg)
+![创建数据集并选择管道](/ragflow-images/connect_the_pipeline_to_a_knowledge_base_1.jpg)
 
 </template>
 </BiRow>
@@ -132,12 +132,12 @@ Note: CompilationTemplate only defines "how to compile". A KnowledgeArtifact is 
 <BiRow>
 <template #en>
 
-![Configure an Ingestion Pipeline in Dataset](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/connect_the_pipeline_to_a_knowledge_base_2.jpg)
+![Configure an Ingestion Pipeline in Dataset](/ragflow-images/connect_the_pipeline_to_a_knowledge_base_2.jpg)
 
 </template>
 <template #zh>
 
-![在数据集中配置摄取管道](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/connect_the_pipeline_to_a_knowledge_base_2.jpg)
+![在数据集中配置摄取管道](/ragflow-images/connect_the_pipeline_to_a_knowledge_base_2.jpg)
 
 </template>
 </BiRow>

@@ -55,12 +55,12 @@ Only an invitation relationship can be accepted. After accepting an invitation, 
 <BiRow>
 <template #en>
 
-![Accept Or Decline An Invitation](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/accept_or_decline_an_invitation_1.jpg)
+![Accept Or Decline An Invitation](/ragflow-images/accept_or_decline_an_invitation_1.jpg)
 
 </template>
 <template #zh>
 
-![接受或拒绝邀请](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/accept_or_decline_an_invitation_1.jpg)
+![接受或拒绝邀请](/ragflow-images/accept_or_decline_an_invitation_1.jpg)
 
 </template>
 </BiRow>
@@ -68,12 +68,12 @@ Only an invitation relationship can be accepted. After accepting an invitation, 
 <BiRow>
 <template #en>
 
-![Accept Or Decline An Invitation](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/accept_or_decline_an_invitation_2.jpg)
+![Accept Or Decline An Invitation](/ragflow-images/accept_or_decline_an_invitation_2.jpg)
 
 </template>
 <template #zh>
 
-![接受或拒绝邀请](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/accept_or_decline_an_invitation_2.jpg)
+![接受或拒绝邀请](/ragflow-images/accept_or_decline_an_invitation_2.jpg)
 
 </template>
 </BiRow>

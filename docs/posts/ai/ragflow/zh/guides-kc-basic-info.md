@@ -45,4 +45,4 @@
 
 是否启用该功能，须在配置知识编译模板时确定。模板保存后，该设置在使用模板进行知识编译时生效。
 
-![重新切分解析器输出](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/basic-info-config-rechunk-parser-output.jpg)
+![重新切分解析器输出](/ragflow-images/basic-info-config-rechunk-parser-output.jpg)

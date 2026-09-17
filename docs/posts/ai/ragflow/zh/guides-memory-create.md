@@ -11,4 +11,4 @@
 5. 点击 **Confirm** 创建记忆。
 6. 确认后，进入记忆列表或详情页。
 
-![创建记忆](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_memory.jpg)
+![创建记忆](/ragflow-images/create_memory.jpg)

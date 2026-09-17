@@ -6,7 +6,7 @@ Switch your doc engine from Elasticsearch to Infinity.
 
 RAGFlow uses Elasticsearch by default for storing full text and vectors. To switch to [Infinity](https://github.com/infiniflow/infinity/), follow these steps:
 
-:::caution WARNING
+:::warning WARNING
 Switching to Infinity on a Linux/arm64 machine is not yet officially supported.
 :::
 
@@ -16,7 +16,7 @@ Switching to Infinity on a Linux/arm64 machine is not yet officially supported.
    $ docker compose -f docker/docker-compose.yml down -v
    ```
 
-:::caution WARNING
+:::warning WARNING
 `-v` will delete the docker container volumes, and the existing data will be cleared.
 :::
 

@@ -48,12 +48,12 @@ Operation steps:
 <BiRow>
 <template #en>
 
-![Connect a chat channel to a Chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/chat-channel-connect-chat.jpg)
+![Connect a chat channel to a Chat](/ragflow-images/chat-channel-connect-chat.jpg)
 
 </template>
 <template #zh>
 
-![将对话渠道连接到对话助手](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/chat-channel-connect-chat.jpg)
+![将对话渠道连接到对话助手](/ragflow-images/chat-channel-connect-chat.jpg)
 
 </template>
 </BiRow>

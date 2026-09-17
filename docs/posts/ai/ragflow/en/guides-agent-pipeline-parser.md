@@ -4,7 +4,7 @@ The **Parser** component converts your files into structured text while preservi
 
 It supports 8 file categories and more than 23 formats, including PDF, images, audio, video, email, spreadsheets (Excel), Word, PPT, HTML and Markdown.
 
-![Select parser file format](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/configure_the_parser_component_2.jpg)
+![Select parser file format](/ragflow-images/configure_the_parser_component_2.jpg)
 
 Key configurations:
 
@@ -14,7 +14,7 @@ For PDF files, select one of the following:
 - **MinerU**: Industry-leading for complex elements such as mathematical formulas and complex layouts.
 - **Naive**: Simple text extraction. Use it for clean, text-based PDFs without complex elements.
 
-![Configure PDF parser method](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/configure_the_parser_component_1.jpg)
+![Configure PDF parser method](/ragflow-images/configure_the_parser_component_1.jpg)
 
 For image files:
 

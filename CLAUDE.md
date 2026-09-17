@@ -60,6 +60,10 @@ npm run test:e2e  # Playwright 截图测试（先构建再截图）
 
 MCP / RAGFlow 双语文档（浮层左右对照阅读）的抓取、翻译、配对管线在 `scripts/ragflow-docs/`（RAGFlow，129 个阅读单元）与 `scripts/mcp-docs/`（MCP）。官方文档更新后的维护流程（增量抓取 / 新增篇目 / 大版本升级三场景）见 `scripts/ragflow-docs/README.md`。
 
+## 资料总结技能
+
+外部资料（当前支持 B站视频，规则文档可扩展）→「N 条资料总结」博文的技能在 `.claude/skills/dg-summarize-resources/`（`SKILL.md` 主路由，按资料类型分发到 `rules/` 下规则文档）。产出落在 `docs/posts/summary-resources/`，统一标签 `[资料总结]`，数据层零改动自动收录。
+
 ## 其他规则
 
 ### 代码编写规则

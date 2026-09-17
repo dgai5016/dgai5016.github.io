@@ -80,7 +80,7 @@ RAGFlow 的响应可能同时包含 HTTP 状态码和 JSON 响应体中的业务
 
 为指定对话生成模型响应。
 
-:::caution 已弃用
+:::warning 已弃用
 `POST /api/v1/chats_openai/{chat_id}/chat/completions` 已弃用，请改用本端点。
 :::
 
@@ -234,7 +234,7 @@ data:[DONE]
 
 ### 创建 Agent 补全
 
-:::caution 已弃用
+:::warning 已弃用
 该端点目前仍为向后兼容而保留，但可能在未来的版本中移除。新的集成应使用 `POST /api/v1/agents/chat/completions` 并附带 `"openai-compatible": true`。
 :::
 

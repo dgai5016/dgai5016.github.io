@@ -55,9 +55,9 @@ Recommendation: When using this feature for the first time, select a small numbe
 4. **Execute knowledge compilation**: The system parses documents according to the Pipeline configuration and generates the corresponding knowledge artifacts based on the selected template.
 5. **View knowledge artifacts**: After compilation is complete, view generated artifacts such as Graph, Tree, PageIndex, MindMap, Timeline, or Wiki.
 
-![Create a knowledge compilation template](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/usage-flow-standard-usage-flow.jpg)
+![Create a knowledge compilation template](/ragflow-images/usage-flow-standard-usage-flow.jpg)
 
-![Choose Compilation Operator](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/usage-flow-standard-usage-flow-2.jpg)
+![Choose Compilation Operator](/ragflow-images/usage-flow-standard-usage-flow-2.jpg)
 
 Note: This section helps users quickly understand the overall workflow of knowledge compilation and only shows the operation interface for "creating a knowledge compilation template". Ingestion Pipeline configuration, document application, knowledge artifact viewing, and other operations are described in detail in the corresponding later chapters with interface screenshots. For specific operations, refer to the relevant chapters.
 

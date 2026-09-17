@@ -338,7 +338,7 @@ curl --request DELETE \
 
 更新指定分块的内容或配置。
 
-:::caution 已弃用
+:::warning 已弃用
 `PUT /api/v1/datasets/{dataset_id}/documents/{document_id}/chunks/{chunk_id}` 已弃用。请改用此端点。
 :::
 

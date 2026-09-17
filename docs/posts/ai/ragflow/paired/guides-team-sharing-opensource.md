@@ -42,12 +42,12 @@ Resources are not shared automatically. To make a resource available to other us
 <BiRow>
 <template #en>
 
-![Open Source Edition Sharing Scope Configuration](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/open_source_edition_sharing_scope_configuration.jpg)
+![Open Source Edition Sharing Scope Configuration](/ragflow-images/open_source_edition_sharing_scope_configuration.jpg)
 
 </template>
 <template #zh>
 
-![开源版共享范围配置](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/open_source_edition_sharing_scope_configuration.jpg)
+![开源版共享范围配置](/ragflow-images/open_source_edition_sharing_scope_configuration.jpg)
 
 </template>
 </BiRow>

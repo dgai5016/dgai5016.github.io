@@ -4,17 +4,17 @@
 
 用户账号在 **User management** 页面中管理。管理员可以查看用户列表，包括 `Email`、`Nickname`、`Status`、`User type` 和 `Last login time`。
 
-![用户管理](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/user_management_1.jpg)
+![用户管理](/ragflow-images/user_management_1.jpg)
 
-![用户管理](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/user_management_2.jpg)
+![用户管理](/ragflow-images/user_management_2.jpg)
 
-![用户管理](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/user_management_3.jpg)
+![用户管理](/ragflow-images/user_management_3.jpg)
 
 使用右上角的搜索框，可以按 `Email` 或 `Nickname` 搜索用户；还可以按 `Status` 筛选 `Active` 或 `Inactive` 用户。
 
-![查看与搜索用户](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_and_search_users_1.jpg)
+![查看与搜索用户](/ragflow-images/view_and_search_users_1.jpg)
 
-![查看与搜索用户](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_and_search_users_2.jpg)
+![查看与搜索用户](/ragflow-images/view_and_search_users_2.jpg)
 
 ## 新建用户
 
@@ -27,9 +27,9 @@
 5. 在 `Confirm password` 中再次输入相同密码。
 6. 点击 **Confirm** 创建账号。
 
-![新建用户](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_a_new_user_1.jpg)
+![新建用户](/ragflow-images/create_a_new_user_1.jpg)
 
-![新建用户](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_a_new_user_2.jpg)
+![新建用户](/ragflow-images/create_a_new_user_2.jpg)
 
 创建完成后，返回用户列表，确认该账号已出现且状态符合预期。然后通过安全渠道把登录信息发送给该用户。
 
@@ -49,7 +49,7 @@
 1. 进入 **User management** 页面，在用户列表中找到目标用户。
 2. 在该用户所在行的 `Status` 列，点击当前状态下拉框，按需选择 `Active` 或 `Inactive`。
 
-![禁用或恢复账号](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/disable_or_restore_accounts.jpg)
+![禁用或恢复账号](/ragflow-images/disable_or_restore_accounts.jpg)
 
 **注意：** 当前登录的管理员不能禁用自己的账号。禁用账号不会删除用户数据，只会让该用户无法登录。如果需要永久移除某个用户，请先确认不再需要保留该账号，再执行删除。
 
@@ -62,7 +62,7 @@
 3. 选择 `Normal` 或 `Superuser`。
 4. 等待系统提交变更并刷新用户列表。
 
-![设置后台管理员身份](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/set_backend_administrator_identity.jpg)
+![设置后台管理员身份](/ragflow-images/set_backend_administrator_identity.jpg)
 
 **注意：** 当前登录的管理员不能在列表中修改自己的 `Superuser` 类型。
 
@@ -75,9 +75,9 @@
 3. 输入新密码并再次确认。
 4. 点击 **Change password**。
 
-![重置用户密码](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/reset_user_passwords_1.jpg)
+![重置用户密码](/ragflow-images/reset_user_passwords_1.jpg)
 
-![重置用户密码](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/reset_user_passwords_2.jpg)
+![重置用户密码](/ragflow-images/reset_user_passwords_2.jpg)
 
 **注意：** 当前登录的管理员不能通过列表中的 **Actions** 重置自己的密码。
 
@@ -89,7 +89,7 @@
 2. 在确认对话框中核对用户的 `Email`。
 3. 点击 **Delete** 删除该用户。
 
-![删除用户](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/delete_users.jpg)
+![删除用户](/ragflow-images/delete_users.jpg)
 
 **注意：** 当前登录的管理员不能通过列表中的 **Actions** 删除自己的账号。
 
@@ -101,4 +101,4 @@
 
 **注意：** 在禁用、删除或降级 `Superuser` 之前，管理员应先查看详情页，确认该用户是否仍持有重要资源或近期有登录活动。
 
-![查看用户详情与资源影响](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_user_details_and_resource_impact.jpg)
+![查看用户详情与资源影响](/ragflow-images/view_user_details_and_resource_impact.jpg)

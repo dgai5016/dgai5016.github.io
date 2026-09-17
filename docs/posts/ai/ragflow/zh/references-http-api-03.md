@@ -531,7 +531,7 @@ curl --request DELETE \
 
 使用内置分块管道解析指定数据集中的文档。
 
-:::note
+:::info
 此端点仅支持使用内置分块管道的数据集。对于配置了摄取管道的数据集，请改用 `POST /api/v1/documents/ingest`。
 :::
 

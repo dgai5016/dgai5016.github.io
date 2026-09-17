@@ -520,12 +520,12 @@ If you are unsure which mode to choose, start with **Medium** for formal busines
 <BiRow>
 <template #en>
 
-![Select a Thinking mode](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/select_thinking_mode.jpg)
+![Select a Thinking mode](/ragflow-images/select_thinking_mode.jpg)
 
 </template>
 <template #zh>
 
-![选择 Thinking 模式](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/select_thinking_mode.jpg)
+![选择 Thinking 模式](/ragflow-images/select_thinking_mode.jpg)
 
 </template>
 </BiRow>
@@ -577,7 +577,7 @@ Retrieval augmentation options further optimize queries or expand information re
 <template #en>
 
 <img
-  src="https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/retrieval_augmentation_options_1.jpg"
+  src="/ragflow-images/retrieval_augmentation_options_1.jpg"
   alt="Retrieval augmentation options"
   width="700"
 />
@@ -586,7 +586,7 @@ Retrieval augmentation options further optimize queries or expand information re
 <template #zh>
 
 <img
-  src="https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/retrieval_augmentation_options_1.jpg"
+  src="/ragflow-images/retrieval_augmentation_options_1.jpg"
   alt="Retrieval augmentation options"
   width="700"
 />
@@ -597,12 +597,12 @@ Retrieval augmentation options further optimize queries or expand information re
 <BiRow>
 <template #en>
 
-![Additional retrieval augmentation settings](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/retrieval_augmentation_options_2.jpg)
+![Additional retrieval augmentation settings](/ragflow-images/retrieval_augmentation_options_2.jpg)
 
 </template>
 <template #zh>
 
-![更多检索增强设置](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/retrieval_augmentation_options_2.jpg)
+![更多检索增强设置](/ragflow-images/retrieval_augmentation_options_2.jpg)
 
 </template>
 </BiRow>

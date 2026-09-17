@@ -27,12 +27,12 @@ After entering the Admin UI, open the **Service status** page to view the runtim
 <BiRow>
 <template #en>
 
-![Check Whether Services Are Normal](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/check_whether_services_are_normal.jpg)
+![Check Whether Services Are Normal](/ragflow-images/check_whether_services_are_normal.jpg)
 
 </template>
 <template #zh>
 
-![检查服务是否正常](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/check_whether_services_are_normal.jpg)
+![检查服务是否正常](/ragflow-images/check_whether_services_are_normal.jpg)
 
 </template>
 </BiRow>
@@ -53,12 +53,12 @@ When **Status** is `Alive`, the service is running normally. Any other status ma
 <BiRow>
 <template #en>
 
-![System Status](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/system_status.jpg)
+![System Status](/ragflow-images/system_status.jpg)
 
 </template>
 <template #zh>
 
-![系统状态](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/system_status.jpg)
+![系统状态](/ragflow-images/system_status.jpg)
 
 </template>
 </BiRow>
@@ -134,12 +134,12 @@ Administrators can open service details from **Actions**. Different services dis
 <BiRow>
 <template #en>
 
-![View Service Details](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_service_details_1.jpg)
+![View Service Details](/ragflow-images/view_service_details_1.jpg)
 
 </template>
 <template #zh>
 
-![查看服务详情](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_service_details_1.jpg)
+![查看服务详情](/ragflow-images/view_service_details_1.jpg)
 
 </template>
 </BiRow>
@@ -147,12 +147,12 @@ Administrators can open service details from **Actions**. Different services dis
 <BiRow>
 <template #en>
 
-![View Service Details](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_service_details_2.jpg)
+![View Service Details](/ragflow-images/view_service_details_2.jpg)
 
 </template>
 <template #zh>
 
-![查看服务详情](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_service_details_2.jpg)
+![查看服务详情](/ragflow-images/view_service_details_2.jpg)
 
 </template>
 </BiRow>
@@ -173,12 +173,12 @@ Some services also provide an **Extra information** dialog that displays supplem
 <BiRow>
 <template #en>
 
-![View Service Details](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_service_details_3.jpg)
+![View Service Details](/ragflow-images/view_service_details_3.jpg)
 
 </template>
 <template #zh>
 
-![查看服务详情](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_service_details_3.jpg)
+![查看服务详情](/ragflow-images/view_service_details_3.jpg)
 
 </template>
 </BiRow>
@@ -186,12 +186,12 @@ Some services also provide an **Extra information** dialog that displays supplem
 <BiRow>
 <template #en>
 
-![View Service Details](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_service_details_4.jpg)
+![View Service Details](/ragflow-images/view_service_details_4.jpg)
 
 </template>
 <template #zh>
 
-![查看服务详情](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_service_details_4.jpg)
+![查看服务详情](/ragflow-images/view_service_details_4.jpg)
 
 </template>
 </BiRow>

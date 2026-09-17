@@ -418,12 +418,12 @@ To improve knowledge graph extraction results, follow these principles:
 <BiRow>
 <template #en>
 
-![Graph configuration recommendations](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/graph-configuration-recommendations.jpg)
+![Graph configuration recommendations](/ragflow-images/graph-configuration-recommendations.jpg)
 
 </template>
 <template #zh>
 
-![Graph 配置建议](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/graph-configuration-recommendations.jpg)
+![Graph 配置建议](/ragflow-images/graph-configuration-recommendations.jpg)
 
 </template>
 </BiRow>
@@ -630,12 +630,12 @@ Adjusts the content clustering ratio in the Tree structure and affects the numbe
 <BiRow>
 <template #en>
 
-![Tree clustering ratio](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/tree-clustering-ratio.jpg)
+![Tree clustering ratio](/ragflow-images/tree-clustering-ratio.jpg)
 
 </template>
 <template #zh>
 
-![Tree 聚类比例](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/tree-clustering-ratio.jpg)
+![Tree 聚类比例](/ragflow-images/tree-clustering-ratio.jpg)
 
 </template>
 </BiRow>
@@ -1040,12 +1040,12 @@ Supported operations:
 <BiRow>
 <template #en>
 
-![PageIndex configuration description](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/page-index-configuration-description.jpg)
+![PageIndex configuration description](/ragflow-images/page-index-configuration-description.jpg)
 
 </template>
 <template #zh>
 
-![PageIndex 配置说明](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/page-index-configuration-description.jpg)
+![PageIndex 配置说明](/ragflow-images/page-index-configuration-description.jpg)
 
 </template>
 </BiRow>
@@ -1449,12 +1449,12 @@ Recommendations:
 <BiRow>
 <template #en>
 
-![MindMap node configuration description](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/mind-map-node-configuration-description.jpg)
+![MindMap node configuration description](/ragflow-images/mind-map-node-configuration-description.jpg)
 
 </template>
 <template #zh>
 
-![MindMap 节点配置说明](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/mind-map-node-configuration-description.jpg)
+![MindMap 节点配置说明](/ragflow-images/mind-map-node-configuration-description.jpg)
 
 </template>
 </BiRow>
@@ -1780,12 +1780,12 @@ Users can add relationship types based on actual requirements to describe more c
 <BiRow>
 <template #en>
 
-![Timeline configuration recommendations](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/timeline-configuration-recommendations.jpg)
+![Timeline configuration recommendations](/ragflow-images/timeline-configuration-recommendations.jpg)
 
 </template>
 <template #zh>
 
-![Timeline 配置建议](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/timeline-configuration-recommendations.jpg)
+![Timeline 配置建议](/ragflow-images/timeline-configuration-recommendations.jpg)
 
 </template>
 </BiRow>
@@ -2548,12 +2548,12 @@ The system provides the following blueprints:
 <BiRow>
 <template #en>
 
-![Wiki blueprint configuration](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/built-in-templates-and-dedicated-config-wiki.jpg)
+![Wiki blueprint configuration](/ragflow-images/built-in-templates-and-dedicated-config-wiki.jpg)
 
 </template>
 <template #zh>
 
-![Wiki 蓝图配置](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/built-in-templates-and-dedicated-config-wiki.jpg)
+![Wiki 蓝图配置](/ragflow-images/built-in-templates-and-dedicated-config-wiki.jpg)
 
 </template>
 </BiRow>

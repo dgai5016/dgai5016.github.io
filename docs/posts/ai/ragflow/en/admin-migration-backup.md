@@ -31,7 +31,7 @@ local     docker_redis_data
 
 These volumes contain all the data you need to migrate.
 
-:::note
+:::info
 The volume name prefix (e.g., `docker_`) comes from the Docker Compose project name. By default it is `docker` (derived from the directory name). If you started RAGFlow with `docker compose -p <project_name>`, your volumes will be prefixed with `<project_name>_` instead, for example `ragflow_mysql_data`.
 :::
 

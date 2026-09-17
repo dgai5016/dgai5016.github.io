@@ -1891,14 +1891,14 @@ Parses documents in a specified dataset using the built-in chunking pipeline.
 <BiRow>
 <template #en>
 
-:::note
+:::info
 This endpoint only supports datasets that use the built-in chunking pipeline. For datasets configured with an ingestion pipeline, use `POST /api/v1/documents/ingest` instead.
 :::
 
 </template>
 <template #zh>
 
-:::note
+:::info
 此端点仅支持使用内置分块管道的数据集。对于配置了摄取管道的数据集，请改用 `POST /api/v1/documents/ingest`。
 :::
 

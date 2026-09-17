@@ -229,7 +229,7 @@ WhatsApp 依赖 RAGFlow 后端的 `WhatsAppGateway`。默认情况下，RAGFlow 
 
 完成扫码并将渠道连接到某个对话助手后，用另一个 WhatsApp 账号向该账号发送一条测试消息，验证能否正常收到回复。
 
-:::caution 注意
+:::warning 注意
 
 删除 WhatsApp 渠道或清除网关登录状态后，可能需要重新扫码配对。如果二维码长时间未显示，请确认 `WhatsAppGateway` 已启动，并检查后端服务与网关之间的网络连通性。
 

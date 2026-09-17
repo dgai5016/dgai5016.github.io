@@ -27,12 +27,12 @@ Select the models to compare, enter a test question, and run the comparison. Foc
 <BiRow>
 <template #en>
 
-![Select models for comparison](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/multi_model_comparison_1.jpg)
+![Select models for comparison](/ragflow-images/multi_model_comparison_1.jpg)
 
 </template>
 <template #zh>
 
-![选择要比较的模型](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/multi_model_comparison_1.jpg)
+![选择要比较的模型](/ragflow-images/multi_model_comparison_1.jpg)
 
 </template>
 </BiRow>
@@ -40,12 +40,12 @@ Select the models to compare, enter a test question, and run the comparison. Foc
 <BiRow>
 <template #en>
 
-![Compare model answers](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/multi_model_comparison_2.jpg)
+![Compare model answers](/ragflow-images/multi_model_comparison_2.jpg)
 
 </template>
 <template #zh>
 
-![比较各模型的回答](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/multi_model_comparison_2.jpg)
+![比较各模型的回答](/ragflow-images/multi_model_comparison_2.jpg)
 
 </template>
 </BiRow>

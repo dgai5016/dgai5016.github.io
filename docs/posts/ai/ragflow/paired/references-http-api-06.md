@@ -351,14 +351,14 @@ Updates a session of a specified chat assistant.
 <BiRow>
 <template #en>
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `PUT /api/v1/chats/{chat_id}/sessions/{session_id}` is deprecated. Use this endpoint instead.
 :::
 
 </template>
 <template #zh>
 
-:::caution 已弃用
+:::warning 已弃用
 `PUT /api/v1/chats/{chat_id}/sessions/{session_id}` 已弃用。请改用本端点。
 :::
 
@@ -2037,14 +2037,14 @@ Starts a chat completion request. The same endpoint supports three modes:
 <BiRow>
 <template #en>
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `POST /api/v1/chats/{chat_id}/completions` is deprecated. Use this endpoint instead.
 :::
 
 </template>
 <template #zh>
 
-:::caution 已弃用
+:::warning 已弃用
 `POST /api/v1/chats/{chat_id}/completions` 已弃用。请改用本端点。
 :::
 
@@ -3517,14 +3517,14 @@ Uses a single completion endpoint for all agent conversations.
 <BiRow>
 <template #en>
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `POST /api/v1/agents/{agent_id}/completions` is deprecated. Use this endpoint instead.
 :::
 
 </template>
 <template #zh>
 
-:::caution 已弃用
+:::warning 已弃用
 `POST /api/v1/agents/{agent_id}/completions` 已弃用。请改用本端点。
 :::
 
@@ -6122,14 +6122,14 @@ Generates five to ten alternative question strings from the user's original quer
 <BiRow>
 <template #en>
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `POST /api/v1/sessions/related_questions` is deprecated. Use this endpoint instead.
 :::
 
 </template>
 <template #zh>
 
-:::caution 已弃用
+:::warning 已弃用
 `POST /api/v1/sessions/related_questions` 已弃用。请改用本端点。
 :::
 
@@ -6152,12 +6152,12 @@ This operation requires a `Bearer Login Token`, which typically expires with in 
 <BiRow>
 <template #en>
 
-![Image](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/login_token.jpg)
+![Image](/ragflow-images/login_token.jpg)
 
 </template>
 <template #zh>
 
-![Image](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/login_token.jpg)
+![Image](/ragflow-images/login_token.jpg)
 
 </template>
 </BiRow>

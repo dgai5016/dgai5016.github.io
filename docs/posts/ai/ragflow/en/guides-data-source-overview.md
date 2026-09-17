@@ -10,7 +10,7 @@ Data sources are used to connect external systems and synchronize their document
 
 Enter the **Data Source** page from **User Settings**. The upper part of the page displays connected data sources, and the lower part displays data sources that can be added.
 
-![Enter the Data Source Page](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Enter_Data_Source_Page.jpg)
+![Enter the Data Source Page](/ragflow-images/Enter_Data_Source_Page.jpg)
 
 ### Create a Data Source Connection
 
@@ -23,7 +23,7 @@ Select the system you need to connect from the available data sources. The syste
 
 Different data source creation windows display different fields. Users only need to fill in the fields in the current window. Credentials, addresses, spaces, buckets, database tables, and other information should be based on the actual configuration in the corresponding external system.
 
-![Create a Data Source Connection](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Create_Data_Source_Connection.jpg)
+![Create a Data Source Connection](/ragflow-images/Create_Data_Source_Connection.jpg)
 
 ### Manage Connected Data Sources
 
@@ -51,7 +51,7 @@ Common fields on the settings page include:
 
 After completing the modification, click **Save**. The new configuration is used for subsequent synchronization tasks. Content that has already been synchronized to the knowledge base is gradually updated according to the next synchronization or cleanup task.
 
-![Set a Connected Data Source](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Set_a_Connected_Data_Source.jpg)
+![Set a Connected Data Source](/ragflow-images/Set_a_Connected_Data_Source.jpg)
 
 ### View Connected Data Source Logs
 
@@ -67,4 +67,4 @@ Log fields are described as follows:
 
 If the log is empty, it usually means that the data source has not been used by any knowledge base, or that no synchronization task has been triggered.
 
-![View Connected Data Source Logs](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/View_Connected_Data_Source_Logs.jpg)
+![View Connected Data Source Logs](/ragflow-images/View_Connected_Data_Source_Logs.jpg)

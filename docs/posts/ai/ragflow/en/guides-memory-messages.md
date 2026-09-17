@@ -20,4 +20,4 @@ The message list displays information such as sessions, source Agents, message t
 | Enabled | Controls whether this message participates in subsequent retrieval. After it is disabled, the message is still retained, but it no longer affects Agent retrieval results. |
 | Operation | Used to view, copy, view logs, or forget messages. The specific buttons depend on the current permissions and message status. |
 
-![Message page](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/message_page.jpg)
+![Message page](/ragflow-images/message_page.jpg)

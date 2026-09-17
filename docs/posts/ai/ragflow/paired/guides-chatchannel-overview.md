@@ -121,12 +121,12 @@ When using this feature for the first time, the page indicates that no chat chan
 <BiRow>
 <template #en>
 
-![Enter the Chat Channels page](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/chat-channel-overview-enter-chat-channel-page.jpg)
+![Enter the Chat Channels page](/ragflow-images/chat-channel-overview-enter-chat-channel-page.jpg)
 
 </template>
 <template #zh>
 
-![进入对话渠道页面](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/chat-channel-overview-enter-chat-channel-page.jpg)
+![进入对话渠道页面](/ragflow-images/chat-channel-overview-enter-chat-channel-page.jpg)
 
 </template>
 </BiRow>
@@ -198,12 +198,12 @@ Operation steps:
 <BiRow>
 <template #en>
 
-![General configuration and operation workflow](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/chat-channel-overview-general-configuration-and-workflow.jpg)
+![General configuration and operation workflow](/ragflow-images/chat-channel-overview-general-configuration-and-workflow.jpg)
 
 </template>
 <template #zh>
 
-![通用配置与操作流程](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/chat-channel-overview-general-configuration-and-workflow.jpg)
+![通用配置与操作流程](/ragflow-images/chat-channel-overview-general-configuration-and-workflow.jpg)
 
 </template>
 </BiRow>

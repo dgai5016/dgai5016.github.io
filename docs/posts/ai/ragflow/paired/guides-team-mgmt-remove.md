@@ -59,12 +59,12 @@ The workspace owner cannot be removed from the workspace. Removing a member does
 <BiRow>
 <template #en>
 
-![Remove Members](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/remove_members.jpg)
+![Remove Members](/ragflow-images/remove_members.jpg)
 
 </template>
 <template #zh>
 
-![移除成员](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/remove_members.jpg)
+![移除成员](/ragflow-images/remove_members.jpg)
 
 </template>
 </BiRow>

@@ -76,12 +76,12 @@ After creating a Chat, configure its datasets, model, system prompt, and retriev
 <BiRow>
 <template #en>
 
-![Open Chat from the navigation bar](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_chat_1.jpg)
+![Open Chat from the navigation bar](/ragflow-images/create_chat_1.jpg)
 
 </template>
 <template #zh>
 
-![从导航栏打开 Chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_chat_1.jpg)
+![从导航栏打开 Chat](/ragflow-images/create_chat_1.jpg)
 
 </template>
 </BiRow>
@@ -89,12 +89,12 @@ After creating a Chat, configure its datasets, model, system prompt, and retriev
 <BiRow>
 <template #en>
 
-![Create a Chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_chat_2.jpg)
+![Create a Chat](/ragflow-images/create_chat_2.jpg)
 
 </template>
 <template #zh>
 
-![创建 Chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_chat_2.jpg)
+![创建 Chat](/ragflow-images/create_chat_2.jpg)
 
 </template>
 </BiRow>
@@ -102,12 +102,12 @@ After creating a Chat, configure its datasets, model, system prompt, and retriev
 <BiRow>
 <template #en>
 
-![Enter a name for the Chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_chat_3.jpg)
+![Enter a name for the Chat](/ragflow-images/create_chat_3.jpg)
 
 </template>
 <template #zh>
 
-![为 Chat 输入名称](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_chat_3.jpg)
+![为 Chat 输入名称](/ragflow-images/create_chat_3.jpg)
 
 </template>
 </BiRow>
@@ -115,12 +115,12 @@ After creating a Chat, configure its datasets, model, system prompt, and retriev
 <BiRow>
 <template #en>
 
-![Configure the newly created Chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_chat_4.jpg)
+![Configure the newly created Chat](/ragflow-images/create_chat_4.jpg)
 
 </template>
 <template #zh>
 
-![配置新建的 Chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_chat_4.jpg)
+![配置新建的 Chat](/ragflow-images/create_chat_4.jpg)
 
 </template>
 </BiRow>
@@ -184,12 +184,12 @@ You can set the following basic information for a Chat:
 <BiRow>
 <template #en>
 
-![Basic Chat information](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/basic_information_chat.jpg)
+![Basic Chat information](/ragflow-images/basic_information_chat.jpg)
 
 </template>
 <template #zh>
 
-![Chat 基本信息](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/basic_information_chat.jpg)
+![Chat 基本信息](/ragflow-images/basic_information_chat.jpg)
 
 </template>
 </BiRow>
@@ -255,12 +255,12 @@ Save the setting and test it in the chat window.
 <BiRow>
 <template #en>
 
-![Configure a Chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/configure_chat.jpg)
+![Configure a Chat](/ragflow-images/configure_chat.jpg)
 
 </template>
 <template #zh>
 
-![配置 Chat](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/configure_chat.jpg)
+![配置 Chat](/ragflow-images/configure_chat.jpg)
 
 </template>
 </BiRow>

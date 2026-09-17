@@ -84,12 +84,12 @@ Confluence 数据源用于将团队在 Confluence 中维护的空间、页面与
 <BiRow>
 <template #en>
 
-![Confluence](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Confluence.jpg)
+![Confluence](/ragflow-images/Confluence.jpg)
 
 </template>
 <template #zh>
 
-![Confluence](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Confluence.jpg)
+![Confluence](/ragflow-images/Confluence.jpg)
 
 </template>
 </BiRow>
@@ -181,12 +181,12 @@ Notion 数据源用于将 Notion 页面与数据库内容同步到 RAGFlow 知�
 <BiRow>
 <template #en>
 
-![Notion](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Notion.jpg)
+![Notion](/ragflow-images/Notion.jpg)
 
 </template>
 <template #zh>
 
-![Notion](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Notion.jpg)
+![Notion](/ragflow-images/Notion.jpg)
 
 </template>
 </BiRow>
@@ -280,12 +280,12 @@ Google Drive 数据源用于将 Google Drive 中的文件或文件夹同步到 R
 <BiRow>
 <template #en>
 
-![Google Drive](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Google_Drive.jpg)
+![Google Drive](/ragflow-images/Google_Drive.jpg)
 
 </template>
 <template #zh>
 
-![Google Drive](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Google_Drive.jpg)
+![Google Drive](/ragflow-images/Google_Drive.jpg)
 
 </template>
 </BiRow>
@@ -531,12 +531,12 @@ OneDrive 数据源用于将 OneDrive 或 OneDrive for Business 中的文件同�
 <BiRow>
 <template #en>
 
-![OneDrive](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/OneDrive.jpg)
+![OneDrive](/ragflow-images/OneDrive.jpg)
 
 </template>
 <template #zh>
 
-![OneDrive](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/OneDrive.jpg)
+![OneDrive](/ragflow-images/OneDrive.jpg)
 
 </template>
 </BiRow>
@@ -632,12 +632,12 @@ SharePoint 数据源用于将 SharePoint 站点文档库同步到 RAGFlow 知识
 <BiRow>
 <template #en>
 
-![SharePoint](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/SharePoint.jpg)
+![SharePoint](/ragflow-images/SharePoint.jpg)
 
 </template>
 <template #zh>
 
-![SharePoint](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/SharePoint.jpg)
+![SharePoint](/ragflow-images/SharePoint.jpg)
 
 </template>
 </BiRow>
@@ -729,12 +729,12 @@ Box 数据源用于将 Box 云盘中的文件和文件夹同步到 RAGFlow 知�
 <BiRow>
 <template #en>
 
-![Box](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Box.jpg)
+![Box](/ragflow-images/Box.jpg)
 
 </template>
 <template #zh>
 
-![Box](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Box.jpg)
+![Box](/ragflow-images/Box.jpg)
 
 </template>
 </BiRow>
@@ -826,12 +826,12 @@ Dropbox 数据源用于将 Dropbox 中的文件和文件夹同步到 RAGFlow 知
 <BiRow>
 <template #en>
 
-![Dropbox](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Dropbox.jpg)
+![Dropbox](/ragflow-images/Dropbox.jpg)
 
 </template>
 <template #zh>
 
-![Dropbox](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Dropbox.jpg)
+![Dropbox](/ragflow-images/Dropbox.jpg)
 
 </template>
 </BiRow>
@@ -935,12 +935,12 @@ SeaFile 数据源用于将 Seafile 中的账号、资料库或目录内容同步
 <BiRow>
 <template #en>
 
-![SeaFile](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/SeaFile.jpg)
+![SeaFile](/ragflow-images/SeaFile.jpg)
 
 </template>
 <template #zh>
 
-![SeaFile](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/SeaFile.jpg)
+![SeaFile](/ragflow-images/SeaFile.jpg)
 
 </template>
 </BiRow>
@@ -1134,12 +1134,12 @@ Google Cloud Storage 数据源用于将 GCS 存储桶中的文件同步到 RAGFl
 <BiRow>
 <template #en>
 
-![Google Cloud Storage](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Google_Cloud_Storage.jpg)
+![Google Cloud Storage](/ragflow-images/Google_Cloud_Storage.jpg)
 
 </template>
 <template #zh>
 
-![Google Cloud Storage](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Google_Cloud_Storage.jpg)
+![Google Cloud Storage](/ragflow-images/Google_Cloud_Storage.jpg)
 
 </template>
 </BiRow>
@@ -1237,12 +1237,12 @@ Oracle Storage 数据源用于将 Oracle Cloud 对象存储中的文件同步到
 <BiRow>
 <template #en>
 
-![Oracle Storage](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Oracle_Storage.jpg)
+![Oracle Storage](/ragflow-images/Oracle_Storage.jpg)
 
 </template>
 <template #zh>
 
-![Oracle Storage](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Oracle_Storage.jpg)
+![Oracle Storage](/ragflow-images/Oracle_Storage.jpg)
 
 </template>
 </BiRow>
@@ -1338,12 +1338,12 @@ R2 数据源用于将 Cloudflare R2 存储桶中的文件同步到 RAGFlow 知�
 <BiRow>
 <template #en>
 
-![R2](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/R2.jpg)
+![R2](/ragflow-images/R2.jpg)
 
 </template>
 <template #zh>
 
-![R2](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/R2.jpg)
+![R2](/ragflow-images/R2.jpg)
 
 </template>
 </BiRow>
@@ -1449,12 +1449,12 @@ Azure Blob Storage 数据源用于将 Azure Blob 容器中的文件同步到 RAG
 <BiRow>
 <template #en>
 
-![Azure Blob Storage](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Azure_Blob_Storage.jpg)
+![Azure Blob Storage](/ragflow-images/Azure_Blob_Storage.jpg)
 
 </template>
 <template #zh>
 
-![Azure Blob Storage](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Azure_Blob_Storage.jpg)
+![Azure Blob Storage](/ragflow-images/Azure_Blob_Storage.jpg)
 
 </template>
 </BiRow>
@@ -1562,12 +1562,12 @@ MySQL 数据源用于将 MySQL 中的表记录或查询结果同步到 RAGFlow �
 <BiRow>
 <template #en>
 
-![MySQL](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/MySQL.jpg)
+![MySQL](/ragflow-images/MySQL.jpg)
 
 </template>
 <template #zh>
 
-![MySQL](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/MySQL.jpg)
+![MySQL](/ragflow-images/MySQL.jpg)
 
 </template>
 </BiRow>
@@ -1640,12 +1640,12 @@ PostgreSQL 数据源用于将 PostgreSQL 中的表记录或查询结果同步到
 <BiRow>
 <template #en>
 
-![PostgreSQL](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/PostgreSQL.jpg)
+![PostgreSQL](/ragflow-images/PostgreSQL.jpg)
 
 </template>
 <template #zh>
 
-![PostgreSQL](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/PostgreSQL.jpg)
+![PostgreSQL](/ragflow-images/PostgreSQL.jpg)
 
 </template>
 </BiRow>
@@ -1751,12 +1751,12 @@ BigQuery 数据源用于将 BigQuery 中的表记录或查询结果同步到 RAG
 <BiRow>
 <template #en>
 
-![BigQuery](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/BigQuery.jpg)
+![BigQuery](/ragflow-images/BigQuery.jpg)
 
 </template>
 <template #zh>
 
-![BigQuery](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/BigQuery.jpg)
+![BigQuery](/ragflow-images/BigQuery.jpg)
 
 </template>
 </BiRow>
@@ -1854,12 +1854,12 @@ GitHub 数据源用于将 GitHub 仓库中的 issue 与 pull request 同步到 R
 <BiRow>
 <template #en>
 
-![GitHub](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/GitHub.jpg)
+![GitHub](/ragflow-images/GitHub.jpg)
 
 </template>
 <template #zh>
 
-![GitHub](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/GitHub.jpg)
+![GitHub](/ragflow-images/GitHub.jpg)
 
 </template>
 </BiRow>
@@ -1959,12 +1959,12 @@ GitLab 数据源用于将 GitLab 仓库、issue、merge request 与代码文件�
 <BiRow>
 <template #en>
 
-![GitLab](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/GitLab.jpg)
+![GitLab](/ragflow-images/GitLab.jpg)
 
 </template>
 <template #zh>
 
-![GitLab](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/GitLab.jpg)
+![GitLab](/ragflow-images/GitLab.jpg)
 
 </template>
 </BiRow>
@@ -2064,12 +2064,12 @@ Bitbucket 数据源用于将 Bitbucket 仓库内容、issue 与 pull request 同
 <BiRow>
 <template #en>
 
-![Bitbucket](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Bitbucket.jpg)
+![Bitbucket](/ragflow-images/Bitbucket.jpg)
 
 </template>
 <template #zh>
 
-![Bitbucket](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Bitbucket.jpg)
+![Bitbucket](/ragflow-images/Bitbucket.jpg)
 
 </template>
 </BiRow>
@@ -2293,12 +2293,12 @@ Jira 数据源用于将 Jira 中的 issue、评论与项目记录同步到 RAGFl
 <BiRow>
 <template #en>
 
-![Jira](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Jira.jpg)
+![Jira](/ragflow-images/Jira.jpg)
 
 </template>
 <template #zh>
 
-![Jira](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Jira.jpg)
+![Jira](/ragflow-images/Jira.jpg)
 
 </template>
 </BiRow>
@@ -2396,12 +2396,12 @@ Asana 数据源用于将 Asana 中的任务、项目与评论同步到 RAGFlow �
 <BiRow>
 <template #en>
 
-![Asana](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Asana.jpg)
+![Asana](/ragflow-images/Asana.jpg)
 
 </template>
 <template #zh>
 
-![Asana](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Asana.jpg)
+![Asana](/ragflow-images/Asana.jpg)
 
 </template>
 </BiRow>
@@ -2499,12 +2499,12 @@ Gmail 数据源用于将 Gmail 邮件内容同步到 RAGFlow 知识库。配置�
 <BiRow>
 <template #en>
 
-![Gmail](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Gmail.jpg)
+![Gmail](/ragflow-images/Gmail.jpg)
 
 </template>
 <template #zh>
 
-![Gmail](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Gmail.jpg)
+![Gmail](/ragflow-images/Gmail.jpg)
 
 </template>
 </BiRow>
@@ -2604,12 +2604,12 @@ Outlook 数据源用于将 Outlook 邮箱中的邮件同步到 RAGFlow 知识库
 <BiRow>
 <template #en>
 
-![Outlook](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Outlook.jpg)
+![Outlook](/ragflow-images/Outlook.jpg)
 
 </template>
 <template #zh>
 
-![Outlook](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Outlook.jpg)
+![Outlook](/ragflow-images/Outlook.jpg)
 
 </template>
 </BiRow>
@@ -2711,12 +2711,12 @@ IMAP 数据源用于将支持 IMAP 协议的邮件服务中的邮件内容同步
 <BiRow>
 <template #en>
 
-![IMAP](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/IMAP.jpg)
+![IMAP](/ragflow-images/IMAP.jpg)
 
 </template>
 <template #zh>
 
-![IMAP](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/IMAP.jpg)
+![IMAP](/ragflow-images/IMAP.jpg)
 
 </template>
 </BiRow>
@@ -2816,12 +2816,12 @@ Microsoft Teams 数据源用于将 Teams 频道消息及相关协作记录同步
 <BiRow>
 <template #en>
 
-![Microsoft Teams](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Microsoft_Teams.jpg)
+![Microsoft Teams](/ragflow-images/Microsoft_Teams.jpg)
 
 </template>
 <template #zh>
 
-![Microsoft Teams](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Microsoft_Teams.jpg)
+![Microsoft Teams](/ragflow-images/Microsoft_Teams.jpg)
 
 </template>
 </BiRow>
@@ -2917,12 +2917,12 @@ Slack 数据源用于将 Slack 频道消息与协作内容同步到 RAGFlow 知�
 <BiRow>
 <template #en>
 
-![Slack](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Slack.jpg)
+![Slack](/ragflow-images/Slack.jpg)
 
 </template>
 <template #zh>
 
-![Slack](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Slack.jpg)
+![Slack](/ragflow-images/Slack.jpg)
 
 </template>
 </BiRow>
@@ -3018,12 +3018,12 @@ Discord 数据源用于将 Discord 服务器与频道消息同步到 RAGFlow 知
 <BiRow>
 <template #en>
 
-![Discord](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Discord.jpg)
+![Discord](/ragflow-images/Discord.jpg)
 
 </template>
 <template #zh>
 
-![Discord](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Discord.jpg)
+![Discord](/ragflow-images/Discord.jpg)
 
 </template>
 </BiRow>
@@ -3123,12 +3123,12 @@ The Dingtalk AI Table data source is used to synchronize records in Dingtalk AI 
 <BiRow>
 <template #en>
 
-![Dingtalk AI Table](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Dingtalk_AI_Table.jpg)
+![Dingtalk AI Table](/ragflow-images/Dingtalk_AI_Table.jpg)
 
 </template>
 <template #zh>
 
-![Dingtalk AI Table](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Dingtalk_AI_Table.jpg)
+![Dingtalk AI Table](/ragflow-images/Dingtalk_AI_Table.jpg)
 
 </template>
 </BiRow>
@@ -3316,12 +3316,12 @@ Moodle 数据源用于将 Moodle 中的课程内容、论坛、资源与学习�
 <BiRow>
 <template #en>
 
-![Moodle](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Moodle.jpg)
+![Moodle](/ragflow-images/Moodle.jpg)
 
 </template>
 <template #zh>
 
-![Moodle](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Moodle.jpg)
+![Moodle](/ragflow-images/Moodle.jpg)
 
 </template>
 </BiRow>
@@ -3425,12 +3425,12 @@ REST API 数据源用于将自定义业务 API 返回的数据同步到 RAGFlow 
 <BiRow>
 <template #en>
 
-![REST API](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/REST_API.jpg)
+![REST API](/ragflow-images/REST_API.jpg)
 
 </template>
 <template #zh>
 
-![REST API](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/REST_API.jpg)
+![REST API](/ragflow-images/REST_API.jpg)
 
 </template>
 </BiRow>
@@ -3625,12 +3625,12 @@ RSS 数据源用于将公开网站、博客、公告或产品动态订阅到 RAG
 <BiRow>
 <template #en>
 
-![RSS](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/RSS.jpg)
+![RSS](/ragflow-images/RSS.jpg)
 
 </template>
 <template #zh>
 
-![RSS](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/RSS.jpg)
+![RSS](/ragflow-images/RSS.jpg)
 
 </template>
 </BiRow>

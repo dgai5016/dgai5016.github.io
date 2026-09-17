@@ -11,4 +11,4 @@ To remove a member:
 
 The workspace owner cannot be removed from the workspace. Removing a member does not delete the member's personal resources, but it affects the member's access to resources that are shared only within the team.
 
-![Remove Members](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/remove_members.jpg)
+![Remove Members](/ragflow-images/remove_members.jpg)

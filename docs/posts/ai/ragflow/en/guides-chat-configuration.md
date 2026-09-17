@@ -93,7 +93,7 @@ Retrieval means searching for evidence before answering. If a dataset is associa
 
 If you are unsure which mode to choose, start with **Medium** for formal business Q&A. For simple questions or when speed is critical, use **None** or **Low**. If the answer is incomplete or requires cross-document comparison, move up to **High** or **Ultra**.
 
-![Select a Thinking mode](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/select_thinking_mode.jpg)
+![Select a Thinking mode](/ragflow-images/select_thinking_mode.jpg)
 
 ## Retrieval Augmentation Options
 
@@ -104,12 +104,12 @@ Retrieval augmentation options further optimize queries or expand information re
 - **Cross-language search**: Improves retrieval across languages. When the question language differs from the language of the dataset documents, this option can improve the recall of cross-language content.
 
 <img
-  src="https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/retrieval_augmentation_options_1.jpg"
+  src="/ragflow-images/retrieval_augmentation_options_1.jpg"
   alt="Retrieval augmentation options"
   width="700"
 />
 
-![Additional retrieval augmentation settings](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/retrieval_augmentation_options_2.jpg)
+![Additional retrieval augmentation settings](/ragflow-images/retrieval_augmentation_options_2.jpg)
 
 ## Answer and Display Settings
 

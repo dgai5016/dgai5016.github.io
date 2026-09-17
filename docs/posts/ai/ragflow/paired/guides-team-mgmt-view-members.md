@@ -78,12 +78,12 @@ Only the workspace owner can query and manage the full member list for the works
 <BiRow>
 <template #en>
 
-![View Current Workspace Members](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_current_workspace_members.jpg)
+![View Current Workspace Members](/ragflow-images/view_current_workspace_members.jpg)
 
 </template>
 <template #zh>
 
-![查看当前工作区成员](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_current_workspace_members.jpg)
+![查看当前工作区成员](/ragflow-images/view_current_workspace_members.jpg)
 
 </template>
 </BiRow>

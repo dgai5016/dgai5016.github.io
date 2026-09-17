@@ -20,7 +20,7 @@ Confluence 数据源用于将团队在 Confluence 中维护的空间、页面与
 - **Recursive indexing**：仅在索引模式为 **Page** 时可用。启用后，该页面及其子页面都会被同步。
 - **Sync deleted files**：启用后，外部系统中被删除的内容会从知识库索引中移除。
 
-![Confluence](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Confluence.jpg)
+![Confluence](/ragflow-images/Confluence.jpg)
 
 ## Notion
 
@@ -37,7 +37,7 @@ Notion 数据源用于将 Notion 页面与数据库内容同步到 RAGFlow 知�
 - **Root page ID**：填写需要同步的根页面 ID。
 - **Sync deleted files**：启用后，外部系统中被删除的内容会从知识库索引中移除。
 
-![Notion](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Notion.jpg)
+![Notion](/ragflow-images/Notion.jpg)
 
 ## Google Drive
 
@@ -55,7 +55,7 @@ Google Drive 数据源用于将 Google Drive 中的文件或文件夹同步到 R
 - **My Drive email**：填写需要对其 **My Drive** 建立索引的用户邮箱地址。
 - **Shared folder URL**：填写需要同步的 Google Drive 共享文件夹 URL。
 
-![Google Drive](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Google_Drive.jpg)
+![Google Drive](/ragflow-images/Google_Drive.jpg)
 
 ## 飞书 Wiki
 
@@ -104,7 +104,7 @@ OneDrive 数据源用于将 OneDrive 或 OneDrive for Business 中的文件同�
 - **Batch size**：设置每批处理的条目数。
 - **Sync deleted files**：启用后，外部系统中被删除的内容会从知识库索引中移除。
 
-![OneDrive](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/OneDrive.jpg)
+![OneDrive](/ragflow-images/OneDrive.jpg)
 
 ## SharePoint
 
@@ -123,7 +123,7 @@ SharePoint 数据源用于将 SharePoint 站点文档库同步到 RAGFlow 知识
 - **Client secret**：填写应用注册中的 client secret。
 - **Sync deleted files**：启用后，外部系统中被删除的内容会从知识库索引中移除。
 
-![SharePoint](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/SharePoint.jpg)
+![SharePoint](/ragflow-images/SharePoint.jpg)
 
 ## Box
 
@@ -140,7 +140,7 @@ Box 数据源用于将 Box 云盘中的文件和文件夹同步到 RAGFlow 知�
 - **Folder ID**：填写需要同步的 Box 文件夹 ID。
 - **Sync deleted files**：启用后，外部系统中被删除的内容会从知识库索引中移除。
 
-![Box](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Box.jpg)
+![Box](/ragflow-images/Box.jpg)
 
 ## Dropbox
 
@@ -157,7 +157,7 @@ Dropbox 数据源用于将 Dropbox 中的文件和文件夹同步到 RAGFlow 知
 - **Batch size**：设置每批同步的文件数。
 - **Sync deleted files**：启用后，外部系统中被删除的内容会从知识库索引中移除。
 
-![Dropbox](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Dropbox.jpg)
+![Dropbox](/ragflow-images/Dropbox.jpg)
 
 ## SeaFile
 
@@ -180,7 +180,7 @@ SeaFile 数据源用于将 Seafile 中的账号、资料库或目录内容同步
 - **Batch size**：设置每批处理的条目数。
 - **Sync deleted files**：启用后，外部系统中被删除的内容会从知识库索引中移除。
 
-![SeaFile](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/SeaFile.jpg)
+![SeaFile](/ragflow-images/SeaFile.jpg)
 
 ## S3
 
@@ -221,7 +221,7 @@ Google Cloud Storage 数据源用于将 GCS 存储桶中的文件同步到 RAGFl
 - **Bucket name**：填写需要同步的存储桶名称。
 - **Sync deleted files**：启用后，外部系统中被删除的内容会从知识库索引中移除。
 
-![Google Cloud Storage](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Google_Cloud_Storage.jpg)
+![Google Cloud Storage](/ragflow-images/Google_Cloud_Storage.jpg)
 
 ## Oracle Storage
 
@@ -241,7 +241,7 @@ Oracle Storage 数据源用于将 Oracle Cloud 对象存储中的文件同步到
 - **Bucket name**：填写需要同步的存储桶名称。
 - **Sync deleted files**：启用后，外部系统中被删除的内容会从知识库索引中移除。
 
-![Oracle Storage](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Oracle_Storage.jpg)
+![Oracle Storage](/ragflow-images/Oracle_Storage.jpg)
 
 ## R2
 
@@ -260,7 +260,7 @@ R2 数据源用于将 Cloudflare R2 存储桶中的文件同步到 RAGFlow 知�
 - **Bucket name**：填写需要同步的存储桶名称。
 - **Sync deleted files**：启用后，外部系统中被删除的内容会从知识库索引中移除。
 
-![R2](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/R2.jpg)
+![R2](/ragflow-images/R2.jpg)
 
 ## Azure Blob Storage
 
@@ -284,7 +284,7 @@ Azure Blob Storage 数据源用于将 Azure Blob 容器中的文件同步到 RAG
 - **Batch size**：设置每批处理的文件数。
 - **Sync deleted files**：启用后，外部系统中被删除的内容会从知识库索引中移除。
 
-![Azure Blob Storage](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Azure_Blob_Storage.jpg)
+![Azure Blob Storage](/ragflow-images/Azure_Blob_Storage.jpg)
 
 ## MySQL
 
@@ -309,7 +309,7 @@ MySQL 数据源用于将 MySQL 中的表记录或查询结果同步到 RAGFlow �
 - **Timestamp column**：选择用于判断增量更新的字段。
 - **Sync deleted files**：启用后，可根据字段映射或清理任务，将已删除的记录从知识库索引中移除。
 
-![MySQL](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/MySQL.jpg)
+![MySQL](/ragflow-images/MySQL.jpg)
 
 ## PostgreSQL
 
@@ -321,7 +321,7 @@ PostgreSQL 数据源用于将 PostgreSQL 中的表记录或查询结果同步到
 
 **配置参数**：配置字段与 MySQL 相同，包括 name、host、port、database、username、password、SQL query、content column、metadata column、ID column、timestamp column 和 sync deleted files。
 
-![PostgreSQL](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/PostgreSQL.jpg)
+![PostgreSQL](/ragflow-images/PostgreSQL.jpg)
 
 ## BigQuery
 
@@ -345,7 +345,7 @@ BigQuery 数据源用于将 BigQuery 中的表记录或查询结果同步到 RAG
 - **Timestamp column**：选择用于判断增量更新的字段。
 - **Sync deleted files**：启用后，可根据字段映射或清理任务，将已删除的记录从知识库索引中移除。
 
-![BigQuery](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/BigQuery.jpg)
+![BigQuery](/ragflow-images/BigQuery.jpg)
 
 ## GitHub
 
@@ -365,7 +365,7 @@ GitHub 数据源用于将 GitHub 仓库中的 issue 与 pull request 同步到 R
 - **Include Issues**：选择是否同步 issue。
 - **Sync deleted files**：启用后，外部系统中被删除的内容会从知识库索引中移除。
 
-![GitHub](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/GitHub.jpg)
+![GitHub](/ragflow-images/GitHub.jpg)
 
 ## GitLab
 
@@ -386,7 +386,7 @@ GitLab 数据源用于将 GitLab 仓库、issue、merge request 与代码文件�
 - **Include repository files**：选择是否同步仓库文件。
 - **Sync deleted files**：启用后，外部系统中被删除的内容会从知识库索引中移除。
 
-![GitLab](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/GitLab.jpg)
+![GitLab](/ragflow-images/GitLab.jpg)
 
 ## Bitbucket
 
@@ -407,7 +407,7 @@ Bitbucket 数据源用于将 Bitbucket 仓库内容、issue 与 pull request 同
 - **Include issues**：选择是否同步 issue。
 - **Sync deleted files**：启用后，外部系统中被删除的内容会从知识库索引中移除。
 
-![Bitbucket](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Bitbucket.jpg)
+![Bitbucket](/ragflow-images/Bitbucket.jpg)
 
 ## Azure DevOps
 
@@ -452,7 +452,7 @@ Jira 数据源用于将 Jira 中的 issue、评论与项目记录同步到 RAGFl
 - **Sync attachments**：选择是否同步附件。
 - **Sync deleted files**：启用后，外部系统中被删除的内容会从知识库索引中移除。
 
-![Jira](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Jira.jpg)
+![Jira](/ragflow-images/Jira.jpg)
 
 ## Asana
 
@@ -472,7 +472,7 @@ Asana 数据源用于将 Asana 中的任务、项目与评论同步到 RAGFlow �
 - **Sync attachments**：选择是否同步附件。
 - **Sync deleted files**：启用后，外部系统中被删除的内容会从知识库索引中移除。
 
-![Asana](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Asana.jpg)
+![Asana](/ragflow-images/Asana.jpg)
 
 ## Gmail
 
@@ -492,7 +492,7 @@ Gmail 数据源用于将 Gmail 邮件内容同步到 RAGFlow 知识库。配置�
 - **Batch size**：设置每批处理的邮件数。
 - **Sync deleted files**：启用后，外部系统中被删除的邮件会从知识库索引中移除。
 
-![Gmail](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Gmail.jpg)
+![Gmail](/ragflow-images/Gmail.jpg)
 
 ## Outlook
 
@@ -513,7 +513,7 @@ Outlook 数据源用于将 Outlook 邮箱中的邮件同步到 RAGFlow 知识库
 - **Batch size**：设置每批处理的邮件数。
 - **Sync deleted files**：启用后，外部系统中被删除的邮件会从知识库索引中移除。
 
-![Outlook](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Outlook.jpg)
+![Outlook](/ragflow-images/Outlook.jpg)
 
 ## IMAP
 
@@ -535,7 +535,7 @@ IMAP 数据源用于将支持 IMAP 协议的邮件服务中的邮件内容同步
 - **Batch size**：设置每批处理的邮件数。
 - **Sync deleted files**：启用后，外部系统中被删除的邮件会从知识库索引中移除。
 
-![IMAP](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/IMAP.jpg)
+![IMAP](/ragflow-images/IMAP.jpg)
 
 ## Microsoft Teams
 
@@ -556,7 +556,7 @@ Microsoft Teams 数据源用于将 Teams 频道消息及相关协作记录同步
 - **Batch size**：设置每批处理的消息数。
 - **Sync deleted files**：启用后，外部系统中被删除的消息会从知识库索引中移除。
 
-![Microsoft Teams](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Microsoft_Teams.jpg)
+![Microsoft Teams](/ragflow-images/Microsoft_Teams.jpg)
 
 ## Slack
 
@@ -575,7 +575,7 @@ Slack 数据源用于将 Slack 频道消息与协作内容同步到 RAGFlow 知�
 - **Batch size**：设置每批处理的消息数。
 - **Sync deleted files**：启用后，外部系统中被删除的消息会从知识库索引中移除。
 
-![Slack](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Slack.jpg)
+![Slack](/ragflow-images/Slack.jpg)
 
 ## Discord
 
@@ -594,7 +594,7 @@ Discord 数据源用于将 Discord 服务器与频道消息同步到 RAGFlow 知
 - **Batch size**：设置每批处理的消息数。
 - **Sync deleted files**：启用后，外部系统中被删除的消息会从知识库索引中移除。
 
-![Discord](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Discord.jpg)
+![Discord](/ragflow-images/Discord.jpg)
 
 ## 钉钉 AI Table
 
@@ -615,7 +615,7 @@ Discord 数据源用于将 Discord 服务器与频道消息同步到 RAGFlow 知
 - **Metadata field**：选择要写入为元数据的字段。
 - **Sync deleted files**：启用后，被删除的记录会从知识库索引中移除。
 
-![Dingtalk AI Table](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Dingtalk_AI_Table.jpg)
+![Dingtalk AI Table](/ragflow-images/Dingtalk_AI_Table.jpg)
 
 ## Zendesk
 
@@ -653,7 +653,7 @@ Moodle 数据源用于将 Moodle 中的课程内容、论坛、资源与学习�
 - **Batch size**：设置每批处理的记录数。
 - **Sync deleted files**：启用后，外部系统中被删除的内容会从知识库索引中移除。
 
-![Moodle](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Moodle.jpg)
+![Moodle](/ragflow-images/Moodle.jpg)
 
 ## REST API
 
@@ -676,7 +676,7 @@ REST API 数据源用于将自定义业务 API 返回的数据同步到 RAGFlow 
 - **Unique ID field**：指定每条记录的唯一 ID 字段。
 - **Sync deleted files**：启用后，会依据同步或清理任务将已删除的记录从知识库索引中移除。
 
-![REST API](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/REST_API.jpg)
+![REST API](/ragflow-images/REST_API.jpg)
 
 ## Xquik
 
@@ -713,7 +713,7 @@ RSS 数据源用于将公开网站、博客、公告或产品动态订阅到 RAG
 - **Batch size**：设置每批处理的订阅条目数。
 - **Sync deleted files**：启用后，外部系统中被删除的内容会从知识库索引中移除。
 
-![RSS](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/RSS.jpg)
+![RSS](/ragflow-images/RSS.jpg)
 
 ## Sitemap
 

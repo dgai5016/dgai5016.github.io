@@ -10,7 +10,7 @@ Write the output content in the message. Type `/` or click the variable button t
 
 If multiple messages are added, the system randomly selects one of them to send. When the `Begin` component selects `Webhook` and the response method is `Final response`, the reply message component can set an HTTP status code in the range of 200 to 399.
 
-![Reply Message Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/reply_message_component_1.jpg)
+![Reply Message Component](/ragflow-images/reply_message_component_1.jpg)
 
 ### Save to Memory
 
@@ -24,7 +24,7 @@ This component is suitable for outputting final answers, branch hints, fallback 
 
 The message outputs the configured text or variable content to the conversation window, webhook response, or embedded page.
 
-![Reply Message Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/reply_message_component_2.jpg)
+![Reply Message Component](/ragflow-images/reply_message_component_2.jpg)
 
 ## Await Response Component
 Await Response pauses the workflow and waits for users to supplement information. Suitable for multi-turn dialogue, form collection, confirmation operations or file upload requirements.
@@ -38,4 +38,4 @@ Recommendations:
 - File upload: Receive contracts, reports or screenshots
 - Boolean: Confirm continue/cancel operations
 
-![User Input Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/user_input_component.jpg)
+![User Input Component](/ragflow-images/user_input_component.jpg)

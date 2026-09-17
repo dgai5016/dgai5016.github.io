@@ -4,9 +4,9 @@ Multi-model comparison tests several models simultaneously with the same Chat co
 
 Select the models to compare, enter a test question, and run the comparison. Focus on whether each answer is accurate, whether it correctly uses knowledge base content, and how the answers differ between models.
 
-![Select models for comparison](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/multi_model_comparison_1.jpg)
+![Select models for comparison](/ragflow-images/multi_model_comparison_1.jpg)
 
-![Compare model answers](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/multi_model_comparison_2.jpg)
+![Compare model answers](/ragflow-images/multi_model_comparison_2.jpg)
 
 Use representative questions from actual business scenarios instead of selecting a model based on a single question. Multi-model comparison is primarily intended for model selection and debugging. For example, after changing a model provider or model version, use the same questions to quickly compare the practical performance of the old and new models.
 

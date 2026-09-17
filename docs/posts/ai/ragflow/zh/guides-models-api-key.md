@@ -6,7 +6,7 @@ RAGFlow 的模型提供商管理支持将在线模型、本地模型和 OpenAI �
 
 RAGFlow 支持大多数主流 LLM。完整支持列表请参阅[支持的模型](https://ragflow.io/docs/guides/models/supported_models)。你需要在线申请相应的模型 API key。
 
-:::note
+:::info
 如果你发现自己的在线 LLM 不在列表中，也不必灰心。该列表正在持续扩充，你可以向我们[提交功能请求](https://github.com/infiniflow/ragflow/issues/new?assignees=&labels=feature+request&projects=&template=feature_request.yml&title=%5BFeature+Request%5D%3A+)！另外，如果你有自定义或本地部署的模型，也可以[使用 Ollama、Xinference 或 LocalAI 将其绑定到 RAGFlow](https://ragflow.io/docs/guides/models/deploy_local_llm)。
 :::
 
@@ -16,7 +16,7 @@ RAGFlow 支持大多数主流 LLM。完整支持列表请参阅[支持的模型]
 
 进入 **User settings**（用户设置）**>** **Model providers**（模型提供商）。在 **Available models**（可用模型）中选择一个提供商并完成配置。配置成功后，该提供商会标记为 **Configured**（已配置）。
 
-![选择模型提供商](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/select_model_provider.jpeg)
+![选择模型提供商](/ragflow-images/select_model_provider.jpeg)
 
 ### 创建模型提供商实例并配置连接信息
 
@@ -34,9 +34,9 @@ RAGFlow 支持大多数主流 LLM。完整支持列表请参阅[支持的模型]
 3. 输入 **API Key** 和 **Base URL**。
 4. 保存实例。
 
-![创建实例](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_instance.jpeg)
+![创建实例](/ragflow-images/create_instance.jpeg)
 
-:::caution
+:::warning
 请勿泄露你的 API Key。Base URL 不正确会导致连接验证或模型调用失败。使用兼容 API 时，请确认路径是否必须包含 `/v1`。
 :::
 
@@ -52,7 +52,7 @@ Bedrock API key 身份验证不支持重排序模型。
 
 填写 **API Key** 和 **Base URL** 后，请先验证连接。如果验证失败，请检查 API Key、Base URL、网络连接、账户额度以及模型可用性。
 
-![验证连接](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/verify_connection.png)
+![验证连接](/ragflow-images/verify_connection.png)
 
 ## 向实例添加模型
 
@@ -64,7 +64,7 @@ Bedrock API key 身份验证不支持重排序模型。
 
 模型实例连接成功后，RAGFlow 会自动显示该模型提供商支持的部分模型。你可以搜索并逐个添加所需模型，也可以批量添加当前列表中的模型。
 
-![从列表添加模型](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/add_models_from_list.png)
+![从列表添加模型](/ragflow-images/add_models_from_list.png)
 
 ### 添加自定义模型
 
@@ -81,9 +81,9 @@ Bedrock API key 身份验证不支持重排序模型。
 5. 如果模型支持工具调用，请启用 **Tool call**。启用后，模型可以在对话或 Agent 运行过程中调用外部工具或函数，例如知识检索或 API 请求。不支持该能力的模型请勿启用。
 6. 点击 **Confirm** 保存模型，并通过实际调用验证该模型是否可用。
 
-![添加自定义模型 1](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/add_custom_model_1.png)
+![添加自定义模型 1](/ragflow-images/add_custom_model_1.png)
 
-![添加自定义模型 2](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/add_custom_model_2.png)
+![添加自定义模型 2](/ragflow-images/add_custom_model_2.png)
 ## 设置默认模型
 
 默认模型用于 RAGFlow 需要自动选择模型、且未单独指定模型的场景。请在添加并验证模型之后设置默认模型，以避免在业务页面选中不可用的模型。
@@ -95,7 +95,7 @@ Bedrock API key 身份验证不支持重排序模型。
 
 如果你已配置重排序模型，也建议设置默认重排序模型。VLM、ASR、TTS 和 OCR 的默认模型可按业务需要配置。
 
-![设置默认模型](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/set_default_models.jpeg)
+![设置默认模型](/ragflow-images/set_default_models.jpeg)
 
 ## 模型类型与用途
 

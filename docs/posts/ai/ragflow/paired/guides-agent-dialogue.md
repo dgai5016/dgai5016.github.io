@@ -66,12 +66,12 @@ If multiple messages are added, the system randomly selects one of them to send.
 <BiRow>
 <template #en>
 
-![Reply Message Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/reply_message_component_1.jpg)
+![Reply Message Component](/ragflow-images/reply_message_component_1.jpg)
 
 </template>
 <template #zh>
 
-![Reply Message 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/reply_message_component_1.jpg)
+![Reply Message 组件](/ragflow-images/reply_message_component_1.jpg)
 
 </template>
 </BiRow>
@@ -157,12 +157,12 @@ The message outputs the configured text or variable content to the conversation 
 <BiRow>
 <template #en>
 
-![Reply Message Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/reply_message_component_2.jpg)
+![Reply Message Component](/ragflow-images/reply_message_component_2.jpg)
 
 </template>
 <template #zh>
 
-![Reply Message 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/reply_message_component_2.jpg)
+![Reply Message 组件](/ragflow-images/reply_message_component_2.jpg)
 
 </template>
 </BiRow>
@@ -221,12 +221,12 @@ Recommendations:
 <BiRow>
 <template #en>
 
-![User Input Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/user_input_component.jpg)
+![User Input Component](/ragflow-images/user_input_component.jpg)
 
 </template>
 <template #zh>
 
-![用户输入组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/user_input_component.jpg)
+![用户输入组件](/ragflow-images/user_input_component.jpg)
 
 </template>
 </BiRow>

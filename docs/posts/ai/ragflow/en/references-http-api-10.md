@@ -10,7 +10,7 @@
 
 Uploads one or multiple files to the system.
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `POST /api/v1/file/upload` is deprecated. Use this endpoint instead.
 :::
 
@@ -82,7 +82,7 @@ Failure:
 
 Uploads a file and creates the respective document.
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `POST /v1/document/upload_info` and `POST /api/v1/file/upload_info` are deprecated. Use this endpoint instead.
 :::
 
@@ -161,7 +161,7 @@ Failure:
 
 **GET** `/api/v1/agents/attachments/{attachment_id}/download`
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 The previous endpoints `GET /v1/document/download/{doc_id}` and `GET /api/v1/document/download/{doc_id}` are deprecated. Use this endpoint instead.
 :::
 
@@ -221,7 +221,7 @@ Failure:
 
 Creates a new file or folder in the system.
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `POST /api/v1/file/create` is deprecated. Use this endpoint instead.
 :::
 
@@ -297,7 +297,7 @@ Failure:
 
 Lists files and folders under a specific folder.
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `GET /api/v1/file/list` is deprecated. Use this endpoint instead.
 :::
 
@@ -376,7 +376,7 @@ Failure:
 
 Retrieves the immediate parent folder information of a specified file.
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `GET /api/v1/file/parent_folder?file_id=...` is deprecated. Use this endpoint instead.
 :::
 
@@ -433,7 +433,7 @@ Failure:
 
 Retrieves all parent folders of a specified file in the folder hierarchy.
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `GET /api/v1/file/all_parent_folder?file_id=...` is deprecated. Use this endpoint instead.
 :::
 
@@ -496,7 +496,7 @@ Failure:
 
 Deletes one or multiple files or folders.
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `POST /api/v1/file/rm` is deprecated. Use this endpoint instead.
 :::
 
@@ -563,7 +563,7 @@ Failure:
 
 Downloads a file from the system.
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `GET /api/v1/file/get/{file_id}` is deprecated. Use this endpoint instead.
 :::
 
@@ -611,7 +611,7 @@ Failure:
 
 Moves and/or renames files or folders. Follows Linux `mv` semantics: at least one of `dest_file_id` or `new_name` must be provided.
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 The previous endpoints `POST /api/v1/file/mv` and `POST /api/v1/file/rename` are deprecated. Use this endpoint instead.
 :::
 
@@ -714,7 +714,7 @@ or
 
 Converts files to documents and links them to specified datasets.
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `POST /api/v1/file/convert` is deprecated. Use this endpoint instead.
 :::
 
@@ -858,7 +858,7 @@ Success:
 }
 ```
 
-:::note
+:::info
 `tree_state` is a JSON string containing a flat map of file entries. Each entry includes `parent_id` to track which sub-folder the file belonged to at commit time. Sub-folders are inferred from `parent_id` values.
 :::
 

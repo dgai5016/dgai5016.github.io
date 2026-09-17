@@ -95,12 +95,12 @@ The message list displays information such as sessions, source Agents, message t
 <BiRow>
 <template #en>
 
-![Message page](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/message_page.jpg)
+![Message page](/ragflow-images/message_page.jpg)
 
 </template>
 <template #zh>
 
-![消息页面](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/message_page.jpg)
+![消息页面](/ragflow-images/message_page.jpg)
 
 </template>
 </BiRow>

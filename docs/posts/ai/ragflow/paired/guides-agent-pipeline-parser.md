@@ -27,12 +27,12 @@ It supports 8 file categories and more than 23 formats, including PDF, images, a
 <BiRow>
 <template #en>
 
-![Select parser file format](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/configure_the_parser_component_2.jpg)
+![Select parser file format](/ragflow-images/configure_the_parser_component_2.jpg)
 
 </template>
 <template #zh>
 
-![选择解析器文件格式](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/configure_the_parser_component_2.jpg)
+![选择解析器文件格式](/ragflow-images/configure_the_parser_component_2.jpg)
 
 </template>
 </BiRow>
@@ -83,12 +83,12 @@ PDF 文件请从以下解析方式中选择：
 <BiRow>
 <template #en>
 
-![Configure PDF parser method](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/configure_the_parser_component_1.jpg)
+![Configure PDF parser method](/ragflow-images/configure_the_parser_component_1.jpg)
 
 </template>
 <template #zh>
 
-![配置 PDF 解析方式](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/configure_the_parser_component_1.jpg)
+![配置 PDF 解析方式](/ragflow-images/configure_the_parser_component_1.jpg)
 
 </template>
 </BiRow>

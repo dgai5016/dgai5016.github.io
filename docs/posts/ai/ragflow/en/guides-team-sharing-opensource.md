@@ -7,4 +7,4 @@ In the open-source edition, the sharing scope is configured through the **Permis
 
 Resources are not shared automatically. To make a resource available to other users, explicitly configure its sharing scope or permissions.
 
-![Open Source Edition Sharing Scope Configuration](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/open_source_edition_sharing_scope_configuration.jpg)
+![Open Source Edition Sharing Scope Configuration](/ragflow-images/open_source_edition_sharing_scope_configuration.jpg)

@@ -16,6 +16,6 @@ Title-based chunking (hierarchical):
 - The system splits documents by chapter and section structure.
 - Each chunk represents a complete structural unit.
 
-:::caution IMPORTANT
+:::warning IMPORTANT
 In the current design, if both token-based and title-based methods are used, connect the **Token Chunker** component first, and then connect the **Title Chunker** component. Connecting the **Title Chunker** directly to the **Parser** may cause formatting errors for emails, images, spreadsheets and text files.
 :::

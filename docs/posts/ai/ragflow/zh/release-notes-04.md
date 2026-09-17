@@ -42,7 +42,7 @@
 - 团队协作：Agent 可与团队成员共享。
 - Agent 版本控制：所有更新都会被持续记录，并可通过导出回滚到先前的版本。
 
-![export_agent](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/export_agent_as_json.jpg)
+![export_agent](/ragflow-images/export_agent_as_json.jpg)
 
 ### 改进
 
@@ -137,11 +137,11 @@
 
 下图展示了 RAGFlow Deep research 的工作流：
 
-![Image](https://github.com/user-attachments/assets/f65d4759-4f09-4d9d-9549-c0e1fe907525)
+![Image](/ragflow-images/f65d4759-4f09-4d9d-9549-c0e1fe907525.png)
 
 以下是一段集成了 Deep research 的对话截图：
 
-![Image](https://github.com/user-attachments/assets/165b88ff-1f5d-4fb8-90e2-c836b25e32e9)
+![Image](/ragflow-images/165b88ff-1f5d-4fb8-90e2-c836b25e32e9.png)
 
 ### API 变更
 

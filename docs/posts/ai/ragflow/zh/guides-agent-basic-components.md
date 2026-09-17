@@ -23,7 +23,7 @@
 > 你好，我可以帮你查询产品资料、对比型号并生成安装建议。  
 > 请描述你的问题，或上传需要分析的文件。
 
-![Begin 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/begin_component_1.jpg)
+![Begin 组件](/ragflow-images/begin_component_1.jpg)
 
 ### 输入变量
 
@@ -50,7 +50,7 @@
 | 布尔值 | 提供开关（`True`/`False`）或是否选项，用于控制某个功能是否启用、某个分支是否执行。 |
 | JSON 对象 | 用于输入结构化的 JSON 数据，例如参数、配置或其他包含多个字段的复杂数据。 |
 
-![Begin 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/begin_component_2.jpg)
+![Begin 组件](/ragflow-images/begin_component_2.jpg)
 
 :::tip 注意
 
@@ -83,7 +83,7 @@ Agent 组件的常用配置项包括 `Model`、`System prompt`、`User prompt`�
 7. 设置输出变量名。
 8. 保存并运行测试。
 
-![Agent 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/agent_component_1.jpg)
+![Agent 组件](/ragflow-images/agent_component_1.jpg)
 
 ### 提示词配置
 
@@ -95,7 +95,7 @@ Agent 组件的常用配置项包括 `Model`、`System prompt`、`User prompt`�
 
 > 请基于 `/Retrieval_0.formalized_content` 回答 `/sys.query`。如果检索结果不足以回答，请明确说明无法从知识库获得确认，不要编造答案。
 
-![Agent 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/agent_component_2.jpg)
+![Agent 组件](/ragflow-images/agent_component_2.jpg)
 
 ### 工具与子 Agent
 
@@ -109,7 +109,7 @@ Agent 组件的常用配置项包括 `Model`、`System prompt`、`User prompt`�
 
 :::
 
-![Agent 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/agent_component_3.jpg)
+![Agent 组件](/ragflow-images/agent_component_3.jpg)
 
 ### 高级设置
 
@@ -134,7 +134,7 @@ Agent 组件的常用配置项包括 `Model`、`System prompt`、`User prompt`�
 
 结构化输出：启用 **Structured output** 后，点击 **配置** 设置输出结构。你可以按 JSON Schema 定义返回的数据格式，例如指定字段名、数据类型和必填字段。Agent 会尽量按配置的结构返回结果，便于把数据传给 Code、HTTP Request、SQL、条件判断等节点做自动化处理。
 
-![Agent 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/agent_component_4.jpg)
+![Agent 组件](/ragflow-images/agent_component_4.jpg)
 
 ## Retrieval 组件
 
@@ -150,9 +150,9 @@ Agent 组件的常用配置项包括 `Model`、`System prompt`、`User prompt`�
 6. 需要知识图谱多跳问答时，启用 **Use knowledge graph**。
 7. 点击 **运行** 测试检索结果。
 
-![知识检索组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/knowledge_retrieval_component_1.jpg)
+![知识检索组件](/ragflow-images/knowledge_retrieval_component_1.jpg)
 
-![知识检索组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/knowledge_retrieval_component_2.jpg)
+![知识检索组件](/ragflow-images/knowledge_retrieval_component_2.jpg)
 
 ### 参数说明
 

@@ -23,9 +23,9 @@
 4. 选择包含 CompilerOperator 的摄取管道。
 5. 启动解析，并在任务日志中检查解析器、分块器、编译器和索引器是否依次完成。
 
-![创建数据集并选择管道](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/connect_the_pipeline_to_a_knowledge_base_1.jpg)
+![创建数据集并选择管道](/ragflow-images/connect_the_pipeline_to_a_knowledge_base_1.jpg)
 
-![在数据集中配置摄取管道](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/connect_the_pipeline_to_a_knowledge_base_2.jpg)
+![在数据集中配置摄取管道](/ragflow-images/connect_the_pipeline_to_a_knowledge_base_2.jpg)
 
 如果修改了 CompilationTemplate，已完成的文档不会自动重新编译。需要按照产品当前提供的操作重新解析或重新运行管道，新配置才能生效。
 

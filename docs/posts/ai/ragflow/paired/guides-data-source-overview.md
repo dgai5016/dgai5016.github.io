@@ -66,12 +66,12 @@ Enter the **Data Source** page from **User Settings**. The upper part of the pag
 <BiRow>
 <template #en>
 
-![Enter the Data Source Page](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Enter_Data_Source_Page.jpg)
+![Enter the Data Source Page](/ragflow-images/Enter_Data_Source_Page.jpg)
 
 </template>
 <template #zh>
 
-![进入数据源页面](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Enter_Data_Source_Page.jpg)
+![进入数据源页面](/ragflow-images/Enter_Data_Source_Page.jpg)
 
 </template>
 </BiRow>
@@ -137,12 +137,12 @@ Different data source creation windows display different fields. Users only need
 <BiRow>
 <template #en>
 
-![Create a Data Source Connection](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Create_Data_Source_Connection.jpg)
+![Create a Data Source Connection](/ragflow-images/Create_Data_Source_Connection.jpg)
 
 </template>
 <template #zh>
 
-![创建数据源连接](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Create_Data_Source_Connection.jpg)
+![创建数据源连接](/ragflow-images/Create_Data_Source_Connection.jpg)
 
 </template>
 </BiRow>
@@ -292,12 +292,12 @@ After completing the modification, click **Save**. The new configuration is used
 <BiRow>
 <template #en>
 
-![Set a Connected Data Source](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Set_a_Connected_Data_Source.jpg)
+![Set a Connected Data Source](/ragflow-images/Set_a_Connected_Data_Source.jpg)
 
 </template>
 <template #zh>
 
-![设置已连接的数据源](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Set_a_Connected_Data_Source.jpg)
+![设置已连接的数据源](/ragflow-images/Set_a_Connected_Data_Source.jpg)
 
 </template>
 </BiRow>
@@ -378,12 +378,12 @@ If the log is empty, it usually means that the data source has not been used by 
 <BiRow>
 <template #en>
 
-![View Connected Data Source Logs](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/View_Connected_Data_Source_Logs.jpg)
+![View Connected Data Source Logs](/ragflow-images/View_Connected_Data_Source_Logs.jpg)
 
 </template>
 <template #zh>
 
-![查看已连接数据源的日志](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/View_Connected_Data_Source_Logs.jpg)
+![查看已连接数据源的日志](/ragflow-images/View_Connected_Data_Source_Logs.jpg)
 
 </template>
 </BiRow>

@@ -50,12 +50,12 @@ Switch 面向结构化数据和条件明确的场景，执行基于规则的判�
 <BiRow>
 <template #en>
 
-![Condition Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/condition_component.jpg)
+![Condition Component](/ragflow-images/condition_component.jpg)
 
 </template>
 <template #zh>
 
-![条件组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/condition_component.jpg)
+![条件组件](/ragflow-images/condition_component.jpg)
 
 </template>
 </BiRow>
@@ -146,12 +146,12 @@ Iteration 内置 `Loop Item`。拖入 Iteration 内部的组件只能在循环�
 <BiRow>
 <template #en>
 
-![Loop Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/loop_component.jpg)
+![Loop Component](/ragflow-images/loop_component.jpg)
 
 </template>
 <template #zh>
 
-![Loop 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/loop_component.jpg)
+![Loop 组件](/ragflow-images/loop_component.jpg)
 
 </template>
 </BiRow>
@@ -256,12 +256,12 @@ Examples improve classification stability; provide 2~3 typical samples for each 
 <BiRow>
 <template #en>
 
-![Question Classification Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/question_classification_component.jpg)
+![Question Classification Component](/ragflow-images/question_classification_component.jpg)
 
 </template>
 <template #zh>
 
-![问题分类组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/question_classification_component.jpg)
+![问题分类组件](/ragflow-images/question_classification_component.jpg)
 
 </template>
 </BiRow>

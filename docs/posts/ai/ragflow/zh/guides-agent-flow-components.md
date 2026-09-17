@@ -11,7 +11,7 @@ Switch 组件执行基于规则的判断，并根据判断结果将工作流路�
 Switch 面向结构化数据和条件明确的场景，执行基于规则的判断；Categorize 使用基于 LLM 的分类，适合自然语言的意图识别。
 :::
 
-![条件组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/condition_component.jpg)
+![条件组件](/ragflow-images/condition_component.jpg)
 
 ### Iteration 组件
 Iteration 组件会遍历一个数组，并对每个元素重复执行相同的处理逻辑。它适合批量处理文件，或用同一逻辑处理多条数据等场景。
@@ -32,7 +32,7 @@ Iteration 会把文本拆分成片段，并对每个片段执行同一组内部�
 ### 内部工作流：
 Iteration 内置 `Loop Item`。拖入 Iteration 内部的组件只能在循环内部被访问到。引用 `Loop Item` 可以获取当前片段的数据。
 
-![Loop 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/loop_component.jpg)
+![Loop 组件](/ragflow-images/loop_component.jpg)
 
 ### 配置方法
 ###### **配置**
@@ -60,4 +60,4 @@ Categorize 利用 LLM 判断用户意图或输入类别，并根据分类结果�
 使用易于理解的分类名称，例如产品咨询、安装预约、售后故障、其他问题。
 示例能提升分类的稳定性；请为每个分类提供 2~3 条典型样本。
 
-![问题分类组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/question_classification_component.jpg)
+![问题分类组件](/ragflow-images/question_classification_component.jpg)

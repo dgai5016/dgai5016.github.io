@@ -23,7 +23,7 @@ Example:
 > Hello, I can help you query product materials, compare models, and generate installation suggestions.  
 > Please describe your question, or upload the files that need to be analyzed.
 
-![Begin Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/begin_component_1.jpg)
+![Begin Component](/ragflow-images/begin_component_1.jpg)
 
 ### Input Variables
 
@@ -50,7 +50,7 @@ Variable types:
 | Boolean | Provides a switch (`True`/`False`) or yes/no option, used to control whether a feature is enabled or whether a branch is executed. |
 | JSON object | Used to enter structured JSON data, such as parameters, configurations, or other complex data containing multiple fields. |
 
-![Begin Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/begin_component_2.jpg)
+![Begin Component](/ragflow-images/begin_component_2.jpg)
 
 :::tip NOTE
 
@@ -83,7 +83,7 @@ Configuration steps:
 7. Set the output variable name.
 8. Save and run tests.
 
-![Agent Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/agent_component_1.jpg)
+![Agent Component](/ragflow-images/agent_component_1.jpg)
 
 ### Prompt Configuration
 
@@ -95,7 +95,7 @@ Example:
 
 > Please answer `/sys.query` based on `/Retrieval_0.formalized_content`. If the retrieval results are insufficient, clearly state that confirmation cannot be obtained from the knowledge base, and do not fabricate answers.
 
-![Agent Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/agent_component_2.jpg)
+![Agent Component](/ragflow-images/agent_component_2.jpg)
 
 ### Tools and Sub-Agents
 
@@ -109,7 +109,7 @@ Tool calling, sub-agents, reflection rounds, and a larger message window size al
 
 :::
 
-![Agent Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/agent_component_3.jpg)
+![Agent Component](/ragflow-images/agent_component_3.jpg)
 
 ### Advanced Settings
 
@@ -134,7 +134,7 @@ Parameter description:
 
 For structured output, after enabling **Structured output**, click **Configuration** to configure the output structure. Users can define the returned data format according to JSON Schema, such as specifying field names, data types, and required fields. The Agent tries to return results according to the configured structure, making it easier to pass data to nodes such as Code, HTTP Request, SQL, and condition judgment for automated processing.
 
-![Agent Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/agent_component_4.jpg)
+![Agent Component](/ragflow-images/agent_component_4.jpg)
 
 ## Retrieval Component
 
@@ -150,9 +150,9 @@ Configuration steps:
 6. For graph multi-hop Q&A, enable **Use knowledge graph**.
 7. Click **Run** to test the retrieval results.
 
-![Knowledge Retrieval Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/knowledge_retrieval_component_1.jpg)
+![Knowledge Retrieval Component](/ragflow-images/knowledge_retrieval_component_1.jpg)
 
-![Knowledge Retrieval Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/knowledge_retrieval_component_2.jpg)
+![Knowledge Retrieval Component](/ragflow-images/knowledge_retrieval_component_2.jpg)
 
 ### Parameter Description
 

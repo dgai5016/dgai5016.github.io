@@ -55,9 +55,9 @@
 4. **执行知识编译**：系统按管道配置解析文档，并基于所选模板生成相应的知识工件。
 5. **查看知识工件**：编译完成后，查看生成的 Graph、Tree、PageIndex、MindMap、Timeline 或 Wiki 等工件。
 
-![创建知识编译模板](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/usage-flow-standard-usage-flow.jpg)
+![创建知识编译模板](/ragflow-images/usage-flow-standard-usage-flow.jpg)
 
-![选择编译算子](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/usage-flow-standard-usage-flow-2.jpg)
+![选择编译算子](/ragflow-images/usage-flow-standard-usage-flow-2.jpg)
 
 说明：本节帮助用户快速了解知识编译的整体工作流，仅展示「创建知识编译模板」的操作界面。摄取管道配置、文档应用、知识工件查看等操作将在后续相应章节中结合界面截图详细说明。具体操作请参阅相关章节。
 

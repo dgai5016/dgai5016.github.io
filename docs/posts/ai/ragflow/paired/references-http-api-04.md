@@ -1271,14 +1271,14 @@ Updates content or configurations for a specified chunk.
 <BiRow>
 <template #en>
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `PUT /api/v1/datasets/{dataset_id}/documents/{document_id}/chunks/{chunk_id}` is deprecated. Use this endpoint instead.
 :::
 
 </template>
 <template #zh>
 
-:::caution 已弃用
+:::warning 已弃用
 `PUT /api/v1/datasets/{dataset_id}/documents/{document_id}/chunks/{chunk_id}` 已弃用。请改用此端点。
 :::
 

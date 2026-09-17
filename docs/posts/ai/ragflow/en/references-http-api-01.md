@@ -80,7 +80,7 @@ The following v0.24.0 REST API paths are deprecated. They remain available throu
 
 Creates a model response for a given chat conversation.
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `POST /api/v1/chats_openai/{chat_id}/chat/completions` is deprecated. Use this endpoint instead.
 :::
 
@@ -234,7 +234,7 @@ Failure:
 
 ### Create agent completion
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 This endpoint remains available for backward compatibility but may be removed in a future release. New integrations should use `POST /api/v1/agents/chat/completions` with `"openai-compatible": true`.
 :::
 

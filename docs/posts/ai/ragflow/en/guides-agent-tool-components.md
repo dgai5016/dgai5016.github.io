@@ -58,7 +58,7 @@ Tavily is a web search service for LLMs. It is suitable for retrieving general w
 
 The output usually contains search result summaries, titles, links, snippets, and optional image information. `formalized_content` is commonly passed to the Agent to generate answers, while JSON is used by subsequent nodes to read structured fields.
 
-![Tavily Search](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/tavily_search.jpg)
+![Tavily Search](/ragflow-images/tavily_search.jpg)
 
 ### Tavily Extract 
 
@@ -97,7 +97,7 @@ Tavily Extract reads the body content of one or more known URLs. A common workfl
 
 The output contains the page body, title, URL, and extraction status. `formalized_content` is commonly used as Agent context, while JSON preserves the structured extraction result for each URL.
 
-![Tavily Extract](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/tavily_extract.jpg)
+![Tavily Extract](/ragflow-images/tavily_extract.jpg)
 
 ### Google 
 
@@ -129,7 +129,7 @@ Google Search obtains Google organic search results through SerpApi. It is suita
 
 The output contains search result titles, links, and summaries. The organized text can be passed to the Agent for summarization, or subsequent nodes can read the link list from JSON.
 
-![Google Search](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/google_search.jpg)
+![Google Search](/ragflow-images/google_search.jpg)
 
 ### DuckDuckGo
 
@@ -155,9 +155,9 @@ DuckDuckGo is a privacy-focused search engine component. It does not require a s
 
 The output contains titles, links, and summaries returned by DuckDuckGo. It can be used for web material summarization, news lead organization, or subsequent page extraction.
 
-![Duckduckgo](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/duckduckgo_1.jpg)
+![Duckduckgo](/ragflow-images/duckduckgo_1.jpg)
 
-![Duckduckgo](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/duckduckgo_2.jpg)
+![Duckduckgo](/ragflow-images/duckduckgo_2.jpg)
 
 ### SearXNG 
 
@@ -213,7 +213,7 @@ Keenable is a web search API for AI Agents. By default, it supports a public fre
 
 The output contains search entries, summaries, and links returned by Keenable. It can be summarized by the Agent or passed to subsequent retrieval or extraction nodes. Do not set `realtime` for keyless trial runs.
 
-![Keenable Search](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/keenable_search.jpg)
+![Keenable Search](/ragflow-images/keenable_search.jpg)
 
 ### Wikipedia
 The Wikipedia component searches encyclopedia entries and extracts entry summaries. It is suitable for querying clear entities, concepts, and historical events. Query terms should be as close as possible to the entry title.
@@ -238,7 +238,7 @@ The Wikipedia component searches encyclopedia entries and extracts entry summari
 
 The output contains the titles, summaries, and page links of matching entries. It is suitable for generating concept explanations or background descriptions with the Agent.
 
-![Wikipedia](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/wikipedia.jpg)
+![Wikipedia](/ragflow-images/wikipedia.jpg)
 
 ### GitHub
 
@@ -262,7 +262,7 @@ The GitHub component searches repositories through the GitHub Repository Search 
 
 The output contains repository, issue, code, or user search entries, usually including names, links, summaries, update times, and other information. The output includes repository names, links, descriptions, and stars.
 
-![GitHub](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/GitHub.jpg)
+![GitHub](/ragflow-images/GitHub.jpg)
 
 ## Academic Literature Retrieval
 
@@ -296,7 +296,7 @@ Google Scholar is used to retrieve papers, dissertations, books, abstracts, and 
 
 The output contains academic retrieval entries such as paper titles, authors, abstracts, source links, and citation information. It is suitable for literature reviews or research lead organization.
 
-![Google Scholar](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/google_scholar.jpg)
+![Google Scholar](/ragflow-images/google_scholar.jpg)
 
 ### ArXiv 
 
@@ -322,7 +322,7 @@ ArXiv is used to retrieve open preprints across fields such as computer science,
 
 The output contains paper titles, authors, abstracts, publication times, categories, and paper links. It can be used by the Agent to generate paper summaries or research comparisons.
 
-![ArXiv](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/arxiv.jpg)
+![ArXiv](/ragflow-images/arxiv.jpg)
 
 ### PubMed 
 
@@ -348,7 +348,7 @@ PubMed is used to retrieve life science and biomedical literature. The component
 
 The output contains medical literature titles, authors, journals, abstracts, publication dates, and PubMed links. It is suitable for medical literature retrieval scenarios.
 
-![PubMed](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/pubmed.jpg)
+![PubMed](/ragflow-images/pubmed.jpg)
 
 ### BGPT 
 
@@ -376,7 +376,7 @@ BGPT retrieves scientific papers and returns structured evidence, including rese
 
 The output contains biomedical knowledge retrieval results and summaries, which can be further summarized, compared, or used to generate research explanations by subsequent Agents.
 
-![BGPT](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/bgpt.jpg)
+![BGPT](/ragflow-images/bgpt.jpg)
 
 ## Data and Financial Queries
 
@@ -428,7 +428,7 @@ To protect system security, the database address must pass server-side security 
 
 The output contains SQL execution results, field names, and record content. You can pass formatted text to the Agent for explanation, or let subsequent nodes read structured results.
 
-![Execute SQL](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/execute_sql.jpg)
+![Execute SQL](/ragflow-images/execute_sql.jpg)
 
 ### Yahoo Finance 
 
@@ -562,7 +562,7 @@ Although some SMTP fields are displayed as optional in the UI, a valid SMTP serv
 
 The output contains sending status and error information. `success` being `true` means the email was sent successfully. If sending fails, check the SMTP address, account, password, and recipient.
 
-![Email](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/email.jpg)
+![Email](/ragflow-images/email.jpg)
 
 ### HTTP Request 
 
@@ -612,7 +612,7 @@ The HTTP Request component calls external HTTP APIs, allowing business systems, 
 
 The output contains response status code, response headers, and response body. Text responses can be passed to the Agent for summarization, while JSON responses can be read by subsequent nodes.
 
-![HTTP Request](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/http_request.jpg)
+![HTTP Request](/ragflow-images/http_request.jpg)
 
 ## Content Generation and Automation
 
@@ -666,7 +666,7 @@ Test This document is generated by the DocGenerator component.` |
 
 The output contains generated file attachment information, download links, and file names. Users can preview, download, or pass the file to subsequent nodes for further processing.
 
-![Document Generator](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/document_generator.jpg)
+![Document Generator](/ragflow-images/document_generator.jpg)
 
 ### Browser (Browser)
 

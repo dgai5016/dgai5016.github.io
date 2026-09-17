@@ -13,6 +13,6 @@
 
 邀请创建后，成员关系记录会以 `invite` 角色保存。被邀请的用户必须接受邀请，才能成为正式团队成员。
 
-![邀请成员](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/invite_members_1.jpg)
+![邀请成员](/ragflow-images/invite_members_1.jpg)
 
-![邀请成员](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/invite_members_2.jpg)
+![邀请成员](/ragflow-images/invite_members_2.jpg)

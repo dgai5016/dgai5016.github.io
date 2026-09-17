@@ -264,12 +264,12 @@ Recommendation: When using this feature for the first time, select a small numbe
 <BiRow>
 <template #en>
 
-![Create a knowledge compilation template](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/usage-flow-standard-usage-flow.jpg)
+![Create a knowledge compilation template](/ragflow-images/usage-flow-standard-usage-flow.jpg)
 
 </template>
 <template #zh>
 
-![创建知识编译模板](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/usage-flow-standard-usage-flow.jpg)
+![创建知识编译模板](/ragflow-images/usage-flow-standard-usage-flow.jpg)
 
 </template>
 </BiRow>
@@ -277,12 +277,12 @@ Recommendation: When using this feature for the first time, select a small numbe
 <BiRow>
 <template #en>
 
-![Choose Compilation Operator](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/usage-flow-standard-usage-flow-2.jpg)
+![Choose Compilation Operator](/ragflow-images/usage-flow-standard-usage-flow-2.jpg)
 
 </template>
 <template #zh>
 
-![选择编译算子](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/usage-flow-standard-usage-flow-2.jpg)
+![选择编译算子](/ragflow-images/usage-flow-standard-usage-flow-2.jpg)
 
 </template>
 </BiRow>

@@ -19,7 +19,7 @@ RAGFlow 的 `CodeExec` Agent 组件需要一个沙箱提供商（sandbox provide
 - `ssh`：通过 SSH 在远程机器上运行代码。
 - `aliyun_codeinterpreter`、`e2b` 和 `tenki`：云端提供商。
 
-<img width="2547" height="1475" alt="admin-sandbox-settings" src="https://github.com/user-attachments/assets/59ab948e-b98a-45a8-9db4-f1afbf6c3685" />
+<img width="2547" height="1475" alt="admin-sandbox-settings" src="/ragflow-images/59ab948e-b98a-45a8-9db4-f1afbf6c3685.png" />
 
 ## 提供商选项
 

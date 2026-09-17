@@ -33,12 +33,12 @@ Configuration:
 <BiRow>
 <template #en>
 
-![Code Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/code_component.jpg)
+![Code Component](/ragflow-images/code_component.jpg)
 
 </template>
 <template #zh>
 
-![Code 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/code_component.jpg)
+![Code 组件](/ragflow-images/code_component.jpg)
 
 </template>
 </BiRow>
@@ -91,12 +91,12 @@ Configure script content with variables inserted via `/`. Output results can be 
 <BiRow>
 <template #en>
 
-![Text Processing Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/text_processing_component.jpg)
+![Text Processing Component](/ragflow-images/text_processing_component.jpg)
 
 </template>
 <template #zh>
 
-![Text Processing 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/text_processing_component.jpg)
+![Text Processing 组件](/ragflow-images/text_processing_component.jpg)
 
 </template>
 </BiRow>
@@ -142,12 +142,12 @@ Configuration Steps:
 <BiRow>
 <template #en>
 
-![Data Operation Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/data_operation_component.jpg)
+![Data Operation Component](/ragflow-images/data_operation_component.jpg)
 
 </template>
 <template #zh>
 
-![Data Operation 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/data_operation_component.jpg)
+![Data Operation 组件](/ragflow-images/data_operation_component.jpg)
 
 </template>
 </BiRow>
@@ -237,12 +237,12 @@ Configuration Steps:
 <BiRow>
 <template #en>
 
-![Variable Assigner Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/variable_assigner_component.jpg)
+![Variable Assigner Component](/ragflow-images/variable_assigner_component.jpg)
 
 </template>
 <template #zh>
 
-![Variable Assigner 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/variable_assigner_component.jpg)
+![Variable Assigner 组件](/ragflow-images/variable_assigner_component.jpg)
 
 </template>
 </BiRow>
@@ -577,12 +577,12 @@ Usage Instructions：
 <BiRow>
 <template #en>
 
-![Variable Aggregation Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/variable_aggregation_component.jpg)
+![Variable Aggregation Component](/ragflow-images/variable_aggregation_component.jpg)
 
 </template>
 <template #zh>
 
-![变量聚合组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/variable_aggregation_component.jpg)
+![变量聚合组件](/ragflow-images/variable_aggregation_component.jpg)
 
 </template>
 </BiRow>

@@ -24,8 +24,8 @@
 
 - 自动使用创建知识库时设置的模型。
 
-:::caution 重要
+:::warning 重要
 要同时跨多个知识库搜索，所有选中的知识库必须使用相同的嵌入模型。
 :::
 
-![配置索引器组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/configure_the_indexer_component.jpg)
+![配置索引器组件](/ragflow-images/configure_the_indexer_component.jpg)

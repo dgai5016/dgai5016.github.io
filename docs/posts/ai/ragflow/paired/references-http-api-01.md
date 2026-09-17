@@ -314,14 +314,14 @@ Creates a model response for a given chat conversation.
 <BiRow>
 <template #en>
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 `POST /api/v1/chats_openai/{chat_id}/chat/completions` is deprecated. Use this endpoint instead.
 :::
 
 </template>
 <template #zh>
 
-:::caution 已弃用
+:::warning 已弃用
 `POST /api/v1/chats_openai/{chat_id}/chat/completions` 已弃用，请改用本端点。
 :::
 
@@ -811,14 +811,14 @@ Failure:
 <BiRow>
 <template #en>
 
-:::caution DEPRECATED
+:::warning DEPRECATED
 This endpoint remains available for backward compatibility but may be removed in a future release. New integrations should use `POST /api/v1/agents/chat/completions` with `"openai-compatible": true`.
 :::
 
 </template>
 <template #zh>
 
-:::caution 已弃用
+:::warning 已弃用
 该端点目前仍为向后兼容而保留，但可能在未来的版本中移除。新的集成应使用 `POST /api/v1/agents/chat/completions` 并附带 `"openai-compatible": true`。
 :::
 

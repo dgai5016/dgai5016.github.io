@@ -27,14 +27,14 @@ An AI-generated, always-up-to-date knowledge base for understanding RAGFlow's co
 <BiRow>
 <template #en>
 
-:::caution NOTE
+:::warning NOTE
 The RAGFlow content on DeepWiki is maintained by DeepWiki, not by the RAGFlow team. It may lag behind the latest official release. Always refer to the official [RAGFlow documentation](https://ragflow.io/docs/dev/) and [source code](https://github.com/infiniflow/ragflow) for the most up-to-date information.
 :::
 
 </template>
 <template #zh>
 
-:::caution 注意
+:::warning 注意
 DeepWiki 上的 RAGFlow 内容由 DeepWiki 维护，而非 RAGFlow 团队，可能滞后于最新官方发布版本。最新信息请始终以官方 [RAGFlow 文档](https://ragflow.io/docs/dev/) 和 [源代码](https://github.com/infiniflow/ragflow) 为准。
 :::
 

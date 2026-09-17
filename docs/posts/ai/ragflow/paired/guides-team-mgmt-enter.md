@@ -27,12 +27,12 @@ The page title is displayed as the current user's nickname plus **workspace**. O
 <BiRow>
 <template #en>
 
-![Enter The Team Page](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/enter_the_team_page.jpg)
+![Enter The Team Page](/ragflow-images/enter_the_team_page.jpg)
 
 </template>
 <template #zh>
 
-![进入团队页面](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/enter_the_team_page.jpg)
+![进入团队页面](/ragflow-images/enter_the_team_page.jpg)
 
 </template>
 </BiRow>

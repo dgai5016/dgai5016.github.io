@@ -26,7 +26,7 @@ RAGFlow provides an end-to-end RAG platform that goes beyond basic document chun
 
 You can find the RAGFlow version number on the **System** page of the UI:
 
-![Image](https://github.com/user-attachments/assets/20cf7213-2537-4e18-a88c-4dadf6228c6b)
+![Image](/ragflow-images/20cf7213-2537-4e18-a88c-4dadf6228c6b.jpg)
 
 If you build RAGFlow from source, the version number is also in the system log:
 
@@ -194,13 +194,13 @@ This error is almost always caused by Java not being installed or not accessible
 
 To resolve this, either download the missing file from the corresponding tag on [GitHub](https://github.com/infiniflow/ragflow) or update `~/ragflow/docker/docker-compose.yml` as follows:
 
-![](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/docker-compose_missing.jpg)
+![](/ragflow-images/docker-compose_missing.jpg)
 
 ---
 
 ### `network anomaly There is an abnormality in your network and you cannot connect to the server.`
 
-![anomaly](https://github.com/infiniflow/ragflow/assets/93570324/beb7ad10-92e4-4a58-8886-bfb7cbd09e5d)
+![anomaly](/ragflow-images/beb7ad10-92e4-4a58-8886-bfb7cbd09e5d.jpg)
 
 You will not log in to RAGFlow unless the server is fully initialized. Run `docker logs -f docker-ragflow-cpu-1`.
 
@@ -225,7 +225,7 @@ Then use the [system health API](https://ragflow.io/docs/references/http_api_ref
 
 Ignore this warning and continue. All system warnings can be ignored.
 
-![](https://github.com/infiniflow/ragflow/assets/93570324/ef5a6194-084a-4fe3-bdd5-1c025b40865c)
+![](/ragflow-images/ef5a6194-084a-4fe3-bdd5-1c025b40865c.png)
 
 ---
 
@@ -300,7 +300,7 @@ docker rm $(docker ps -aq)
 
 ### Why does my document parsing stall at under one percent?
 
-![stall](https://github.com/infiniflow/ragflow/assets/93570324/3589cc25-c733-47d5-bbfc-fedb74a3da50)
+![stall](/ragflow-images/3589cc25-c733-47d5-bbfc-fedb74a3da50.jpg)
 
 Click the red cross beside the 'parsing status' bar, then restart the parsing process to see if the issue remains. If the issue persists and your RAGFlow is deployed locally, try the following:
 
@@ -319,7 +319,7 @@ Click the red cross beside the 'parsing status' bar, then restart the parsing pr
 
 Click the red cross beside the 'parsing status' bar, then restart the parsing process to see if the issue remains. If the issue persists and your RAGFlow is deployed locally, the parsing process is likely killed due to insufficient RAM. Try increasing your memory allocation by increasing the `MEM_LIMIT` value in **docker/.env**.
 
-:::note
+:::info
 Ensure that you restart up your RAGFlow server for your changes to take effect!
 
 ```bash
@@ -332,7 +332,7 @@ docker compose up -d
 
 :::
 
-![nearcompletion](https://github.com/infiniflow/ragflow/assets/93570324/563974c3-f8bb-4ec8-b241-adcda8929cbb)
+![nearcompletion](/ragflow-images/563974c3-f8bb-4ec8-b241-adcda8929cbb.png)
 
 ---
 
@@ -387,9 +387,9 @@ A running container does not necessarily mean that the service inside it is heal
 
 2. Follow [the system health API](https://ragflow.io/docs/references/http_api_reference.md#check-system-health) to check the health status of the Elasticsearch service.
 
-   :::danger IMPORTANT
+:::danger IMPORTANT
    The status of a Docker container status does not necessarily reflect the status of the service. You may find that your services are unhealthy even when the corresponding Docker containers are up running. Possible reasons for this include network failures, incorrect port numbers, or DNS issues.
-   :::
+:::
 
 3. If your container keeps restarting, ensure `vm.max_map_count` >= 262144. On Linux, update **/etc/sysctl.conf** to keep the change permanent. For macOS, see the following FAQ.
 
@@ -496,7 +496,7 @@ You can use Ollama or Xinference to deploy local LLM. See [here](https://ragflow
 
 If your model is not currently supported but has APIs compatible with those of OpenAI, click **OpenAI-API-Compatible** on the **Model providers** page to configure your model:
 
-![openai-api-compatible](https://github.com/user-attachments/assets/b1e964f2-b86e-41af-8528-fd8a96dc5f6f)
+![openai-api-compatible](/ragflow-images/b1e964f2-b86e-41af-8528-fd8a96dc5f6f.png)
 
 ---
 
@@ -547,9 +547,9 @@ Switching the document engine requires rebuilding the document indexes. The foll
    ```bash
    $ docker compose -f docker/docker-compose.yml down -v
    ```
-   :::caution WARNING
+:::warning WARNING
    `-v` will delete all Docker container volumes, and the existing data will be cleared.
-   :::
+:::
 
 2. Set the following value in **docker/.env** :
 
@@ -686,15 +686,15 @@ From v0.22.0 onwards, RAGFlow includes MinerU (&ge; 3.3.0) as an optional PDF pa
    - If you decide to use a chunking method from the **Built-in** dropdown, ensure it supports PDF parsing, then select **MinerU** from the **PDF parser** dropdown.
    - If you use a custom ingestion pipeline instead, select **MinerU** in the **PDF parser** section of the **Parser** component.
 
-:::note
+:::info
 All MinerU environment variables are optional. When set, these values are used to auto-provision a MinerU OCR model for the tenant on first use. To avoid auto-provisioning, skip the environment variable settings and only configure MinerU from the **Model providers** page in the UI.
 :::
 
-:::caution WARNING
+:::warning WARNING
 **Upgrade note:** Older backend names (`vlm-transformers`, `vlm-vllm-engine`, `vlm-mlx-engine`, `vlm-vllm-async-engine`, `vlm-lmdeploy-engine`) are no longer accepted. After upgrading, re-select a current backend in **Model providers** (or update `MINERU_BACKEND`) and ensure your MinerU API service is &ge; 3.3.0.
 :::
 
-:::caution WARNING
+:::warning WARNING
 Third-party visual models are marked **Experimental**, because we have not fully tested these models for the aforementioned data extraction tasks.
 :::
 ---

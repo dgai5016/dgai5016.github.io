@@ -4,9 +4,9 @@
 
 选择要比较的模型，输入测试问题，运行比较。重点关注每个回答是否准确、是否正确使用了知识库内容，以及各模型的回答有什么差异。
 
-![选择要比较的模型](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/multi_model_comparison_1.jpg)
+![选择要比较的模型](/ragflow-images/multi_model_comparison_1.jpg)
 
-![比较各模型的回答](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/multi_model_comparison_2.jpg)
+![比较各模型的回答](/ragflow-images/multi_model_comparison_2.jpg)
 
 不要仅凭单个问题来选模型，而要使用实际业务场景中有代表性的问题。多模型比较主要用于模型选型和调试。例如，更换模型提供商或模型版本后，可以用同样的问题快速比较新旧模型的实际表现。
 

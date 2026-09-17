@@ -10,7 +10,7 @@
 
 从 **User Settings**（用户设置）进入 **Data Source**（数据源）页面。页面上方显示已连接的数据源，下方显示可添加的数据源。
 
-![进入数据源页面](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Enter_Data_Source_Page.jpg)
+![进入数据源页面](/ragflow-images/Enter_Data_Source_Page.jpg)
 
 ### 创建数据源连接
 
@@ -23,7 +23,7 @@
 
 不同数据源的创建窗口显示的字段各不相同，只需填写当前窗口中的字段。凭据、地址、空间、存储桶、数据库表等信息，应以对应外部系统中的实际配置为准。
 
-![创建数据源连接](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Create_Data_Source_Connection.jpg)
+![创建数据源连接](/ragflow-images/Create_Data_Source_Connection.jpg)
 
 ### 管理已连接的数据源
 
@@ -51,7 +51,7 @@
 
 修改完成后，点击 **Save**。新的配置将用于后续的同步任务。已同步到知识库的内容，会随下一次同步或清理任务逐步更新。
 
-![设置已连接的数据源](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Set_a_Connected_Data_Source.jpg)
+![设置已连接的数据源](/ragflow-images/Set_a_Connected_Data_Source.jpg)
 
 ### 查看已连接数据源的日志
 
@@ -67,4 +67,4 @@
 
 如果日志为空，通常表示该数据源尚未被任何知识库使用，或尚未触发过同步任务。
 
-![查看已连接数据源的日志](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/View_Connected_Data_Source_Logs.jpg)
+![查看已连接数据源的日志](/ragflow-images/View_Connected_Data_Source_Logs.jpg)

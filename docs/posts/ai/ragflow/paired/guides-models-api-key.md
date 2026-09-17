@@ -40,14 +40,14 @@ RAGFlow 支持大多数主流 LLM。完整支持列表请参阅[支持的模型]
 <BiRow>
 <template #en>
 
-:::note
+:::info
 If you find your online LLM is not on the list, don't feel disheartened. The list is expanding, and you can [file a feature request](https://github.com/infiniflow/ragflow/issues/new?assignees=&labels=feature+request&projects=&template=feature_request.yml&title=%5BFeature+Request%5D%3A+) with us! Alternatively, if you have customized or locally-deployed models, you can [bind them to RAGFlow using Ollama, Xinference, or LocalAI](https://ragflow.io/docs/guides/models/deploy_local_llm).
 :::
 
 </template>
 <template #zh>
 
-:::note
+:::info
 如果你发现自己的在线 LLM 不在列表中，也不必灰心。该列表正在持续扩充，你可以向我们[提交功能请求](https://github.com/infiniflow/ragflow/issues/new?assignees=&labels=feature+request&projects=&template=feature_request.yml&title=%5BFeature+Request%5D%3A+)！另外，如果你有自定义或本地部署的模型，也可以[使用 Ollama、Xinference 或 LocalAI 将其绑定到 RAGFlow](https://ragflow.io/docs/guides/models/deploy_local_llm)。
 :::
 
@@ -96,12 +96,12 @@ Go to **User settings** **>** **Model providers**. In **Available models**, sele
 <BiRow>
 <template #en>
 
-![Select model provider](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/select_model_provider.jpeg)
+![Select model provider](/ragflow-images/select_model_provider.jpeg)
 
 </template>
 <template #zh>
 
-![选择模型提供商](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/select_model_provider.jpeg)
+![选择模型提供商](/ragflow-images/select_model_provider.jpeg)
 
 </template>
 </BiRow>
@@ -195,12 +195,12 @@ To configure a model provider:
 <BiRow>
 <template #en>
 
-![Create instance](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_instance.jpeg)
+![Create instance](/ragflow-images/create_instance.jpeg)
 
 </template>
 <template #zh>
 
-![创建实例](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/create_instance.jpeg)
+![创建实例](/ragflow-images/create_instance.jpeg)
 
 </template>
 </BiRow>
@@ -208,14 +208,14 @@ To configure a model provider:
 <BiRow>
 <template #en>
 
-:::caution
+:::warning
 Do not expose your API Key. An incorrect Base URL causes connection verification or model calls to fail. When using a compatible API, confirm whether the path must include `/v1`.
 :::
 
 </template>
 <template #zh>
 
-:::caution
+:::warning
 请勿泄露你的 API Key。Base URL 不正确会导致连接验证或模型调用失败。使用兼容 API 时，请确认路径是否必须包含 `/v1`。
 :::
 
@@ -303,12 +303,12 @@ After filling in **API Key** and **Base URL**, verify the connection first. If v
 <BiRow>
 <template #en>
 
-![Verify connection](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/verify_connection.png)
+![Verify connection](/ragflow-images/verify_connection.png)
 
 </template>
 <template #zh>
 
-![验证连接](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/verify_connection.png)
+![验证连接](/ragflow-images/verify_connection.png)
 
 </template>
 </BiRow>
@@ -381,12 +381,12 @@ After the model instance connection succeeds, RAGFlow automatically displays som
 <BiRow>
 <template #en>
 
-![Add models from list](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/add_models_from_list.png)
+![Add models from list](/ragflow-images/add_models_from_list.png)
 
 </template>
 <template #zh>
 
-![从列表添加模型](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/add_models_from_list.png)
+![从列表添加模型](/ragflow-images/add_models_from_list.png)
 
 </template>
 </BiRow>
@@ -469,12 +469,12 @@ To add a custom model:
 <BiRow>
 <template #en>
 
-![Add custom model1](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/add_custom_model_1.png)
+![Add custom model1](/ragflow-images/add_custom_model_1.png)
 
 </template>
 <template #zh>
 
-![添加自定义模型 1](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/add_custom_model_1.png)
+![添加自定义模型 1](/ragflow-images/add_custom_model_1.png)
 
 </template>
 </BiRow>
@@ -482,13 +482,13 @@ To add a custom model:
 <BiRow>
 <template #en>
 
-![Add custom model2](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/add_custom_model_2.png)
+![Add custom model2](/ragflow-images/add_custom_model_2.png)
 ## Set Default Models
 
 </template>
 <template #zh>
 
-![添加自定义模型 2](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/add_custom_model_2.png)
+![添加自定义模型 2](/ragflow-images/add_custom_model_2.png)
 ## 设置默认模型
 
 </template>
@@ -551,12 +551,12 @@ If you have configured a rerank model, it is also recommended to set a default r
 <BiRow>
 <template #en>
 
-![Set default models](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/set_default_models.jpeg)
+![Set default models](/ragflow-images/set_default_models.jpeg)
 
 </template>
 <template #zh>
 
-![设置默认模型](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/set_default_models.jpeg)
+![设置默认模型](/ragflow-images/set_default_models.jpeg)
 
 </template>
 </BiRow>

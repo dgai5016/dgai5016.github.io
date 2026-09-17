@@ -104,7 +104,7 @@ If you cannot download the RAGFlow Docker image, try the following mirrors.
 - For the `nightly` edition:
   - `RAGFLOW_IMAGE=swr.cn-north-4.myhuaweicloud.com/infiniflow/ragflow:nightly` or,
   - `RAGFLOW_IMAGE=registry.cn-hangzhou.aliyuncs.com/infiniflow/ragflow:nightly`.
-  :::
+:::
 
 ### Embedding Service
 
@@ -254,6 +254,6 @@ Go to **User settings** **>** **Model providers** to configure provider instance
 
 The Enterprise Edition provides role-level default model settings.
 
-:::note Builtin embedding
+:::info Builtin embedding
 If you deploy TEI, keep the shipped `user_default_llm.default_models.embedding_model` connection settings in **service_conf.yaml.template**. They are used by the TEI `Builtin` embedding service and do not assign administrator-owned model instances to new tenants.
 :::

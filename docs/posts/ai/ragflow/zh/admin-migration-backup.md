@@ -31,7 +31,7 @@ local     docker_redis_data
 
 这些卷包含了你需要迁移的全部数据。
 
-:::note
+:::info
 卷名前缀（例如 `docker_`）来自 Docker Compose 的项目名。默认为 `docker`（由目录名推导而来）。如果你是通过 `docker compose -p <project_name>` 启动 RAGFlow 的，卷名前缀将是 `<project_name>_`，例如 `ragflow_mysql_data`。
 :::
 

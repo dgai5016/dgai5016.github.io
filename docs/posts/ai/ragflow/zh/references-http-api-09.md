@@ -10,7 +10,7 @@
 
 检查 RAGFlow 各依赖项（数据库、Redis、文档引擎、对象存储）的健康状态。
 
-:::caution 已弃用
+:::warning 已弃用
 `GET /v1/system/healthz` 已弃用，请改用本端点。
 :::
 

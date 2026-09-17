@@ -103,7 +103,7 @@ RAGFlow 采用 MinIO 作为对象存储方案，并利用其可扩展性来存�
 - `nightly` 版本：
   - `RAGFLOW_IMAGE=swr.cn-north-4.myhuaweicloud.com/infiniflow/ragflow:nightly`，或
   - `RAGFLOW_IMAGE=registry.cn-hangzhou.aliyuncs.com/infiniflow/ragflow:nightly`。
-  :::
+:::
 
 ### 嵌入服务
 
@@ -253,6 +253,6 @@ oauth:
 
 企业版提供角色级别的默认模型设置。
 
-:::note Builtin embedding
+:::info Builtin embedding
 如果你部署了 TEI，请保留 **service_conf.yaml.template** 中自带的 `user_default_llm.default_models.embedding_model` 连接设置。这些设置供 TEI 的 `Builtin` 嵌入服务使用，不会把管理员名下的模型实例分配给新租户。
 :::

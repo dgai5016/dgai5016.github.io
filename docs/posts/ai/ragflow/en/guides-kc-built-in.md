@@ -87,7 +87,7 @@ To improve knowledge graph extraction results, follow these principles:
 - Relationship types should have clear meanings and avoid overly broad definitions.
 - For complex business scenarios, add extra constraints through the rule field.
 
-![Graph configuration recommendations](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/graph-configuration-recommendations.jpg)
+![Graph configuration recommendations](/ragflow-images/graph-configuration-recommendations.jpg)
 
 ## Tree
 
@@ -121,7 +121,7 @@ Adjusts the matching degree during document content clustering and affects how r
 
 Adjusts the content clustering ratio in the Tree structure and affects the number of final hierarchy levels and the structure detail. Increasing this parameter usually generates a richer hierarchy. Decreasing this parameter can reduce the number of nodes and make the overall structure more concise.
 
-![Tree clustering ratio](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/tree-clustering-ratio.jpg)
+![Tree clustering ratio](/ragflow-images/tree-clustering-ratio.jpg)
 
 ## PageIndex
 
@@ -200,7 +200,7 @@ Supported operations:
 - Delete unnecessary fields to reduce invalid content generation.
 - Modify relationship rules to adjust associations between chapters.
 
-![PageIndex configuration description](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/page-index-configuration-description.jpg)
+![PageIndex configuration description](/ragflow-images/page-index-configuration-description.jpg)
 
 ## MindMap
 
@@ -283,7 +283,7 @@ Recommendations:
 - Node names should be short and clear for final display.
 - Adjust node definitions based on document type. For example, technical documents can add types such as "module" and "function", while business documents can add types such as "process" and "role".
 
-![MindMap node configuration description](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/mind-map-node-configuration-description.jpg)
+![MindMap node configuration description](/ragflow-images/mind-map-node-configuration-description.jpg)
 
 ## Timeline
 
@@ -345,7 +345,7 @@ The system provides the following default relationship type:
 
 Users can add relationship types based on actual requirements to describe more complex event relationships.
 
-![Timeline configuration recommendations](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/timeline-configuration-recommendations.jpg)
+![Timeline configuration recommendations](/ragflow-images/timeline-configuration-recommendations.jpg)
 
 ### Configuration Recommendations
 
@@ -495,7 +495,7 @@ The system provides the following blueprints:
 | Blueprint | Specifies the template for Wiki page generation. |
 | Instruction | Supplements page generation rules, such as chapter structure, content format, and display requirements. |
 
-![Wiki blueprint configuration](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/built-in-templates-and-dedicated-config-wiki.jpg)
+![Wiki blueprint configuration](/ragflow-images/built-in-templates-and-dedicated-config-wiki.jpg)
 
 After a blueprint is selected, the system generates Wiki content according to the preset page structure and rules of the corresponding blueprint. When Custom is selected, you can customize page generation requirements through Instruction, such as chapter structure, content format, and display method.
 

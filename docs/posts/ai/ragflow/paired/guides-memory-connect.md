@@ -48,12 +48,12 @@ A memory must be connected to an Agent before historical messages can be written
 <BiRow>
 <template #en>
 
-![Write agent messages to memory](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/write_agent_messages_to_memory.jpg)
+![Write agent messages to memory](/ragflow-images/write_agent_messages_to_memory.jpg)
 
 </template>
 <template #zh>
 
-![将 Agent 消息写入记忆](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/write_agent_messages_to_memory.jpg)
+![将 Agent 消息写入记忆](/ragflow-images/write_agent_messages_to_memory.jpg)
 
 </template>
 </BiRow>
@@ -97,12 +97,12 @@ A memory must be connected to an Agent before historical messages can be written
 <BiRow>
 <template #en>
 
-![Let an agent retrieve from memory](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/let_an_agent_retrieve_from_memory.jpg)
+![Let an agent retrieve from memory](/ragflow-images/let_an_agent_retrieve_from_memory.jpg)
 
 </template>
 <template #zh>
 
-![让 Agent 从记忆中检索](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/let_an_agent_retrieve_from_memory.jpg)
+![让 Agent 从记忆中检索](/ragflow-images/let_an_agent_retrieve_from_memory.jpg)
 
 </template>
 </BiRow>

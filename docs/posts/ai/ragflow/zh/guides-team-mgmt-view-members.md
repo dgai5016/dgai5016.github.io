@@ -16,4 +16,4 @@
 
 只有工作区所有者才能查询和管理该工作区的完整成员列表。
 
-![查看当前工作区成员](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_current_workspace_members.jpg)
+![查看当前工作区成员](/ragflow-images/view_current_workspace_members.jpg)

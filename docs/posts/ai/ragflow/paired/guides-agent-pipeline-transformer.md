@@ -46,12 +46,12 @@ It has four generation types:
 <BiRow>
 <template #en>
 
-![Select Transformer generation type](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/transformer2.png)
+![Select Transformer generation type](/ragflow-images/transformer2.png)
 
 </template>
 <template #zh>
 
-![选择 Transformer 生成类型](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/transformer2.png)
+![选择 Transformer 生成类型](/ragflow-images/transformer2.png)
 
 </template>
 </BiRow>
@@ -115,12 +115,12 @@ Model mode (select one):
 <BiRow>
 <template #en>
 
-![Configure Transformer model mode](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/transformer1.png)
+![Configure Transformer model mode](/ragflow-images/transformer1.png)
 
 </template>
 <template #zh>
 
-![配置 Transformer 模型模式](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/transformer1.png)
+![配置 Transformer 模型模式](/ragflow-images/transformer1.png)
 
 </template>
 </BiRow>
@@ -232,12 +232,12 @@ Chained connection:
 <BiRow>
 <template #en>
 
-![Chain Transformer components](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/transformer3.png)
+![Chain Transformer components](/ragflow-images/transformer3.png)
 
 </template>
 <template #zh>
 
-![链式连接 Transformer 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/transformer3.png)
+![链式连接 Transformer 组件](/ragflow-images/transformer3.png)
 
 </template>
 </BiRow>

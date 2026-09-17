@@ -152,12 +152,12 @@ You can find the RAGFlow version number on the **System** page of the UI:
 <BiRow>
 <template #en>
 
-![Image](https://github.com/user-attachments/assets/20cf7213-2537-4e18-a88c-4dadf6228c6b)
+![Image](/ragflow-images/20cf7213-2537-4e18-a88c-4dadf6228c6b.jpg)
 
 </template>
 <template #zh>
 
-![Image](https://github.com/user-attachments/assets/20cf7213-2537-4e18-a88c-4dadf6228c6b)
+![Image](/ragflow-images/20cf7213-2537-4e18-a88c-4dadf6228c6b.jpg)
 
 </template>
 </BiRow>
@@ -1109,12 +1109,12 @@ To resolve this, either download the missing file from the corresponding tag on 
 <BiRow>
 <template #en>
 
-![](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/docker-compose_missing.jpg)
+![](/ragflow-images/docker-compose_missing.jpg)
 
 </template>
 <template #zh>
 
-![](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/docker-compose_missing.jpg)
+![](/ragflow-images/docker-compose_missing.jpg)
 
 </template>
 </BiRow>
@@ -1148,12 +1148,12 @@ To resolve this, either download the missing file from the corresponding tag on 
 <BiRow>
 <template #en>
 
-![anomaly](https://github.com/infiniflow/ragflow/assets/93570324/beb7ad10-92e4-4a58-8886-bfb7cbd09e5d)
+![anomaly](/ragflow-images/beb7ad10-92e4-4a58-8886-bfb7cbd09e5d.jpg)
 
 </template>
 <template #zh>
 
-![anomaly](https://github.com/infiniflow/ragflow/assets/93570324/beb7ad10-92e4-4a58-8886-bfb7cbd09e5d)
+![anomaly](/ragflow-images/beb7ad10-92e4-4a58-8886-bfb7cbd09e5d.jpg)
 
 </template>
 </BiRow>
@@ -1261,12 +1261,12 @@ Ignore this warning and continue. All system warnings can be ignored.
 <BiRow>
 <template #en>
 
-![](https://github.com/infiniflow/ragflow/assets/93570324/ef5a6194-084a-4fe3-bdd5-1c025b40865c)
+![](/ragflow-images/ef5a6194-084a-4fe3-bdd5-1c025b40865c.png)
 
 </template>
 <template #zh>
 
-![](https://github.com/infiniflow/ragflow/assets/93570324/ef5a6194-084a-4fe3-bdd5-1c025b40865c)
+![](/ragflow-images/ef5a6194-084a-4fe3-bdd5-1c025b40865c.png)
 
 </template>
 </BiRow>
@@ -1546,12 +1546,12 @@ docker rm $(docker ps -aq)
 <BiRow>
 <template #en>
 
-![stall](https://github.com/infiniflow/ragflow/assets/93570324/3589cc25-c733-47d5-bbfc-fedb74a3da50)
+![stall](/ragflow-images/3589cc25-c733-47d5-bbfc-fedb74a3da50.jpg)
 
 </template>
 <template #zh>
 
-![stall](https://github.com/infiniflow/ragflow/assets/93570324/3589cc25-c733-47d5-bbfc-fedb74a3da50)
+![stall](/ragflow-images/3589cc25-c733-47d5-bbfc-fedb74a3da50.jpg)
 
 </template>
 </BiRow>
@@ -1656,7 +1656,7 @@ Click the red cross beside the 'parsing status' bar, then restart the parsing pr
 <BiRow>
 <template #en>
 
-:::note
+:::info
 Ensure that you restart up your RAGFlow server for your changes to take effect!
 
 ```bash
@@ -1672,7 +1672,7 @@ docker compose up -d
 </template>
 <template #zh>
 
-:::note
+:::info
 请务必重启 RAGFlow 服务器，以使更改生效！
 
 ```bash
@@ -1691,12 +1691,12 @@ docker compose up -d
 <BiRow>
 <template #en>
 
-![nearcompletion](https://github.com/infiniflow/ragflow/assets/93570324/563974c3-f8bb-4ec8-b241-adcda8929cbb)
+![nearcompletion](/ragflow-images/563974c3-f8bb-4ec8-b241-adcda8929cbb.png)
 
 </template>
 <template #zh>
 
-![nearcompletion](https://github.com/infiniflow/ragflow/assets/93570324/563974c3-f8bb-4ec8-b241-adcda8929cbb)
+![nearcompletion](/ragflow-images/563974c3-f8bb-4ec8-b241-adcda8929cbb.png)
 
 </template>
 </BiRow>
@@ -1990,16 +1990,16 @@ A running container does not necessarily mean that the service inside it is heal
 <BiRow>
 <template #en>
 
-   :::danger IMPORTANT
+:::danger IMPORTANT
    The status of a Docker container status does not necessarily reflect the status of the service. You may find that your services are unhealthy even when the corresponding Docker containers are up running. Possible reasons for this include network failures, incorrect port numbers, or DNS issues.
-   :::
+:::
 
 </template>
 <template #zh>
 
-   :::danger 重要
+:::danger 重要
    Docker 容器的状态不一定反映其服务的状态。即使对应的 Docker 容器已在运行，你也可能发现服务并不健康。可能的原因包括网络故障、端口号不正确或 DNS 问题。
-   :::
+:::
 
 </template>
 </BiRow>
@@ -2604,12 +2604,12 @@ If your model is not currently supported but has APIs compatible with those of O
 <BiRow>
 <template #en>
 
-![openai-api-compatible](https://github.com/user-attachments/assets/b1e964f2-b86e-41af-8528-fd8a96dc5f6f)
+![openai-api-compatible](/ragflow-images/b1e964f2-b86e-41af-8528-fd8a96dc5f6f.png)
 
 </template>
 <template #zh>
 
-![openai-api-compatible](https://github.com/user-attachments/assets/b1e964f2-b86e-41af-8528-fd8a96dc5f6f)
+![openai-api-compatible](/ragflow-images/b1e964f2-b86e-41af-8528-fd8a96dc5f6f.png)
 
 </template>
 </BiRow>
@@ -2892,9 +2892,9 @@ Switching the document engine requires rebuilding the document indexes. The foll
    ```bash
    $ docker compose -f docker/docker-compose.yml down -v
    ```
-   :::caution WARNING
+:::warning WARNING
    `-v` will delete all Docker container volumes, and the existing data will be cleared.
-   :::
+:::
 
 </template>
 <template #zh>
@@ -2902,9 +2902,9 @@ Switching the document engine requires rebuilding the document indexes. The foll
    ```bash
    $ docker compose -f docker/docker-compose.yml down -v
    ```
-   :::caution 警告
+:::warning 警告
    `-v` 会删除所有 Docker 容器卷，现有数据将被清空。
-   :::
+:::
 
 </template>
 </BiRow>
@@ -3614,14 +3614,14 @@ From v0.22.0 onwards, RAGFlow includes MinerU (&ge; 3.3.0) as an optional PDF pa
 <BiRow>
 <template #en>
 
-:::note
+:::info
 All MinerU environment variables are optional. When set, these values are used to auto-provision a MinerU OCR model for the tenant on first use. To avoid auto-provisioning, skip the environment variable settings and only configure MinerU from the **Model providers** page in the UI.
 :::
 
 </template>
 <template #zh>
 
-:::note
+:::info
 所有 MinerU 环境变量都是可选的。设置后，这些值会在首次使用时为租户自动预置（auto-provision）一个 MinerU OCR 模型。若不想自动预置，请跳过环境变量设置，只在 UI 的 **Model providers** 页面配置 MinerU。
 :::
 
@@ -3631,14 +3631,14 @@ All MinerU environment variables are optional. When set, these values are used t
 <BiRow>
 <template #en>
 
-:::caution WARNING
+:::warning WARNING
 **Upgrade note:** Older backend names (`vlm-transformers`, `vlm-vllm-engine`, `vlm-mlx-engine`, `vlm-vllm-async-engine`, `vlm-lmdeploy-engine`) are no longer accepted. After upgrading, re-select a current backend in **Model providers** (or update `MINERU_BACKEND`) and ensure your MinerU API service is &ge; 3.3.0.
 :::
 
 </template>
 <template #zh>
 
-:::caution 警告
+:::warning 警告
 **升级说明：**旧的后端名称（`vlm-transformers`、`vlm-vllm-engine`、`vlm-mlx-engine`、`vlm-vllm-async-engine`、`vlm-lmdeploy-engine`）不再被接受。升级后，请在 **Model providers** 中重新选择当前可用的后端（或更新 `MINERU_BACKEND`），并确保你的 MinerU API 服务版本 &ge; 3.3.0。
 :::
 
@@ -3648,7 +3648,7 @@ All MinerU environment variables are optional. When set, these values are used t
 <BiRow>
 <template #en>
 
-:::caution WARNING
+:::warning WARNING
 Third-party visual models are marked **Experimental**, because we have not fully tested these models for the aforementioned data extraction tasks.
 :::
 ---
@@ -3656,7 +3656,7 @@ Third-party visual models are marked **Experimental**, because we have not fully
 </template>
 <template #zh>
 
-:::caution 警告
+:::warning 警告
 第三方视觉模型被标记为 **Experimental**（实验性），因为我们尚未针对上述数据提取任务充分测试这些模型。
 :::
 ---

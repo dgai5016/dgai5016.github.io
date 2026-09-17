@@ -93,12 +93,12 @@ Configure sandbox providers from the admin page:
 <BiRow>
 <template #en>
 
-<img width="2547" height="1475" alt="admin-sandbox-settings" src="https://github.com/user-attachments/assets/59ab948e-b98a-45a8-9db4-f1afbf6c3685" />
+<img width="2547" height="1475" alt="admin-sandbox-settings" src="/ragflow-images/59ab948e-b98a-45a8-9db4-f1afbf6c3685.png" />
 
 </template>
 <template #zh>
 
-<img width="2547" height="1475" alt="admin-sandbox-settings" src="https://github.com/user-attachments/assets/59ab948e-b98a-45a8-9db4-f1afbf6c3685" />
+<img width="2547" height="1475" alt="admin-sandbox-settings" src="/ragflow-images/59ab948e-b98a-45a8-9db4-f1afbf6c3685.png" />
 
 </template>
 </BiRow>

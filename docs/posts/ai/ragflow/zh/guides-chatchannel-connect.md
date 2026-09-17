@@ -10,6 +10,6 @@
 4. 保存配置。
 5. 回到对应的第三方平台，向机器人发送一条测试消息。
 
-![将对话渠道连接到对话助手](https://raw.githubusercontent.com/infiniflow/ragflow-docs/78dcfd707366b45934720c7abe480897f31ecbe7/images/chat-channel-connect-chat.jpg)
+![将对话渠道连接到对话助手](/ragflow-images/chat-channel-connect-chat.jpg)
 
 如果测试消息没有收到回复，先检查渠道是否已连接到对话助手，再检查机器人是否在线、第三方平台权限是否齐全，以及对话助手本身能否在 RAGFlow 页面上正常回答。

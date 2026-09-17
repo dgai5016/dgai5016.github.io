@@ -477,7 +477,7 @@ curl --request DELETE \
 
 按 ID 删除多个对话助手。
 
-:::caution 已弃用
+:::warning 已弃用
 请求体中的 `chat_id` 已弃用，请使用 `ids` 列表。
 :::
 

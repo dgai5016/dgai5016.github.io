@@ -63,12 +63,12 @@ You can search joined teams by the owner nickname or email address, and sort joi
 <BiRow>
 <template #en>
 
-![View Joined Teams](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_joined_teams.jpg)
+![View Joined Teams](/ragflow-images/view_joined_teams.jpg)
 
 </template>
 <template #zh>
 
-![查看已加入的团队](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/view_joined_teams.jpg)
+![查看已加入的团队](/ragflow-images/view_joined_teams.jpg)
 
 </template>
 </BiRow>

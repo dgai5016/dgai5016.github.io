@@ -9,7 +9,7 @@ Configuration:
 2. **Code**: Select Python or JavaScript and write business logic.
 3. **Return Value**: Define output data returned to downstream components.
 
-![Code Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/code_component.jpg)
+![Code Component](/ragflow-images/code_component.jpg)
 
 ## Text Processing Component
 Text Processing splits or merges text. Used to split long upstream text by separators or combine multiple variables into one template.
@@ -20,7 +20,7 @@ Processing Modes:
 
 Configure script content with variables inserted via `/`. Output results can be referenced by subsequent nodes.
 
-![Text Processing Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/text_processing_component.jpg)
+![Text Processing Component](/ragflow-images/text_processing_component.jpg)
 
 ## Data Operation Component
 Data Operation processes structured objects returned by upstream tools, code or database nodes to clean data for downstream usage.
@@ -32,7 +32,7 @@ Configuration Steps:
 4. Select processing operation in Operations and fill corresponding configurations.
 5. Save and run tests.
 
-![Data Operation Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/data_operation_component.jpg)
+![Data Operation Component](/ragflow-images/data_operation_component.jpg)
 
 Output: Processed data stored in variable `result`.
 
@@ -57,7 +57,7 @@ Configuration Steps:
 4. If the selected operation requires a value, select a variable from the right panel or enter a fixed value.
 5. To update multiple variables at once, continue adding variable rules. The system will execute them sequentially in the order they are added.
 
-![Variable Assigner Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/variable_assigner_component.jpg)
+![Variable Assigner Component](/ragflow-images/variable_assigner_component.jpg)
 
 Parameter Description：
 
@@ -155,4 +155,4 @@ Usage Instructions：
 | Delete Variable Group | Click the delete button for the variable group to remove the current group. |
 | Reference Output | Subsequent nodes can directly reference the variable group (for example, **Group0**) as an input. |
 
-![Variable Aggregation Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/variable_aggregation_component.jpg)
+![Variable Aggregation Component](/ragflow-images/variable_aggregation_component.jpg)

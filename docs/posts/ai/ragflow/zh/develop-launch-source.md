@@ -116,7 +116,7 @@ docker compose -f docker/docker-compose-base.yml up -d
 
    *随后会出现如下消息，显示前端服务的 IP 地址和端口号：*
 
-![](https://github.com/user-attachments/assets/0daf462c-a24d-4496-a66f-92533534e187)
+![](/ragflow-images/0daf462c-a24d-4496-a66f-92533534e187.jpg)
 
 ### 访问 RAGFlow 服务
 

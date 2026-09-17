@@ -4,7 +4,7 @@
 
 ---
 
-:::caution 注意
+:::warning 注意
 DeepWiki 上的 RAGFlow 内容由 DeepWiki 维护，而非 RAGFlow 团队，可能滞后于最新官方发布版本。最新信息请始终以官方 [RAGFlow 文档](https://ragflow.io/docs/dev/) 和 [源代码](https://github.com/infiniflow/ragflow) 为准。
 :::
 

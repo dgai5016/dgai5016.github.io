@@ -139,14 +139,14 @@ Embedding model:
 <BiRow>
 <template #en>
 
-:::caution IMPORTANT
+:::warning IMPORTANT
 To search across multiple knowledge bases at the same time, all selected knowledge bases must use the same embedding model.
 :::
 
 </template>
 <template #zh>
 
-:::caution 重要
+:::warning 重要
 要同时跨多个知识库搜索，所有选中的知识库必须使用相同的嵌入模型。
 :::
 
@@ -156,12 +156,12 @@ To search across multiple knowledge bases at the same time, all selected knowled
 <BiRow>
 <template #en>
 
-![Configure The Indexer Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/configure_the_indexer_component.jpg)
+![Configure The Indexer Component](/ragflow-images/configure_the_indexer_component.jpg)
 
 </template>
 <template #zh>
 
-![配置索引器组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/configure_the_indexer_component.jpg)
+![配置索引器组件](/ragflow-images/configure_the_indexer_component.jpg)
 
 </template>
 </BiRow>

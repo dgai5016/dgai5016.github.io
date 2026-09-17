@@ -137,12 +137,12 @@ Example:
 <BiRow>
 <template #en>
 
-![Begin Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/begin_component_1.jpg)
+![Begin Component](/ragflow-images/begin_component_1.jpg)
 
 </template>
 <template #zh>
 
-![Begin 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/begin_component_1.jpg)
+![Begin 组件](/ragflow-images/begin_component_1.jpg)
 
 </template>
 </BiRow>
@@ -263,12 +263,12 @@ Variable types:
 <BiRow>
 <template #en>
 
-![Begin Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/begin_component_2.jpg)
+![Begin Component](/ragflow-images/begin_component_2.jpg)
 
 </template>
 <template #zh>
 
-![Begin 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/begin_component_2.jpg)
+![Begin 组件](/ragflow-images/begin_component_2.jpg)
 
 </template>
 </BiRow>
@@ -419,12 +419,12 @@ Configuration steps:
 <BiRow>
 <template #en>
 
-![Agent Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/agent_component_1.jpg)
+![Agent Component](/ragflow-images/agent_component_1.jpg)
 
 </template>
 <template #zh>
 
-![Agent 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/agent_component_1.jpg)
+![Agent 组件](/ragflow-images/agent_component_1.jpg)
 
 </template>
 </BiRow>
@@ -497,12 +497,12 @@ Example:
 <BiRow>
 <template #en>
 
-![Agent Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/agent_component_2.jpg)
+![Agent Component](/ragflow-images/agent_component_2.jpg)
 
 </template>
 <template #zh>
 
-![Agent 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/agent_component_2.jpg)
+![Agent 组件](/ragflow-images/agent_component_2.jpg)
 
 </template>
 </BiRow>
@@ -570,12 +570,12 @@ Tool calling, sub-agents, reflection rounds, and a larger message window size al
 <BiRow>
 <template #en>
 
-![Agent Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/agent_component_3.jpg)
+![Agent Component](/ragflow-images/agent_component_3.jpg)
 
 </template>
 <template #zh>
 
-![Agent 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/agent_component_3.jpg)
+![Agent 组件](/ragflow-images/agent_component_3.jpg)
 
 </template>
 </BiRow>
@@ -692,12 +692,12 @@ For structured output, after enabling **Structured output**, click **Configurati
 <BiRow>
 <template #en>
 
-![Agent Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/agent_component_4.jpg)
+![Agent Component](/ragflow-images/agent_component_4.jpg)
 
 </template>
 <template #zh>
 
-![Agent 组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/agent_component_4.jpg)
+![Agent 组件](/ragflow-images/agent_component_4.jpg)
 
 </template>
 </BiRow>
@@ -769,12 +769,12 @@ Configuration steps:
 <BiRow>
 <template #en>
 
-![Knowledge Retrieval Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/knowledge_retrieval_component_1.jpg)
+![Knowledge Retrieval Component](/ragflow-images/knowledge_retrieval_component_1.jpg)
 
 </template>
 <template #zh>
 
-![知识检索组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/knowledge_retrieval_component_1.jpg)
+![知识检索组件](/ragflow-images/knowledge_retrieval_component_1.jpg)
 
 </template>
 </BiRow>
@@ -782,12 +782,12 @@ Configuration steps:
 <BiRow>
 <template #en>
 
-![Knowledge Retrieval Component](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/knowledge_retrieval_component_2.jpg)
+![Knowledge Retrieval Component](/ragflow-images/knowledge_retrieval_component_2.jpg)
 
 </template>
 <template #zh>
 
-![知识检索组件](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/knowledge_retrieval_component_2.jpg)
+![知识检索组件](/ragflow-images/knowledge_retrieval_component_2.jpg)
 
 </template>
 </BiRow>

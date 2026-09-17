@@ -130,12 +130,12 @@ Some data sources support the test connection feature. After saving or modifying
 <BiRow>
 <template #en>
 
-![Synchronization and Updates](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Synchronization_and_Updates.jpg)
+![Synchronization and Updates](/ragflow-images/Synchronization_and_Updates.jpg)
 
 </template>
 <template #zh>
 
-![同步与更新](https://raw.githubusercontent.com/infiniflow/ragflow-docs/2ee87008723d56cb6ebf0e9c92f6ef2ad1a45254/images/Synchronization_and_Updates.jpg)
+![同步与更新](/ragflow-images/Synchronization_and_Updates.jpg)
 
 </template>
 </BiRow>

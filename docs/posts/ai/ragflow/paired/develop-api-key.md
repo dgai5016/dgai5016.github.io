@@ -31,12 +31,12 @@ RAGFlow 服务器需要 API key 来验证你的 HTTP/Python 或 MCP 请求。本
 <BiRow>
 <template #en>
 
-![ragflow_api_key](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/ragflow_api_key.jpg)
+![ragflow_api_key](/ragflow-images/ragflow_api_key.jpg)
 
 </template>
 <template #zh>
 
-![ragflow_api_key](https://raw.githubusercontent.com/infiniflow/ragflow-docs/main/images/ragflow_api_key.jpg)
+![ragflow_api_key](/ragflow-images/ragflow_api_key.jpg)
 
 </template>
 </BiRow>
