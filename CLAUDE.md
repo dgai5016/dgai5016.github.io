@@ -64,6 +64,10 @@ MCP / RAGFlow / Vector Database 101 三套双语文档（浮层左右对照阅�
 
 外部资料（当前支持 B站视频，规则文档可扩展）→「N 条资料总结」博文的技能在 `.claude/skills/dg-summarize-resources/`（`SKILL.md` 主路由，按资料类型分发到 `rules/` 下规则文档）。产出落在 `docs/posts/summary-resources/`，统一标签 `[资料总结]`，数据层零改动自动收录。
 
+## Claude 生态更新追踪
+
+追踪 Claude Code whats-new 周报和 Anthropic News 增量、维护长期文章《Claude 生态更新动态》（`docs/posts/ai/claude-ecosystem-updates.md`）的技能在 `.claude/skills/dg-newsupdate-claude/`。纯手动触发（不做通知/轮询）；检查/抓取脚本和水位状态在 `scripts/newsupdate-claude/`（Python 标准库）。Anthropic 新闻的全文中文译文页落在 `docs/news-zh/<slug>.md`——该目录在 `posts/` glob 之外，不进首页文章流；主文章只放索引条目。主文章中的**内部链接（译文页链接）一律用 `<PostLink to="/news-zh/<slug>">` 组件**以右侧浮层打开（PostOverlay 已把 `/news-zh/**/*.md` 纳入懒加载），外站链接（原文、官方周报）保持普通 markdown 链接新标签行为不变。
+
 ## 其他规则
 
 ### 代码编写规则
