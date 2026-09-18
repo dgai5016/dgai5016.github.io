@@ -5,10 +5,22 @@ import { computed, ref, onMounted, onUnmounted, watch } from 'vue'
 const { page } = useData()
 const route = useRoute()
 
+// VitePress 的 page.headers 是嵌套树:H3 挂在 H2 的 children 里,
+// 只过滤顶层数组的话 H3 永远取不到(目录只剩大标题)——这里拍平:
+// 顺序为 H2、其 children 中的 H3、下一个 H2 …
 const headings = computed(() => {
-  return (page.value.headers || []).filter(
-    (h: any) => h.level === 2 || h.level === 3
-  )
+  const out: any[] = []
+  for (const h of page.value.headers || []) {
+    if (h.level === 2) {
+      out.push(h)
+      for (const c of h.children || []) {
+        if (c.level === 3) out.push(c)
+      }
+    } else if (h.level === 3) {
+      out.push(h) // 顶层裸 H3(无前置 H2)的情况
+    }
+  }
+  return out
 })
 
 const activeId = ref('')

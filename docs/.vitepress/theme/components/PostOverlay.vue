@@ -36,6 +36,7 @@ const modules = import.meta.glob([
   '!/posts/ai/vector-db-101/shared-context.md',
   '/books/**/*.md',
   '/news-zh/**/*.md',
+  '/papers-zh/**/*.md',
 ])
 
 const bodyComp = shallowRef<any>(null)   // 目标文章正文的渲染组件
@@ -184,7 +185,8 @@ onUnmounted(() => {
   top: 0;
   right: 0;
   height: 100vh;
-  width: min(100%, 56rem);
+  /* 面板宽度:大屏 72rem(论文的宽表格/公式需要更多横向空间),小屏退化为全宽 */
+  width: min(100%, 72rem);
   background: var(--c-bg, #f7f8fc);
   z-index: 101;
   display: flex;
@@ -200,7 +202,7 @@ onUnmounted(() => {
 }
 
 .overlay-article {
-  max-width: 48rem;
+  max-width: 60rem; /* 内容最大宽跟随面板加宽(72rem 面板减去两侧留白) */
   margin: 0 auto;
   padding: 3rem 1.25rem 4rem;
 }

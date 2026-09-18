@@ -25,7 +25,9 @@ python3 scripts/newsupdate-claude/fetch_news.py <slug1> [slug2 ...]
 
 ### Step 2：翻译并落译文页
 
-单条直接自己译；**多条用并行子 agent**（每条一个，prompt 必须自包含：输入文件路径、输出路径、下方模板、SKILL.md 的术语表和美元金额坑全部贴进去）。
+**翻译一律通过 baoyu-translate 技能执行，不许裸译**（dg 的全局规则）。仓库根的 `.baoyu-skills/baoyu-translate/EXTEND.md` 已配置受众/风格/核心术语表，调用时自动加载；**额外传递**的约束（EXTEND.md 管不到的）：美元金额一律中文金额（15 美元），正文不留裸 `$`（KaTeX 坑）；原文链接文字按普通文字翻译不补 URL。
+
+单条直接调；**多条用并行子 agent**（每条一个，prompt 必须自包含：输入文件路径、输出路径、下方模板、baoyu 调用方式与上述约束全文）。
 
 译文页模板（`docs/news-zh/<slug>.md`）：
 

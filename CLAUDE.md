@@ -68,6 +68,12 @@ MCP / RAGFlow / Vector Database 101 三套双语文档（浮层左右对照阅�
 
 追踪 Claude Code whats-new 周报和 Anthropic News 增量、维护长期文章《Claude 生态更新动态》（`docs/posts/ai/claude-ecosystem-updates.md`）的技能在 `.claude/skills/dg-newsupdate-claude/`。纯手动触发（不做通知/轮询）；检查/抓取脚本和水位状态在 `scripts/newsupdate-claude/`（Python 标准库）。Anthropic 新闻的全文中文译文页落在 `docs/news-zh/<slug>.md`——该目录在 `posts/` glob 之外，不进首页文章流；主文章只放索引条目。主文章中的**内部链接（译文页链接）一律用 `<PostLink to="/news-zh/<slug>">` 组件**以右侧浮层打开（PostOverlay 已把 `/news-zh/**/*.md` 纳入懒加载），外站链接（原文、官方周报）保持普通 markdown 链接新标签行为不变。
 
+## dg-writer 写作技能
+
+博客写作的集大成主路由在 `.claude/skills/dg-writer/`（`SKILL.md` 按写作类型分发到 `rules/` 规则文档；未来把 dg-skills 里的 AI 写作技能逐步迁移进来）。当前已支持的类型与产出：
+
+- **AI 论文翻译**（`rules/ai-paper-translation.md`）：arxiv 论文 → 全文中文译文页 `docs/papers-zh/<slug>.md`（公式 LaTeX 迁移、图片落地 `docs/public/papers/<slug>/`、开头带导读）+ 合集主文章《AI 论文翻译》（`docs/posts/ai/ai-papers.md`）索引条目（`<PostLink>` 浮层打开，PostOverlay 已纳入 `/papers-zh/**/*.md`）。抓取脚本在 `scripts/ai-papers/`（arxiv abs 元数据 + ar5iv 正文，按需触发无水位）。
+
 ## 其他规则
 
 ### 代码编写规则
