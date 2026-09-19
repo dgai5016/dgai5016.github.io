@@ -475,28 +475,10 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
 }
 
-/* 「已读完」对勾角标：钉在封面右上角的主题紫圆底白勾（SVG 自绘，跨平台一致）；
-   白描边（box-shadow 扩散）保证在紫色系封面上也不和徽章融在一起；
-   绿色版（#16a34a）仍用于详情浮层里的「读完」文字徽章 */
-.book-card__status {
-  position: absolute;
-  top: 3px;
-  right: 3px;
-  width: 20px;
-  height: 20px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  color: #fff;
-  background: var(--c-accent);
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.9), 0 1px 3px rgba(0, 0, 0, 0.25);
-}
-
-/* 主题内序号：钉在封面左上角的白玻璃圆数字，与右上角的已读对勾对称；
-   比对勾小一号（序号是辅助信息，视觉权重让给状态）；
+/* 主题内序号：钉在封面左上角的圆数字——状态并入序号徽章：
+   未读 = 白玻璃底灰字（默认），已读（--finished）= 主题紫底白字（见下方变体）；
    两位数（10+）时靠 min-width + 横向 padding 撑成胶囊，圆角 9999px 两种形态通吃；
-   白描边环与对勾同款，压在任意封面上都有清晰边界 */
+   白描边环压在任意封面上（含紫色系封面）都有清晰边界 */
 .book-card__index {
   position: absolute;
   top: 3px;
@@ -516,10 +498,19 @@ body {
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.9), 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* 对勾线条随圆盒缩放（svg 撑满圆内的可视区） */
-.book-card__status svg {
-  width: 12px;
-  height: 12px;
+/* 已读变体：序号转主题紫底白字——配合已读置顶，1、2 号紫色序号即「已读完」标识 */
+.book-card--finished .book-card__index {
+  color: #fff;
+  background: var(--c-accent);
+}
+
+/* ===== 读书进度「点亮」视觉：未读灰、读完彩 ===== */
+/* 未读完的书：封面整体灰度 + 轻降不透明度，沉入背景；
+   读完的（--finished）不走这些规则，保持彩色 + 紫色序号，从灰墙里浮出来 */
+.book-card:not(.book-card--finished) .book-card__cover {
+  filter: grayscale(1);
+  opacity: 0.72;
+  transition: filter 0.2s ease, opacity 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 /* ===== 读书进度「点亮」视觉：未读灰、读完彩 ===== */

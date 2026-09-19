@@ -80,7 +80,7 @@ onUnmounted(() => window.removeEventListener('keydown', onDetailKeydown))
              用 button 承载点击语义（type=button 防止被当成表单提交按钮）；
              卡片上的封面用 144px 高缩略图（与显示尺寸基本 1:1），width/height 属性
              配合占位框 aspect-ratio 防止图片加载引起布局抖动；
-             isRead 的书加 --finished 修饰类：封面保持彩色 + 右上角对勾，
+             isRead 的书加 --finished 修饰类：封面保持彩色 + 序号转主题紫底白字，
              未读的书由 CSS 把封面和文字整体灰掉（读书进度的「点亮」隐喻） -->
         <button
           type="button"
@@ -89,7 +89,7 @@ onUnmounted(() => window.removeEventListener('keydown', onDetailKeydown))
           :aria-label="`查看 ${book.title} 详情`"
           @click="openBookDetail(book)"
         >
-          <!-- 封面占位框：竖版 2:3，relative 供「读完」对勾定位；
+          <!-- 封面占位框：竖版 2:3，relative 供左上角序号徽章定位；
                有真实封面用真实图，没抓到的用通用兜底占位图 -->
           <span class="book-card__cover-wrap">
             <img
@@ -101,16 +101,10 @@ onUnmounted(() => window.removeEventListener('keydown', onDetailKeydown))
               loading="lazy"
               decoding="async"
             >
-            <!-- 主题内序号：钉在封面左上角的白玻璃圆数字（与右上角的已读对勾对称）；
-                 已读置顶后 1、2 号天然落在读完的书上 -->
+            <!-- 主题内序号：钉在封面左上角；白玻璃底为默认（未读），
+                 已读（--finished）由 CSS 转主题紫底白字——状态并入序号徽章，不再单放对勾；
+                 已读置顶后 1、2 号天然落在读完的书上，紫色序号即「已读完」标识 -->
             <span class="book-card__index">{{ index + 1 }}</span>
-            <!-- 「已读完」对勾角标：钉在封面右上角的绿圆白勾（SVG 自绘，
-                 跨平台渲染一致，不用 emoji）；语义文字「读完」保留在详情浮层里 -->
-            <span v-if="book.isRead" class="book-card__status" role="img" aria-label="已读完">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-              </svg>
-            </span>
           </span>
           <!-- 书名：窄格子放不下长书名，CSS 限制最多两行、超出省略号 -->
           <span class="book-card__title">{{ book.title }}</span>
