@@ -8,12 +8,10 @@ books:
   # / cover 可选（封面图片路径，图片存 docs/public/covers/books/ 下，这里写站点绝对路径如 /covers/books/xxx.jpg）
   # / jd 可选（京东商品页链接，写了书名可点击跳转）
   # / douban 可选（豆瓣条目链接，显示豆瓣胶囊；豆瓣未收录的书不写）
-  # / status 可选（写「读完」显示绿胶囊）
+  # / isRead 可选（写 true 显示「读完」角标）
   # / dir 可选（文档目录名：docs/books/ 下的子目录，里面的 md 会挂在书单页该书下方）
-  # / level 可选（难度等级：简单/中等/困难，只影响排序不在页面显示；未写排在最后）
-  # 主题内按 简单→中等→困难 由易到难排序，同级内保持本文件书写顺序；「读完」只是状态标签不影响排序
+  # 主题内排序（sortBooks）：已读（isRead: true）置顶，其余保持本文件书写顺序（想调顺序直接挪条目）
   - title: 《Claude Code实战：Harness工程之道》
-    level: 中等
     author: 黄佳
     publisher: 人民邮电出版社
     pubDate: "2026-05"
@@ -22,8 +20,8 @@ books:
     jd: https://item.jd.com/15374814.html
     douban: https://book.douban.com/subject/38445510/
     weread: https://weread.qq.com/web/reader/99032c10813abb996g010247#outline?noScroll=1
+    isRead: true
   - title: 《图解Skill：AI提效实战指南》
-    level: 中等
     author: 宝玉
     publisher: 人民邮电出版社
     pubDate: "2026-05"
@@ -32,9 +30,8 @@ books:
     jd: https://item.jd.com/14717035.html
     douban: https://book.douban.com/subject/38495119/
     weread: https://weread.qq.com/web/reader/4cf32300813abb84bg014cb4#outline?noScroll=1
-    status: 读完
+    isRead: true
   - title: 《这就是MCP》
-    level: 中等
     author: 艾逗笔
     publisher: 人民邮电出版社
     pubDate: "2025-08"
@@ -43,8 +40,8 @@ books:
     jd: https://item.jd.com/15101486.html
     douban: https://book.douban.com/subject/37441660/
     weread: https://weread.qq.com/web/reader/16b32940813aba373g01724a#outline?noScroll=1
+    isRead: true
   - title: 《GPT图解：大模型是怎样构建的》
-    level: 中等
     author: 黄佳
     publisher: 人民邮电出版社
     pubDate: "2023-12"
@@ -53,11 +50,9 @@ books:
     jd: https://item.jd.com/13958977.html
     douban: https://book.douban.com/subject/36668702/
     weread: https://weread.qq.com/web/reader/5a032360813ab9719g013cb4#outline?noScroll=1
-    status: 读完
+    isRead: true
     dir: gpt-illustrated
-
   - title: 《零基础学机器学习》
-    level: 简单
     author: 黄佳
     publisher: 人民邮电出版社
     pubDate: "2020-12"
@@ -66,7 +61,6 @@ books:
     jd: https://item.jd.com/12763913.html
     douban: https://book.douban.com/subject/35264202/
   - title: 《AI工程：大模型应用开发实战》
-    level: 困难
     author: "[越] 奇普·萱"
     translator: 宝玉
     publisher: 人民邮电出版社
@@ -77,7 +71,6 @@ books:
     douban: https://book.douban.com/subject/38236657/
     weread: https://weread.qq.com/web/reader/d02328c0813abb2b0g0114d5#outline?noScroll=1
   - title: 《大模型应用开发：RAG实战课》
-    level: 困难
     author: 黄佳
     publisher: 人民邮电出版社
     pubDate: "2025-05"
@@ -86,8 +79,8 @@ books:
     jd: https://item.jd.com/14447967.html
     douban: https://book.douban.com/subject/37363743/
     weread: https://weread.qq.com/web/reader/e2e32840813abb5b2g01682f#outline?noScroll=1
+    isRead: true
   - title: 《统驭工程》
-    level: 困难
     author: 姜汉龙、陈百顺
     publisher: 中国水利水电出版社
     pubDate: "2026-05"
@@ -95,7 +88,6 @@ books:
     cover: /covers/books/harness-engineering.jpg
     jd: https://item.jd.com/14711673.html
   - title: 《这就是ChatGPT》
-    level: 简单
     author: "[美] 斯蒂芬·沃尔弗拉姆"
     translator: WOLFRAM传媒汉化小组
     publisher: 人民邮电出版社
@@ -106,7 +98,6 @@ books:
     douban: https://book.douban.com/subject/36449803/
     weread: https://weread.qq.com/web/reader/74332a90813ab86c4g019d98#outline?noScroll=1
   - title: 《Python神经网络编程》
-    level: 简单
     author: "[英] 塔里克·拉希德"
     translator: 林赐
     publisher: 人民邮电出版社
@@ -117,7 +108,6 @@ books:
     douban: https://book.douban.com/subject/30192800/
     weread: https://weread.qq.com/web/reader/a0b328807159b27ba0ba937#outline?noScroll=1
   - title: 《图解DeepSeek技术》
-    level: 中等
     author: "[沙特] 杰伊·阿拉马尔、[荷] 马尔滕·格鲁滕多斯特"
     translator: 李博杰、孟佳颖
     publisher: 人民邮电出版社
@@ -127,13 +117,7 @@ books:
     jd: https://item.jd.com/14465815.html
     douban: https://book.douban.com/subject/37425385/
     weread: https://weread.qq.com/web/reader/fb732e10813abb0a8g017b0e#outline?noScroll=1
-  - title: 《MCP很好，但它不是万灵药（轻科技）》
-    level: 简单
-    author: 腾讯科技
-    cover: /covers/books/mcp-not-panacea.jpg
-    weread: https://weread.qq.com/web/reader/f20323c0813ab9ff5g0181a8#outline?noScroll=1
   - title: 《Claude Code技术架构深度解析：Harness工程与AI编程新范式》
-    level: 困难
     author: 艾长青、陈济棠、陈文浩
     publisher: 人民邮电出版社
     pubDate: "2026-06"
@@ -143,7 +127,6 @@ books:
     douban: https://book.douban.com/subject/38534494/
     weread: https://weread.qq.com/web/reader/8a432a00813abbcd1g010c20#outline?noScroll=1
   - title: 《深度学习入门》
-    level: 简单
     author: "[日] 斋藤康毅"
     translator: 陆宇杰
     publisher: 人民邮电出版社
@@ -154,7 +137,6 @@ books:
     douban: https://book.douban.com/subject/30270959/
     weread: https://weread.qq.com/web/reader/b6032660813ab90ebg010b40#outline?noScroll=1
   - title: 《深度学习进阶》
-    level: 中等
     author: "[日] 斋藤康毅"
     translator: 陆宇杰
     publisher: 人民邮电出版社
@@ -165,7 +147,6 @@ books:
     douban: https://book.douban.com/subject/35225413/
     weread: https://weread.qq.com/web/reader/c81324b0720befa3c81025e#outline?noScroll=1
   - title: 《大模型工程师面试：算法原理、开发实践与系统部署》
-    level: 困难
     author: 苏宏博、温智凯
     publisher: 清华大学出版社
     pubDate: "2025-10"
@@ -175,7 +156,6 @@ books:
     douban: https://book.douban.com/subject/37807857/
     weread: https://weread.qq.com/web/reader/b8f329e0813abb752g0116d8#outline?noScroll=1
   - title: 《图解大模型》
-    level: 中等
     author: "[沙特] 杰伊·阿拉马尔、[荷] 马尔滕·格鲁滕多斯特"
     translator: 李博杰
     publisher: 人民邮电出版社
@@ -186,7 +166,6 @@ books:
     douban: https://book.douban.com/subject/37339504/
     weread: https://weread.qq.com/web/reader/14032420813ab9f2bg0110b9#outline?noScroll=1
   - title: 《从零构建大模型》
-    level: 中等
     author: "[美] 塞巴斯蒂安·拉施卡"
     translator: 覃立波、冯骁骋
     publisher: 人民邮电出版社
@@ -197,7 +176,6 @@ books:
     douban: https://book.douban.com/subject/37305124/
     weread: https://weread.qq.com/web/reader/52e320c0813ab9edeg01750f#outline?noScroll=1
   - title: 《大模型应用开发：动手做AI Agent》
-    level: 困难
     author: 黄佳
     publisher: 人民邮电出版社
     pubDate: "2024-05"
@@ -207,7 +185,6 @@ books:
     douban: https://book.douban.com/subject/36884058/
     weread: https://weread.qq.com/web/reader/69d32ba0813ab92ddg015647#outline?noScroll=1
   - title: 《Agent设计模式：图解可复用智能体架构》
-    level: 困难
     author: 黄佳
     publisher: 人民邮电出版社
     pubDate: "2026-02"
@@ -216,7 +193,6 @@ books:
     jd: https://item.jd.com/15313246.html
     douban: https://book.douban.com/subject/38231086/
   - title: 《GraphRAG实践：使用知识图谱提升LLM和RAG应用性能》
-    level: 困难
     author: "[美] 托马兹·布拉塔尼奇、奥斯卡·哈内"
     translator: 茹炳晟、殷海英
     publisher: 清华大学出版社
@@ -226,53 +202,4 @@ books:
     jd: https://item.jd.com/10219721239216.html
     douban: https://book.douban.com/subject/38439868/
     weread: https://weread.qq.com/web/reader/74132a70813abb44eg010c19#outline?noScroll=1
-  - title: 《Claude Code橙皮书：从入门到精通（微信读书特别版）》
-    level: 简单
-    author: 花叔
-    cover: /covers/books/claude-code-orange-book-intro.jpg
-    weread: https://weread.qq.com/web/reader/870320d0813abb494g0113ca#outline?noScroll=1
-  - title: 《Claude Code橙皮书：AI编程实战》
-    level: 中等
-    author: 花叔
-    publisher: 人民邮电出版社
-    pubDate: "2026-06"
-    pages: 228
-    cover: /covers/books/claude-code-orange-book.jpg
-    jd: https://item.jd.com/14735091.html
-    douban: https://book.douban.com/subject/38532607/
-    weread: https://weread.qq.com/web/reader/2a132590813abbb26g019d57#outline?noScroll=1
-  - title: 《Claude Code最系统手把手教程：入门、精通和必装 Skills（轻科技）》
-    level: 简单
-    author: 爱AI的大刘
-    cover: /covers/books/claude-code-systematic-tutorial.jpg
-    weread: https://weread.qq.com/web/reader/5c632560813abba6ag0165ef#outline?noScroll=1
-  - title: 《从0到1：手把手教你掌握Claude》
-    level: 简单
-    author: 派叔
-    cover: /covers/books/claude-from-zero-to-one.jpg
-    weread: https://weread.qq.com/web/reader/cbb32810813abb7f3g011a58#outline?noScroll=1
-  - title: 《豆包AI时代创富：年入百万的智能实战指南》
-    level: 简单
-    author: 李天舒
-    publisher: 电子工业出版社
-    pubDate: "2026-02"
-    pages: 200
-    cover: /covers/books/doubao-ai-wealth.jpg
-    jd: https://item.jd.com/14647357.html
-    douban: https://book.douban.com/subject/38443839/
-    weread: https://weread.qq.com/web/reader/7b332e00813abb47fg018ebc#outline?noScroll=1
-  - title: 《上头Obsidian：手把手教你用AI做好知识管理》
-    level: 简单
-    author: shiki实验室
-    publisher: 电子工业出版社
-    pubDate: "2025-08"
-    pages: 286
-    cover: /covers/books/obsidian-ai-km.jpg
-    jd: https://item.jd.com/15160014.html
-    douban: https://book.douban.com/subject/37505538/
-    weread: https://weread.qq.com/web/reader/ec932350811e8a9ccg016391#outline?noScroll=1
-  - title: 《AI时代生存手册：零基础养"龙虾"》
-    level: 简单
-    author: 秋叶
-    cover: /covers/books/openclaw-handbook.jpg
-    weread: https://weread.qq.com/web/reader/09b32ea0813abb438g0148d8#outline?noScroll=1
+    isRead: true

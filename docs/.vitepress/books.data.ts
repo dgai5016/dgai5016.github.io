@@ -2,11 +2,7 @@ import { readFileSync, readdirSync } from 'fs'
 import { basename, dirname, extname, join } from 'path'
 import { load as parseYaml } from 'js-yaml'
 
-// 阅读状态只支持「读完」：写了的书在页面上显示绿色胶囊，没写不显示任何状态
-export type BookStatus = '读完'
-
-// 难度等级（书单「由易到难」排序用）：简单 → 中等 → 困难，未分级排在最后
-export type BookLevel = '简单' | '中等' | '困难'
+// 难度等级字段 level 已于 2026-09 移除（曾用于主题内由易到难排序，不在页面显示，判定成本高于价值）
 
 // 挂在某本书下的单个文档（读书笔记 / 大纲等 markdown）
 // url 形如 /books/<目录>/<文件名>.html，由 VitePress 把 md 编译成页面
@@ -15,19 +11,18 @@ export interface BookDoc {
   url: string // 站内链接，点击跳转到文档页面
 }
 
-// 单本书：书名 / 作者 / 阅读状态（可选，只有「读完」才显示）/ 京东商品页链接（可选） / 微信读书链接（可选）
+// 单本书：书名 / 作者 / 已读标记 isRead（可选，true 显示「读完」角标）/ 京东商品页链接（可选） / 微信读书链接（可选）
 // translator / publisher / pubDate / cover（均可选）：译者 / 出版社 / 出版时间（"YYYY-MM"）/ 封面图站点绝对路径（缺省显示通用兜底图）
 // dir（可选）：这本书的专属文档目录名（docs/books/ 下的子目录），构建期扫描其中的 md 生成 docs 列表
 export interface Book {
   title: string
   author: string
-  level?: BookLevel // 难度等级（可选）：主题内按 入门→进阶→实战 排序；不写排在最后
   translator?: string // 译者（可选）：多人用「、」分隔，中文原创书没有
   publisher?: string // 出版社（可选）
   pubDate?: string // 出版时间（可选）：格式 "YYYY-MM" 或 "YYYY"，yaml 里必须带引号
   pages?: number // 页数（可选）：来自豆瓣/出版社信息，展示为「N 页」
   cover?: string // 封面图（可选）：站点绝对路径，如 /covers/books/xxx.jpg
-  status?: BookStatus
+  isRead?: boolean // 已读标记（可选）：true 时页面上显示「读完」角标（旧字段名 status，2026-09 改名）
   jd?: string // 京东商品页链接（可选）：购买入口，京东没有现货/联盟链的书不写
   douban?: string // 豆瓣条目链接（可选）：评分/书评入口，豆瓣未收录的书（如微信读书原创）不写
   weread?: string // 微信读书链接（可选）：线上阅读入口，没上架微信读书的书不写
@@ -54,7 +49,7 @@ function normalizePubDate(v: any): string | undefined {
 }
 
 // 归一化单本书：字段缺失或类型不对时给兜底值，保证页面渲染永不崩
-// status 只有恰好等于「读完」才保留；jd / douban 必须是 http(s) 开头的字符串才有效；
+// isRead 只有恰好为布尔 true 才保留（写 isRead: yes/true 均可，js-yaml 都解析成 true）；jd / douban 必须是 http(s) 开头的字符串才有效；
 // translator / publisher 必须是非空字符串才保留；pubDate 见 normalizePubDate；
 // cover 必须是「/」开头的站内绝对路径才保留（防误填外链或本地路径）；
 // dir 必须是非空字符串才保留（作为 docs/books/ 下子目录名去扫描文档）
@@ -62,8 +57,6 @@ function normalizeBook(raw: any): Book {
   return {
     title: typeof raw?.title === 'string' && raw.title ? raw.title : '未命名书目',
     author: typeof raw?.author === 'string' ? raw.author : '',
-    // 难度等级只认三个枚举值，写了别的当未分级（排在最后）
-    level: raw?.level === '简单' || raw?.level === '中等' || raw?.level === '困难' ? raw.level : undefined,
     translator:
       typeof raw?.translator === 'string' && raw.translator ? raw.translator : undefined,
     publisher:
@@ -73,7 +66,7 @@ function normalizeBook(raw: any): Book {
     pages: typeof raw?.pages === 'number' ? raw.pages
       : typeof raw?.pages === 'string' && /^\d+$/.test(raw.pages) ? Number(raw.pages) : undefined,
     cover: typeof raw?.cover === 'string' && raw.cover.startsWith('/') ? raw.cover : undefined,
-    status: raw?.status === '读完' ? '读完' : undefined,
+    isRead: raw?.isRead === true ? true : undefined,
     jd: typeof raw?.jd === 'string' && raw.jd.startsWith('http') ? raw.jd : undefined,
     douban: typeof raw?.douban === 'string' && raw.douban.startsWith('http') ? raw.douban : undefined,
     weread: typeof raw?.weread === 'string' && raw.weread.startsWith('http') ? raw.weread : undefined,
@@ -116,12 +109,15 @@ function loadBookDocs(yamlFile: string, dirName: string): BookDoc[] {
   }))
 }
 
-// 主题内排序：按难度「由易到难」（简单 → 中等 → 困难），未分级排在最后；
-// 同级内部保持 yaml 里的书写顺序（sort 是稳定排序），想微调同级内顺序直接挪 yaml 行；
-// 注意：阅读状态（读完）不影响排序——书单顺序是推荐阅读路径，读完只是状态标签
+// 主题内排序：已读（isRead: true）置顶，其余保持 yaml 里的书写顺序（sort 是稳定排序）；
+// 想调整书的顺序直接挪 yaml 条目顺序
 function sortBooks(books: Book[]): Book[] {
-  const levelOrder = (lv?: BookLevel) => (lv === '简单' ? 0 : lv === '中等' ? 1 : lv === '困难' ? 2 : 3)
-  return books.sort((a, b) => levelOrder(a.level) - levelOrder(b.level))
+  return books.sort((a, b) => {
+    // 已读置顶：两本 isRead 状态不同时，已读的排前面
+    //（让「读完」的书在书墙里排 1、2 号位、和左上角序号/右上角对勾呼应）
+    if (!!a.isRead !== !!b.isRead) return a.isRead ? -1 : 1
+    return 0
+  })
 }
 
 export default {

@@ -9,12 +9,10 @@ books:
   # / jd 可选（京东商品页链接，写了书名可点击跳转）
   # / douban 可选（豆瓣条目链接，显示豆瓣胶囊；豆瓣未收录的书不写）
   # / weread 可选（微信读书链接）
-  # / status 可选（写「读完」显示绿胶囊）
-  # / level 可选（难度等级：简单/中等/困难，只影响排序不在页面显示；未写排在最后）
-  # 主题内按 简单→中等→困难 由易到难排序，同级内保持本文件书写顺序；「读完」只是状态标签不影响排序
+  # / isRead 可选（写 true 显示「读完」角标）
+  # 主题内排序（sortBooks）：已读（isRead: true）置顶，其余保持本文件书写顺序（想调顺序直接挪条目）
   # 书名含「冒号+空格」时必须用引号包起来，否则 YAML 解析会出错
   - title: 《从零开始学写作：个人增值的有效方法》
-    level: 简单
     author: 弘丹
     publisher: 电子工业出版社
     pubDate: "2018-05"
@@ -23,7 +21,6 @@ books:
     douban: https://book.douban.com/subject/30266255/
     weread: https://weread.qq.com/web/reader/0803242072478268080077a#outline?noScroll=1
   - title: 《学会写作2.0》
-    level: 简单
     author: 粥左罗
     publisher: 人民邮电出版社
     pubDate: "2023-06"
@@ -33,7 +30,6 @@ books:
     douban: https://book.douban.com/subject/36378242/
     weread: https://weread.qq.com/web/reader/88c32bc0813ab9a59g017fdb#outline?noScroll=1
   - title: 《写作高手速成手册》
-    level: 简单
     author: "[日] 竹村俊助"
     translator: 吴宇鹏
     publisher: 中国友谊出版公司
@@ -43,7 +39,6 @@ books:
     douban: https://book.douban.com/subject/35894436/
     weread: https://weread.qq.com/web/reader/72b321a0813ab6fa0g015a2b#outline?noScroll=1
   - title: 《写出我心：普通人如何通过写作表达自己》
-    level: 简单
     author: "[美] 娜塔莉·戈德堡"
     translator: 韩良忆、袁小茶
     publisher: 广西科学技术出版社
@@ -54,7 +49,6 @@ books:
     douban: https://book.douban.com/subject/26822680/
     weread: https://weread.qq.com/web/reader/95232fb05e4e75952a9423c#outline?noScroll=1
   - title: 《写作变现指南：新手也能写爆文》
-    level: 简单
     author: 夕夕酱
     publisher: 江苏凤凰文艺出版社
     pubDate: "2022-10"
@@ -63,7 +57,6 @@ books:
     douban: https://book.douban.com/subject/36103042/
     weread: https://weread.qq.com/web/reader/b1432c30813ab73e3g018200#outline?noScroll=1
   - title: 《语音写作》
-    level: 简单
     author: 粥左罗
     publisher: 人民邮电出版社
     pubDate: "2025-07"
@@ -72,7 +65,6 @@ books:
     douban: https://book.douban.com/subject/37446275/
     weread: https://weread.qq.com/web/reader/b3132df0813aba464g01761b#outline?noScroll=1
   - title: 《高手之路》
-    level: 简单
     author: 粥左罗
     publisher: 人民邮电出版社
     pubDate: "2024-11"
@@ -82,7 +74,6 @@ books:
     douban: https://book.douban.com/subject/37088311/
     weread: https://weread.qq.com/web/reader/76732be0813ab9587g011ade#outline?noScroll=1
   - title: 《阅读写作赋能美好人生》
-    level: 简单
     author: 笑薇
     publisher: 中国铁道出版社
     pubDate: "2025-10"

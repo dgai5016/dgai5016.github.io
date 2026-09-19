@@ -27,9 +27,13 @@ dg 的个人博客，基于 VitePress 自定义主题，部署到 GitHub Pages�
 
 纯 CSS，无 Tailwind 或其他 CSS 框架。所有设计 token 和组件样式在 `theme/style.css` 中定义。
 
-- 主色调：`#6c63ff`
-- 毛玻璃效果：`.glass`、`.glass-sidebar`、`.glass-card` 使用 `backdrop-filter: blur()`
+- 体系：单 accent 色 `#6c63ff` + slate 三级文字灰阶；单亮色主题（无暗色模式）
+- 毛玻璃效果：`.glass`、`.glass-sidebar`、`.glass-card` 使用 `backdrop-filter: blur()`，规律是「背景越不透明 blur 越轻」
+- hover 语言：标题变 accent 色 / accent 泛色背景 0.05~0.06 / 关闭按钮旋转 90° 等既有八范式，不发明新效
+- z-index 分层：返回钮 20 < 移动抽屉 30/40 < hamburger 50 < 右滑面板 100 系 < 全屏模态 200 系 < 书单浮层 999
 - 响应式断点：640px（sm）、1024px（lg）
+
+**改 UI / 加组件 / 调样式前必读 `docs/.vitepress/theme/DESIGN.md`**——全站设计规范（token 表、圆角/阴影/过渡档位、hover 八范式、浮层范式、z-index 全表、图标规范、新增 UI 自检清单）。
 
 ### 关键组件
 

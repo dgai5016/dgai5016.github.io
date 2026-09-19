@@ -357,30 +357,20 @@ body {
   margin-bottom: 0.5rem;
 }
 
-/* 书单页（/pages/books）：主题抽屉 + 书籍列表 + 状态胶囊 */
+/* 书单页（/pages/books）：主题抽屉 + 书籍网格墙 + 详情浮层 */
+/* 抽屉不再限宽（旧列表限 42rem）——占满 main-content 全宽，网格一行十本才有 ~920px 可用 */
 .book-drawer {
-  max-width: 42rem;
   margin-bottom: 1rem;
   border-radius: 12px;
   overflow: hidden;
 }
 
-/* 抽头：无边框按钮，占满整行，hover 泛主题色 */
+/* 主题标题栏：主题名 + 本数计数（纯展示，无折叠交互——主题全部常开） */
 .book-drawer__header {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  width: 100%;
   padding: 1rem 1.25rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-align: left;
-  transition: background-color 0.15s ease;
-}
-
-.book-drawer__header:hover {
-  background: rgba(108, 99, 255, 0.04);
 }
 
 .book-drawer__name {
@@ -389,112 +379,325 @@ body {
   color: var(--c-text-primary);
 }
 
-/* 本数计数：margin-left:auto 把它和箭头一起推到右端 */
+/* 本数计数：margin-left:auto 推到右端 */
 .book-drawer__count {
   margin-left: auto;
   font-size: 0.75rem;
   color: var(--c-text-muted);
 }
 
-/* 下拉箭头：展开时旋转 180° */
-.book-drawer__chevron {
-  width: 1rem;
-  height: 1rem;
-  color: var(--c-text-muted);
-  transition: transform 0.15s ease;
-}
-
-.book-drawer__chevron--open {
-  transform: rotate(180deg);
-}
-
 .book-drawer__body {
   padding: 0 1.25rem 1.25rem;
 }
 
-/* 书籍列表：一行一本书，行与行之间用细分隔线 */
-.book-list {
+/* ===== 书籍网格墙：上封面下信息的卡片，点卡片开详情浮层 ===== */
+
+/* 网格容器：手机 3 列 → ≥640px 5 列 → ≥1024px 10 列（每行十本）；
+   列间距 0.5rem 保证桌面 10 列下每格仍有约 85px 宽（贴合 102px 宽的封面缩略图源图），
+   行间距放大些分隔上下两排卡片（卡片含书名作者区，本身比封面高） */
+.book-grid {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem 0.5rem;
 }
 
-/* 单本书列表行：左书名+作者同行、右状态胶囊，hover 泛主题色；
-   允许换行——有文档的书要把文档链接区换到书名行下方 */
-.book-item {
+/* 网格项允许收缩（min-width:0，grid 吹爆的标准解法）：
+   书名/作者里有不可断行的长英文串（如作者英文名），其 min-content 宽
+   会把 1fr 轨道撑宽、十列变得宽窄不一；归零最小宽后轨道严格等宽，
+   超长文字交给书名两行截断 / 作者省略号兜底 */
+.book-grid > li {
+  min-width: 0;
+}
+
+/* 平板（≥640px）：5 列 */
+@media (min-width: 640px) {
+  .book-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* 桌面（≥1024px）：10 列——书墙主形态 */
+@media (min-width: 1024px) {
+  .book-grid {
+    grid-template-columns: repeat(10, 1fr);
+  }
+}
+
+/* 单本书卡片：上封面、下书名+作者，整卡是打开详情浮层的按钮；
+   先重置浏览器给 button 的默认样式（边框/底色/居中字体），外观完全由下面的规则定义 */
+.book-card {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  padding: 0.65rem 0.5rem;
+  flex-direction: column;
+  gap: 0.3rem;
+  width: 100%;
+  padding: 0.35rem 0.25rem;
+  border: none;
   border-radius: 8px;
-  border-bottom: 1px solid var(--c-border);
+  background: none;
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
   transition: background-color 0.15s ease;
 }
 
-/* 最后一行不带分隔线 */
-.book-item:last-child {
-  border-bottom: none;
+/* hover 泛主题色（全站统一的 hover 语言） */
+.book-card:hover {
+  background: rgba(108, 99, 255, 0.06);
 }
 
-.book-item:hover {
-  background: rgba(108, 99, 255, 0.04);
+/* 封面占位框：竖版 2:3——图片加载前就占住高度，网格不抖动；
+   position:relative 供「读完」角标以它为定位基准 */
+.book-card__cover-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
 }
 
-/* 封面缩略图：竖版 2:3 小图（有真实封面用真实图，没有用通用兜底 SVG）；
-   固定尺寸防止图片加载引起布局抖动，object-fit:cover 让比例不齐的源图裁剪填满不变形；
-   圆角 + 细边框 + 轻阴影，与毛玻璃卡片的质感呼应 */
-.book-item__cover {
-  flex-shrink: 0;
-  width: 32px;
-  height: 48px;
+/* 封面图：撑满占位框，object-fit:cover 让比例不齐的源图裁剪填满不变形；
+   圆角 + 细边框 + 轻阴影，与全站卡片质感呼应；hover 封面轻上浮放大存在感 */
+.book-card__cover {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 4px;
   border: 1px solid var(--c-border);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
   background: var(--c-bg-surface); /* 图片加载完成前垫一层浅底色 */
-  cursor: zoom-in; /* 提示可点击放大（svg 兜底图点击无反应，可接受） */
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* 序号：主题内从 1 开始，等宽数字对齐 */
-.book-item__index {
-  flex-shrink: 0;
-  min-width: 1.25rem;
-  font-size: 0.8125rem;
-  color: var(--c-text-muted);
+.book-card:hover .book-card__cover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+/* 「已读完」对勾角标：钉在封面右上角的主题紫圆底白勾（SVG 自绘，跨平台一致）；
+   白描边（box-shadow 扩散）保证在紫色系封面上也不和徽章融在一起；
+   绿色版（#16a34a）仍用于详情浮层里的「读完」文字徽章 */
+.book-card__status {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--c-accent);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.9), 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+/* 主题内序号：钉在封面左上角的白玻璃圆数字，与右上角的已读对勾对称；
+   比对勾小一号（序号是辅助信息，视觉权重让给状态）；
+   两位数（10+）时靠 min-width + 横向 padding 撑成胶囊，圆角 9999px 两种形态通吃；
+   白描边环与对勾同款，压在任意封面上都有清晰边界 */
+.book-card__index {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  line-height: 1;
   font-variant-numeric: tabular-nums;
+  color: var(--c-text-secondary);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.9), 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-.book-item__main {
-  flex: 1; /* 占满序号和胶囊之间的空间，保证无胶囊时书名不右飘 */
-  min-width: 0;
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  column-gap: 0.5rem;
-  row-gap: 2px;
+/* 对勾线条随圆盒缩放（svg 撑满圆内的可视区） */
+.book-card__status svg {
+  width: 12px;
+  height: 12px;
 }
 
-.book-item__title {
-  font-size: 0.9375rem;
+/* ===== 读书进度「点亮」视觉：未读灰、读完彩 ===== */
+/* 未读完的书：封面整体灰度 + 轻降不透明度，沉入背景；
+   读完的（--finished）不走这些规则，保持彩色 + 对勾，从灰墙里浮出来 */
+.book-card:not(.book-card--finished) .book-card__cover {
+  filter: grayscale(1);
+  opacity: 0.72;
+  transition: filter 0.2s ease, opacity 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* hover 未读书：恢复彩色——「拿起这本书翻翻」的隐喻，也避免整面灰墙太闷 */
+.book-card:not(.book-card--finished):hover .book-card__cover {
+  filter: none;
+  opacity: 1;
+}
+
+/* 未读完的书：书名/作者文字同步降灰（书名比作者深一档，保住层次） */
+.book-card:not(.book-card--finished) .book-card__title {
+  color: var(--c-text-muted);
+}
+
+.book-card:not(.book-card--finished) .book-card__author {
+  color: var(--c-text-muted);
+  opacity: 0.7;
+}
+
+/* 书名：窄格子放不下长书名，最多两行、超出省略号；
+   min-height 定死两行高度——短书名的卡片也占同样高，网格底边对齐 */
+.book-card__title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  min-height: calc(0.75rem * 1.35 * 2);
+  font-size: 0.75rem;
+  line-height: 1.35;
   font-weight: 600;
   color: var(--c-text-primary);
 }
 
-/* 元信息行：作者 著 / 译者 译 · 出版社 · 出版时间（由页面 metaText 拼好），弱化展示；
-   flex-basis:100% 让它强制换到书名下方，书名单独占一行 */
-.book-item__meta {
-  flex-basis: 100%;
-  font-size: 0.8125rem;
+/* 作者：单行截断、弱化展示（多人作者放不下，完整名单看详情浮层） */
+.book-card__author {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.6875rem;
   color: var(--c-text-muted);
 }
 
-/* 京东购买入口胶囊：京东品牌红配浅红底，和右侧读完胶囊同一设计语言（小胶囊）；
-   hover 加深底色提示可点击 */
-.book-item__jd {
+/* ===== 书籍详情浮层：完整元信息和购买/阅读入口都收在这里 ===== */
+
+/* 全屏遮罩：半透明压暗 + 模糊，呼应全站毛玻璃风格；点遮罩关闭（内容卡片拦住冒泡） */
+.book-detail-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999; /* 压过侧栏/覆盖层等所有既有层级（PostOverlay 是 100） */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+/* 详情卡片：左高清封面 + 右信息，宽度封顶 40rem 居中；
+   毛玻璃白卡配方与全站 glass-card 同款（rgba 白底 + blur + 白边）；
+   内容超高视口时卡内滚动（max-height 85vh） */
+.book-detail {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  width: min(40rem, 100%);
+  max-height: 85vh;
+  padding: 1.75rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+  overflow-y: auto;
+}
+
+/* 右上角关闭按钮：样式语言对齐 PostOverlay 的 overlay-close
+   （圆形毛玻璃底、hover 转主题色并旋转 90°） */
+.book-detail__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--c-border);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--c-text-secondary);
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+
+.book-detail__close:hover {
+  color: var(--c-accent, #6c63ff);
+  background: #fff;
+  transform: rotate(90deg);
+}
+
+/* 左侧高清封面：fullCover() 按 -full.jpg 命名约定取大图（约 424×600），
+   缩到 176px 宽显示依然锐利 */
+.book-detail__cover {
   flex-shrink: 0;
-  padding: 2px 10px;
+  width: 11rem;
+  max-height: 60vh;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--c-border);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+}
+
+/* 右侧信息列：纵向排 标题/元信息/胶囊/笔记链接 */
+.book-detail__info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+/* 标题行：完整书名（不截断）+「读完」徽章同行；
+   右侧留白给右上角关闭按钮，长书名不钻到 × 底下 */
+.book-detail__title-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-right: 2.5rem;
+}
+
+.book-detail__title {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: var(--c-text-primary);
+}
+
+/* 「读完」徽章：绿字浅绿底（沿用旧列表徽章配色），常规基线摆放无需上浮 */
+.book-detail__status {
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 11px;
+  line-height: 1.5;
+  white-space: nowrap;
+  color: #16a34a;
+  background: rgba(22, 163, 74, 0.12);
+}
+
+/* 元信息：作者 著 / 译者 译 · 出版社 · N 页 · 出版年（页面 metaText 拼好），弱化展示 */
+.book-detail__meta {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--c-text-muted);
+}
+
+/* 购买/阅读入口胶囊排一行，放不下自动换行 */
+.book-detail__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* 京东购买入口胶囊：京东品牌红配浅红底；hover 加深底色提示可点击 */
+.book-detail__jd {
+  padding: 3px 12px;
   border-radius: 9999px;
   font-size: 12px;
   white-space: nowrap;
@@ -504,16 +707,15 @@ body {
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-.book-item__jd:hover {
+.book-detail__jd:hover {
   background: rgba(225, 37, 27, 0.2);
   color: #c81623;
 }
 
-/* 豆瓣条目入口胶囊：豆瓣品牌绿 #00b51d 配浅绿底，与其他胶囊同一设计语言；
+/* 豆瓣条目入口胶囊：豆瓣品牌绿 #00b51d 配浅绿底；
    比微信读书的亮绿 #07c160 略深，相邻摆放可区分；豆瓣未收录的书不渲染 */
-.book-item__douban {
-  flex-shrink: 0;
-  padding: 2px 10px;
+.book-detail__douban {
+  padding: 3px 12px;
   border-radius: 9999px;
   font-size: 12px;
   white-space: nowrap;
@@ -523,17 +725,15 @@ body {
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-.book-item__douban:hover {
+.book-detail__douban:hover {
   background: rgba(0, 181, 29, 0.2);
   color: #009c19;
 }
 
-/* 微信读书线上阅读入口胶囊：微信绿配浅绿底，与京东胶囊同一设计语言；
-   用微信品牌绿 #07c160（亮绿）和读完胶囊的沉稳绿 #16a34a 区分；
-   书没上架微信读书就不渲染（yaml 不写 weread 字段） */
-.book-item__weread {
-  flex-shrink: 0;
-  padding: 2px 10px;
+/* 微信读书线上阅读入口胶囊：微信品牌绿 #07c160（亮绿）配浅绿底，
+   和豆瓣胶囊的深绿、读完徽章的沉稳绿互相区分；书没上架就不渲染 */
+.book-detail__weread {
+  padding: 3px 12px;
   border-radius: 9999px;
   font-size: 12px;
   white-space: nowrap;
@@ -543,49 +743,30 @@ body {
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-.book-item__weread:hover {
+.book-detail__weread:hover {
   background: rgba(7, 193, 96, 0.2);
   color: #06ad56;
 }
 
-/* 阅读状态小标签（读完）：紧贴书名右上角上浮的小徽章；
-   与右侧京东/微信读书胶囊区分——这是状态展示，不是点击入口；
-   main 是 baseline 对齐的 flex，小字号标签的基线已与书名对齐，
-   再用 translateY 上浮一点，视觉落在书名文字的右上角 */
-.book-item__status {
-  flex-shrink: 0;
-  padding: 1px 7px;
-  border-radius: 9999px;
-  font-size: 10px;
-  line-height: 1.5;
-  white-space: nowrap;
-  color: #16a34a;
-  background: rgba(22, 163, 74, 0.12);
-  transform: translateY(-4px);
-}
-
-/* 书的专属文档链接区（读书笔记/大纲等）：独占书名行下方一整行，
-   左缩进 = 封面宽 32px + 列间距 0.75rem + 序号宽与间距 2rem，让文档链接与书名文字左对齐 */
-.book-item__docs {
-  flex-basis: 100%;
+/* 这本书的专属文档（读书笔记/大纲等，来自书的 dir 目录）：竖排列表 */
+.book-detail__docs {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem 0.75rem;
-  padding-left: calc(32px + 0.75rem + 2rem);
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
-/* 单个文档链接：小字号弱强调，hover 变主题色（与豆瓣书名链接同款交互）。
+/* 单个文档链接：小字号弱强调，hover 变主题色。
    链接本身用全局组件 PostLink 渲染（点击唤出右滑覆盖层），其 scoped 样式
    （.post-link[data-v-x]，权重 0,2,0）会把颜色固定成 accent、字号重置为继承，
-   这里用三层类名选择器（0,3,0）压过它，保住书单里的弱强调层级 */
-.book-item .book-item__docs .book-item__doc-link {
+   这里用三层类名选择器（0,3,0）压过它，保住浮层里的弱强调层级 */
+.book-detail .book-detail__docs .book-detail__doc-link {
   font-size: 0.8125rem;
   color: var(--c-text-muted);
   text-decoration: none;
   transition: color 0.15s ease;
 }
 
-.book-item .book-item__docs .book-item__doc-link:hover {
+.book-detail .book-detail__docs .book-detail__doc-link:hover {
   color: var(--c-accent);
 }
 
@@ -596,37 +777,34 @@ body {
   color: var(--c-text-muted);
 }
 
-/* 封面灯箱：全屏半透明遮罩（带模糊呼应全站毛玻璃风格），点遮罩关闭；
-   高清大图限制在视口 90% 内，等比显示不溢出 */
-.book-cover-lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 999; /* 压过侧栏/覆盖层等所有既有层级 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  background: rgba(0, 0, 0, 0.72);
-  backdrop-filter: blur(4px);
-  cursor: zoom-out; /* 点任意处（含图片）关闭 */
-}
-
-.book-cover-lightbox img {
-  max-height: 90vh;
-  max-width: 90vw;
-  border-radius: 8px;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
-}
-
-/* 小屏（≤640px）：封面缩到 28x42 给书名让空间，文档链接区缩进同步调整 */
+/* 小屏（≤640px）：详情卡片改纵向堆叠（封面上、信息下），信息居中对齐；
+   顶部留白给右上角关闭按钮让位 */
 @media (max-width: 640px) {
-  .book-item__cover {
-    width: 28px;
-    height: 42px;
+  .book-detail {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 3.25rem 1.25rem 1.25rem;
+    text-align: center;
   }
 
-  .book-item__docs {
-    padding-left: calc(28px + 0.75rem + 2rem);
+  .book-detail__cover {
+    width: min(9rem, 45vw);
+  }
+
+  .book-detail__info {
+    align-items: center;
+    width: 100%;
+  }
+
+  .book-detail__title-row {
+    justify-content: center;
+    padding-right: 0;
+  }
+
+  .book-detail__links,
+  .book-detail__docs {
+    align-items: center;
   }
 }
 

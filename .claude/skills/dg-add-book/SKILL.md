@@ -1,6 +1,6 @@
 ---
 name: dg-add-book
-description: 给博客书单页（docs/books/*.yaml）添加一本书的完整流程：查豆瓣元数据（作者/译者/出版社/出版年）、下载处理封面图（防盗链下载/方图分诊裁剪/144px 压缩）、解析京东商品页 SKU 链接、按规范填 yaml（jd/douban/weread 三胶囊字段，缺哪个平台不写哪个）、本地 dev 验收。Use when 用户说「加本书 X」「书单加书」「把 X 加到书单」「X 加到人工智能书单」「add book」或要在书单页新增书目（支持一次多本）。京东链接的唯一稳定来源是豆瓣购买区联盟跳转链的 ReturnUrl 解析（京东搜索/商品页直访会触发登录墙/风控）；京东没有的书不写 jd，绝不拿豆瓣链接充数（豆瓣是独立 douban 字段）。豆瓣未收录的新书走冷启动路径（出版社官网 + 当当）。Does NOT 改阅读状态（status）、删书、建新主题 yaml、commit/push（提交走 dg-git-push）。
+description: 给博客书单页（docs/books/*.yaml）添加一本书的完整流程：查豆瓣元数据（作者/译者/出版社/出版年）、下载处理封面图（防盗链下载/方图分诊裁剪/144px 压缩）、解析京东商品页 SKU 链接、按规范填 yaml（jd/douban/weread 三胶囊字段，缺哪个平台不写哪个）、本地 dev 验收。Use when 用户说「加本书 X」「书单加书」「把 X 加到书单」「X 加到人工智能书单」「add book」或要在书单页新增书目（支持一次多本）。京东链接的唯一稳定来源是豆瓣购买区联盟跳转链的 ReturnUrl 解析（京东搜索/商品页直访会触发登录墙/风控）；京东没有的书不写 jd，绝不拿豆瓣链接充数（豆瓣是独立 douban 字段）。豆瓣未收录的新书走冷启动路径（出版社官网 + 当当）。Does NOT 改已读标记（isRead）、删书、建新主题 yaml、commit/push（提交走 dg-git-push）。
 ---
 
 # dg-add-book：书单加书流程
@@ -87,23 +87,11 @@ curl -sS -A "<Chrome UA>" "https://weread.qq.com/web/search/global?keyword=<书�
 
 ### Step 5 填 yaml
 
-按下方规范速查把字段填进目标主题 yaml 的 books 数组（追加到末尾），并**给新书标 `level` 难度等级**（见下方「排序设计」）。新书一般不写 `status`（读完才写）。
+按下方规范速查把字段填进目标主题 yaml 的 books 数组（追加到末尾）。新书一般不写 `isRead`（读完才写 `isRead: true`）。
 
-## 排序设计（由易到难）
+## 排序设计
 
-主题内排序规则（`books.data.ts` 的 `sortBooks`）：**简单 → 中等 → 困难**，未标 level 排最后；同级内保持 yaml 书写顺序；「读完」只是状态标签**不影响排序**（书单顺序 = 推荐阅读路径）。level 不在页面显示。
-
-**level 判断标准**（新书必标，按优先级）：
-
-| level | 特征 | 关键词信号 | 例子 |
-|-------|------|-----------|------|
-| 简单 | 零基础可读，科普/方法论，几乎不要代码基础 | 零基础、入门、科普、图解×+无代码要求 | 零基础学机器学习、这就是ChatGPT、鱼书 |
-| 中等 | 需要编程/前置知识，系统学原理或工具 | 原理、进阶、图解×+动手代码、工具链 | GPT图解、从零构建大模型、图解Skill |
-| 困难 | 工程实战/架构/面试/深度专题 | 实战、架构、工程、面试、Agent 开发 | RAG实战课、统驭工程、AI工程 |
-
-拿不准时看豆瓣内容简介判断；两可之间取低的（简单侧）——书单是给读者由易到难爬坡用的。
-
-**写入位置**：`level` 放 title 行后。想微调同级内顺序直接挪 yaml 条目顺序。
+主题内排序规则（`books.data.ts` 的 `sortBooks`）：**已读（`isRead: true`）置顶优先**，其余保持 yaml 书写顺序。想调整书的顺序直接挪 yaml 条目顺序。（难度等级字段 `level` 已于 2026-09 移除。）
 
 ### Step 6 验证 + 交付
 
@@ -118,7 +106,6 @@ dev 热更新即时生效，把 `http://localhost:5173/pages/books` 交给用户
 
 ```yaml
   - title: 《书名：副标题》        # 全角冒号不用引号；半角「: 」必须引号包整个值
-    level: 简单                   # 难度等级：简单/中等/困难，只影响排序（由易到难），页面不显示
     author: "[越] 奇普·萱"        # 翻译书写原作者；多人用「、」；[国] 前缀的值必须加引号（否则 YAML 解析成数组）
     translator: 宝玉              # 可选；多人用「、」；中文原创书不写
     publisher: 人民邮电出版社      # 可选
@@ -128,7 +115,7 @@ dev 热更新即时生效，把 `http://localhost:5173/pages/books` 交给用户
     jd: https://item.jd.com/<sku>.html  # 京东商品页；没有京东链接就不写，别填别的链接
     douban: https://book.douban.com/subject/<id>/  # 豆瓣条目页（豆瓣胶囊）；豆瓣未收录不写
     weread: https://weread.qq.com/web/reader/<hash>#outline?noScroll=1  # 可选；未上架不写；锚点必须带（打开直接看书的信息）
-    status: 读完                  # 可选；只认「读完」
+    isRead: true                 # 可选；读完才写（2026-09 前旧字段名 status: 读完，已全量迁移）
     dir: <目录名>                 # 可选；docs/books/ 下子目录，挂读书笔记
 ```
 
