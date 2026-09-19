@@ -9,8 +9,9 @@ books:
   # / jd 可选（京东商品页链接，写了书名可点击跳转）
   # / douban 可选（豆瓣条目链接，显示豆瓣胶囊；豆瓣未收录的书不写）
   # / isRead 可选（写 true 显示「读完」角标）
+  # / finishedDate 可选（读完年月 "YYYY-MM"，取自读书笔记创建时间；已读之间按它先读完的排前面）
   # / dir 可选（文档目录名：docs/books/ 下的子目录，里面的 md 会挂在书单页该书下方）
-  # 主题内排序（sortBooks）：已读（isRead: true）置顶，其余保持本文件书写顺序（想调顺序直接挪条目）
+  # 主题内排序（sortBooks）：已读（isRead: true）置顶（按 finishedDate 先读完的在前），其余保持本文件书写顺序
   - title: 《Claude Code实战：Harness工程之道》
     author: 黄佳
     publisher: 人民邮电出版社
@@ -21,6 +22,7 @@ books:
     douban: https://book.douban.com/subject/38445510/
     weread: https://weread.qq.com/web/reader/99032c10813abb996g010247#outline?noScroll=1
     isRead: true
+    finishedDate: "2026-06"
   - title: 《图解Skill：AI提效实战指南》
     author: 宝玉
     publisher: 人民邮电出版社
@@ -31,6 +33,7 @@ books:
     douban: https://book.douban.com/subject/38495119/
     weread: https://weread.qq.com/web/reader/4cf32300813abb84bg014cb4#outline?noScroll=1
     isRead: true
+    finishedDate: "2026-06"
   - title: 《这就是MCP》
     author: 艾逗笔
     publisher: 人民邮电出版社
@@ -41,6 +44,7 @@ books:
     douban: https://book.douban.com/subject/37441660/
     weread: https://weread.qq.com/web/reader/16b32940813aba373g01724a#outline?noScroll=1
     isRead: true
+    finishedDate: "2026-09"
   - title: 《GPT图解：大模型是怎样构建的》
     author: 黄佳
     publisher: 人民邮电出版社
@@ -51,6 +55,7 @@ books:
     douban: https://book.douban.com/subject/36668702/
     weread: https://weread.qq.com/web/reader/5a032360813ab9719g013cb4#outline?noScroll=1
     isRead: true
+    finishedDate: "2026-08"
     dir: gpt-illustrated
   - title: 《零基础学机器学习》
     author: 黄佳
@@ -80,6 +85,7 @@ books:
     douban: https://book.douban.com/subject/37363743/
     weread: https://weread.qq.com/web/reader/e2e32840813abb5b2g01682f#outline?noScroll=1
     isRead: true
+    finishedDate: "2026-07"
   - title: 《统驭工程》
     author: 姜汉龙、陈百顺
     publisher: 中国水利水电出版社
@@ -203,3 +209,4 @@ books:
     douban: https://book.douban.com/subject/38439868/
     weread: https://weread.qq.com/web/reader/74132a70813abb44eg010c19#outline?noScroll=1
     isRead: true
+    finishedDate: "2026-08"

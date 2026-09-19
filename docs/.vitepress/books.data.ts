@@ -22,7 +22,8 @@ export interface Book {
   pubDate?: string // 出版时间（可选）：格式 "YYYY-MM" 或 "YYYY"，yaml 里必须带引号
   pages?: number // 页数（可选）：来自豆瓣/出版社信息，展示为「N 页」
   cover?: string // 封面图（可选）：站点绝对路径，如 /covers/books/xxx.jpg
-  isRead?: boolean // 已读标记（可选）：true 时页面上显示「读完」角标（旧字段名 status，2026-09 改名）
+  isRead?: boolean // 已读标记（可选）：true 时卡片封面保持彩色、序号转主题紫底白字
+  finishedDate?: string // 读完年月（可选）：格式 "YYYY-MM"，来自读书笔记 frontmatter 的 created；已读书之间按它先读完的排前面
   jd?: string // 京东商品页链接（可选）：购买入口，京东没有现货/联盟链的书不写
   douban?: string // 豆瓣条目链接（可选）：评分/书评入口，豆瓣未收录的书（如微信读书原创）不写
   weread?: string // 微信读书链接（可选）：线上阅读入口，没上架微信读书的书不写
@@ -67,6 +68,8 @@ function normalizeBook(raw: any): Book {
       : typeof raw?.pages === 'string' && /^\d+$/.test(raw.pages) ? Number(raw.pages) : undefined,
     cover: typeof raw?.cover === 'string' && raw.cover.startsWith('/') ? raw.cover : undefined,
     isRead: raw?.isRead === true ? true : undefined,
+    // 读完年月：复用 normalizePubDate 校验（只认 "YYYY-MM" / "YYYY" 字符串）
+    finishedDate: normalizePubDate(raw?.finishedDate),
     jd: typeof raw?.jd === 'string' && raw.jd.startsWith('http') ? raw.jd : undefined,
     douban: typeof raw?.douban === 'string' && raw.douban.startsWith('http') ? raw.douban : undefined,
     weread: typeof raw?.weread === 'string' && raw.weread.startsWith('http') ? raw.weread : undefined,
@@ -109,13 +112,19 @@ function loadBookDocs(yamlFile: string, dirName: string): BookDoc[] {
   }))
 }
 
-// 主题内排序：已读（isRead: true）置顶，其余保持 yaml 里的书写顺序（sort 是稳定排序）；
-// 想调整书的顺序直接挪 yaml 条目顺序
+// 主题内排序：已读（isRead: true）置顶，已读之间按 finishedDate 先读完的（早）排前面；
+// 未读保持 yaml 里的书写顺序（sort 是稳定排序），想调整顺序直接挪 yaml 条目顺序
 function sortBooks(books: Book[]): Book[] {
   return books.sort((a, b) => {
     // 已读置顶：两本 isRead 状态不同时，已读的排前面
-    //（让「读完」的书在书墙里排 1、2 号位、和左上角序号/右上角对勾呼应）
     if (!!a.isRead !== !!b.isRead) return a.isRead ? -1 : 1
+    // 已读内部：按读完年月升序（先读完的排前面）；没写日期的排已读组末尾
+    //（"YYYY-MM" 字典序即时间序；'9999-99' 是排在所有真实日期后的哨兵值）
+    if (a.isRead && b.isRead) {
+      const da = a.finishedDate ?? '9999-99'
+      const db = b.finishedDate ?? '9999-99'
+      return da.localeCompare(db)
+    }
     return 0
   })
 }

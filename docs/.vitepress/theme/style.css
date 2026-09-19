@@ -358,6 +358,23 @@ body {
 }
 
 /* 书单页（/pages/books）：主题抽屉 + 书籍网格墙 + 详情浮层 */
+
+/* 页面标题行：大标题 + 右侧已读统计小字；
+   flex-wrap 兜底窄屏（统计挤不下时换行到标题下方） */
+.books-page-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+}
+
+/* 已读统计：muted 小字弱化，紧挨标题基线（大标题 3rem 旁边的注释性信息） */
+.books-page-stat {
+  font-size: 0.9rem;
+  color: var(--c-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
 /* 抽屉不再限宽（旧列表限 42rem）——占满 main-content 全宽，网格一行十本才有 ~920px 可用 */
 .book-drawer {
   margin-bottom: 1rem;

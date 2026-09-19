@@ -10,6 +10,20 @@ import { ref, onMounted, onUnmounted } from 'vue'
 // 通用兜底封面：没抓到真实封面的书统一显示这张占位图（SVG 自绘，存在 public/covers/books/ 下）
 const DEFAULT_COVER = '/covers/books/default-cover.svg'
 
+// ===== 已读统计：页面标题旁「已读 X / Y 本」和主题标题栏「已读 X / Y 本」共用的计数 =====
+// topics 是构建期数据（页面内不再变化），总数/已读数直接算一次即可，不需要响应式
+
+// 全站总书数：各主题 books 数量累加
+const totalBooks = topics.reduce((n, t) => n + t.books.length, 0)
+
+// 全站已读数：isRead: true 的书累加
+const readBooks = topics.reduce((n, t) => n + t.books.filter(b => b.isRead).length, 0)
+
+// 主题内已读数（主题标题栏渲染用）
+function readCount(topic) {
+  return topic.books.filter(b => b.isRead).length
+}
+
 // 把作者/译者/出版社/页数/出版时间拼成一行元信息，如「黄佳 著 · 人民邮电出版社 · 254 页 · 2023-06」；
 // 翻译书作者与译者用「 / 」衔接，如「艾德勒 著 / 郝明义 译 · 商务印书馆 · 376 页 · 2004-01」；
 // 缺哪段就跳过哪段，全缺返回空串（详情浮层里就不渲染这一行）
@@ -22,6 +36,8 @@ function metaText(book) {
   if (book.publisher) parts.push(book.publisher)
   if (book.pages) parts.push(`${book.pages} 页`)
   if (book.pubDate) parts.push(book.pubDate)
+  // 读完的书在末尾追加读完年月，如「… · 2023-06 · 读完于 2026-08」
+  if (book.isRead && book.finishedDate) parts.push(`读完于 ${book.finishedDate}`)
   return parts.join(' · ')
 }
 
@@ -62,14 +78,18 @@ onMounted(() => window.addEventListener('keydown', onDetailKeydown))
 onUnmounted(() => window.removeEventListener('keydown', onDetailKeydown))
 </script>
 
-<h1 class="page-title">书单</h1>
+<!-- 页面标题行：大标题 + 右侧已读统计（小字弱化，flex wrap 兜底窄屏） -->
+<div class="books-page-head">
+  <h1 class="page-title">书单</h1>
+  <span class="books-page-stat">已读 {{ readBooks }} / {{ totalBooks }} 本</span>
+</div>
 
 <!-- 每个读书主题一张毛玻璃卡片（glass-card 提供底子），主题不做折叠、全部常开展示 -->
 <div v-for="topic in topics" :key="topic.id" class="book-drawer glass-card">
-  <!-- 主题标题栏：主题名 + 本数（纯展示，无折叠交互） -->
+  <!-- 主题标题栏：主题名 + 已读/总数计数（纯展示，无折叠交互） -->
   <div class="book-drawer__header">
     <span class="book-drawer__name">{{ topic.name }}</span>
-    <span class="book-drawer__count">{{ topic.books.length }} 本</span>
+    <span class="book-drawer__count">已读 {{ readCount(topic) }} / {{ topic.books.length }} 本</span>
   </div>
 
   <!-- 主题内容：书籍网格墙（桌面端一行十本，上封面下信息） -->

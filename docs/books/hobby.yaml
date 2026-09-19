@@ -10,7 +10,8 @@ books:
   # / douban 可选（豆瓣条目链接，显示豆瓣胶囊；豆瓣未收录的书不写）
   # / weread 可选（微信读书链接）
   # / isRead 可选（写 true 显示「读完」角标）
-  # 主题内排序（sortBooks）：已读（isRead: true）置顶，其余保持本文件书写顺序（想调顺序直接挪条目）
+  # / finishedDate 可选（读完年月 "YYYY-MM"，取自读书笔记创建时间；已读之间按它先读完的排前面）
+  # 主题内排序（sortBooks）：已读（isRead: true）置顶（按 finishedDate 先读完的在前），其余保持本文件书写顺序
   # 书名含「冒号+空格」时必须用引号包起来，否则 YAML 解析会出错
   - title: 《富士微单摄影入门》
     author: 雷波 编著

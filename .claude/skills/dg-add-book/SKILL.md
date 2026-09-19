@@ -91,7 +91,7 @@ curl -sS -A "<Chrome UA>" "https://weread.qq.com/web/search/global?keyword=<书�
 
 ## 排序设计
 
-主题内排序规则（`books.data.ts` 的 `sortBooks`）：**已读（`isRead: true`）置顶优先**，其余保持 yaml 书写顺序。想调整书的顺序直接挪 yaml 条目顺序。（难度等级字段 `level` 已于 2026-09 移除。）
+主题内排序规则（`books.data.ts` 的 `sortBooks`）：**已读（`isRead: true`）置顶优先，已读之间按 `finishedDate` 先读完的（早）在前**，其余保持 yaml 书写顺序。想调整书的顺序直接挪 yaml 条目顺序。（难度等级字段 `level` 已于 2026-09 移除。）
 
 ### Step 6 验证 + 交付
 
@@ -116,6 +116,7 @@ dev 热更新即时生效，把 `http://localhost:5173/pages/books` 交给用户
     douban: https://book.douban.com/subject/<id>/  # 豆瓣条目页（豆瓣胶囊）；豆瓣未收录不写
     weread: https://weread.qq.com/web/reader/<hash>#outline?noScroll=1  # 可选；未上架不写；锚点必须带（打开直接看书的信息）
     isRead: true                 # 可选；读完才写（2026-09 前旧字段名 status: 读完，已全量迁移）
+    finishedDate: "2026-08"      # 可选；读完年月 "YYYY-MM"（与 isRead 搭配，已读之间按它先读完的排前面）
     dir: <目录名>                 # 可选；docs/books/ 下子目录，挂读书笔记
 ```
 

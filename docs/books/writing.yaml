@@ -10,7 +10,8 @@ books:
   # / douban 可选（豆瓣条目链接，显示豆瓣胶囊；豆瓣未收录的书不写）
   # / weread 可选（微信读书链接）
   # / isRead 可选（写 true 显示「读完」角标）
-  # 主题内排序（sortBooks）：已读（isRead: true）置顶，其余保持本文件书写顺序（想调顺序直接挪条目）
+  # / finishedDate 可选（读完年月 "YYYY-MM"，取自读书笔记创建时间；已读之间按它先读完的排前面）
+  # 主题内排序（sortBooks）：已读（isRead: true）置顶（按 finishedDate 先读完的在前），其余保持本文件书写顺序
   # 书名含「冒号+空格」时必须用引号包起来，否则 YAML 解析会出错
   - title: 《从零开始学写作：个人增值的有效方法》
     author: 弘丹
@@ -29,6 +30,8 @@ books:
     jd: https://item.jd.com/13952540.html
     douban: https://book.douban.com/subject/36378242/
     weread: https://weread.qq.com/web/reader/88c32bc0813ab9a59g017fdb#outline?noScroll=1
+    isRead: true
+    finishedDate: "2025-03"
   - title: 《写作高手速成手册》
     author: "[日] 竹村俊助"
     translator: 吴宇鹏
@@ -38,6 +41,8 @@ books:
     cover: /covers/books/writing-crash-course.jpg
     douban: https://book.douban.com/subject/35894436/
     weread: https://weread.qq.com/web/reader/72b321a0813ab6fa0g015a2b#outline?noScroll=1
+    isRead: true
+    finishedDate: "2025-05"
   - title: 《写出我心：普通人如何通过写作表达自己》
     author: "[美] 娜塔莉·戈德堡"
     translator: 韩良忆、袁小茶
@@ -48,6 +53,8 @@ books:
     jd: https://item.jd.com/10152092104097.html
     douban: https://book.douban.com/subject/26822680/
     weread: https://weread.qq.com/web/reader/95232fb05e4e75952a9423c#outline?noScroll=1
+    isRead: true
+    finishedDate: "2025-05"
   - title: 《写作变现指南：新手也能写爆文》
     author: 夕夕酱
     publisher: 江苏凤凰文艺出版社
@@ -64,6 +71,8 @@ books:
     cover: /covers/books/voice-writing.jpg
     douban: https://book.douban.com/subject/37446275/
     weread: https://weread.qq.com/web/reader/b3132df0813aba464g01761b#outline?noScroll=1
+    isRead: true
+    finishedDate: "2025-08"
   - title: 《高手之路》
     author: 粥左罗
     publisher: 人民邮电出版社
@@ -73,6 +82,8 @@ books:
     jd: https://item.jd.com/14310671.html
     douban: https://book.douban.com/subject/37088311/
     weread: https://weread.qq.com/web/reader/76732be0813ab9587g011ade#outline?noScroll=1
+    isRead: true
+    finishedDate: "2025-01"
   - title: 《阅读写作赋能美好人生》
     author: 笑薇
     publisher: 中国铁道出版社
@@ -81,3 +92,5 @@ books:
     cover: /covers/books/reading-writing-life.jpg
     douban: https://book.douban.com/subject/37807239/
     weread: https://weread.qq.com/web/reader/6be32de0811e8d477g015e74#outline?noScroll=1
+    isRead: true
+    finishedDate: "2025-10"

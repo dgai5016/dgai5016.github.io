@@ -10,7 +10,8 @@ books:
   # / douban 可选（豆瓣条目链接，显示豆瓣胶囊；豆瓣未收录的书不写）
   # / weread 可选（微信读书链接）
   # / isRead 可选（写 true 显示「读完」角标）
-  # 主题内排序（sortBooks）：已读（isRead: true）置顶，其余保持本文件书写顺序（想调顺序直接挪条目）
+  # / finishedDate 可选（读完年月 "YYYY-MM"，取自读书笔记创建时间；已读之间按它先读完的排前面）
+  # 主题内排序（sortBooks）：已读（isRead: true）置顶（按 finishedDate 先读完的在前），其余保持本文件书写顺序
   # 书名含「冒号+空格」时必须用引号包起来，否则 YAML 解析会出错
   - title: 《微信背后的产品观》
     author: 张小龙
@@ -20,6 +21,8 @@ books:
     cover: /covers/books/wechat-product-philosophy.jpg
     douban: https://book.douban.com/subject/35339729/
     weread: https://weread.qq.com/web/reader/9be32910811e8ccc2g0155db#outline?noScroll=1
+    isRead: true
+    finishedDate: "2024-11"
   - title: 《简单法则》
     author: "[美] 前田约翰"
     translator: 张凌燕
@@ -30,6 +33,8 @@ books:
     jd: https://item.jd.com/10168423057376.html
     douban: https://book.douban.com/subject/25917134/
     weread: https://weread.qq.com/web/reader/fe432320811e1a697g0157da#outline?noScroll=1
+    isRead: true
+    finishedDate: "2024-11"
   - title: 《小米创业思考》
     author: 雷军、徐洁云
     publisher: 中信出版社
@@ -38,6 +43,8 @@ books:
     cover: /covers/books/xiaomi-startup.jpg
     douban: https://book.douban.com/subject/36057097/
     weread: https://weread.qq.com/web/reader/43832a10813ab703dg011c78#outline?noScroll=1
+    isRead: true
+    finishedDate: "2025-03"
   - title: 《想赢就要敢上场》
     author: 周鸿祎
     publisher: 北京联合出版公司
@@ -45,6 +52,8 @@ books:
     cover: /covers/books/dare-to-play.jpg
     douban: https://book.douban.com/subject/37112873/
     weread: https://weread.qq.com/web/reader/45f32080811e81df8g0152e1#outline?noScroll=1
+    isRead: true
+    finishedDate: "2025-05"
   - title: 《创业十八年》
     author: 风中的厂长
     publisher: 人民邮电出版社
@@ -69,6 +78,8 @@ books:
     cover: /covers/books/leverage-trends.jpg
     douban: https://book.douban.com/subject/35969798/
     weread: https://weread.qq.com/web/reader/e44324d0813ab6e4dg014580#outline?noScroll=1
+    isRead: true
+    finishedDate: "2026-02"
   - title: 《主角》
     author: 金枪大叔
     publisher: 湖南文艺出版社
@@ -76,3 +87,5 @@ books:
     cover: /covers/books/the-protagonist.jpg
     douban: https://book.douban.com/subject/37135452/
     weread: https://weread.qq.com/web/reader/aec32fd0813ab9c5fg018f77#outline?noScroll=1
+    isRead: true
+    finishedDate: "2026-02"

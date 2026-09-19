@@ -9,7 +9,8 @@ books:
   # / jd 可选（京东商品页链接，写了书名可点击跳转）
   # / douban 可选（豆瓣条目链接，显示豆瓣胶囊；豆瓣未收录的书不写）
   # / isRead 可选（写 true 显示「读完」角标）
-  # 主题内排序（sortBooks）：已读（isRead: true）置顶，其余保持本文件书写顺序（想调顺序直接挪条目）
+  # / finishedDate 可选（读完年月 "YYYY-MM"，取自读书笔记创建时间；已读之间按它先读完的排前面）
+  # 主题内排序（sortBooks）：已读（isRead: true）置顶（按 finishedDate 先读完的在前），其余保持本文件书写顺序
   # 书名含「冒号+空格」时必须用引号包起来，否则 YAML 解析会出错
   - title: "《如何阅读，一个已被证实的低投入高回报的学习方法》"
     author: 艾比·马克斯·比尔
@@ -30,6 +31,7 @@ books:
     jd: https://item.jd.com/10161445640232.html
     douban: https://book.douban.com/subject/21364188/
     weread: https://weread.qq.com/web/reader/cca325b05b6af4cca449b44#outline?noScroll=1
+    isRead: true
   - title: "《阅读 7 堂课》"
     author: 秋叶、秦阳
     publisher: 人民邮电出版社
@@ -67,6 +69,8 @@ books:
     jd: https://item.jd.com/10174951838949.html
     douban: https://book.douban.com/subject/27032526/
     weread: https://weread.qq.com/web/reader/43c32ee05ddb7b43cd9f47b#outline?noScroll=1
+    isRead: true
+    finishedDate: "2025-07"
   - title: "《如何阅读一本书》"
     author: "[美] 莫提默·J. 艾德勒、查尔斯·范多伦"
     translator: 郝明义、朱衣
@@ -95,6 +99,8 @@ books:
     jd: https://item.jd.com/14287516.html
     douban: https://book.douban.com/subject/36654637/
     weread: https://weread.qq.com/web/reader/6ad324c0811e7ee23g019a6e#outline?noScroll=1
+    isRead: true
+    finishedDate: "2024-07"
   - title: 《这样读书就够了：个人学习力升级指南》
     author: 赵周
     publisher: 中信出版社
@@ -104,6 +110,8 @@ books:
     jd: https://item.jd.com/12259730.html
     douban: https://book.douban.com/subject/27591449/
     weread: https://weread.qq.com/web/reader/2e432a805e12762e403419b#outline?noScroll=1
+    isRead: true
+    finishedDate: "2024-12"
   - title: 《读懂一本书：樊登读书法》
     author: 樊登
     publisher: 中信出版社
@@ -113,6 +121,8 @@ books:
     jd: https://item.jd.com/12726546.html
     douban: https://book.douban.com/subject/34858308/
     weread: https://weread.qq.com/web/reader/f01322607197b707f013e73#outline?noScroll=1
+    isRead: true
+    finishedDate: "2025-07"
   - title: 《过目不忘的读书法》
     author: "[日] 桦泽紫苑"
     translator: 张雷
@@ -123,6 +133,8 @@ books:
     jd: https://item.jd.com/13860190.html
     douban: https://book.douban.com/subject/26785693/
     weread: https://weread.qq.com/web/reader/d2332de0813ab7e05g01526a#outline?noScroll=1
+    isRead: true
+    finishedDate: "2025-09"
   - title: 《快速阅读》
     author: "[德] 克里斯蒂安·格吕宁"
     translator: 郝湉
@@ -133,6 +145,8 @@ books:
     jd: https://item.jd.com/14765349.html
     douban: https://book.douban.com/subject/38584510/
     weread: https://weread.qq.com/web/reader/e7432f905e0df0e7448717c#outline?noScroll=1
+    isRead: true
+    finishedDate: "2025-10"
   - title: 《如何有效阅读一本书：零基础从阅读到输出》
     author: 筝小钱
     publisher: 民主与建设出版社
@@ -142,3 +156,5 @@ books:
     jd: https://item.jd.com/13844402.html
     douban: https://book.douban.com/subject/36248406/
     weread: https://weread.qq.com/web/reader/7ce32770813ab79bdg0149d5#outline?noScroll=1
+    isRead: true
+    finishedDate: "2026-07"

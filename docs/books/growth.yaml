@@ -10,7 +10,8 @@ books:
   # / douban 可选（豆瓣条目链接，显示豆瓣胶囊；豆瓣未收录的书不写）
   # / weread 可选（微信读书链接）
   # / isRead 可选（写 true 显示「读完」角标）
-  # 主题内排序（sortBooks）：已读（isRead: true）置顶，其余保持本文件书写顺序（想调顺序直接挪条目）
+  # / finishedDate 可选（读完年月 "YYYY-MM"，取自读书笔记创建时间；已读之间按它先读完的排前面）
+  # 主题内排序（sortBooks）：已读（isRead: true）置顶（按 finishedDate 先读完的在前），其余保持本文件书写顺序
   # 书名含「冒号+空格」时必须用引号包起来，否则 YAML 解析会出错
   - title: 《认知觉醒：开启自我改变的原动力》
     author: 周岭
@@ -30,6 +31,8 @@ books:
     jd: https://item.jd.com/14773948.html
     douban: https://book.douban.com/subject/37010019/
     weread: https://weread.qq.com/web/reader/5c0321c0813ab9a2bg016257#outline?noScroll=1
+    isRead: true
+    finishedDate: "2025-05"
   - title: 《21天逆袭人生》
     author: 吕白
     publisher: 湖南文艺出版社
@@ -110,6 +113,8 @@ books:
     cover: /covers/books/pomodoro-technique.jpg
     douban: https://book.douban.com/subject/34820460/
     weread: https://weread.qq.com/web/reader/625327c0813abbaf2g019bf0#outline?noScroll=1
+    isRead: true
+    finishedDate: "2026-08"
   - title: 《番茄工作法图解：简单易行的时间管理方法》
     author: "[瑞典] 史蒂夫·诺特伯格"
     translator: 大胖
@@ -119,10 +124,14 @@ books:
     cover: /covers/books/pomodoro-illustrated.jpg
     douban: https://book.douban.com/subject/26099295/
     weread: https://weread.qq.com/web/reader/359321f0813ab7f58g018a39#outline?noScroll=1
+    isRead: true
+    finishedDate: "2026-08"
   - title: 《番茄工作法》
     author: 费登
     cover: /covers/books/pomodoro-feideng.jpg
     weread: https://weread.qq.com/web/reader/3dd32d10813aba159g018683#outline?noScroll=1
+    isRead: true
+    finishedDate: "2026-08"
   - title: 《原则》
     author: "[美] 瑞·达利欧"
     translator: 刘波、綦相
@@ -152,10 +161,14 @@ books:
     jd: https://item.jd.com/15160014.html
     douban: https://book.douban.com/subject/37505538/
     weread: https://weread.qq.com/web/reader/ec932350811e8a9ccg016391#outline?noScroll=1
+    isRead: true
+    finishedDate: "2026-06"
   - title: 《Claude Code橙皮书：从入门到精通（微信读书特别版）》
     author: 花叔
     cover: /covers/books/claude-code-orange-book-intro.jpg
     weread: https://weread.qq.com/web/reader/870320d0813abb494g0113ca#outline?noScroll=1
+    isRead: true
+    finishedDate: "2026-05"
   - title: 《Claude Code橙皮书：AI编程实战》
     author: 花叔
     publisher: 人民邮电出版社
@@ -165,3 +178,5 @@ books:
     jd: https://item.jd.com/14735091.html
     douban: https://book.douban.com/subject/38532607/
     weread: https://weread.qq.com/web/reader/2a132590813abbb26g019d57#outline?noScroll=1
+    isRead: true
+    finishedDate: "2026-07"

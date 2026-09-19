@@ -10,7 +10,8 @@ books:
   # / douban 可选（豆瓣条目链接，显示豆瓣胶囊；豆瓣未收录的书不写）
   # / weread 可选（微信读书链接）
   # / isRead 可选（写 true 显示「读完」角标）
-  # 主题内排序（sortBooks）：已读（isRead: true）置顶，其余保持本文件书写顺序（想调顺序直接挪条目）
+  # / finishedDate 可选（读完年月 "YYYY-MM"，取自读书笔记创建时间；已读之间按它先读完的排前面）
+  # 主题内排序（sortBooks）：已读（isRead: true）置顶（按 finishedDate 先读完的在前），其余保持本文件书写顺序
   # 书名含「冒号+空格」时必须用引号包起来，否则 YAML 解析会出错
   - title: 《巴比伦首富》
     author: "[美] 乔治·S.克拉森"
@@ -22,6 +23,8 @@ books:
     jd: https://item.jd.com/14475865.html
     douban: https://book.douban.com/subject/37407829/
     weread: https://weread.qq.com/web/reader/cc432200813abb126g012c1e#outline?noScroll=1
+    isRead: true
+    finishedDate: "2026-05"
   - title: 《思考致富：拿破仑·希尔成功圣经》
     author: "[美] 拿破仑·希尔"
     translator: 邱宏
@@ -31,6 +34,8 @@ books:
     cover: /covers/books/think-and-grow-rich.jpg
     douban: https://book.douban.com/subject/25880492/
     weread: https://weread.qq.com/web/reader/7d032b0059887a7d0bb9d2a#outline?noScroll=1
+    isRead: true
+    finishedDate: "2026-04"
   - title: 《最富足的投资》
     author: "[美] 吉姆·罗杰斯"
     translator: 石磊
@@ -39,6 +44,8 @@ books:
     cover: /covers/books/richest-investment.jpg
     douban: https://book.douban.com/subject/27609277/
     weread: https://weread.qq.com/web/reader/55432650811e818beg013299#outline?noScroll=1
+    isRead: true
+    finishedDate: "2026-05"
   - title: 《财务自由之路：7年内赚到你的第一个1000万》
     author: "[德] 博多·舍费尔"
     translator: 刘欢
@@ -55,6 +62,8 @@ books:
     cover: /covers/books/wise-wealth-guide.jpg
     douban: https://book.douban.com/subject/37023199/
     weread: https://weread.qq.com/web/reader/58532970813aba769g013fa4#outline?noScroll=1
+    isRead: true
+    finishedDate: "2024-11"
   - title: 《一年顶十年》
     author: 剽悍一只猫
     publisher: 北京联合出版公司
@@ -63,6 +72,8 @@ books:
     cover: /covers/books/one-year-as-ten.jpg
     douban: https://book.douban.com/subject/35003590/
     weread: https://weread.qq.com/web/reader/0bf3260071cc8d680bfcdc0#outline?noScroll=1
+    isRead: true
+    finishedDate: "2024-11"
   - title: 《为什么10倍增长比2倍更容易》
     author: "[美] 丹·沙利文、本杰明·哈迪"
     translator: 白瑞霞
@@ -72,6 +83,8 @@ books:
     cover: /covers/books/10x-easier-than-2x.jpg
     douban: https://book.douban.com/subject/37657692/
     weread: https://weread.qq.com/web/reader/32732670813abb39ag011d6c#outline?noScroll=1
+    isRead: true
+    finishedDate: "2025-02"
   - title: 《一人公司》
     author: 阿猫、鱼堂主
     publisher: 人民邮电出版社
@@ -80,8 +93,12 @@ books:
     cover: /covers/books/one-person-company.jpg
     douban: https://book.douban.com/subject/37104884/
     weread: https://weread.qq.com/web/reader/ea432780813ab9717g010b08#outline?noScroll=1
+    isRead: true
+    finishedDate: "2025-10"
   - title: 《一人企业：复利商业化》
     author: 老徐
+    isRead: true
+    finishedDate: "2025-04"
   - title: 《从副业到自由职业》
     author: 赵立心
     publisher: 电子工业出版社
@@ -89,8 +106,12 @@ books:
     pages: 252
     cover: /covers/books/side-hustle-to-freelance.jpg
     douban: https://book.douban.com/subject/37375206/
+    isRead: true
+    finishedDate: "2026-01"
   - title: 《2025年知识付费趋势手册》
     author: 郭拽拽
+    isRead: true
+    finishedDate: "2025-08"
   - title: 《穷查理宝典：查理·芒格智慧箴言录》
     author: "[美] 彼得·考夫曼 编"
     translator: 李继宏 等
