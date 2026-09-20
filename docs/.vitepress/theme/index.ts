@@ -5,6 +5,7 @@ import McpDocLink from './components/McpDocLink.vue'
 import RagflowDocLink from './components/RagflowDocLink.vue'
 import VectorDbDocLink from './components/VectorDbDocLink.vue'
 import BiRow from './components/BiRow.vue'
+import BookMindmap from './components/BookMindmap.vue'
 import 'vitepress/dist/client/theme-default/styles/vars.css'
 import 'vitepress/dist/client/theme-default/styles/base.css'
 import 'vitepress/dist/client/theme-default/styles/utils.css'
@@ -32,5 +33,7 @@ export default {
     app.component('VectorDbDocLink', VectorDbDocLink)
     // BiRow：配对 md（docs/mcp-docs/paired/）里直接使用，无需逐文件 import
     app.component('BiRow', BiRow)
+    // BookMindmap：书单页全屏思维导图工作台（books.md 里 v-if 挂载）
+    app.component('BookMindmap', BookMindmap)
   },
 } satisfies Theme

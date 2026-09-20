@@ -5,7 +5,7 @@ layout: page
 <script setup>
 // 书单数据来自 docs/books/*.yaml，由 books.data.ts 在构建期自动发现并解析
 import { data as topics } from '../.vitepress/books.data'
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, nextTick, onMounted, onUnmounted } from 'vue'
 
 // 通用兜底封面：没抓到真实封面的书统一显示这张占位图（SVG 自绘，存在 public/covers/books/ 下）
 const DEFAULT_COVER = '/covers/books/default-cover.svg'
@@ -41,78 +41,68 @@ function metaText(book) {
   return parts.join(' · ')
 }
 
-// ===== 悬浮 1 秒的轻量预览卡（hover card，可停留） =====
-// 停在卡片上 1s → 在卡片旁弹出小预览（毛玻璃、不遮屏、不锁滚动）；
-// 鼠标从卡片移到预览卡上 → 预览保持不消失（离开预览卡才消失），
-// 卡片与预览卡之间的 12px 间隙用「离开卡片先延迟 250ms 再隐藏」过渡；
-// 胶囊链接 / 大图 / 笔记入口在全屏详情浮层（点击进）——
-// 轻交互（hover 瞄一眼）和重交互（点击看详情拿链接）各司其职
-const hoverBook = ref(null)
-const hoverPos = ref({ x: 0, y: 0 }) // 预览卡左上角的 fixed 视口坐标
+// ===== 书籍详情卡（点击开合的非模态详情层） =====
+// 点击书籍卡片 → 在卡片旁弹出详情卡（毛玻璃）；页面一切照常可点可滚——
+// 点别的书直接切换、点页面其他区域/按 Esc 关闭、点击卡内（胶囊/文章链接）不关；
+// 页面一滚动（超 8px 阈值）详情卡即收起：卡是 fixed 定位不跟随书卡滚动，
+// 「滚动即关闭」避免两者脱节（非模态 popover 的标准行为）；
+// 布局：头部（封面+书名+元信息+胶囊行含思维导图按钮）固定不滚动，
+// 下方章节文章列表超高时在卡内滚动（列表滚到头继续滚会自然过渡为滚页面→关闭）
+const detailBook = ref(null)
+const detailPos = ref({ x: 0, y: 0 }) // 详情卡左上角的 fixed 视口坐标
 
-let hoverTimer = null // 显示延迟：进入卡片 1s 后弹出预览
-let hoverHideTimer = null // 隐藏延迟：离开卡片 250ms 内没到预览卡上才真隐藏
+// 详情卡打开瞬间的页面滚动位置：scroll 监听里偏离超阈值即关闭
+let detailOpenScrollY = 0
 
-// 鼠标进入卡片：清掉一切挂起状态（含旧预览），重新计 1s
-function startHoverTimer(book, e) {
-  clearHover()
-  // 同步取出触发元素再进闭包——事件的 currentTarget 在传播结束后会被置 null，
-  // 直接把 e 存进定时器回调里 1s 后取到的是 null（书墙是静态列表，元素必然还在）
-  const el = e.currentTarget
-  hoverTimer = setTimeout(() => showHoverCard(book, el), 1000)
-}
-
-// 在卡片旁定位并显示预览卡：默认放卡片右侧，右侧空间不够（最右列）时翻转到左侧；
-// 垂直方向顶部对齐卡片，底部出视口时上提
-function showHoverCard(book, el) {
+// 点击卡片：在卡片旁定位并显示详情卡（默认右侧，最右列放不下翻左侧）。
+// 垂直定位分两步：渲染前先与书卡顶部对齐；渲染后按卡的【实际高度】精调——
+// 卡底超出视口才整体上移（移多少贴多少），避免用固定估值一刀切地把
+// 矮卡（无文档列表的书只有 ~200px）过度上提、和书卡脱节（2026-09 位置 bug）
+async function showDetailCard(book, el) {
+  detailOpenScrollY = window.scrollY
   const r = el.getBoundingClientRect()
-  const W = 340 // 预览卡宽度（与 CSS .book-hover-card 的 width 保持一致）
+  const W = 340 // 详情卡宽度（与 CSS .book-detail-card 的 width 保持一致）
   const gap = 12
   const flip = r.right + gap + W > window.innerWidth - 8
-  hoverPos.value = {
+  detailPos.value = {
     x: flip ? r.left - gap - W : r.right + gap,
-    y: Math.max(8, Math.min(r.top, window.innerHeight - 340)), // 340 ≈ 含胶囊/笔记的预览卡高度上限估值
+    y: Math.max(8, r.top), // 第一步：顶部对齐书卡
   }
-  hoverBook.value = book
-}
-
-// 鼠标离开卡片：没到点的显示定时器直接取消（不想看了）；
-// 已显示的预览延迟 250ms 再隐藏——给鼠标穿过 12px 间隙移到预览卡上留时间
-function scheduleHoverHide() {
-  if (hoverTimer) {
-    clearTimeout(hoverTimer)
-    hoverTimer = null
-  }
-  if (hoverBook.value && !hoverHideTimer) {
-    hoverHideTimer = setTimeout(() => {
-      hoverHideTimer = null
-      hoverBook.value = null
-    }, 250)
+  detailBook.value = book
+  // 第二步：等卡渲染出来，按实际高度把超出视口底的部分上移（贴着书卡方向收）
+  await nextTick()
+  const card = document.querySelector('.book-detail-card')
+  if (card) {
+    const overflow = detailPos.value.y + card.offsetHeight - (window.innerHeight - 8)
+    if (overflow > 0) detailPos.value.y = Math.max(8, detailPos.value.y - overflow)
   }
 }
 
-// 鼠标移到预览卡上：取消挂起的隐藏，预览保持（用户在读它）
-function keepHover() {
-  if (hoverHideTimer) {
-    clearTimeout(hoverHideTimer)
-    hoverHideTimer = null
-  }
+// 关闭详情卡（Esc / 点卡外 / 页面滚动 共用）
+function hideDetailCard() {
+  detailBook.value = null
 }
 
-// 鼠标离开预览卡：立即隐藏（阅读结束）
-function hideHoverNow() {
-  keepHover()
-  hoverBook.value = null
+// 更高层浮层（PostOverlay 文章覆盖层 / 思维导图工作台 / 代码展开 / 灯箱）是否开着：
+// 开着时点击与滚动都归它管——详情卡保持不动（否则读文章时点下正文、或页面
+// scrollY 被浮层的锁滚/还原改变，都会误关详情卡，2026-09 踩过两个洞）
+const higherLayerOpen = () =>
+  !!document.querySelector('.overlay-panel, .bm-overlay, .cb-backdrop, .lb-backdrop')
+
+// 全局点击：点到详情卡外且不在书籍卡片上 → 关闭。
+// 点书籍卡片被豁免——那是「切换到另一本书」，由卡片自身的 click 打开新详情
+function onGlobalClick(e) {
+  if (!detailBook.value || higherLayerOpen()) return
+  if (document.querySelector('.book-detail-card')?.contains(e.target)) return
+  if (e.target.closest?.('.book-card')) return
+  hideDetailCard()
 }
 
-// 点击进全屏 / 页面卸载：全清
-function clearHover() {
-  keepHover()
-  if (hoverTimer) {
-    clearTimeout(hoverTimer)
-    hoverTimer = null
-  }
-  hoverBook.value = null
+// 页面滚动即关闭：详情卡 fixed 不跟书卡走，滚动超 8px 阈值即收起
+//（阈值防打开瞬间的亚像素抖动误关；列表内部滚动不触发 window scroll，不受影响）
+function onWindowScroll() {
+  if (!detailBook.value || higherLayerOpen()) return
+  if (Math.abs(window.scrollY - detailOpenScrollY) > 8) hideDetailCard()
 }
 
 // 浮层里的高清封面：按命名约定取 <slug>-full.jpg（网格缩略图只有 144px 高，直接放大会糊）；
@@ -121,14 +111,32 @@ function fullCover(book) {
   return book.cover ? book.cover.replace('.jpg', '-full.jpg') : DEFAULT_COVER
 }
 
-// 全局按 Esc 收起预览卡（键盘兜底；主关闭途径仍是鼠标移开）
-function onHoverKeydown(e) {
-  if (e.key === 'Escape') hideHoverNow()
+// ===== 思维导图工作台：详情卡「思维导图」按钮打开 =====
+// mindmapBook 为 null 时工作台关闭；存书籍对象时打开（BookMindmap 组件用 book.mindmap 目录名拉导图 md）
+const mindmapBook = ref(null)
+
+function openBookMindmap(book) {
+  mindmapBook.value = book
 }
-onMounted(() => window.addEventListener('keydown', onHoverKeydown))
+
+// 全局监听：Esc 关详情卡（键盘兜底）；document 点击用于「点详情卡外关闭」
+function onDetailKeydown(e) {
+  if (e.key !== 'Escape') return
+  // PostOverlay / 灯箱等更高层开着时把这次 Esc 让给它——防「一次 Esc 连关两层」
+  //（与 PostOverlay 自身的防双关判断 .cb-backdrop/.lb-backdrop 互相对齐）
+  if (document.querySelector('.overlay-panel, .cb-backdrop, .lb-backdrop')) return
+  hideDetailCard()
+}
+onMounted(() => {
+  window.addEventListener('keydown', onDetailKeydown)
+  window.addEventListener('scroll', onWindowScroll, { passive: true })
+  document.addEventListener('click', onGlobalClick)
+})
 onUnmounted(() => {
-  window.removeEventListener('keydown', onHoverKeydown)
-  clearHover() // 页面卸载时清掉可能挂着的悬浮定时器
+  window.removeEventListener('keydown', onDetailKeydown)
+  window.removeEventListener('scroll', onWindowScroll)
+  document.removeEventListener('click', onGlobalClick)
+  hideDetailCard() // 页面卸载时兜底收起
 })
 </script>
 
@@ -161,9 +169,7 @@ onUnmounted(() => {
           class="book-card"
           :class="{ 'book-card--finished': book.isRead }"
           :aria-label="`查看 ${book.title} 详情`"
-          @click="showHoverCard(book, $event.currentTarget)"
-          @mouseenter="startHoverTimer(book, $event)"
-          @mouseleave="scheduleHoverHide()"
+          @click="showDetailCard(book, $event.currentTarget)"
         >
           <!-- 封面占位框：竖版 2:3，relative 供左上角序号徽章定位；
                有真实封面用真实图，没抓到的用通用兜底占位图 -->
@@ -193,65 +199,78 @@ onUnmounted(() => {
   </div>
 </div>
 
-<!-- 悬浮预览卡（hover card）：停在卡片 2s 后出现在卡片旁的轻量毛玻璃卡；
-     纯展示（pointer-events:none，鼠标可穿过它继续扫书墙），离开触发卡片即消失；
-     点击卡片进全屏详情浮层（京东/豆瓣/微信读书胶囊和笔记链接都在那边）。
+<!-- 书籍详情卡：点击书籍卡片出现在卡片旁的毛玻璃卡（非模态，无遮罩）；
+     页面照常可点可滚：点别的书直接切换、点空白/Esc 关闭、页面滚动即收起；
+     点击卡内的胶囊、文章链接不关闭（章节文章在 PostOverlay 读完后回来卡还在）；
+     布局：头部（封面+信息+胶囊行）固定，下方章节文章列表超高时卡内滚动。
      ⚠ 本段内部不能出现空行——markdown 会把「空行 + 缩进≥4空格」解析成缩进代码块 -->
 <Teleport to="body">
   <div
-    v-if="hoverBook"
-    class="book-hover-card"
-    :style="{ left: hoverPos.x + 'px', top: hoverPos.y + 'px' }"
-    @mouseenter="keepHover()"
-    @mouseleave="hideHoverNow()"
+    v-if="detailBook"
+    class="book-detail-card"
+    :style="{ left: detailPos.x + 'px', top: detailPos.y + 'px' }"
   >
-    <!-- 左：高清封面（-full.jpg 命名约定，缩到 96px 依然锐利） -->
-    <img class="book-hover-card__cover" :src="fullCover(hoverBook)" :alt="`${hoverBook.title} 封面`">
-    <!-- 右：书名 + 读完徽章 + 元信息 + 三平台胶囊 + 笔记链接 -->
-    <div class="book-hover-card__info">
-      <span class="book-hover-card__title">{{ hoverBook.title }}</span>
-      <span v-if="hoverBook.isRead" class="book-hover-card__status">读完</span>
-      <span v-if="metaText(hoverBook)" class="book-hover-card__meta">{{ metaText(hoverBook) }}</span>
-      <!-- 购买/阅读入口胶囊：有哪个平台渲染哪个（新标签页打开），停在预览卡上即可点击 -->
-      <div class="book-hover-card__links">
-        <a
-          v-if="hoverBook.jd"
-          :href="hoverBook.jd"
-          target="_blank"
-          rel="noopener"
-          class="book-hover-card__jd"
-        >京东</a>
-        <a
-          v-if="hoverBook.douban"
-          :href="hoverBook.douban"
-          target="_blank"
-          rel="noopener"
-          class="book-hover-card__douban"
-        >豆瓣</a>
-        <a
-          v-if="hoverBook.weread"
-          :href="hoverBook.weread"
-          target="_blank"
-          rel="noopener"
-          class="book-hover-card__weread"
-        >微信读书</a>
+    <!-- 头部（不滚动）：左高清封面（-full.jpg 命名约定，缩到 96px 依然锐利）+ 右信息列 -->
+    <div class="book-detail-card__head">
+      <img class="book-detail-card__cover" :src="fullCover(detailBook)" :alt="`${detailBook.title} 封面`">
+      <!-- 右：书名 + 读完徽章 + 元信息 + 三平台胶囊 + 思维导图按钮 -->
+      <div class="book-detail-card__info">
+        <span class="book-detail-card__title">{{ detailBook.title }}</span>
+        <span v-if="detailBook.isRead" class="book-detail-card__status">读完</span>
+        <span v-if="metaText(detailBook)" class="book-detail-card__meta">{{ metaText(detailBook) }}</span>
+        <!-- 购买/阅读入口胶囊：有哪个平台渲染哪个（新标签页打开），点击不影响详情卡开合 -->
+        <div class="book-detail-card__links">
+          <a
+            v-if="detailBook.jd"
+            :href="detailBook.jd"
+            target="_blank"
+            rel="noopener"
+            class="book-detail-card__jd"
+          >京东</a>
+          <a
+            v-if="detailBook.douban"
+            :href="detailBook.douban"
+            target="_blank"
+            rel="noopener"
+            class="book-detail-card__douban"
+          >豆瓣</a>
+          <a
+            v-if="detailBook.weread"
+            :href="detailBook.weread"
+            target="_blank"
+            rel="noopener"
+            class="book-detail-card__weread"
+          >微信读书</a>
+          <!-- 思维导图入口：主题紫胶囊（站内功能用主题色，区别于三平台品牌色）；
+               yaml 有 mindmap 字段才渲染；点击开全屏导图工作台（详情卡保持开着） -->
+          <button
+            v-if="detailBook.mindmap"
+            type="button"
+            class="book-detail-card__mindmap"
+            @click="openBookMindmap(detailBook)"
+          >🧠 思维导图</button>
+        </div>
       </div>
-      <!-- 这本书的专属文档（读书笔记 / 大纲等，来自书的 dir 目录）：
-           PostLink 点击唤出右滑覆盖层（z-index 100 > 预览卡 90），
-           点击后鼠标移向覆盖层，预览卡因 mouseleave 自然收起 -->
-      <div v-if="hoverBook.docs?.length" class="book-hover-card__docs">
-        <PostLink
-          v-for="doc in hoverBook.docs"
-          :key="doc.url"
-          :to="doc.url"
-          class="book-hover-card__doc-link"
-        >
-          📄 {{ doc.title }}
-        </PostLink>
-      </div>
+    </div>
+    <!-- 滚动区（思维导图按钮之下的内容）：这本书的章节文章 / 读书笔记（来自书的 dir 目录），
+         条目多时在此内部滚动；PostLink 点击唤出右滑覆盖层（z-index 100 > 详情卡 90），
+         读完文章回来详情卡仍在原位 -->
+    <div v-if="detailBook.docs?.length" class="book-detail-card__scroll">
+      <PostLink
+        v-for="doc in detailBook.docs"
+        :key="doc.url"
+        :to="doc.url"
+        class="book-detail-card__doc-link"
+      >
+        📄 {{ doc.title }}
+      </PostLink>
     </div>
   </div>
 </Teleport>
+
+<!-- 全屏思维导图工作台：详情卡「思维导图」按钮触发（mindmapBook 非空即打开）；
+     BookMindmap 全局注册组件，内部自己 fetch 导图 md 并用 markmap 渲染 -->
+<BookMindmap :book="mindmapBook" @close="mindmapBook = null" />
 
 <!-- 一个 yaml 都没有时的兜底提示 -->
 <p v-if="!topics.length" class="empty-state">书单还在筹备中…</p>

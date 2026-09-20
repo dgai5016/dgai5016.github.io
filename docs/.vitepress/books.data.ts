@@ -24,6 +24,7 @@ export interface Book {
   cover?: string // 封面图（可选）：站点绝对路径，如 /covers/books/xxx.jpg
   isRead?: boolean // 已读标记（可选）：true 时卡片封面保持彩色、序号转主题紫底白字
   finishedDate?: string // 读完年月（可选）：格式 "YYYY-MM"，来自读书笔记 frontmatter 的 created；已读书之间按它先读完的排前面
+  mindmap?: string // 思维导图目录名（可选）：public/books/<mindmap>/mindmap.md 存在时预览卡显示「思维导图」按钮
   jd?: string // 京东商品页链接（可选）：购买入口，京东没有现货/联盟链的书不写
   douban?: string // 豆瓣条目链接（可选）：评分/书评入口，豆瓣未收录的书（如微信读书原创）不写
   weread?: string // 微信读书链接（可选）：线上阅读入口，没上架微信读书的书不写
@@ -68,6 +69,8 @@ function normalizeBook(raw: any): Book {
       : typeof raw?.pages === 'string' && /^\d+$/.test(raw.pages) ? Number(raw.pages) : undefined,
     cover: typeof raw?.cover === 'string' && raw.cover.startsWith('/') ? raw.cover : undefined,
     isRead: raw?.isRead === true ? true : undefined,
+    // 思维导图目录名：非空字符串才保留（书单预览卡据此显示导图按钮）
+    mindmap: typeof raw?.mindmap === 'string' && raw.mindmap ? raw.mindmap : undefined,
     // 读完年月：复用 normalizePubDate 校验（只认 "YYYY-MM" / "YYYY" 字符串）
     finishedDate: normalizePubDate(raw?.finishedDate),
     jd: typeof raw?.jd === 'string' && raw.jd.startsWith('http') ? raw.jd : undefined,

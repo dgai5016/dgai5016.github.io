@@ -19,6 +19,8 @@ html {
   /* 不启用 scroll-behavior: smooth —— 文章目录点击直接瞬移到对应标题，不做滚动动画 */
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+  /* ⚠ 别加 scrollbar-gutter: stable——实测它会破坏 overflow:hidden 的滚动锁
+     （详情卡遮罩期间 wheel 仍能滚页面，2026-09 踩过） */
 }
 
 /* 锚点定位（目录点击、URL hash 跳转）时，目标标题在视口顶部预留留白，避免紧贴顶栏 */
@@ -579,16 +581,17 @@ body {
   color: var(--c-text-muted);
 }
 
-/* ===== 悬浮预览卡（hover card）：停在卡片 1s 后出现在卡片旁的轻量毛玻璃卡 ===== */
-/* 可停留的预览层：鼠标移到卡上保持显示（keepHover 取消隐藏延迟）、离开才消失；
-   不遮屏、不锁滚动；卡片→预览卡的 12px 间隙靠「离开卡片延迟 250ms 隐藏」过渡；
-   链接入口在点击后的全屏详情浮层（预览保持纯展示，不给可点元素） */
-.book-hover-card {
+/* ===== 书籍详情卡：点击书籍卡片出现在卡片旁的轻量毛玻璃卡 ===== */
+/* 点击开合：点击详情卡外任意处 / Esc 关闭，点卡内（胶囊/文章链接）不关；
+   布局纵向两段：头部（封面+信息+胶囊行）固定不滚动，下方章节文章列表超高时卡内滚动；
+   不遮屏、不锁滚动 */
+.book-detail-card {
   position: fixed;
   z-index: 90; /* 页面内容之上、右滑面板(100系)/全屏模态(200系)之下 */
-  width: 340px; /* 与 books.md showHoverCard 里的 W 常量保持一致（左右翻转判定用） */
+  width: 340px; /* 与 books.md showDetailCard 里的 W 常量保持一致（左右翻转判定用） */
   display: flex;
-  gap: 0.75rem;
+  flex-direction: column;
+  max-height: min(80vh, 620px); /* 超高时由滚动区内部消化，卡片本身不超过视口八成 */
   padding: 0.75rem;
   border-radius: 0.75rem;
   background: rgba(255, 255, 255, 0.95);
@@ -599,8 +602,15 @@ body {
   text-align: left;
 }
 
+/* 头部（不滚动）：左侧封面 + 右侧信息列的左右结构 */
+.book-detail-card__head {
+  display: flex;
+  gap: 0.75rem;
+  flex-shrink: 0; /* 文章再多头部也保持原样 */
+}
+
 /* 左侧封面：96px 宽（2:3 → 144 高），-full.jpg 缩下来依然锐利 */
-.book-hover-card__cover {
+.book-detail-card__cover {
   flex-shrink: 0;
   width: 6rem;
   object-fit: cover;
@@ -610,7 +620,7 @@ body {
 }
 
 /* 右侧信息列：书名 / 读完徽章 / 元信息 / 引导提示 */
-.book-hover-card__info {
+.book-detail-card__info {
   flex: 1;
   min-width: 0;
   display: flex;
@@ -620,7 +630,7 @@ body {
 }
 
 /* 书名：最多两行截断（长书名 + 副标题常见） */
-.book-hover-card__title {
+.book-detail-card__title {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -632,7 +642,7 @@ body {
 }
 
 /* 读完徽章：与详情浮层徽章同款绿（配色范式见 DESIGN.md 语义色表） */
-.book-hover-card__status {
+.book-detail-card__status {
   padding: 1px 7px;
   border-radius: 9999px;
   font-size: 10px;
@@ -643,14 +653,14 @@ body {
 }
 
 /* 元信息：作者 著 / 译者 译 · 出版社 · N 页 · 出版年 · 读完于 YYYY-MM（metaText 拼好） */
-.book-hover-card__meta {
+.book-detail-card__meta {
   font-size: 0.78rem;
   line-height: 1.5;
   color: var(--c-text-muted);
 }
 
 /* 购买/阅读入口胶囊排一行，放不下自动换行 */
-.book-hover-card__links {
+.book-detail-card__links {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
@@ -658,7 +668,7 @@ body {
 }
 
 /* 京东购买入口胶囊：京东品牌红配浅红底；hover 加深底色提示可点击 */
-.book-hover-card__jd {
+.book-detail-card__jd {
   padding: 2px 10px;
   border-radius: 9999px;
   font-size: 11px;
@@ -669,14 +679,14 @@ body {
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-.book-hover-card__jd:hover {
+.book-detail-card__jd:hover {
   background: rgba(225, 37, 27, 0.2);
   color: #c81623;
 }
 
 /* 豆瓣条目入口胶囊：豆瓣品牌绿 #00b51d 配浅绿底；
    比微信读书的亮绿 #07c160 略深，相邻摆放可区分；豆瓣未收录的书不渲染 */
-.book-hover-card__douban {
+.book-detail-card__douban {
   padding: 2px 10px;
   border-radius: 9999px;
   font-size: 11px;
@@ -687,13 +697,13 @@ body {
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-.book-hover-card__douban:hover {
+.book-detail-card__douban:hover {
   background: rgba(0, 181, 29, 0.2);
   color: #009c19;
 }
 
 /* 微信读书线上阅读入口胶囊：微信品牌绿 #07c160（亮绿）配浅绿底 */
-.book-hover-card__weread {
+.book-detail-card__weread {
   padding: 2px 10px;
   border-radius: 9999px;
   font-size: 11px;
@@ -704,31 +714,59 @@ body {
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-.book-hover-card__weread:hover {
+.book-detail-card__weread:hover {
   background: rgba(7, 193, 96, 0.2);
   color: #06ad56;
 }
 
-/* 这本书的专属文档（读书笔记/大纲等，来自书的 dir 目录）：竖排列表 */
-.book-hover-card__docs {
+/* 思维导图入口按钮：主题紫胶囊——站内功能用主题色，区别于三平台品牌色胶囊；
+   与其他胶囊同一设计语言（同尺寸/圆角/hover 加深节奏） */
+.book-detail-card__mindmap {
+  padding: 2px 10px;
+  border: none;
+  border-radius: 9999px;
+  font-size: 11px;
+  white-space: nowrap;
+  color: var(--c-accent, #6c63ff);
+  background: rgba(108, 99, 255, 0.1);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.book-detail-card__mindmap:hover {
+  background: rgba(108, 99, 255, 0.2);
+}
+
+/* 滚动区（思维导图按钮之下的内容）：章节文章/读书笔记列表；
+   限高 = 6 整行 + 半行露出——最后一条露一半是「底下还有内容」的滚动暗示，
+   比整齐截断更引导滚动；推导（border-box，含 border 1px + padding-top 8px）：
+   内容区 = 6 行含尾距 6×(24+3.2) + 半行 12 = 175.2px，总高 175.2+9 ≈ 184px；
+   上方细分隔线与头部区隔 */
+.book-detail-card__scroll {
+  flex: 1;
+  min-height: 0; /* flex 子项允许收缩，overflow 才生效 */
+  max-height: 184px; /* 6 整行 + 第 7 条露半行 peek（行高 24px 变化时同步调整） */
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
-  margin-top: 0.15rem;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--c-border);
 }
 
 /* 单个文档链接：小字号弱强调，hover 变主题色。
    链接本身用全局组件 PostLink 渲染（点击唤出右滑覆盖层），其 scoped 样式
    （.post-link[data-v-x]，权重 0,2,0）会把颜色固定成 accent、字号重置为继承，
    这里用三层类名选择器（0,3,0）压过它，保住预览卡里的弱强调层级 */
-.book-hover-card .book-hover-card__docs .book-hover-card__doc-link {
+.book-detail-card .book-detail-card__scroll .book-detail-card__doc-link {
   font-size: 0.75rem;
   color: var(--c-text-muted);
   text-decoration: none;
   transition: color 0.15s ease;
 }
 
-.book-hover-card .book-hover-card__docs .book-hover-card__doc-link:hover {
+.book-detail-card .book-detail-card__scroll .book-detail-card__doc-link:hover {
   color: var(--c-accent);
 }
 

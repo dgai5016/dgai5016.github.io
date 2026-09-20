@@ -56,6 +56,7 @@ books:
     weread: https://weread.qq.com/web/reader/5a032360813ab9719g013cb4#outline?noScroll=1
     isRead: true
     finishedDate: "2026-08"
+    mindmap: gpt-illustrated
     dir: gpt-illustrated
   - title: 《零基础学机器学习》
     author: 黄佳
