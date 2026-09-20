@@ -41,41 +41,95 @@ function metaText(book) {
   return parts.join(' · ')
 }
 
-// ===== 书籍详情浮层：点任意书籍卡片打开 =====
-// 网格卡片（一行十本）放不下完整元信息和购买/阅读胶囊，统一收进这个浮层展示。
-// activeBook 为 null 时浮层关闭；存整本书对象时打开。
-const activeBook = ref(null)
+// ===== 悬浮 1 秒的轻量预览卡（hover card，可停留） =====
+// 停在卡片上 1s → 在卡片旁弹出小预览（毛玻璃、不遮屏、不锁滚动）；
+// 鼠标从卡片移到预览卡上 → 预览保持不消失（离开预览卡才消失），
+// 卡片与预览卡之间的 12px 间隙用「离开卡片先延迟 250ms 再隐藏」过渡；
+// 胶囊链接 / 大图 / 笔记入口在全屏详情浮层（点击进）——
+// 轻交互（hover 瞄一眼）和重交互（点击看详情拿链接）各司其职
+const hoverBook = ref(null)
+const hoverPos = ref({ x: 0, y: 0 }) // 预览卡左上角的 fixed 视口坐标
 
-// 打开浮层前记住页面滚动位置并锁住底层滚动（对齐 PostOverlay 的做法），关闭时还原，
-// 防止浮层后面页面跟着滚、关掉后跳位置
-let savedScroll = 0
+let hoverTimer = null // 显示延迟：进入卡片 1s 后弹出预览
+let hoverHideTimer = null // 隐藏延迟：离开卡片 250ms 内没到预览卡上才真隐藏
 
-// 打开详情浮层（点网格卡片触发）
-function openBookDetail(book) {
-  savedScroll = window.scrollY
-  document.body.style.overflow = 'hidden'
-  activeBook.value = book
+// 鼠标进入卡片：清掉一切挂起状态（含旧预览），重新计 1s
+function startHoverTimer(book, e) {
+  clearHover()
+  // 同步取出触发元素再进闭包——事件的 currentTarget 在传播结束后会被置 null，
+  // 直接把 e 存进定时器回调里 1s 后取到的是 null（书墙是静态列表，元素必然还在）
+  const el = e.currentTarget
+  hoverTimer = setTimeout(() => showHoverCard(book, el), 1000)
 }
 
-// 关闭详情浮层（Esc / 点遮罩 / 点右上角 × 都走这里）：解锁底层滚动并还原到打开前的位置
-function closeBookDetail() {
-  activeBook.value = null
-  document.body.style.overflow = ''
-  window.scrollTo(0, savedScroll)
+// 在卡片旁定位并显示预览卡：默认放卡片右侧，右侧空间不够（最右列）时翻转到左侧；
+// 垂直方向顶部对齐卡片，底部出视口时上提
+function showHoverCard(book, el) {
+  const r = el.getBoundingClientRect()
+  const W = 340 // 预览卡宽度（与 CSS .book-hover-card 的 width 保持一致）
+  const gap = 12
+  const flip = r.right + gap + W > window.innerWidth - 8
+  hoverPos.value = {
+    x: flip ? r.left - gap - W : r.right + gap,
+    y: Math.max(8, Math.min(r.top, window.innerHeight - 340)), // 340 ≈ 含胶囊/笔记的预览卡高度上限估值
+  }
+  hoverBook.value = book
+}
+
+// 鼠标离开卡片：没到点的显示定时器直接取消（不想看了）；
+// 已显示的预览延迟 250ms 再隐藏——给鼠标穿过 12px 间隙移到预览卡上留时间
+function scheduleHoverHide() {
+  if (hoverTimer) {
+    clearTimeout(hoverTimer)
+    hoverTimer = null
+  }
+  if (hoverBook.value && !hoverHideTimer) {
+    hoverHideTimer = setTimeout(() => {
+      hoverHideTimer = null
+      hoverBook.value = null
+    }, 250)
+  }
+}
+
+// 鼠标移到预览卡上：取消挂起的隐藏，预览保持（用户在读它）
+function keepHover() {
+  if (hoverHideTimer) {
+    clearTimeout(hoverHideTimer)
+    hoverHideTimer = null
+  }
+}
+
+// 鼠标离开预览卡：立即隐藏（阅读结束）
+function hideHoverNow() {
+  keepHover()
+  hoverBook.value = null
+}
+
+// 点击进全屏 / 页面卸载：全清
+function clearHover() {
+  keepHover()
+  if (hoverTimer) {
+    clearTimeout(hoverTimer)
+    hoverTimer = null
+  }
+  hoverBook.value = null
 }
 
 // 浮层里的高清封面：按命名约定取 <slug>-full.jpg（网格缩略图只有 144px 高，直接放大会糊）；
-// 没抓到真实封面的书（无 cover 字段、卡片上用 svg 兜底图）没有 full 版，浮层里继续用兜底图原样展示
+// 没抓到真实封面的书（无 cover 字段、卡片上用 svg 兜底图）没有 full 版，预览卡里继续用兜底图原样展示
 function fullCover(book) {
   return book.cover ? book.cover.replace('.jpg', '-full.jpg') : DEFAULT_COVER
 }
 
-// 全局按 Esc 也能关浮层（挂在 window 上，页面卸载时记得清理监听）
-function onDetailKeydown(e) {
-  if (e.key === 'Escape' && activeBook.value) closeBookDetail()
+// 全局按 Esc 收起预览卡（键盘兜底；主关闭途径仍是鼠标移开）
+function onHoverKeydown(e) {
+  if (e.key === 'Escape') hideHoverNow()
 }
-onMounted(() => window.addEventListener('keydown', onDetailKeydown))
-onUnmounted(() => window.removeEventListener('keydown', onDetailKeydown))
+onMounted(() => window.addEventListener('keydown', onHoverKeydown))
+onUnmounted(() => {
+  window.removeEventListener('keydown', onHoverKeydown)
+  clearHover() // 页面卸载时清掉可能挂着的悬浮定时器
+})
 </script>
 
 <!-- 页面标题行：大标题 + 右侧已读统计（小字弱化，flex wrap 兜底窄屏） -->
@@ -107,7 +161,9 @@ onUnmounted(() => window.removeEventListener('keydown', onDetailKeydown))
           class="book-card"
           :class="{ 'book-card--finished': book.isRead }"
           :aria-label="`查看 ${book.title} 详情`"
-          @click="openBookDetail(book)"
+          @click="showHoverCard(book, $event.currentTarget)"
+          @mouseenter="startHoverTimer(book, $event)"
+          @mouseleave="scheduleHoverHide()"
         >
           <!-- 封面占位框：竖版 2:3，relative 供左上角序号徽章定位；
                有真实封面用真实图，没抓到的用通用兜底占位图 -->
@@ -137,80 +193,61 @@ onUnmounted(() => window.removeEventListener('keydown', onDetailKeydown))
   </div>
 </div>
 
-<!-- 书籍详情浮层（Teleport 挂到 body 避免被父级层级/裁切影响）：
-     点卡片打开——左高清封面、右完整信息 + 京东/豆瓣/微信读书胶囊 + 读书笔记链接；
-     点遮罩任意处、按 Esc 或点右上角 × 关闭；
-     内容卡片 @click.stop 拦住冒泡，点里面的胶囊/链接不会误触关闭。
-     ⚠ 本段内部不能出现空行——markdown 会把「空行 + 缩进≥4空格」的嵌套元素
-     解析成缩进代码块（整段被转义），模板因此缺结束标签而编译失败 -->
+<!-- 悬浮预览卡（hover card）：停在卡片 2s 后出现在卡片旁的轻量毛玻璃卡；
+     纯展示（pointer-events:none，鼠标可穿过它继续扫书墙），离开触发卡片即消失；
+     点击卡片进全屏详情浮层（京东/豆瓣/微信读书胶囊和笔记链接都在那边）。
+     ⚠ 本段内部不能出现空行——markdown 会把「空行 + 缩进≥4空格」解析成缩进代码块 -->
 <Teleport to="body">
-  <div v-if="activeBook" class="book-detail-overlay" @click="closeBookDetail">
-    <div class="book-detail" role="dialog" aria-modal="true" @click.stop>
-      <!-- 右上角关闭按钮（样式对齐 PostOverlay 的 overlay-close） -->
-      <button
-        type="button"
-        class="book-detail__close"
-        aria-label="关闭"
-        @click="closeBookDetail"
-      >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="18" height="18">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-      <!-- 左：高清大封面（-full.jpg 命名约定，约 424×600） -->
-      <img
-        class="book-detail__cover"
-        :src="fullCover(activeBook)"
-        :alt="`${activeBook.title} 封面大图`"
-      >
-      <!-- 右：完整信息列 -->
-      <div class="book-detail__info">
-        <!-- 完整书名（不截断）+「读完」徽章同行 -->
-        <div class="book-detail__title-row">
-          <h2 class="book-detail__title">{{ activeBook.title }}</h2>
-          <span v-if="activeBook.isRead" class="book-detail__status">读完</span>
-        </div>
-        <!-- 元信息一行：作者 著 / 译者 译 · 出版社 · N 页 · 出版年 -->
-        <p v-if="metaText(activeBook)" class="book-detail__meta">{{ metaText(activeBook) }}</p>
-        <!-- 购买/阅读入口胶囊：有哪个平台渲染哪个（新标签页打开） -->
-        <div class="book-detail__links">
-          <a
-            v-if="activeBook.jd"
-            :href="activeBook.jd"
-            target="_blank"
-            rel="noopener"
-            class="book-detail__jd"
-          >京东</a>
-          <a
-            v-if="activeBook.douban"
-            :href="activeBook.douban"
-            target="_blank"
-            rel="noopener"
-            class="book-detail__douban"
-          >豆瓣</a>
-          <a
-            v-if="activeBook.weread"
-            :href="activeBook.weread"
-            target="_blank"
-            rel="noopener"
-            class="book-detail__weread"
-          >微信读书</a>
-        </div>
-        <!-- 这本书的专属文档（读书笔记 / 大纲等，来自书的 dir 目录）；
-             PostLink 点击唤出右滑覆盖层，其 z-index(100) 低于本浮层(999)，
-             所以这里 @click 同步把浮层关掉（不动 body 滚动锁——覆盖层自己会接管），
-             否则浮层会盖在文章覆盖层上面 -->
-        <div v-if="activeBook.docs?.length" class="book-detail__docs">
-          <PostLink
-            v-for="doc in activeBook.docs"
-            :key="doc.url"
-            :to="doc.url"
-            class="book-detail__doc-link"
-            @click="activeBook = null"
-          >
-            📄 {{ doc.title }}
-          </PostLink>
-        </div>
+  <div
+    v-if="hoverBook"
+    class="book-hover-card"
+    :style="{ left: hoverPos.x + 'px', top: hoverPos.y + 'px' }"
+    @mouseenter="keepHover()"
+    @mouseleave="hideHoverNow()"
+  >
+    <!-- 左：高清封面（-full.jpg 命名约定，缩到 96px 依然锐利） -->
+    <img class="book-hover-card__cover" :src="fullCover(hoverBook)" :alt="`${hoverBook.title} 封面`">
+    <!-- 右：书名 + 读完徽章 + 元信息 + 三平台胶囊 + 笔记链接 -->
+    <div class="book-hover-card__info">
+      <span class="book-hover-card__title">{{ hoverBook.title }}</span>
+      <span v-if="hoverBook.isRead" class="book-hover-card__status">读完</span>
+      <span v-if="metaText(hoverBook)" class="book-hover-card__meta">{{ metaText(hoverBook) }}</span>
+      <!-- 购买/阅读入口胶囊：有哪个平台渲染哪个（新标签页打开），停在预览卡上即可点击 -->
+      <div class="book-hover-card__links">
+        <a
+          v-if="hoverBook.jd"
+          :href="hoverBook.jd"
+          target="_blank"
+          rel="noopener"
+          class="book-hover-card__jd"
+        >京东</a>
+        <a
+          v-if="hoverBook.douban"
+          :href="hoverBook.douban"
+          target="_blank"
+          rel="noopener"
+          class="book-hover-card__douban"
+        >豆瓣</a>
+        <a
+          v-if="hoverBook.weread"
+          :href="hoverBook.weread"
+          target="_blank"
+          rel="noopener"
+          class="book-hover-card__weread"
+        >微信读书</a>
+      </div>
+      <!-- 这本书的专属文档（读书笔记 / 大纲等，来自书的 dir 目录）：
+           PostLink 点击唤出右滑覆盖层（z-index 100 > 预览卡 90），
+           点击后鼠标移向覆盖层，预览卡因 mouseleave 自然收起 -->
+      <div v-if="hoverBook.docs?.length" class="book-hover-card__docs">
+        <PostLink
+          v-for="doc in hoverBook.docs"
+          :key="doc.url"
+          :to="doc.url"
+          class="book-hover-card__doc-link"
+        >
+          📄 {{ doc.title }}
+        </PostLink>
       </div>
     </div>
   </div>
