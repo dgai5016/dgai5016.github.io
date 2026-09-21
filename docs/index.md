@@ -29,6 +29,12 @@ const filtered = computed(() => {
       .sort((a, b) => b.score - a.score)
       .map(x => x.post)
   }
+  // 无搜索词时（纯浏览态或标签筛选态）：隐藏 hidden 标记的教程子文章，
+  // 避免一个教程的几十个概念单篇刷屏——标签云计数已同步排除（tags.data.ts），
+  // 只有文本搜索是直达检索，仍能搜到单篇
+  if (!q) {
+    result = result.filter(p => !p.hidden)
+  }
   // 无搜索词时：result 保持 posts.data.ts 里的排序（pin 置顶 + 日期倒序）
   return result
 })

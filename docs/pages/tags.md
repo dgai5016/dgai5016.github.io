@@ -11,8 +11,11 @@ import { ref, computed } from 'vue'
 
 const activeTag = ref('')
 const filtered = computed(() => {
-  if (!activeTag.value) return posts
-  return posts.filter(p => p.tags.includes(activeTag.value))
+  // 教程子文章（hidden）已内嵌进主文章的学习地图，标签页列表不再单独展示——
+  // 与标签云计数（tags.data.ts）规则一致：计数 1 篇、点进去也只有 1 篇，不自相矛盾
+  const visible = posts.filter(p => !p.hidden)
+  if (!activeTag.value) return visible
+  return visible.filter(p => p.tags.includes(activeTag.value))
 })
 </script>
 

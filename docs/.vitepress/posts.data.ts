@@ -7,6 +7,10 @@ export interface Post {
   tags: string[]
   excerpt: string
   pin: boolean
+  // 首页隐藏标记：教程子文章（如「学透 Transformer & MOE」的 37+1 个概念单篇）声明
+  // hidden: true 后，仅在首页「浏览态」的文章流里被过滤掉；
+  // 归档页、标签页、搜索（首页搜索框 / 命令面板）仍然收录——检索行为应能找到单篇
+  hidden?: boolean
   cover?: string
   readingTime: string
 }
@@ -32,6 +36,7 @@ export default createContentLoader('posts/**/*.md', {
           tags: frontmatter.tags || [],
           excerpt: frontmatter.excerpt || excerpt || '',
           pin: frontmatter.pin || false,
+          hidden: frontmatter.hidden || false,
           cover: frontmatter.cover,
           readingTime: frontmatter.readingTime || '',
         }

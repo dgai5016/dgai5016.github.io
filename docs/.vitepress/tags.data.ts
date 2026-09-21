@@ -16,6 +16,9 @@ export default createContentLoader('posts/**/*.md', {
     const tagMap = new Map<string, number>()
     for (const { url, frontmatter } of raw) {
       if (DOC_LIB_RE.test(url)) continue
+      // hidden 文章（教程子文章）不参与标签计数：它们已内嵌进主文章的学习地图，
+      // 计数只反映「分类下独立可见」的文章，与标签页列表的过滤规则保持一致
+      if (frontmatter.hidden) continue
       const tags: string[] = frontmatter.tags || []
       for (const tag of tags) {
         tagMap.set(tag, (tagMap.get(tag) || 0) + 1)
