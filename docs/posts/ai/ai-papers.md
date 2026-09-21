@@ -9,9 +9,23 @@ layout: post
 
 # AI 论文翻译
 
-> 最近更新：2026-09-18
+> 最近更新：2026-09-20
 
 收录 AI 领域重要论文（多来自 arxiv）的中文全文翻译，持续更新。
+
+## 2026 年
+
+### 3 月
+
+- **[《Building Effective AI Coding Agents for the Terminal: Scaffolding, Harness, Context Engineering, and Lessons Learned》](https://arxiv.org/pdf/2603.05344)**（构建终端里的高效 AI 编码代理：脚手架、Harness、上下文工程与经验教训）（Bui 等）
+
+  首个开源终端原生编码代理 OpenDev 的全面技术报告：按工作流绑定多模型、schema 级安全分离规划与执行、自适应上下文压缩把观察类上下文峰值消耗降低约 54%。<PostLink to="/papers-zh/ai-coding-agents-terminal">全文译文</PostLink>
+
+### 2 月
+
+- **[《AutoHarness: improving LLM agents by automatically synthesizing a code harness》](https://arxiv.org/pdf/2603.03329)**（AutoHarness：通过自动合成代码 Harness 改进 LLM 智能体）（Lou 等，Google DeepMind）
+
+  Gemini-2.5-Flash 借助 Thompson 采样树搜索与环境反馈自动合成代码 harness，在 145 个 TextArena 游戏中杜绝全部非法动作，让小模型反超 Gemini-2.5-Pro。<PostLink to="/papers-zh/autoharness">全文译文</PostLink>
 
 ## 2023 年
 
