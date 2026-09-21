@@ -77,6 +77,7 @@ MCP / RAGFlow / Vector Database 101 三套双语文档（浮层左右对照阅�
 博客写作的集大成主路由在 `.claude/skills/dg-writer/`（`SKILL.md` 按写作类型分发到 `rules/` 规则文档；未来把 dg-skills 里的 AI 写作技能逐步迁移进来）。当前已支持的类型与产出：
 
 - **AI 论文翻译**（`rules/ai-paper-translation.md`）：arxiv 论文 → 全文中文译文页 `docs/papers-zh/<slug>.md`（公式 LaTeX 迁移、图片落地 `docs/public/papers/<slug>/`、开头带导读）+ 合集主文章《AI 论文翻译》（`docs/posts/ai/ai-papers.md`）索引条目（`<PostLink>` 浮层打开，PostOverlay 已纳入 `/papers-zh/**/*.md`）。抓取脚本在 `scripts/ai-papers/`（arxiv abs 元数据 + ar5iv 正文，按需触发无水位）。
+- **AI 开源库**（`rules/ai-open-source-libs.md`）：GitHub 仓库 → 合集主文章《AI 开源库》（`docs/posts/ai/ai-open-source-libs.md`）的条目——「大类 → 小类」两级分类（H2/H3），每库一条 GitHub 链接 + 50 字左右中文简介。无站内明细页（外站链接直接跳新标签），数据层零改动自动收录；入库前必须抓 README 核实定位，不凭记忆写简介。
 
 ## 其他规则
 

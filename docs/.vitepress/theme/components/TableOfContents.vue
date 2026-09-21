@@ -35,8 +35,11 @@ function positionToc() {
   const sidebarRect = sidebar.getBoundingClientRect()
   navStyle.value = {
     position: 'fixed',
-    top: `${contentRect.top}px`,
-    left: `${sidebarRect.left}px`,
+    // top/left 必须用「视口坐标 + 当前滚动量」还原成文档绝对坐标：
+    // fixed 的 top 是视口坐标，若直接写 rect.top，重算发生在页面已滚动时
+    // （HMR 更新文章 / 滚动中切路由触发 watch）会把 TOC 钉死在错误的瞬时高度
+    top: `${contentRect.top + window.scrollY}px`,
+    left: `${sidebarRect.left + window.scrollX}px`,
     width: `${sidebarRect.width}px`,
   }
 }

@@ -1,6 +1,6 @@
 ---
 name: dg-writer
-description: 博客写作技能的集大成者（主路由）：按写作类型分发到 rules/ 下对应规则文档执行。当前支持 AI 论文翻译（arxiv 论文 → 全文中文译文页 + 合集主文章索引，公式用 LaTeX 保留、图表落地本地）；未来会把 dg-skills 里的 AI 写作技能（概念解读、技能指南等）逐步迁移进来，各自成一个 rules/<类型>.md。Use when 用户说「翻译论文」「把这篇论文翻译了」「论文发博客」「/dg-writer 论文 <论文名或 arxiv 链接>」，或任何「为博客写 X 类型文章」且 X 已有对应规则文档的场景。Does NOT 支持未登记规则的写作类型（会明确告知当前支持范围）、不 commit/push（提交走 dg-git-push）、不在译文里添加导读之外的解读性内容（导读也仅限「论文地位/核心结论/适合谁读」三要素）。
+description: 博客写作技能的集大成者（主路由）：按写作类型分发到 rules/ 下对应规则文档执行。当前支持 AI 论文翻译（arxiv 论文 → 全文中文译文页 + 合集主文章索引，公式用 LaTeX 保留、图表落地本地）与 AI 开源库收录（GitHub 仓库 → 《AI 开源库》合集的「大类-小类」两级分类条目 + 50 字简介）；未来会把 dg-skills 里的 AI 写作技能（概念解读、技能指南等）逐步迁移进来，各自成一个 rules/<类型>.md。Use when 用户说「翻译论文」「把这篇论文翻译了」「论文发博客」「/dg-writer 论文 <论文名或 arxiv 链接>」「帮我把这个 AI 开源库加到文章里」，或任何「为博客写 X 类型文章」且 X 已有对应规则文档的场景。Does NOT 支持未登记规则的写作类型（会明确告知当前支持范围）、不 commit/push（提交走 dg-git-push）、不在译文里添加导读之外的解读性内容（导读也仅限「论文地位/核心结论/适合谁读」三要素）。
 ---
 
 # dg-writer：博客写作技能集大成者
@@ -12,6 +12,7 @@ description: 博客写作技能的集大成者（主路由）：按写作类型�
 | 写作类型 | 识别特征 | 规则文档 |
 | --- | --- | --- |
 | AI 论文翻译 | arxiv 论文 / 论文标题 / 「翻译论文」「论文译文」 | `rules/ai-paper-translation.md` |
+| AI 开源库 | GitHub 仓库链接 / 仓库名 / 「把这个 AI 开源库加到文章里」 | `rules/ai-open-source-libs.md` |
 | （预留）AI 概念解读 | 「解释下 AI 的 X」「X 是什么意思」 | 迁移自 dg-skills:dg-writer-ai-explainer，待建 |
 | （预留）技能使用指南 | 「给 X skill 写使用说明」 | 迁移自 dg-skills:dg-writer-skill-guide，待建 |
 | （预留）资料总结 | 已有独立技能 dg-summarize-resources，不并入 | — |
