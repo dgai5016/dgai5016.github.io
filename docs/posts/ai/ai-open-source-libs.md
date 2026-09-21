@@ -1,6 +1,6 @@
 ---
 title: AI 开源库
-date: 2026-09-21 12:25
+date: 2026-09-21 14:29
 tags:
   - 开源库
 excerpt: AI 相关开源仓库导航：按「大类 → 小类」两级分类组织，每个仓库附 GitHub 链接与一句话简介，持续更新。
@@ -10,6 +10,8 @@ layout: post
 # AI 开源库
 
 收录 AI 相关的开源仓库，按「大类 → 小类」两级分类组织，持续更新。
+
+最近更新：2026-09-21
 
 ## RAG
 
@@ -56,6 +58,12 @@ layout: post
 - **[awesome-chatgpt-prompts-zh](https://github.com/PlexPt/awesome-chatgpt-prompts-zh)**
 
   ChatGPT 中文提示词库，持续收录社区贡献的中文场景提示词，配套提示词生成器，中文用户即取即用。
+
+### 提示压缩
+
+- **[LLMLingua](https://github.com/microsoft/LLMLingua)**
+
+  微软开源的提示压缩工具，用小语言模型剔除提示中的非关键 token，最高压缩 20 倍，既省调用成本又缓解长上下文「迷失中间」问题。
 
 ## 智能体工程
 

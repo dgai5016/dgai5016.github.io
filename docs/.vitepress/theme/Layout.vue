@@ -6,6 +6,7 @@ import Footer from './components/Footer.vue'
 import PostMeta from './components/PostMeta.vue'
 import TableOfContents from './components/TableOfContents.vue'
 import PostOverlay from './components/PostOverlay.vue'
+import PostMap from './components/PostMap.vue'
 import BilingualOverlay from './components/BilingualOverlay.vue'
 import ImageLightbox from './components/ImageLightbox.vue'
 import CodeBlockExpand from './components/CodeBlockExpand.vue'
@@ -66,6 +67,22 @@ watch(() => route.path, () => setTimeout(positionBackBtn, 100))
 // 页面会报 "giscus is not installed on this repository"。
 // 想恢复评论：把 GISCUS_ENABLED 改回 true 即可（组件文件保留未动）。
 const GISCUS_ENABLED = false
+
+// —— 文章地图（全屏星图浮层）——
+// 无按钮入口，全局快捷键 Ctrl+L 开关。选 Ctrl 而非 Cmd：Cmd+L 是浏览器保留键
+// （聚焦地址栏，页面拦不住）；macOS 浏览器对 Ctrl+L 无默认绑定，页面可可靠拦截。
+// PostMap 以 open prop 受控，常挂（不 v-if）：组件内的 Esc 监听 / 滚动锁都挂在自身生命周期里
+const mapOpen = ref(false)
+
+function onMapHotkey(e: KeyboardEvent) {
+  // 只认 Ctrl（排除 Cmd/Alt/Shift 组合）；不区分大小写锁定
+  if (e.ctrlKey && !e.metaKey && !e.altKey && !e.shiftKey && e.key.toLowerCase() === 'l') {
+    e.preventDefault()
+    mapOpen.value = !mapOpen.value
+  }
+}
+onMounted(() => window.addEventListener('keydown', onMapHotkey))
+onUnmounted(() => window.removeEventListener('keydown', onMapHotkey))
 
 const CommentGiscus = shallowRef<any>(null)
 
@@ -286,6 +303,9 @@ onUnmounted(() => document.removeEventListener('click', onCodeExpandClick))
 
     <!-- 右滑覆盖层：点击文章正文里的站内链接时由 onLinkIntercept 触发 -->
     <PostOverlay :url="overlayUrl" @close="closeOverlay" />
+
+    <!-- 文章地图全屏浮层：数据/交互自包含，open 受控（Cmd/Ctrl+E 全局开关） -->
+    <PostMap :open="mapOpen" @close="mapOpen = false" />
 
     <!-- 右滑双语覆盖层：点击《MCP 学习地图》里的文档链接时打开英中对照阅读 -->
     <BilingualOverlay

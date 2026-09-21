@@ -19,9 +19,9 @@ dg 的个人博客，基于 VitePress 自定义主题，部署到 GitHub Pages�
 
 ### 数据加载器（docs/.vitepress/*.data.ts）
 
-- `posts.data.ts` — 使用 `createContentLoader` 加载所有文章，读取 `tutorial.yaml` 解析教程信息，按置顶+日期排序
-- `tags.data.ts` — 统计所有文章标签出现次数
-- `tutorial.data.ts` — 加载教程文章，从 YAML 配置解析章节列表
+- `posts.data.ts` — 使用 `createContentLoader` 加载所有文章，按置顶+日期排序；透传 `hidden` 字段（教程子文章标记，首页浏览态与标签计数过滤，搜索/归档仍收录）
+- `tags.data.ts` — 统计所有文章标签出现次数（跳过 hidden 文章）
+- `map.data.ts` — 文章地图星图数据层：build 期 fs + regex 读 frontmatter（tags 分组 + hidden 过滤），自动构建「根 → 标签分类 → 文章」两层树（叶子只到首页可见文章；零手工登记）
 
 ### 样式系统
 
@@ -44,6 +44,7 @@ dg 的个人博客，基于 VitePress 自定义主题，部署到 GitHub Pages�
 | `TutorialNav.vue`                 | 教程章节导航，桌面侧边栏 + 移动端折叠 |
 | `TableOfContents.vue`             | 文章目录，滚动高亮当前标题            |
 | `TagCloud.vue`                    | 标签筛选按钮                          |
+| `PostMap.vue`                      | 文章地图全屏星图浮层（右上角常驻圆钮唤起，径向「根→分类→文章」，点击下钻/浮层阅读/触控板手势） |
 | `PostList.vue` / `PostCard.vue` | 文章列表和卡片                        |
 | `CommentGiscus.vue`               | Giscus 评论组件，懒加载               |
 

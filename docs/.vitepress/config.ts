@@ -53,7 +53,7 @@ export default defineConfig({
     siteTitle: "dg's Blog",
     nav: [
       { text: '首页', link: '/' },
-      { text: '归档', link: '/pages/archives' },
+      // { text: '归档', link: '/pages/archives' }, // 暂时隐藏，页面保留可直达；文章总览入口改为右上角「文章地图」全屏浮层
       { text: '书单', link: '/pages/books' }, // 书单页：按主题分抽屉展示书籍
       // { text: '关于', link: '/pages/about' }, // 暂时先不显示「关于」
     ],
