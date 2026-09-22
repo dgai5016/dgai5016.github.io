@@ -33,7 +33,7 @@ dg 的个人博客，基于 VitePress 自定义主题，部署到 GitHub Pages�
 - z-index 分层：返回钮 20 < 移动抽屉 30/40 < hamburger 50 < 右滑面板 100 系 < 全屏模态 200 系 < 书单浮层 999
 - 响应式断点：640px（sm）、1024px（lg）
 
-**改 UI / 加组件 / 调样式前必读 `docs/.vitepress/theme/DESIGN.md`**——全站设计规范（token 表、圆角/阴影/过渡档位、hover 八范式、浮层范式、z-index 全表、图标规范、新增 UI 自检清单）。
+**全站设计规范：`.claude/rules/theme-design.md`**（token 表、圆角/阴影/过渡档位、hover 八范式、浮层范式、z-index 全表、图标规范、新增 UI 自检清单）——path-scoped rule，读到 `docs/.vitepress/theme/` 下文件时自动注入（新会话生效）；改完样式记得同步更新该文档。
 
 ### 关键组件
 

@@ -41,6 +41,12 @@ function positionToc() {
     top: `${contentRect.top + window.scrollY}px`,
     left: `${sidebarRect.left + window.scrollX}px`,
     width: `${sidebarRect.width}px`,
+    // 高度上限必须把「TOC 顶距视口顶的偏移」（header + 卡片外距，约 190px）一并减掉：
+    // 只减底部留白的话上限约 100vh，条目多时卡片底部会伸出视口，
+    // 而 fixed 又不跟随页面滚动，超出部分永远滚不上来。
+    // 注意经 CSS 变量下发给 .toc-container（而非写在 nav 上）——
+    // 滚动要收在圆角卡片自身，nav 上裁剪是矩形的会把底部圆角吃掉
+    '--toc-max-height': `calc(100vh - ${contentRect.top}px - 2rem)`,
   }
 }
 
@@ -96,14 +102,13 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-.toc-nav {
-  max-height: calc(100vh - 2rem);
-  overflow-y: auto;
-}
-
+/* nav 只是定位壳：滚动与高度上限都收在 .toc-container 上，
+   让内容裁剪沿卡片自身圆角进行（外层矩形裁剪会切掉底部圆角） */
 .toc-container {
   border-radius: 0.75rem;
   padding: 1rem;
+  max-height: var(--toc-max-height, calc(100vh - 2rem));
+  overflow-y: auto;
 }
 
 .toc-heading {

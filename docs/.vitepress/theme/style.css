@@ -641,7 +641,7 @@ body {
   color: var(--c-text-primary);
 }
 
-/* 读完徽章：与详情浮层徽章同款绿（配色范式见 DESIGN.md 语义色表） */
+/* 读完徽章：与详情浮层徽章同款绿（配色范式见 theme-design.md 语义色表） */
 .book-detail-card__status {
   padding: 1px 7px;
   border-radius: 9999px;

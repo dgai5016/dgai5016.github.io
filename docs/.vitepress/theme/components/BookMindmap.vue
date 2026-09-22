@@ -139,7 +139,7 @@ onUnmounted(() => {
 
 <template>
   <Teleport to="body">
-    <!-- 全屏遮罩：对齐 DESIGN.md 浮层范式（rgba(15,18,40,0.45)+blur、z-index 200 档全屏模态） -->
+    <!-- 全屏遮罩：对齐 theme-design.md 浮层范式（rgba(15,18,40,0.45)+blur、z-index 200 档全屏模态） -->
     <div v-if="book" class="bm-overlay" @click="close">
       <!-- 工作台主体：拦住冒泡，点内容不关 -->
       <div class="bm-stage" role="dialog" aria-modal="true" @click.stop>
@@ -175,7 +175,7 @@ onUnmounted(() => {
 .bm-overlay {
   position: fixed;
   inset: 0;
-  z-index: 200; /* 全屏模态档（DESIGN.md z-index 层级表） */
+  z-index: 200; /* 全屏模态档（theme-design.md z-index 层级表） */
   background: rgba(15, 18, 40, 0.45);
   backdrop-filter: blur(2px);
   display: flex;

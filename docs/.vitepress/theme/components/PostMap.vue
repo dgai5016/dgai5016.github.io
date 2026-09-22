@@ -54,7 +54,7 @@ onUnmounted(() => {
 })
 
 // —— 可视化色板（与 BookMindmap 的 MM_COLORS 同一套柔和区分色，首色站点主题紫）——
-// 全屏可视化工作台场景的既有豁免：每个一级合集取一色，其子树边/点统一用该色（DESIGN.md）
+// 全屏可视化工作台场景的既有豁免：每个一级合集取一色，其子树边/点统一用该色（theme-design.md）
 const MM_COLORS = ['#6c63ff', '#0ea5e9', '#10b981', '#f59e0b', '#ec4899', '#8b5cf6']
 
 // 深度 → 半径（根 0 / 一级：合集与独立组 / 文章叶子）。viewBox 固定 1800×1800，CSS 负责适配容器
@@ -452,7 +452,7 @@ function labelAnchor(n: LaidNode): string {
   height: 1rem;
   background: var(--c-border);
 }
-/* 关闭钮：图标 0.15s hover 旋转 90°（DESIGN.md 关闭钮范式），与文字钮同底不同 padding */
+/* 关闭钮：图标 0.15s hover 旋转 90°（theme-design.md 关闭钮范式），与文字钮同底不同 padding */
 .tool-close {
   display: inline-flex;
   align-items: center;

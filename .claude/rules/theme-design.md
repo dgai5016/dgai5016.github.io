@@ -1,8 +1,13 @@
+---
+paths:
+  - "docs/.vitepress/theme/**"
+---
+
 # 设计规范（Design System）
 
 本站全站设计语言的唯一权威参考。**任何改 UI / 加组件 / 调样式的改动，动笔前先过一遍本文**；新控件必须对齐既有范式，而不是发明新视觉。
 
-> 本文件放在 `theme/` 目录与样式代码同住；`.vitepress/` 下的 md 不会构建成站点页面。数值均核对自源码（`style.css` 及 `components/`），改动样式时记得同步更新本文。
+> 本文件是 path-scoped rule：Claude 读到 `docs/.vitepress/theme/` 下的文件时自动注入本规范（rules 在会话启动时扫描，新会话生效）。数值均核对自源码（`docs/.vitepress/theme/` 下的 `style.css` 及 `components/`），改动样式时记得同步更新本文。
 
 ## 1. 设计原则
 

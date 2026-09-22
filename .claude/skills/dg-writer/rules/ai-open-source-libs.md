@@ -30,10 +30,10 @@ GitHub 仓库链接（或 owner/repo 仓库名）。典型触发语：「帮我�
 
 ### Step 3：插入条目
 
-条目格式（**标题段 + 简介段两段结构**，与 ai-papers 条目同构：标题段 = 项目名加粗且本身是 GitHub 直链；空一行再缩进两空格起简介段）：
+条目格式（**标题段 + 简介段两段结构**：标题段 = 项目名加粗且本身是 GitHub 直链，后接 ` — ` 再以可见文本露出同一地址（裸 URL 会被 VitePress 自动 linkify 成可点链接）；空一行再缩进两空格起简介段）：
 
 ```markdown
-- **[<项目名>](https://github.com/<owner>/<repo>)**
+- **[<项目名>](https://github.com/<owner>/<repo>)** — https://github.com/<owner>/<repo>
 
   <50 字左右简介>
 ```
