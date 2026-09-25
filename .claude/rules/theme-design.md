@@ -158,7 +158,8 @@ paths:
 | 常规 | `0.9~1rem` | 正文、按钮 |
 | 卡片标题 | `1.125rem`(18px) | PostCard 等 |
 | section 标题 | `1.25~1.5rem` | 列表区块标题 |
-| 页面标题 | `2.25rem` → ≥640 `3rem` | post/page-title |
+| 页面标题 | `2.25rem` → ≥640 `3rem` | page-title |
+| 文章标题 | `2rem` → ≥640 `2.5rem` | post-title（2026-09 由 2.25/3rem 缩小一档） |
 
 ## 10. 响应式断点（只有两档）
 

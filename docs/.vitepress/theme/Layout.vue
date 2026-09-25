@@ -37,9 +37,12 @@ function goBack() {
 }
 
 // —— 返回按钮定位（仅桌面端 ≥1024px）——
-// fixed 到「Sidebar 右边缘 ↔ 正文卡片左边缘」的水平中点，垂直视口居中。
+// fixed 到「Sidebar 右边缘 ↔ 左侧内容左边缘」的水平中点，垂直视口居中。
 // 那段空当宽度随视口变化（正文居中留白），纯 CSS 无法精确居中，
 // 故像 TOC 一样用 JS 量出中点写入 inline left；移动端（<1024px）不参与，沿用 CSS 默认（hamburger 旁）。
+// 注意：目录换到左侧后（2026-09），「Sidebar ↔ 正文卡片」之间住着 toc-sidebar，
+// 若仍按正文卡片左缘取中点，按钮会压在目录卡片上——
+// 因此锚点取 toc-sidebar 左缘（那段才是真正的空当）；无 TOC 的页面退回正文卡片左缘。
 const backBtnStyle = ref<Record<string, string>>({})
 function positionBackBtn() {
   if (import.meta.env.SSR) return
@@ -48,10 +51,13 @@ function positionBackBtn() {
     return
   }
   const sidebar = document.querySelector('.desktop-sidebar')   // 可见 Sidebar 卡片（fixed 垂直居中）
-  const card = document.querySelector('.content-card')         // 正文玻璃卡片
-  if (!sidebar || !card) return
-  // gutter 中点 = (Sidebar 右边缘 + 正文卡片左边缘) / 2
-  const mid = (sidebar.getBoundingClientRect().right + card.getBoundingClientRect().left) / 2
+  // 锚点优先 toc-sidebar（display:none 时 rect 全零，须按宽度过滤）；退回正文玻璃卡片
+  const tocAside = document.querySelector('.toc-sidebar') as HTMLElement | null
+  const tocVisible = tocAside && tocAside.getBoundingClientRect().width > 0
+  const anchor = (tocVisible ? tocAside : document.querySelector('.content-card')) as HTMLElement | null
+  if (!sidebar || !anchor) return
+  // gutter 中点 = (Sidebar 右边缘 + 锚点左边缘) / 2
+  const mid = (sidebar.getBoundingClientRect().right + anchor.getBoundingClientRect().left) / 2
   backBtnStyle.value = { left: `${mid}px` }
 }
 
@@ -272,27 +278,31 @@ onUnmounted(() => document.removeEventListener('click', onCodeExpandClick))
     <div class="main-wrapper">
       <main class="main-content">
         <article v-if="isPost" class="article">
-          <header class="post-header">
-            <h1 class="post-title">
-              {{ frontmatter.title }}
-            </h1>
-            <PostMeta
-              :date="frontmatter.date"
-              :tags="frontmatter.tags"
-            />
-          </header>
-
+          <!-- post-body 为两列 grid（2026-09 定稿）：左列目录、右列正文。
+               标题占右列第 1 行（左缘与正文卡片对齐），目录与卡片同在第 2 行——
+               目录顶部天然与卡片顶部平齐，不随标题行高变化，无需 JS 测量；
+               移动端目录隐藏，grid 退化为单列 -->
           <div class="post-body">
+            <header class="post-header">
+              <h1 class="post-title">
+                {{ frontmatter.title }}
+              </h1>
+              <PostMeta
+                :date="frontmatter.date"
+                :tags="frontmatter.tags"
+              />
+            </header>
+
+            <aside class="toc-sidebar">
+              <TableOfContents />
+            </aside>
+
             <div class="post-content-wrapper">
               <div class="glass-card vp-doc content-card">
                 <Content />
               </div>
               <component :is="CommentGiscus" v-if="CommentGiscus" class="comment-section" />
             </div>
-
-            <aside class="toc-sidebar">
-              <TableOfContents />
-            </aside>
           </div>
         </article>
 
@@ -437,7 +447,7 @@ onUnmounted(() => document.removeEventListener('click', onCodeExpandClick))
 }
 
 /*
- * 桌面端（≥1024px）：落「Sidebar 右边缘 ↔ 正文卡片左边缘」的水平中点，垂直视口居中。
+ * 桌面端（≥1024px）：落「Sidebar 右边缘 ↔ 左侧内容（TOC，无则正文卡片）左边缘」的水平中点，垂直视口居中。
  * - left 由 JS positionBackBtn() 精确算出 gutter 中点并写入 inline style（见 script）；17rem 为 JS 就绪前的 fallback。
  * - top:50% + translate(-50%,-50%)：按钮中心对齐 gutter 中点、视口垂直居中（与 desktop-sidebar 同处垂直中线）。
  */
@@ -456,7 +466,8 @@ onUnmounted(() => document.removeEventListener('click', onCodeExpandClick))
 }
 
 .post-title {
-  font-size: 2.25rem;
+  /* 2026-09 缩小一档（原 2.25rem → 3rem 过大）；仍高于 section 标题档（1.25~1.5rem） */
+  font-size: 2rem;
   font-weight: 700;
   line-height: 1.2;
   margin: 0 0 1rem 0;
@@ -465,19 +476,45 @@ onUnmounted(() => document.removeEventListener('click', onCodeExpandClick))
 
 @media (min-width: 640px) {
   .post-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 }
 
-/* Post body */
+/* Post body：两列 grid——左列目录（13rem）、右列正文。
+   行列都显式指派：标题(1,2)、目录(2,1)、正文列(2,2)，
+   标题左缘与卡片左缘同列对齐、目录顶部与卡片顶部同行平齐；
+   列宽 minmax(0,1fr) 取代旧 flex 的 min-width:0，允许正文列正常收缩 */
 .post-body {
-  display: flex;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: 13rem minmax(0, 1fr);
+  column-gap: 2rem;   /* 只管列间距；行间距由 post-header 的 margin-bottom 提供 */
+}
+
+.post-header {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.toc-sidebar {
+  grid-row: 2;
+  grid-column: 1;
+  display: none;      /* 移动端隐藏；≥1024px 恢复显示（见下方媒体查询） */
 }
 
 .post-content-wrapper {
-  flex: 1;
-  min-width: 0;
+  grid-row: 2;
+  grid-column: 2;
+}
+
+/* 移动端（<1024px）：目录列消失，grid 退化为单列，标题与正文占满整行 */
+@media (max-width: 1023px) {
+  .post-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .post-header,
+  .post-content-wrapper {
+    grid-column: 1;
+  }
 }
 
 .content-card {
@@ -495,13 +532,7 @@ onUnmounted(() => document.removeEventListener('click', onCodeExpandClick))
   margin-top: 3rem;
 }
 
-/* TOC sidebar */
-.toc-sidebar {
-  display: none;
-  width: 13rem;
-  flex-shrink: 0;
-}
-
+/* 桌面端（≥1024px）：目录列显示（行列指派见上方 .post-body grid 块） */
 @media (min-width: 1024px) {
   .toc-sidebar {
     display: block;

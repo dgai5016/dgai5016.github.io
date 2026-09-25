@@ -1,8 +1,6 @@
 ---
 title: iTerm2 完全指南（二）：配好 — 打造舒适高效的终端
 date: 2026-06-05 02:00
-tags: [iTerm2]
-excerpt: 配色方案、字体、Shell 集成、Oh My Zsh + Powerlevel10k + 现代 CLI 工具箱，打造好看又好用的终端。
 layout: post
 ---
 

@@ -1,8 +1,6 @@
 ---
 title: iTerm2 完全指南（四）：玩花 — 进阶与自动化
 date: 2026-06-05 04:00
-tags: [iTerm2]
-excerpt: Profile 管理、SSH 集成、触发器、Python API 自动化、tmux 远程会话，解锁终端的进阶玩法。
 layout: post
 ---
 

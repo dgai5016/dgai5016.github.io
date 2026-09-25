@@ -13,7 +13,7 @@ dg 的个人博客，基于 VitePress 自定义主题，部署到 GitHub Pages�
 两种 frontmatter layout：
 
 - `layout: page` — 首页、归档、标签、教程列表等页面，使用 Sidebar + 内容区
-- `layout: post` — 文章详情页，使用 Sidebar + TutorialNav（可选）+ 文章卡片 + TOC + Giscus 评论
+- `layout: post` — 文章详情页，使用 Sidebar + TutorialNav（可选）+ TOC（左）+ 文章卡片（右）+ Giscus 评论
 
 `Layout.vue` 是核心布局组件，通过检测 frontmatter 来决定渲染哪种视图。使用 `provide/inject` 传递 `sourcePage`，实现文章页返回按钮回到来源页。
 
@@ -68,6 +68,10 @@ MCP / RAGFlow / Vector Database 101 三套双语文档（浮层左右对照阅�
 ## 资料总结技能
 
 外部资料（当前支持 B站视频，规则文档可扩展）→「N 条资料总结」博文的技能在 `.claude/skills/dg-summarize-resources/`（`SKILL.md` 主路由，按资料类型分发到 `rules/` 下规则文档）。产出落在 `docs/posts/summary-resources/`，统一标签 `[资料总结]`，数据层零改动自动收录。
+
+## iTerm2 合集
+
+所有 iTerm2 相关内容统一收录在主文章《iTerm2 完全指南》（`docs/posts/iterm2/iterm2-guide.md`，标签 `[iTerm2]`），不再单独发文章。系列明细页在 `docs/iterm2/<slug>.md`——该目录在 `posts/` glob 之外，不进首页/归档/标签/搜索流；主文章条目用 `<PostLink to="/iterm2/<slug>">` 以右侧浮层打开（PostOverlay 已把 `/iterm2/**/*.md` 纳入懒加载）。新增 iTerm2 内容 = 明细页落 `docs/iterm2/` + 主文章加索引条目并更新「最近更新」日期。
 
 ## Claude 生态更新追踪
 

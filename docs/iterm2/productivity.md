@@ -1,8 +1,6 @@
 ---
 title: iTerm2 完全指南（三）：用快 — 日常操作提效
 date: 2026-06-05 03:00
-tags: [iTerm2]
-excerpt: 快捷键速查、分屏操作、自定义别名函数、lazygit Git 工作流，让终端日常操作快起来。
 layout: post
 ---
 

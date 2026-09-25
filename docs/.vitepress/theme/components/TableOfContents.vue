@@ -23,32 +23,24 @@ const headings = computed(() => {
   return out
 })
 
-const activeId = ref('')
-const navStyle = ref<Record<string, string>>({})
+// —— 目录钉位：量一次初始位置，滚动全程不动 ——
+// sticky 的 top 若写死（如 2rem），滚动时目录会从「卡片顶」跳到视口顶，产生位移。
+// 这里 JS 量出目录初始的文档坐标 top（= 卡片顶到文档顶的距离，随标题行数变化），
+// 写成 inline top：sticky 一旦生效就钉在这个视口高度上，视觉纹丝不动；
+// 滚到文章末尾（外层 aside 拉伸区间的底部）sticky 释放，随页上移，不会压住页脚。
+const stickyTop = ref('')
 
-function positionToc() {
+function measureStickyTop() {
   if (import.meta.env.SSR) return
-  const contentCard = document.querySelector('.content-card')
-  const sidebar = document.querySelector('.toc-sidebar')
-  if (!contentCard || !sidebar) return
-  const contentRect = contentCard.getBoundingClientRect()
-  const sidebarRect = sidebar.getBoundingClientRect()
-  navStyle.value = {
-    position: 'fixed',
-    // top/left 必须用「视口坐标 + 当前滚动量」还原成文档绝对坐标：
-    // fixed 的 top 是视口坐标，若直接写 rect.top，重算发生在页面已滚动时
-    // （HMR 更新文章 / 滚动中切路由触发 watch）会把 TOC 钉死在错误的瞬时高度
-    top: `${contentRect.top + window.scrollY}px`,
-    left: `${sidebarRect.left + window.scrollX}px`,
-    width: `${sidebarRect.width}px`,
-    // 高度上限必须把「TOC 顶距视口顶的偏移」（header + 卡片外距，约 190px）一并减掉：
-    // 只减底部留白的话上限约 100vh，条目多时卡片底部会伸出视口，
-    // 而 fixed 又不跟随页面滚动，超出部分永远滚不上来。
-    // 注意经 CSS 变量下发给 .toc-container（而非写在 nav 上）——
-    // 滚动要收在圆角卡片自身，nav 上裁剪是矩形的会把底部圆角吃掉
-    '--toc-max-height': `calc(100vh - ${contentRect.top}px - 2rem)`,
-  }
+  const nav = document.querySelector('.toc-nav') as HTMLElement | null
+  if (!nav) return
+  // 文档坐标 top：已钉住时 rect.top 是视口坐标，加回 scrollY 仍是同一个文档坐标，重复调用幂等
+  stickyTop.value = `${Math.round(nav.getBoundingClientRect().top + window.scrollY)}px`
 }
+
+// 滚动高亮：滚过的最后一个标题即当前小节（scroll spy）。
+// 只管 activeId，不管定位
+const activeId = ref('')
 
 function onScroll() {
   if (import.meta.env.SSR) return
@@ -62,25 +54,24 @@ function onScroll() {
 }
 
 onMounted(() => {
-  setTimeout(positionToc, 100)
+  // 延迟 100ms 等 DOM 挂稳再量（沿用全站定位测量的惯例时序）
+  setTimeout(measureStickyTop, 100)
+  window.addEventListener('resize', measureStickyTop) // 标题换行等导致初始位置变化时重量
   window.addEventListener('scroll', onScroll)
-  window.addEventListener('resize', positionToc)
+  onScroll() // 首屏（如带 hash 直达）也能立即点亮对应小节
 })
 
-watch(() => route.path, () => setTimeout(positionToc, 100))
-
-watch(headings, (val) => {
-  if (val.length) setTimeout(positionToc, 100)
-})
+// 切换文章后目录初始位置随新标题行高变化，重量一次
+watch(() => route.path, () => setTimeout(measureStickyTop, 100))
 
 onUnmounted(() => {
+  window.removeEventListener('resize', measureStickyTop)
   window.removeEventListener('scroll', onScroll)
-  window.removeEventListener('resize', positionToc)
 })
 </script>
 
 <template>
-  <nav v-if="headings.length" class="toc-nav" :style="navStyle">
+  <nav v-if="headings.length" class="toc-nav" :style="stickyTop ? { top: stickyTop } : undefined">
     <div class="toc-container glass-card">
       <h4 class="toc-heading">目录</h4>
       <ul class="toc-list">
@@ -102,12 +93,28 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-/* nav 只是定位壳：滚动与高度上限都收在 .toc-container 上，
-   让内容裁剪沿卡片自身圆角进行（外层矩形裁剪会切掉底部圆角） */
+/*
+ * 定位：sticky + JS 量初始位（2026-09 定稿，此前经历 JS fixed → 纯 sticky 两版）。
+ * - JS fixed 版：钉在视口里永不释放，滚到页底悬在页脚上，遮挡其他内容（已废弃）。
+ * - 纯 sticky 版（top 写死 2rem）：滚动时目录从卡片顶跳到视口顶，有位移（dg 反馈「不要动」）。
+ * - 现版：JS 量出初始文档坐标 top 写成 inline top，sticky 生效后钉在初始位置纹丝不动；
+ *   滚动范围仍被外层 .toc-sidebar（grid 拉伸后与文章等高）框住，滚到文章末尾随页上移，不压页脚。
+ * top: 2rem 仅为 JS 就绪前的兜底。祖先链无 overflow 拦截
+ * （body 是 overflow-x: clip，不产生滚动容器，不影响 sticky）。
+ */
+.toc-nav {
+  position: sticky;
+  top: 2rem;
+}
+
+/* 滚动与高度上限都收在 .toc-container 上，
+   让内容裁剪沿卡片自身圆角进行（外层矩形裁剪会切掉底部圆角）。
+   高度上限固定 400px（2026-09 与 dg 对齐）：目录过长时不撑满视口，
+   卡片内部滚动；sticky 到文章末尾随页面上移，不会压住页脚 */
 .toc-container {
   border-radius: 0.75rem;
   padding: 1rem;
-  max-height: var(--toc-max-height, calc(100vh - 2rem));
+  max-height: 400px;
   overflow-y: auto;
 }
 

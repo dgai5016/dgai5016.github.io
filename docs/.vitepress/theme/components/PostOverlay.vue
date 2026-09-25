@@ -37,6 +37,9 @@ const modules = import.meta.glob([
   '/books/**/*.md',
   '/news-zh/**/*.md',
   '/papers-zh/**/*.md',
+  // iTerm2 合集明细页（/iterm2/...）：与译文页同理，不在 posts.data 里，
+  // 由主文章《iTerm2 完全指南》里的 PostLink 唤出覆盖层阅读
+  '/iterm2/**/*.md',
 ])
 
 const bodyComp = shallowRef<any>(null)   // 目标文章正文的渲染组件
